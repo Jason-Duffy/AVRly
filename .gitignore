@@ -1,0 +1,13 @@
+*/example/documentation/
+*/driver/documentation/
+*/docs/
+docs/
+
+
+*.map
+*.hex
+*.elf
+*.o
+*.DS_Store
+.DS_Store
+
