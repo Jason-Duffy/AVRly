@@ -1,30 +1,18 @@
 var indexSectionsWithContent =
 {
-  0: "bcdefhilpt",
-  1: "l",
-  2: "hp",
-  3: "il",
-  4: "bcdefit",
-  5: "bl"
+  0: "c",
+  1: "c"
 };
 
 var indexSectionNames =
 {
   0: "all",
-  1: "classes",
-  2: "files",
-  3: "functions",
-  4: "variables",
-  5: "pages"
+  1: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "All",
-  1: "Classes",
-  2: "Files",
-  3: "Functions",
-  4: "Variables",
-  5: "Pages"
+  1: "Pages"
 };
 
