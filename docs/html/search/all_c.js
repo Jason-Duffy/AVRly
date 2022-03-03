@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['two_5fline_5fdisplay_0',['two_line_display',['../structlcd__config__t.html#a9ccb959ea17cf7b7f13818e4d606b3af',1,'lcd_config_t']]]
+  ['read_5fstring_0',['read_string',['../usart_8h.html#a81d7e2cba8d3899338c39b31dd059ff0',1,'usart.c']]]
 ];
