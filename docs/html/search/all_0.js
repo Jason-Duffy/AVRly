@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['c_20programming_20resources_20for_20avr_20mcu_27s_0',['C Programming Resources for AVR MCU&apos;s',['../md__r_e_a_d_m_e.html',1,'']]]
+  ['blink_5fenable_0',['blink_enable',['../structlcd__config__t.html#a901f76a048a9fc7a55bc7f87002a2772',1,'lcd_config_t']]],
+  ['bug_20list_1',['Bug List',['../bug.html',1,'']]]
 ];
