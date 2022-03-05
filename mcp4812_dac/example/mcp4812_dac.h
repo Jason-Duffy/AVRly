@@ -62,7 +62,7 @@ typedef struct
 typedef struct
 {
     model_num_t model; // mcp4802, mcp4812 or mcp4822.
-    bool sync_on_reconfigure;// true = enabled, false = disabled.
+    bool sync_manually; // true = manual sync, false = sync automatically.
     dac_channel_t channel_a; // Config data members for channel A.
     dac_channel_t channel_b; // Config data members for channel B.
 } dac_config_t;
@@ -80,7 +80,7 @@ void init_dac(dac_config_t *p_config);
 
 
 /**
- * Sends a new millivolts value to be output on DAC. 
+ * Sends a new millivolts value to be output on DAC (Along with config settings). 
  */
 void dac_set_voltage(bool channel_a, uint16_t millivolts);
 
@@ -91,6 +91,14 @@ void dac_set_voltage(bool channel_a, uint16_t millivolts);
  * effect.
  */
 void dac_reconfigure(void);
+
+
+/**
+ * Pulses LDAC pin low for a brief time (1uS). When sync_on_recofigure is
+ * false, and sync_manually is true, call this function to latch both config
+ * settings and new voltage value into both channels of DAC simultaneously. 
+ */
+void pulse_latch(void);
 
 #endif // MCP_FOUR_EIGHT_ONE_TWO_DOT_H
 

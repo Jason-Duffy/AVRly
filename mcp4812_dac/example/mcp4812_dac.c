@@ -41,7 +41,6 @@
 
 #include "mcp4812_dac.h"
 #include "pin_defines.h"
-#include "log_system.h"
 
 #define CHANNEL_BIT         15U
 #define GAIN_BIT            13U
@@ -49,8 +48,6 @@
 #define TWELVE_BIT_OFFSET   0U
 #define TEN_BIT_OFFSET      2U
 #define EIGHT_BIT_OFFSET    4U
-
-static const char *p_system_tag = "MCP4812_DAC";
 
 /**
  * Local copy of dac_config_t pointer to store address of config object.
@@ -93,7 +90,7 @@ void init_dac(dac_config_t *p_config)
 
   sei(); // Set interrupt enable flag
 
-  if (p_config_global->sync_on_reconfigure)
+  if (!p_config_global->sync_manually)
   {
     DAC_CTRL_PORT &= ~(1 << LDAC);
   }
@@ -174,7 +171,7 @@ void dac_reconfigure(void)
     spi_trade_byte(channel_a_data);
     spi_trade_byte(channel_b_data);
 
-    if (p_config_global->sync_on_reconfigure)
+    if (!p_config_global->sync_manually)
     {
         pulse_latch();
     }
@@ -191,10 +188,8 @@ void spi_trade_byte(uint16_t data)
 
     msb |= (data >> 8U);
     lsb |= (data);
-    log_message_with_bin_val(p_system_tag, VERBOSE_DEBUG, "MSB: ", msb);
     SPDR = msb; 
     loop_until_bit_is_set(SPSR, SPIF);
-    log_message_with_bin_val(p_system_tag, VERBOSE_DEBUG, "LSB: ", lsb);
     SPDR = lsb;
     loop_until_bit_is_set(SPSR, SPIF);
     
