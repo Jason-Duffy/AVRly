@@ -40,15 +40,31 @@
 #define MCP_FOUR_EIGHT_ONE_TWO_DOT_H
 
 #include <stdbool.h>
+#include <stdint.h>
+
+#define DAC_CHANNEL_A       true
+#define DAC_CHANNEL_B       false
+
+typedef enum 
+{
+    mcp4802,
+    mcp4812,
+    mcp4822
+} model_num_t;
 
 typedef struct
 {
-    bool channel_a_gain_low;    // true = LOW (0 - 2048mV), false = HIGH (0 - 4096mV).
-    bool channel_b_gain_low;    // true = LOW (0 - 2048mV), false = HIGH (0 - 4096mV).
-    bool channel_a_active;      // true = Channel active, false = channel shutdown.
-    bool channel_b_active;      // true = Channel active, false = channel shutdown.
-    uint16_t channel_a_level;   // Value to be output on channel A.
-    uint16_t channel_b_level;   // Value to be output on channel B.
+    bool gain_low;    // true = LOW (0 - 2048mV), false = HIGH (0 - 4096mV).
+    bool active;      // true = Channel active, false = channel shutdown.
+    uint16_t level;   // Value to be output on channel A.
+} dac_channel_t;
+
+typedef struct
+{
+    model_num_t model; // mcp4802, mcp4812 or mcp4822.
+    bool sync_on_reconfigure;// true = enabled, false = disabled.
+    dac_channel_t channel_a; // Config data members for channel A.
+    dac_channel_t channel_b; // Config data members for channel B.
 } dac_config_t;
 
 
@@ -62,8 +78,21 @@ typedef struct
  */
 void init_dac(dac_config_t *p_config);
 
-void dac_set_voltage(uint16_t millivolts);
 
+/**
+ * Sends a new millivolts value to be output on DAC. 
+ */
+void dac_set_voltage(bool channel_a, uint16_t millivolts);
+
+
+/**
+ * Applies new config settings. This function takes updated config settings for
+ * both channels of DAC, then re-sends data so that the new settings take
+ * effect.
+ */
 void dac_reconfigure(void);
 
 #endif // MCP_FOUR_EIGHT_ONE_TWO_DOT_H
+
+
+/*** end of file ***/

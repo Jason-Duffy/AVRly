@@ -43,7 +43,6 @@
 
 // System utility headers. These are installed along with AVR Crosspack.
 #include <avr/io.h>
-#include <avr/cpufunc.h>
 #include <util/delay.h>
 
 //Project specific headers.
