@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['print_5fbinary_5fbyte_0',['print_binary_byte',['../usart_8h.html#a6ed8eefe33df0c479847f99bfbffbc2e',1,'usart.c']]],
-  ['print_5fbyte_1',['print_byte',['../usart_8h.html#ae0af4da978c1af91fd2bed169b92dae3',1,'usart.c']]],
-  ['print_5fhex_5fbyte_2',['print_hex_byte',['../usart_8h.html#ad2cb22c9efc792243fe27a60441547a4',1,'usart.c']]],
-  ['print_5fstring_3',['print_string',['../usart_8h.html#a2cedcd300d876aac422cf9f9e241583a',1,'usart.c']]],
-  ['print_5fword_4',['print_word',['../usart_8h.html#a26f014257b6300f175bbae63395b6ab7',1,'usart.c']]]
+  ['nibble_5fto_5fhex_0',['nibble_to_hex',['../log__system_2example_2usart_8h.html#aba561aaa44414dbdd564dfc40390051d',1,'nibble_to_hex(uint8_t nibble):&#160;usart.h'],['../mcp4812__dac_2example_2usart_8h.html#aba561aaa44414dbdd564dfc40390051d',1,'nibble_to_hex(uint8_t nibble):&#160;usart.h']]],
+  ['nibble_5fto_5fhex_5fcharacter_1',['nibble_to_hex_character',['../log__system_2example_2usart_8h.html#a7abb0afe7126a9afb37d7cc16896adf1',1,'nibble_to_hex_character(uint8_t nibble):&#160;usart.c'],['../mcp4812__dac_2example_2usart_8h.html#a7abb0afe7126a9afb37d7cc16896adf1',1,'nibble_to_hex_character(uint8_t nibble):&#160;usart.c']]]
 ];
