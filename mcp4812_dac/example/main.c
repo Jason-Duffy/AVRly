@@ -1,11 +1,4 @@
-/******************************************************************************
-  FileName    [ main.c ]
-  PackageName [ LCD Demo ]
-  Description [ Main routine for demonstration of LCD driver on AtMega2560 ]
-  Author      [ Jason Duffy ]
-  Copyright   [  ]
-  Revision    [ v0.0.1
-******************************************************************************/
+
 
 #include <util/delay.h>
 #include "mcp4812_dac.h"
@@ -37,6 +30,5 @@ int main()
 	{
 		dac_set_voltage(DAC_CHANNEL_A, 1000U);
 		dac_set_voltage(DAC_CHANNEL_B, 2000U);
-
 	}
 }
