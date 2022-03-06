@@ -21,7 +21,7 @@
 ******************************************************************************/
 
 /**
- * @file i2c.h
+ * @file i2c.c
  * @author Jason Duffy
  * @date 5th March 2022
  * @brief I2C communications driver for AVR MCU's.
