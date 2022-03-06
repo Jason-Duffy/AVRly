@@ -21,7 +21,7 @@
 ******************************************************************************/
 
 /**
- * @file ccs81.c
+ * @file ccs811.c
  * @author Jason Duffy
  * @date 4th March 2022
  * @brief Driver for the CCS81 .
