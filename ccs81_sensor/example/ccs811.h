@@ -24,7 +24,7 @@
  * @file ccs811.h
  * @author Jason Duffy
  * @date 4th March 2022
- * @brief Driver for the CCS81 .
+ * @brief Driver for the CCS811 gas sensor .
  * @bug No known bugs. 
  * 
  * This file provides the basic low-level functionality for the CCS81 gas

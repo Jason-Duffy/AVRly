@@ -24,7 +24,7 @@
  * @file ccs811.c
  * @author Jason Duffy
  * @date 4th March 2022
- * @brief Driver for the CCS81 .
+ * @brief Driver for the CCS811 gas sensor.
  * @bug No known bugs. 
  * 
  * This file provides the basic low-level functionality for the CCS81 gas
@@ -53,9 +53,6 @@
 
 
 #include "ccs811.h"
-#include "log_system.h"
-
-//static const char *p_system_tag = "CCS811";
 
 // 7 bit address of i2c device followwed by write bit (0) or read bit (1)
 #define CCS811_ADDRESS_W		0xB4
