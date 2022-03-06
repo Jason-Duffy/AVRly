@@ -90,14 +90,14 @@ $(document).ready(function(){initNavTree('structccs811__config__t.html',''); ini
 </div><!--header-->
 <div class="contents">
 
-<p>Config object, to be instantiated and values assigned to members before passing the object address into the function init_ccs811().  
+<p>Config object, to be instantiated and values assigned to members before passing the object address into the function <a class="el" href="ccs811_8c.html#ad1f99971115a62fc25a230fbf88861e6" title="Initialisation routine (run once at startup).">init_ccs811()</a>.  
  <a href="structccs811__config__t.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ccs811_8h_source.html">ccs811.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ad2ba96a1d3d86f75d043653de87a3e8d"><td class="memItemLeft" align="right" valign="top">ccs811_drive_mode_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structccs811__config__t.html#ad2ba96a1d3d86f75d043653de87a3e8d">drive_mode</a></td></tr>
+<tr class="memitem:ad2ba96a1d3d86f75d043653de87a3e8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="ccs811_8h.html#acb4d7fb8f784088597a9e99abdb9438e">ccs811_drive_mode_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structccs811__config__t.html#ad2ba96a1d3d86f75d043653de87a3e8d">drive_mode</a></td></tr>
 <tr class="separator:ad2ba96a1d3d86f75d043653de87a3e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac40c59bac4668f9290f5be303474607"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structccs811__config__t.html#aac40c59bac4668f9290f5be303474607">wake_pin_enabled</a></td></tr>
 <tr class="separator:aac40c59bac4668f9290f5be303474607"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -107,7 +107,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:abead509da3e63d99f8a51ff2380abb2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Config object, to be instantiated and values assigned to members before passing the object address into the function init_ccs811(). </p>
+<div class="textblock"><p >Config object, to be instantiated and values assigned to members before passing the object address into the function <a class="el" href="ccs811_8c.html#ad1f99971115a62fc25a230fbf88861e6" title="Initialisation routine (run once at startup).">init_ccs811()</a>. </p>
 <p >If wake_pin_enabled is set to true, WAKE must be connected to a GPIO pin and defined in pin_defines.h. Otherwise, tie the WAKE pin on the CCS811 to ground. If interrupt_dataready is set to true, INT pin should be connected to a GPIO and defined in pindefines.h. That pin will be driven low when new data is ready. If both interrupt_dataready AND interrupt_threshold are set to true, the INT pin is driven low when ALG_RESULT_DATA crosses one of the thresholds set in the THRESHOLDS register. </p>
 
 <p class="definition">Definition at line <a class="el" href="ccs811_8h_source.html#l00087">87</a> of file <a class="el" href="ccs811_8h_source.html">ccs811.h</a>.</p>
@@ -119,7 +119,7 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">ccs811_drive_mode_t ccs811_config_t::drive_mode</td>
+          <td class="memname"><a class="el" href="ccs811_8h.html#acb4d7fb8f784088597a9e99abdb9438e">ccs811_drive_mode_t</a> ccs811_config_t::drive_mode</td>
         </tr>
       </table>
 </div><div class="memdoc">

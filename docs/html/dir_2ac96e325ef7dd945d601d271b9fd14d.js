@@ -1,7 +1,7 @@
 var dir_2ac96e325ef7dd945d601d271b9fd14d =
 [
-    [ "ccs811.c", "ccs811_8c_source.html", null ],
-    [ "ccs811.h", "ccs811_8h_source.html", null ],
+    [ "ccs811.c", "ccs811_8c.html", "ccs811_8c" ],
+    [ "ccs811.h", "ccs811_8h.html", "ccs811_8h" ],
     [ "i2c.c", "i2c_8c_source.html", null ],
     [ "i2c.h", "i2c_8h.html", "i2c_8h" ],
     [ "log_system.c", "ccs81__sensor_2example_2log__system_8c_source.html", null ],

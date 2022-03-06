@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['get_5fnumber_0',['get_number',['../ccs81__sensor_2example_2usart_8h.html#a502d44d5f8098a5e1f767f98493bdd29',1,'get_number(void):&#160;usart.c'],['../log__system_2example_2usart_8h.html#a502d44d5f8098a5e1f767f98493bdd29',1,'get_number(void):&#160;usart.c'],['../mcp4812__dac_2example_2usart_8h.html#a502d44d5f8098a5e1f767f98493bdd29',1,'get_number(void):&#160;usart.c']]]
+  ['dac_5freconfigure_0',['dac_reconfigure',['../mcp4812__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823',1,'dac_reconfigure(void):&#160;mcp4812_dac.c'],['../mcp4812__dac_8h.html#ab7d4460badaeb5c1255a471604ee7823',1,'dac_reconfigure(void):&#160;mcp4812_dac.c']]],
+  ['dac_5fset_5fvoltage_1',['dac_set_voltage',['../mcp4812__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7',1,'dac_set_voltage(bool channel_a, uint16_t millivolts):&#160;mcp4812_dac.c'],['../mcp4812__dac_8h.html#a8e5a30fe5a03338c88ef80b84f3098b7',1,'dac_set_voltage(bool channel_a, uint16_t millivolts):&#160;mcp4812_dac.c']]]
 ];

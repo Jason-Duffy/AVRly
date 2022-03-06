@@ -2,10 +2,11 @@ var indexSectionsWithContent =
 {
   0: "bcdefghilmnprtu",
   1: "cdl",
-  2: "himpu",
-  3: "dgilnpr",
+  2: "chimpu",
+  3: "cdgilnpr",
   4: "bcdefit",
-  5: "bm"
+  5: "c",
+  6: "bm"
 };
 
 var indexSectionNames =
@@ -15,7 +16,8 @@ var indexSectionNames =
   2: "files",
   3: "functions",
   4: "variables",
-  5: "pages"
+  5: "enums",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -25,6 +27,7 @@ var indexSectionLabels =
   2: "Files",
   3: "Functions",
   4: "Variables",
-  5: "Pages"
+  5: "Enumerations",
+  6: "Pages"
 };
 
