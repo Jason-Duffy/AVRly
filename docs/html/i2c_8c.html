@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>C Programming Resources for AVR Microcontrollers: ccs81_sensor/example/i2c.h File Reference</title>
+<title>C Programming Resources for AVR Microcontrollers: ccs81_sensor/example/i2c.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('i2c_8h.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('i2c_8c.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -85,38 +85,39 @@ $(document).ready(function(){initNavTree('i2c_8h.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">i2c.h File Reference</div></div>
+  <div class="headertitle"><div class="title">i2c.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
 <p>Copyright (c) 2022 by Jason Duffy.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;avr/interrupt.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="i2c_8h_source.html">i2c.h</a>&quot;</code><br />
 </div>
-<p><a href="i2c_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="i2c_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a17b39f3b4bea70fbb4ca2b377991c788"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a> (uint32_t bus_speed)</td></tr>
-<tr class="memdesc:a17b39f3b4bea70fbb4ca2b377991c788"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets pullups and initializes bus speed to desired bus speed.  <a href="i2c_8h.html#a17b39f3b4bea70fbb4ca2b377991c788">More...</a><br /></td></tr>
+<tr class="memitem:a17b39f3b4bea70fbb4ca2b377991c788"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a> (uint32_t bus_speed)</td></tr>
+<tr class="memdesc:a17b39f3b4bea70fbb4ca2b377991c788"><td class="mdescLeft">&#160;</td><td class="mdescRight">SCL frequency = F_CPU / (16 + (2 * TWBR) * PRESCALER)  <a href="i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788">More...</a><br /></td></tr>
 <tr class="separator:a17b39f3b4bea70fbb4ca2b377991c788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61854d6833c0a31f296b84cdcf057a03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a> (void)</td></tr>
-<tr class="memdesc:a61854d6833c0a31f296b84cdcf057a03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits until the hardware sets the TWINT flag.  <a href="i2c_8h.html#a61854d6833c0a31f296b84cdcf057a03">More...</a><br /></td></tr>
+<tr class="memitem:a61854d6833c0a31f296b84cdcf057a03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a> (void)</td></tr>
+<tr class="memdesc:a61854d6833c0a31f296b84cdcf057a03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits until the hardware sets the TWINT flag.  <a href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">More...</a><br /></td></tr>
 <tr class="separator:a61854d6833c0a31f296b84cdcf057a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af104fa2713ad2cfe4f993bdd2ec22c46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a> (void)</td></tr>
-<tr class="memdesc:af104fa2713ad2cfe4f993bdd2ec22c46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a start condition (sets TWSTA).  <a href="i2c_8h.html#af104fa2713ad2cfe4f993bdd2ec22c46">More...</a><br /></td></tr>
+<tr class="memitem:af104fa2713ad2cfe4f993bdd2ec22c46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a> (void)</td></tr>
+<tr class="memdesc:af104fa2713ad2cfe4f993bdd2ec22c46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a start condition (sets TWSTA).  <a href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">More...</a><br /></td></tr>
 <tr class="separator:af104fa2713ad2cfe4f993bdd2ec22c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad35d4e4f52ca74b503d5e5e1e0a3f5f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a> (void)</td></tr>
-<tr class="memdesc:ad35d4e4f52ca74b503d5e5e1e0a3f5f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a stop condition (sets TWSTO).  <a href="i2c_8h.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">More...</a><br /></td></tr>
+<tr class="memitem:ad35d4e4f52ca74b503d5e5e1e0a3f5f3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a> (void)</td></tr>
+<tr class="memdesc:ad35d4e4f52ca74b503d5e5e1e0a3f5f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a stop condition (sets TWSTO).  <a href="i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">More...</a><br /></td></tr>
 <tr class="separator:ad35d4e4f52ca74b503d5e5e1e0a3f5f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade9ea3e8cd58c50b470141c55d20d057"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a> (uint8_t data)</td></tr>
-<tr class="memdesc:ade9ea3e8cd58c50b470141c55d20d057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads data, sends it out, waiting for completion.  <a href="i2c_8h.html#ade9ea3e8cd58c50b470141c55d20d057">More...</a><br /></td></tr>
+<tr class="memitem:ade9ea3e8cd58c50b470141c55d20d057"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a> (uint8_t data)</td></tr>
+<tr class="memdesc:ade9ea3e8cd58c50b470141c55d20d057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loads data, sends it out, waiting for completion.  <a href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">More...</a><br /></td></tr>
 <tr class="separator:ade9ea3e8cd58c50b470141c55d20d057"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa7f5f94b089b26f76a4f9cc95e89a3db"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a> (void)</td></tr>
-<tr class="memdesc:aa7f5f94b089b26f76a4f9cc95e89a3db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read in from slave, sending ACK when done (sets TWEA).  <a href="i2c_8h.html#aa7f5f94b089b26f76a4f9cc95e89a3db">More...</a><br /></td></tr>
+<tr class="memitem:aa7f5f94b089b26f76a4f9cc95e89a3db"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a> (void)</td></tr>
+<tr class="memdesc:aa7f5f94b089b26f76a4f9cc95e89a3db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read in from slave, sending ACK when done (sets TWEA).  <a href="i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">More...</a><br /></td></tr>
 <tr class="separator:aa7f5f94b089b26f76a4f9cc95e89a3db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e32e9e2acac27300dc4b9463e5d1bed"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8h.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a> (void)</td></tr>
-<tr class="memdesc:a9e32e9e2acac27300dc4b9463e5d1bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read in from slave, sending NOACK when done (no TWEA).  <a href="i2c_8h.html#a9e32e9e2acac27300dc4b9463e5d1bed">More...</a><br /></td></tr>
+<tr class="memitem:a9e32e9e2acac27300dc4b9463e5d1bed"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a> (void)</td></tr>
+<tr class="memdesc:a9e32e9e2acac27300dc4b9463e5d1bed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read in from slave, sending NOACK when done (no TWEA).  <a href="i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">More...</a><br /></td></tr>
 <tr class="separator:a9e32e9e2acac27300dc4b9463e5d1bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -126,10 +127,10 @@ Functions</h2></td></tr>
 <p >THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <dl class="section author"><dt>Author</dt><dd>Jason Duffy </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>5th March 2022</dd></dl>
-<p>I2C communications driver for AVR MCU's. </p><dl class="bug"><dt><b><a class="el" href="bug.html#_bug000004">Bug:</a></b></dt><dd>No known bugs. </dd></dl>
+<p>I2C communications driver for AVR MCU's. </p><dl class="bug"><dt><b><a class="el" href="bug.html#_bug000003">Bug:</a></b></dt><dd>No known bugs. </dd></dl>
 <p >This file provides basic I2C protocol comms functionality. Please note: Blocking waits are used whilst the host waits for hardware to set bits in registers. </p>
 
-<p class="definition">Definition in file <a class="el" href="i2c_8h_source.html">i2c.h</a>.</p>
+<p class="definition">Definition in file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="aa7f5f94b089b26f76a4f9cc95e89a3db" name="aa7f5f94b089b26f76a4f9cc95e89a3db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa7f5f94b089b26f76a4f9cc95e89a3db">&#9670;&nbsp;</a></span>i2c_read_ack()</h2>
@@ -305,7 +306,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sets pullups and initializes bus speed to desired bus speed. </p>
+<p>SCL frequency = F_CPU / (16 + (2 * TWBR) * PRESCALER) </p>
 <p >Sets pullups and initializes bus speed to desired bus speed. </p>
 
 <p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00044">44</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
@@ -322,7 +323,7 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8b7d22edd4e0b1788027cc4373dcc0b7.html">ccs81_sensor</a></li><li class="navelem"><a class="el" href="dir_2ac96e325ef7dd945d601d271b9fd14d.html">example</a></li><li class="navelem"><a class="el" href="i2c_8h.html">i2c.h</a></li>
+    <li class="navelem"><a class="el" href="dir_8b7d22edd4e0b1788027cc4373dcc0b7.html">ccs81_sensor</a></li><li class="navelem"><a class="el" href="dir_2ac96e325ef7dd945d601d271b9fd14d.html">example</a></li><li class="navelem"><a class="el" href="i2c_8c.html">i2c.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
