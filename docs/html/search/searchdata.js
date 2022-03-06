@@ -1,8 +1,8 @@
 var indexSectionsWithContent =
 {
   0: "bcdefghilmnprtu",
-  1: "dl",
-  2: "hmpu",
+  1: "cdl",
+  2: "himpu",
   3: "dgilnpr",
   4: "bcdefit",
   5: "bm"
