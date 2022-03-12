@@ -51,8 +51,9 @@
  * https://pdf1.alldatasheet.com/datasheet-pdf/view/1047395/AMSCO/CCS811.html
  */
 
-
+#include <util/delay.h>
 #include "ccs811.h"
+#include "i2c.h"
 
 // 7 bit address of i2c device followwed by write bit (0) or read bit (1)
 #define CCS811_ADDRESS_W		0xB4
