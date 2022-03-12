@@ -92,63 +92,60 @@ $(document).ready(function(){initNavTree('ccs811_8h_source.html',''); initResiza
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#include &lt;util/delay.h&gt;</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#include &quot;<a class="code" href="i2c_8h.html">i2c.h</a>&quot;</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="ccs811_8h.html#acb4d7fb8f784088597a9e99abdb9438e">   67</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    drive_mode_idle = 0U,</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    drive_mode_1sec = 1U,</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    drive_mode_10sec = 2U,</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    drive_mode_60sec = 3U,</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}<a class="code hl_enumeration" href="ccs811_8h.html#acb4d7fb8f784088597a9e99abdb9438e">ccs811_drive_mode_t</a>;</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="structccs811__config__t.html">   87</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>{</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_enumeration" href="ccs811_8h.html#acb4d7fb8f784088597a9e99abdb9438e">ccs811_drive_mode_t</a> drive_mode; <span class="comment">// Sets mode in which readings will be taken. </span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">bool</span> wake_pin_enabled; <span class="comment">// true = enabled, false = disabled. </span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordtype">bool</span> interrupt_dataready; <span class="comment">// true = enabled, false = disabled.</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">bool</span> interrupt_threshold; <span class="comment">// true = enabled, false = disabled. </span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}<a class="code hl_struct" href="structccs811__config__t.html">ccs811_config_t</a>;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>uint8_t <a class="code hl_function" href="ccs811_8h.html#ad1f99971115a62fc25a230fbf88861e6">init_ccs811</a>(<a class="code hl_struct" href="structccs811__config__t.html">ccs811_config_t</a> *p_config);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>uint16_t <a class="code hl_function" href="ccs811_8h.html#a751333bcfd68dc798c02763140e53231">ccs811_get_eco2_level</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>uint16_t <a class="code hl_function" href="ccs811_8h.html#a17c8db9a3e783733aca1047f1f101b94">ccs811_get_etvoc_level</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="keywordtype">void</span> <a class="code hl_function" href="ccs811_8h.html#ad2b6067f8f03a713bd942e009a128138">ccs811_get_alg_result_data</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="keywordtype">bool</span> <a class="code hl_function" href="ccs811_8h.html#adc2cbe8a9c4478d1c2e618526aa07e0f">ccs811_data_ready_check</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="keywordtype">void</span> <a class="code hl_function" href="ccs811_8h.html#a0a35b06187cfd628634e4d86faefa3c6">ccs811_update_env_data</a>(uint8_t humidity, uint8_t temp);</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keywordtype">char</span>* <a class="code hl_function" href="ccs811_8h.html#ab51c7e36ecf8d9ee42c9810484b97648">ccs811_error_to_string</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="ccs811_8h.html#acb4d7fb8f784088597a9e99abdb9438e">   65</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    drive_mode_idle = 0U,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    drive_mode_1sec = 1U,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    drive_mode_10sec = 2U,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    drive_mode_60sec = 3U,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}<a class="code hl_enumeration" href="ccs811_8h.html#acb4d7fb8f784088597a9e99abdb9438e">ccs811_drive_mode_t</a>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="structccs811__config__t.html">   85</a></span><span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>{</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_enumeration" href="ccs811_8h.html#acb4d7fb8f784088597a9e99abdb9438e">ccs811_drive_mode_t</a> drive_mode; <span class="comment">// Sets mode in which readings will be taken. </span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordtype">bool</span> wake_pin_enabled; <span class="comment">// true = enabled, false = disabled. </span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">bool</span> interrupt_dataready; <span class="comment">// true = enabled, false = disabled.</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordtype">bool</span> interrupt_threshold; <span class="comment">// true = enabled, false = disabled. </span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}<a class="code hl_struct" href="structccs811__config__t.html">ccs811_config_t</a>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>uint8_t <a class="code hl_function" href="ccs811_8h.html#ad1f99971115a62fc25a230fbf88861e6">init_ccs811</a>(<a class="code hl_struct" href="structccs811__config__t.html">ccs811_config_t</a> *p_config);</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>uint16_t <a class="code hl_function" href="ccs811_8h.html#a751333bcfd68dc798c02763140e53231">ccs811_get_eco2_level</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>uint16_t <a class="code hl_function" href="ccs811_8h.html#a17c8db9a3e783733aca1047f1f101b94">ccs811_get_etvoc_level</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="keywordtype">void</span> <a class="code hl_function" href="ccs811_8h.html#ad2b6067f8f03a713bd942e009a128138">ccs811_get_alg_result_data</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="keywordtype">bool</span> <a class="code hl_function" href="ccs811_8h.html#adc2cbe8a9c4478d1c2e618526aa07e0f">ccs811_data_ready_check</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="keywordtype">void</span> <a class="code hl_function" href="ccs811_8h.html#a0a35b06187cfd628634e4d86faefa3c6">ccs811_update_env_data</a>(uint8_t humidity, uint8_t temp);</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keywordtype">char</span>* <a class="code hl_function" href="ccs811_8h.html#ab51c7e36ecf8d9ee42c9810484b97648">ccs811_error_to_string</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
 <div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="preprocessor">#endif </span><span class="comment">// CCS_EIGHT_ONE_ONE_DOT_H</span></div>
 <div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="preprocessor">#endif </span><span class="comment">// CCS_EIGHT_ONE_ONE_DOT_H</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
 <div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="ttc" id="accs811_8h_html_a0a35b06187cfd628634e4d86faefa3c6"><div class="ttname"><a href="ccs811_8h.html#a0a35b06187cfd628634e4d86faefa3c6">ccs811_update_env_data</a></div><div class="ttdeci">void ccs811_update_env_data(uint8_t humidity, uint8_t temp)</div><div class="ttdoc">(Optional) Write environmental data from another sensor to the CCS811.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00213">ccs811.c:213</a></div></div>
-<div class="ttc" id="accs811_8h_html_a17c8db9a3e783733aca1047f1f101b94"><div class="ttname"><a href="ccs811_8h.html#a17c8db9a3e783733aca1047f1f101b94">ccs811_get_etvoc_level</a></div><div class="ttdeci">uint16_t ccs811_get_etvoc_level(void)</div><div class="ttdoc">Read eTVOC (equivalent total volatile organic compounds) level from sensor.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00186">ccs811.c:186</a></div></div>
-<div class="ttc" id="accs811_8h_html_a751333bcfd68dc798c02763140e53231"><div class="ttname"><a href="ccs811_8h.html#a751333bcfd68dc798c02763140e53231">ccs811_get_eco2_level</a></div><div class="ttdeci">uint16_t ccs811_get_eco2_level(void)</div><div class="ttdoc">Read eCO2 (equivalent carbon dioxide) level from sensor.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00179">ccs811.c:179</a></div></div>
-<div class="ttc" id="accs811_8h_html_ab51c7e36ecf8d9ee42c9810484b97648"><div class="ttname"><a href="ccs811_8h.html#ab51c7e36ecf8d9ee42c9810484b97648">ccs811_error_to_string</a></div><div class="ttdeci">char * ccs811_error_to_string(void)</div><div class="ttdoc">For error handling/logging.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00228">ccs811.c:228</a></div></div>
-<div class="ttc" id="accs811_8h_html_acb4d7fb8f784088597a9e99abdb9438e"><div class="ttname"><a href="ccs811_8h.html#acb4d7fb8f784088597a9e99abdb9438e">ccs811_drive_mode_t</a></div><div class="ttdeci">ccs811_drive_mode_t</div><div class="ttdoc">Drive modes 0 to 3.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8h_source.html#l00067">ccs811.h:68</a></div></div>
-<div class="ttc" id="accs811_8h_html_ad1f99971115a62fc25a230fbf88861e6"><div class="ttname"><a href="ccs811_8h.html#ad1f99971115a62fc25a230fbf88861e6">init_ccs811</a></div><div class="ttdeci">uint8_t init_ccs811(ccs811_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00130">ccs811.c:130</a></div></div>
-<div class="ttc" id="accs811_8h_html_ad2b6067f8f03a713bd942e009a128138"><div class="ttname"><a href="ccs811_8h.html#ad2b6067f8f03a713bd942e009a128138">ccs811_get_alg_result_data</a></div><div class="ttdeci">void ccs811_get_alg_result_data(void)</div><div class="ttdoc">Perform a read operation on all 8 bytes of ALG_RESULT_REGISTER.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00208">ccs811.c:208</a></div></div>
-<div class="ttc" id="accs811_8h_html_adc2cbe8a9c4478d1c2e618526aa07e0f"><div class="ttname"><a href="ccs811_8h.html#adc2cbe8a9c4478d1c2e618526aa07e0f">ccs811_data_ready_check</a></div><div class="ttdeci">bool ccs811_data_ready_check(void)</div><div class="ttdoc">Read the status register and check if the data ready flag is set.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00197">ccs811.c:197</a></div></div>
-<div class="ttc" id="ai2c_8h_html"><div class="ttname"><a href="i2c_8h.html">i2c.h</a></div><div class="ttdoc">Copyright (c) 2022 by Jason Duffy.</div></div>
-<div class="ttc" id="astructccs811__config__t_html"><div class="ttname"><a href="structccs811__config__t.html">ccs811_config_t</a></div><div class="ttdoc">Config object, to be instantiated and values assigned to members before passing the object address in...</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8h_source.html#l00087">ccs811.h:88</a></div></div>
+<div class="ttc" id="accs811_8h_html_a0a35b06187cfd628634e4d86faefa3c6"><div class="ttname"><a href="ccs811_8h.html#a0a35b06187cfd628634e4d86faefa3c6">ccs811_update_env_data</a></div><div class="ttdeci">void ccs811_update_env_data(uint8_t humidity, uint8_t temp)</div><div class="ttdoc">(Optional) Write environmental data from another sensor to the CCS811.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00214">ccs811.c:214</a></div></div>
+<div class="ttc" id="accs811_8h_html_a17c8db9a3e783733aca1047f1f101b94"><div class="ttname"><a href="ccs811_8h.html#a17c8db9a3e783733aca1047f1f101b94">ccs811_get_etvoc_level</a></div><div class="ttdeci">uint16_t ccs811_get_etvoc_level(void)</div><div class="ttdoc">Read eTVOC (equivalent total volatile organic compounds) level from sensor.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00187">ccs811.c:187</a></div></div>
+<div class="ttc" id="accs811_8h_html_a751333bcfd68dc798c02763140e53231"><div class="ttname"><a href="ccs811_8h.html#a751333bcfd68dc798c02763140e53231">ccs811_get_eco2_level</a></div><div class="ttdeci">uint16_t ccs811_get_eco2_level(void)</div><div class="ttdoc">Read eCO2 (equivalent carbon dioxide) level from sensor.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00180">ccs811.c:180</a></div></div>
+<div class="ttc" id="accs811_8h_html_ab51c7e36ecf8d9ee42c9810484b97648"><div class="ttname"><a href="ccs811_8h.html#ab51c7e36ecf8d9ee42c9810484b97648">ccs811_error_to_string</a></div><div class="ttdeci">char * ccs811_error_to_string(void)</div><div class="ttdoc">For error handling/logging.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00229">ccs811.c:229</a></div></div>
+<div class="ttc" id="accs811_8h_html_acb4d7fb8f784088597a9e99abdb9438e"><div class="ttname"><a href="ccs811_8h.html#acb4d7fb8f784088597a9e99abdb9438e">ccs811_drive_mode_t</a></div><div class="ttdeci">ccs811_drive_mode_t</div><div class="ttdoc">Drive modes 0 to 3.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8h_source.html#l00065">ccs811.h:66</a></div></div>
+<div class="ttc" id="accs811_8h_html_ad1f99971115a62fc25a230fbf88861e6"><div class="ttname"><a href="ccs811_8h.html#ad1f99971115a62fc25a230fbf88861e6">init_ccs811</a></div><div class="ttdeci">uint8_t init_ccs811(ccs811_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00131">ccs811.c:131</a></div></div>
+<div class="ttc" id="accs811_8h_html_ad2b6067f8f03a713bd942e009a128138"><div class="ttname"><a href="ccs811_8h.html#ad2b6067f8f03a713bd942e009a128138">ccs811_get_alg_result_data</a></div><div class="ttdeci">void ccs811_get_alg_result_data(void)</div><div class="ttdoc">Perform a read operation on all 8 bytes of ALG_RESULT_REGISTER.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00209">ccs811.c:209</a></div></div>
+<div class="ttc" id="accs811_8h_html_adc2cbe8a9c4478d1c2e618526aa07e0f"><div class="ttname"><a href="ccs811_8h.html#adc2cbe8a9c4478d1c2e618526aa07e0f">ccs811_data_ready_check</a></div><div class="ttdeci">bool ccs811_data_ready_check(void)</div><div class="ttdoc">Read the status register and check if the data ready flag is set.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00198">ccs811.c:198</a></div></div>
+<div class="ttc" id="astructccs811__config__t_html"><div class="ttname"><a href="structccs811__config__t.html">ccs811_config_t</a></div><div class="ttdoc">Config object, to be instantiated and values assigned to members before passing the object address in...</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8h_source.html#l00085">ccs811.h:86</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
