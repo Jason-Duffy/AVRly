@@ -21,7 +21,7 @@
 title: C Programming Resources for AVR Microcontrollers.
 email: 55949529+Jason-Duffy@users.noreply.github.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Documented drivers and example projects written in the C programming
+  Documented drivers, Kicad schematics and example projects written in the C programming
   language, specifically for AVR microcontrollers and intended to be built using GNU make and AVRdude. 
 domain: jason-duffy.github.io
 baseurl: /C-Programming-Resources-for-AVR-MCU-s/ # the subpath of your site, e.g. /blog
