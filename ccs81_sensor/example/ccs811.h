@@ -57,8 +57,6 @@
 
 #include <stdbool.h>
 #include <stdint.h>
-#include <util/delay.h>
-#include "i2c.h"
 
 /**
  * Drive modes 0 to 3. Mode 4 has been omitted as it does not appear to be
