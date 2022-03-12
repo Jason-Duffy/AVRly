@@ -42,6 +42,7 @@
 #ifndef HD_FOUR_FOUR_SEVEN_EIGHT_ZERO_LCD_DOT_H
 #define HD_FOUR_FOUR_SEVEN_EIGHT_ZERO_LCD_DOT_H
 
+#include <stdint.h>
 #include <stdbool.h>
 
 
@@ -190,5 +191,6 @@ void lcd_shift_display_right(uint8_t distance, bool delay);
 
 
 #endif // HD_FOUR_FOUR_SEVEN_EIGHT_ZERO_LCD_DOT_H
+
 
 /*** end of file ***/
