@@ -30,7 +30,7 @@ twitter_username:
 github_username:  Jason-Duffy
 
 # Build settings
-theme: Minima
+theme: Midnight
 plugins:
   - jekyll-feed
 
