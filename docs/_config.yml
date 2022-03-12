@@ -28,6 +28,7 @@ baseurl: /C-Programming-Resources-for-AVR-MCU-s/ # the subpath of your site, e.g
 url: https://jason-duffy.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username:  Jason-Duffy
+author: Jason Duffy
 
 # Build settings
 # Removed minima theme as it is now a regular theme. 
