@@ -28,7 +28,15 @@ baseurl: /C-Programming-Resources-for-AVR-MCU-s/ # the subpath of your site, e.g
 url: https://jason-duffy.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username:  Jason-Duffy
+
+# Fields minima uses, but are not defaulted with the jekyll new command.
+# Author is the default for all posts, that Atom feed, and is used in the footer.
 author: Jason Duffy
+
+# New fields not defaulted bu jekyll-new with th eminima theme.
+# Add a copyright. A copyright symbol and year will be added automatically.
+# copyright: Company Name, Inc.
+copyright: "Jason Duffy"
 
 # Build settings
 # Removed minima theme as it is now a regular theme. 
