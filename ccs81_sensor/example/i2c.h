@@ -29,7 +29,7 @@
  * 
  * This file provides basic I2C protocol comms functionality.
  * Please note: Blocking waits are used whilst the host waits for hardware to
- * set bits in registers. 
+ * set flags in registers. 
  */
 
 // Functions for i2c communication
