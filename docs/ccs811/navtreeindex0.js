@@ -25,7 +25,6 @@ var NAVTREEINDEX0 =
 "ccs811_8h.html#ad2b6067f8f03a713bd942e009a128138":[2,0,0,1,4],
 "ccs811_8h.html#adc2cbe8a9c4478d1c2e618526aa07e0f":[2,0,0,1,2],
 "ccs811_8h_source.html":[2,0,0,1],
-"classes.html":[1,1],
 "dir_cfafba98a580ce4b62f8a6fa96d7cbb0.html":[2,0,0],
 "files.html":[2,0],
 "globals.html":[2,1,0],

@@ -27,8 +27,7 @@ var NAVTREE =
   [ "CCS811 CO2 Sensor", "index.html", [
     [ "Bug List", "bug.html", null ],
     [ "Classes", "annotated.html", [
-      [ "Class List", "annotated.html", "annotated_dup" ],
-      [ "Class Index", "classes.html", null ]
+      [ "Class List", "annotated.html", "annotated_dup" ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],

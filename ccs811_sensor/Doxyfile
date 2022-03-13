@@ -1169,7 +1169,7 @@ VERBATIM_HEADERS       = YES
 # classes, structs, unions or interfaces.
 # The default value is: YES.
 
-ALPHABETICAL_INDEX     = YES
+ALPHABETICAL_INDEX     = NO
 
 # In case all classes in a project start with a common prefix, all classes will
 # be put under the same header in the alphabetical index. The IGNORE_PREFIX tag
@@ -1256,7 +1256,7 @@ HTML_STYLESHEET        =
 # list). For an example see the documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_EXTRA_STYLESHEET  = doxygen-awesome.css
+HTML_EXTRA_STYLESHEET  = .././docs/doxygen-awesome.css
 
 # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
 # other source files which should be copied to the HTML output directory. Note
