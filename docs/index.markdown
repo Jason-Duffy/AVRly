@@ -7,4 +7,4 @@ layout: landing
 
 This is some content.
 
-[MCP48x2 DAC Driver and Example Code] (https://jason-duffy.github.ioC-Programming-Resources-for-AVR-MCU-s/html/)
+[MCP48x2 DAC Driver and Example Code] (https://jason-duffy.github.ioC-Programming-Resources-for-AVR-MCU-shtml/ )
