@@ -5,6 +5,10 @@
 layout: landing
 ---
 
-This is some content.
+This is some content:
 
-[MCP48x2 DAC Driver and Example Code] (https://jason-duffy.github.ioC-Programming-Resources-for-AVR-MCU-shtml/ )
+[MCP48x2 DAC Driver and Example Code][MCP48x2_URL]
+
+
+
+[MCP48x2_URL]: https://jason-duffy.github.ioC-Programming-Resources-for-AVR-MCU-shtml/
