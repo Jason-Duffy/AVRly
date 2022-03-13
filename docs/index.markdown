@@ -16,7 +16,7 @@ This is some content:
 [Log System Driver and Example Code][Log_System_URL]
 
 
-[MCP48x2_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/html/mcp4812
-[CCS811_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/html/ccs811
-[HD44780_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/html/hd44780
-[Log_System_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/html/log-system
+[MCP48x2_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/mcp48x2
+[CCS811_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/ccs811
+[HD44780_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/hd44780
+[Log_System_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/log-system
