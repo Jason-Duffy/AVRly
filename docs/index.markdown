@@ -11,4 +11,4 @@ This is some content:
 
 
 
-[MCP48x2_URL]: https://jason-duffy.github.ioC-Programming-Resources-for-AVR-MCU-shtml/
+[MCP48x2_URL]: https://jason-duffy.github.ioC-Programming-Resources-for-AVR-MCU-s/html/
