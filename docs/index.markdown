@@ -7,6 +7,8 @@ layout: landing
 
 This is some content:
 
+[Getting Started][Getting_started_URL]
+
 [MCP48x2 DAC Driver and Example Code][MCP48x2_URL]
 
 [CCS811 CO2 Sensor Driver and Example Code][CCS811_URL]
@@ -16,6 +18,7 @@ This is some content:
 [Log System Driver and Example Code][Log_System_URL]
 
 
+[Getting_started_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/getting-started
 [MCP48x2_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/mcp48x2
 [CCS811_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/ccs811
 [HD44780_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/hd44780
