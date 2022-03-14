@@ -10,7 +10,7 @@ The projects outlined in this repository are intended for "bare metal" AVR progr
 
 #### A Text Editor
 I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choose from, some popular choices are:
-- [SublimeText][Sublime_Text_URL]
+- [Sublime Text][Sublime_Text_URL]
 - [Visual Studio Code][VS_Code_URL]
 - [Codespaces][Codespaces_URL]
 - [Atom][Atom_URL]
@@ -25,8 +25,8 @@ I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choos
 
 
 
-[Sublime_Text_URL]: [http://www.sublimetext.com/]
-[VS_Code_URL]: [https://code.visualstudio.com/]
+[Sublime_Text_URL]: http://www.sublimetext.com/
+[VS_Code_URL]: https://code.visualstudio.com/
 [Codespaces_URL]: https://github.com/features/codespaces
 [Atom_URL]: https://github.com/features/codespaces
 
