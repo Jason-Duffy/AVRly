@@ -1,5 +1,5 @@
 # C Programming Resources for AVR MCU's
  
-@mainpage Menu.
+@mainpage Table of Contents
 
 @author Jason Duffy.

@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "MCP48x2 DAC Driver and Example", "index.html", [
+    [ "README", "md__r_e_a_d_m_e.html", null ],
     [ "Bug List", "bug.html", null ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
