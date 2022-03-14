@@ -42,12 +42,16 @@ I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choos
 	`sudo yum install avrdude avr-gcc avr-binutils avr-libc avr-gdb`
 
 ### Windows
-Windows users can use the official toolchain from the manufacturer, [Microchip Studio][Microchip_Studio_URL]. This is an IDE so it's full of features, but also has steep learning curve - follow their tutorial [here][Microchip_Studio_Tutorial_URL] to get to grips with it. 
+Windows users can use the official toolchain from the manufacturer, [Microchip Studio][Microchip_Studio_URL]. This is an IDE so it's full of features, but also has steep learning curve - follow their tutorial [here][Microchip_Studio_Tutorial_URL] to get to grips with it.
+## A serial terminal program
+This is used to send messages between your PC and the target MCU, and you'll find it's a vital debugging tool when coupled with the log_system module. I tend to use [CoolTerm][CoolTerm_URL] which is available on MacOS, Windows and Linux.
+
+
+
+# Hardware required:
+
 ## An ISP programmer
 Such as an AVRISP MKII, however I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and a simple shield I made. (Though you can achieve the same thing with just some dupont cables).
-## A serial terminal program
-For debugging, I tend to use CoolTerm for MacOS.
-
 
 
 
@@ -61,3 +65,4 @@ For debugging, I tend to use CoolTerm for MacOS.
 [AVR_Crosspack_URL]: https://www.obdev.at/products/crosspack/index.html
 [Microchip_Studio_URL]: https://www.microchip.com/en-us/tools-resources/develop/microchip-studio
 [Microchip_Studio_Tutorial_URL]: https://www.microchip.com/en-us/tools-resources/develop/microchip-studio#Getting%20Started
+[CoolTermURL]: https://freeware.the-meiers.org/
