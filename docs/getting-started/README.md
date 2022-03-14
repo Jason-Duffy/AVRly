@@ -56,10 +56,10 @@ This is used to send messages between your PC and the target MCU, and you'll fin
 Such as an [AVRISP MKII][AVRISP_URL], however I had some compatability issues with this one (on MacOS) so instead I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and a simple shield I made - though you can achieve the same thing with just some dupont cables if you don't want to wait for the shield to come back from fab.
 
 ## A USB to Serial Converter
-There are many of these available, I use one of [these][USB_Serial_URL]
+There are many types available, I use one of [these][USB_Serial_URL].
 
 ## Various USB cables
-It's useful to keep several USB cables, micro, mini, USB-A etc
+It's useful to keep several USB cables, micro, mini, USB-A etc.
 
 ## Breadboards
 I like [these][Small_Breadboard_URL] ones with the power supply module for small test projects, and [these][Large_Breadboard_URL] ones for larger, more complex projects. For anything beyond that, I would design a development board with lots of connection and expansion flexibility.
