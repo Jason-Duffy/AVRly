@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Getting Started
-permalink: /gettong-started/
+permalink: /getting-started/
 ---
 
 The projects outlined in this repository are intended for "bare metal" AVR programming. That is - compiling, debugging and flashing your application to the target MCU using the AVR crosspack 2 toolchain and an ISP programmer, rather than using the simpler and more user-friendly Arduino framework.
