@@ -8,7 +8,8 @@ The projects outlined in this repository are intended for "bare metal" AVR progr
 
 ## Requirements:
 
-#### (I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choose from, some popular choices are:
+#### A Text Editor
+I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choose from, some popular choices are:
 - [Sublime Text][Sublime_Text_URL]
 - [Visual Studio Code][VS_Code_URL]
 - [Codespaces][Codespaces_URL]
