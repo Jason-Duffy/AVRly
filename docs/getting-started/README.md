@@ -29,9 +29,10 @@ I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choos
 - Then we can install the required packages.
 
 	`sudo apt-get install avrdude avrdude-doc gcc-avr binutils-avr avr-libc gdb-avr`
-	
+
 #### Red Hat and Fedora distributions
 - Its helpful to update all your current installed packages first.
+
 	`sudo yum update`
 
 	`sudo yum upgrade-all`
