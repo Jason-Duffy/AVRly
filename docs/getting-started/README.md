@@ -29,6 +29,7 @@ I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choos
 - Then we can install the required packages.
 
 	`sudo apt-get install avrdude avrdude-doc gcc-avr binutils-avr avr-libc gdb-avr`
+	
 #### Red Hat and Fedora distributions
 - Its helpful to update all your current installed packages first.
 	`sudo yum update`
@@ -38,6 +39,7 @@ I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choos
 - Then we can install the required packages.
 
 	`sudo yum install avrdude avr-gcc avr-binutils avr-libc avr-gdb`
+
 ### Windows
 Windows users can use the official toolchain from the manufacturer, [Microchip Studio][Microchip_Studio_URL]. This is an IDE so it's full of features, but also has steep learning curve - follow their tutorial [here][Microchip_Studio_Tutorial_URL] to get to grips with it. 
 ## An ISP programmer
