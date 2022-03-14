@@ -65,4 +65,4 @@ Such as an AVRISP MKII, however I just use an Arduino Uno with the "Arduino as I
 [AVR_Crosspack_URL]: https://www.obdev.at/products/crosspack/index.html
 [Microchip_Studio_URL]: https://www.microchip.com/en-us/tools-resources/develop/microchip-studio
 [Microchip_Studio_Tutorial_URL]: https://www.microchip.com/en-us/tools-resources/develop/microchip-studio#Getting%20Started
-[CoolTermURL]: https://freeware.the-meiers.org/
+[CoolTerm_URL]: https://freeware.the-meiers.org/
