@@ -20,15 +20,15 @@ I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choos
 [AVR CrossPack][AVR_Crosspack_URL] Will provide everything you need to develop for AVR on MacOS; the GNU compile suite, C libraries for the AVR, the AVRDUDE uploader and more.
 ### Linux
 #### Debian/Ubuntu distributions
-1. Its helpful to update all your current installed packages first.
+- Its helpful to update all your current installed packages first.
 
-`sudo apt-get update`
+	`sudo apt-get update`
 
-`sudo apt-get upgrade all`
+	`sudo apt-get upgrade all`
 
-2. Then we can install the required packages.
+- Then we can install the required packages.
 
-`sudo apt-get install avrdude avrdude-doc gcc-avr binutils-avr avr-libc gdb-avr`
+	`sudo apt-get install avrdude avrdude-doc gcc-avr binutils-avr avr-libc gdb-avr`
 #### Red Hat and Fedora distributions
 `sudo yum install avrdude avr-gcc avr-binutils avr-libc avr-gdb`
 ### Windows
