@@ -18,8 +18,15 @@ I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choos
 #### MacOS
 [AVR CrossPack][AVR_Crosspack_URL] Will provide everything you need to develop for AVR on MacOS; the GNU compile suite, C libraries for the AVR, the AVRDUDE uploader and more.
 #### Linux
-   ##### Debian-based distributions
-   `sudo apt-get install avrdude avrdude-doc binutils-avr avr-libc gcc-avr gdb-avr`
+   ##### Debian/Ubuntu distributions
+   Its helpful to update all your current installed packages first.
+   `sudo apt-get update`
+   `sudo apt-get upgrade all`
+   Then we can install the required packages.
+   `sudo apt-get install avrdude avrdude-doc gcc-avr binutils-avr avr-libc gdb-avr`
+   ##### Red Hat and Fedora distributions
+   `sudo yum install avrdude avr-gcc avr-binutils avr-libc avr-gdb`
+
 
 ## An ISP programmer
 Such as an AVRISP MKII, however I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and a simple shield I made. (Though you can achieve the same thing with just some dupont cables).
