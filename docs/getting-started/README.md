@@ -16,9 +16,15 @@ I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choos
 - [Atom][Atom_URL]
 ## The AVR toolchain
 #### MacOS
-[AVR CrossPack][AVR_Crosspack_URL] Will provide everything you need to develop for AVR on MacOS; the GNU compile suite, C libraries for the AVR, the AVRDUDE uploader and more. 
-## An ISP programmer such as an AVRISP MKII, however I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and a simple shield I made. (Though you can achieve the same thing with just some dupont cables).
-## A serial terminal program for debugging, I tend to use CoolTerm for MacOS.
+[AVR CrossPack][AVR_Crosspack_URL] Will provide everything you need to develop for AVR on MacOS; the GNU compile suite, C libraries for the AVR, the AVRDUDE uploader and more.
+#### Linux
+   ##### Debian-based distributions
+   `sudo apt-get install avrdude avrdude-doc binutils-avr avr-libc gcc-avr gdb-avr`
+
+## An ISP programmer
+Such as an AVRISP MKII, however I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and a simple shield I made. (Though you can achieve the same thing with just some dupont cables).
+## A serial terminal program
+For debugging, I tend to use CoolTerm for MacOS.
 
 
 
