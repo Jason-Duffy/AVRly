@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Getting Started with Blink", "index.html", [
-    [ "Requirements:", "index.html#autotoc_md0", [
+    [ "Requirements", "index.html#autotoc_md0", [
       [ "A Source Code Editor", "index.html#autotoc_md1", null ],
       [ "The AVR Toolchain", "index.html#autotoc_md2", [
         [ "MacOS", "index.html#autotoc_md3", null ],
@@ -37,7 +37,7 @@ var NAVTREE =
       ] ],
       [ "A Serial Terminal Program", "index.html#autotoc_md8", null ]
     ] ],
-    [ "Hardware Required:", "index.html#autotoc_md9", [
+    [ "Hardware Required", "index.html#autotoc_md9", [
       [ "An AVR microcontroller", "index.html#autotoc_md10", null ],
       [ "An ISP Programmer", "index.html#autotoc_md11", null ],
       [ "A USB to Serial Converter", "index.html#autotoc_md12", null ],
@@ -47,6 +47,7 @@ var NAVTREE =
       [ "An assortment of components", "index.html#autotoc_md16", null ],
       [ "A multimeter", "index.html#autotoc_md17", null ]
     ] ],
+    [ "Connecting the Hardware", "index.html#autotoc_md18", null ],
     [ "Bug List", "bug.html", null ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
