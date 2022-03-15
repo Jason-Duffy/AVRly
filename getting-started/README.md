@@ -51,6 +51,7 @@ An [ATmega328P-PU][ATmega328_URL] is a good place to start - It's a DIP package 
 
 ## An ISP Programmer
 Such as an [AVRISP MKII][AVRISP_URL], however I had some compatability issues with this one (on MacOS) so instead I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and [a simple shield I made][Uno_ISP_Shield_URL] - though you can achieve the same thing with some dupont cables if you don't want to wait for the shield to come back from fab.
+![uno_isp_3d_render.png](/images/uno_isp_3d_render.png)
 
 ## A USB to Serial Converter
 There are many types available, I use one of [these][USB_Serial_URL].
