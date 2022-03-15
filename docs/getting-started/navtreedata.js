@@ -58,7 +58,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"bug.html"
+"blink_8c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
