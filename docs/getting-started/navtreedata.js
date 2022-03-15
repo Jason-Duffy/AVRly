@@ -24,12 +24,17 @@
 */
 var NAVTREE =
 [
-  [ "Getting Started with Blink", "index.html", ]
+  [ "Getting Started with Blink", "index.html", [
+    [ "Bug List", "bug.html", null ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ]
+    ] ]
+  ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"bug.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
