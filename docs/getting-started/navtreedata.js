@@ -25,29 +25,27 @@
 var NAVTREE =
 [
   [ "Getting Started with Blink", "index.html", [
-    [ "Requirements:", "index.html#autotoc_md2", [
-      [ "@anchor md_README", "index.html#autotoc_md0", null ],
-      [ "permalink: /getting-started/", "index.html#autotoc_md1", null ],
-      [ "A Source Code Editor", "index.html#autotoc_md3", null ],
-      [ "The AVR Toolchain", "index.html#autotoc_md4", [
-        [ "MacOS", "index.html#autotoc_md5", null ],
-        [ "Linux", "index.html#autotoc_md6", [
-          [ "Debian/Ubuntu distributions", "index.html#autotoc_md7", null ],
-          [ "Red Hat and Fedora distributions", "index.html#autotoc_md8", null ]
+    [ "Requirements:", "index.html#autotoc_md0", [
+      [ "A Source Code Editor", "index.html#autotoc_md1", null ],
+      [ "The AVR Toolchain", "index.html#autotoc_md2", [
+        [ "MacOS", "index.html#autotoc_md3", null ],
+        [ "Linux", "index.html#autotoc_md4", [
+          [ "Debian/Ubuntu distributions", "index.html#autotoc_md5", null ],
+          [ "Red Hat and Fedora distributions", "index.html#autotoc_md6", null ]
         ] ],
-        [ "Windows", "index.html#autotoc_md9", null ]
+        [ "Windows", "index.html#autotoc_md7", null ]
       ] ],
-      [ "A Serial Terminal Program", "index.html#autotoc_md10", null ]
+      [ "A Serial Terminal Program", "index.html#autotoc_md8", null ]
     ] ],
-    [ "Hardware Required:", "index.html#autotoc_md11", [
-      [ "An AVR microcontroller", "index.html#autotoc_md12", null ],
-      [ "An ISP Programmer", "index.html#autotoc_md13", null ],
-      [ "A USB to Serial Converter", "index.html#autotoc_md14", null ],
-      [ "Various USB cables", "index.html#autotoc_md15", null ],
-      [ "Breadboards", "index.html#autotoc_md16", null ],
-      [ "Jumpers/Dupont cables", "index.html#autotoc_md17", null ],
-      [ "An assortment of components", "index.html#autotoc_md18", null ],
-      [ "A multimeter", "index.html#autotoc_md19", null ]
+    [ "Hardware Required:", "index.html#autotoc_md9", [
+      [ "An AVR microcontroller", "index.html#autotoc_md10", null ],
+      [ "An ISP Programmer", "index.html#autotoc_md11", null ],
+      [ "A USB to Serial Converter", "index.html#autotoc_md12", null ],
+      [ "Various USB cables", "index.html#autotoc_md13", null ],
+      [ "Breadboards", "index.html#autotoc_md14", null ],
+      [ "Jumpers/Dupont cables", "index.html#autotoc_md15", null ],
+      [ "An assortment of components", "index.html#autotoc_md16", null ],
+      [ "A multimeter", "index.html#autotoc_md17", null ]
     ] ],
     [ "Bug List", "bug.html", null ],
     [ "Files", "files.html", [
