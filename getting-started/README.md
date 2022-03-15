@@ -79,12 +79,22 @@ The following setup guide is for an ATmega328p, so if you're starting with a dif
 
 The IDC connector on your ISP programmer should be connected to the target MCU as shown by the colour codes in the image below. These symbols depict the end of the IDC connector - Note the notch on the right hand side - if you turn the connector to face you and rotate it so the notch is on the right, your orientation will be correct. 
 
-![isp_header_pinout.png](./images/isp_header_pinout.png)
+![ISP programmer connections](./images/isp_header_pinout.png)
 
 
-If you're using an Arduino Uno with some dupont cables, then you can make the connections as per the schematic below.
+If you're using an Arduino Uno as an ISP with some dupont cables, then you can make the connections as per the schematic below.
 
-![arduino_isp_hookup.png](./images/arduino_isp_hookup.png)
+![Arduino as ISP connections](./images/arduino_isp_hookup.png)
+
+
+
+Note the 100nF ceramic capacitor between VCC and GND, this is for decoupling and filtering of the power supply, so should be placed as close to the pins as possible. 
+
+You can use the MCU with just it's internal oscillator as a clock source, or if you'd prefer a faster clock speed you can use an external crystal oscillator. Refer to your chip's datasheet for the correct oscillator circuit design. 
+
+Connect a GPIO pin (PB0 in this example) to an LED, with a 220Ω resistor in series with the anode, and the cathode to ground.
+
+![LED Connection](./images/led_connection.png)
 
 
 [Bare_Metal_URL]: https://en.wikipedia.org/wiki/Bare_machine
