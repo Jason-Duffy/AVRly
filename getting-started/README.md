@@ -51,7 +51,6 @@ An [ATmega328P-PU][ATmega328_URL] is a good place to start - It's a DIP package 
 
 ## An ISP Programmer
 Such as an [AVRISP MKII][AVRISP_URL], however I had some compatability issues with this one (on MacOS) so instead I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and [a simple shield I made][Uno_ISP_Shield_URL] - though you can achieve the same thing with some dupont cables if you don't want to wait for the shield to come back from fab.
-![uno_isp_3d_render.png](./images/uno_isp_3d_render.png)
 
 ## A USB to Serial Converter
 There are many types available, I use one of [these][USB_Serial_URL].
@@ -75,9 +74,15 @@ A multimeter like [this one][Multimeter_URL] will help with debugging when hardw
 
 # Connecting the Hardware
 
+The following setup guide is for an ATmega328p, so if you're starting with a different model it's best to refer to the datasheet for pinout, auxillary components needed, power requirements etc, but the broad principles should be much the same.
 
 
+The IDC connector on your ISP programmer should be connected to the target MCU as shown by the colour codes in the image below.
+![avrisp_hookup.png](./images/avrisp_hookup.png)
 
+
+If you're using an Arduino Uno with some dupont cables, then you can make the connections as per the schematic below.
+![arduino_isp_hookup.png](./images/arduino_isp_hookup.png)
 
 
 [Bare_Metal_URL]: https://en.wikipedia.org/wiki/Bare_machine
