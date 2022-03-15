@@ -78,10 +78,12 @@ The following setup guide is for an ATmega328p, so if you're starting with a dif
 
 
 The IDC connector on your ISP programmer should be connected to the target MCU as shown by the colour codes in the image below. These symbols depict the end of the IDC connector - Note the notch on the right hand side - if you turn the connector to face you and rotate it so the notch is on the right, your orientation will be correct. 
+
 ![isp_header_pinout.png](./images/isp_header_pinout.png)
 
 
 If you're using an Arduino Uno with some dupont cables, then you can make the connections as per the schematic below.
+
 ![arduino_isp_hookup.png](./images/arduino_isp_hookup.png)
 
 
