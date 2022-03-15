@@ -6,7 +6,9 @@ permalink: /getting-started/
 
 The projects outlined in this repository are intended for ["bare metal"][Bare_Metal_URL] AVR programming. That is - compiling, debugging and flashing your application without an underlying operating system, directly to the target MCU using the AVR crosspack 2 toolchain and an ISP programmer, rather than using the simpler and more user-friendly Arduino framework.
 
+
 # Requirements:
+
 
 ## A Source Code Editor
 I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choose from, some popular choices are:
@@ -47,6 +49,9 @@ Windows users can use the official toolchain from the manufacturer, [Microchip S
 This is used to send messages between your PC and the target MCU, and you'll find it's a vital debugging tool when coupled with the log_system module. I tend to use [CoolTerm][CoolTerm_URL] which is available on MacOS, Windows and Linux.
 
 
+
+
+
 # Hardware Required:
 
 ## An AVR microcontroller
@@ -81,11 +86,12 @@ A multimeter like [this one][Multimeter_URL] will help with debugging when hardw
 [VS_Code_URL]: https://code.visualstudio.com/
 [Codespaces_URL]: https://github.com/features/codespaces
 [Atom_URL]: https://github.com/features/codespaces
-
 [AVR_Crosspack_URL]: https://www.obdev.at/products/crosspack/index.html
 [Microchip_Studio_URL]: https://www.microchip.com/en-us/tools-resources/develop/microchip-studio
 [Microchip_Studio_Tutorial_URL]: https://www.microchip.com/en-us/tools-resources/develop/microchip-studio#Getting%20Started
 [CoolTerm_URL]: https://freeware.the-meiers.org/
+
+
 [AVRISP_URL]: https://www.amazon.co.uk/Waveshare-Programmer-USB-AVRISP-XPII/dp/B00KM6ZA9I?th=1
 [USB_Serial_URL]: https://www.amazon.co.uk/Ccylez-Converter-Adapter-FT232RL-Android-default/dp/B08DV1SXMQ/ref=sr_1_4?crid=8ZN3WET67TSU&keywords=usb+serial+converter+module&qid=1647296288&sprefix=usb+serial+converter+modul%2Caps%2C72&sr=8-4
 [Small_Breadboard_URL]: https://www.amazon.co.uk/AZDelivery-Breadboard-Supply-Adapter-Jumkper/dp/B01N4VCYUK/ref=sr_1_20?crid=29EM44FS19IF2&keywords=breadboard%2Bwith%2Bpower%2Bsupply&qid=1647296608&sprefix=breadboard%2Bwith%2Bpower%2Bsupply%2Caps%2C64&sr=8-20&th=1
