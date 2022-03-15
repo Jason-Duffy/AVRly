@@ -1,5 +1,6 @@
 # C Programming Resources for AVR MCU's
  
-@mainpage Table of Contents
+[Getting Started][Getting_Started_URL]
 
-@author Jason Duffy.
+
+[Getting_Started_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/getting-started/index.html
