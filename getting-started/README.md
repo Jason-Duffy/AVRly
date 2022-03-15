@@ -2,7 +2,7 @@
 
 The projects outlined in this repository are intended for ["bare metal"][Bare_Metal_URL] AVR programming. That is - compiling, debugging and flashing your application without an underlying operating system, directly to the target MCU using the AVR crosspack 2 toolchain and an ISP programmer, rather than using the simpler and more user-friendly Arduino framework.
 
-# Requirements:
+# Requirements
 
 ## A Source Code Editor
 I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choose from, some popular choices are:
@@ -43,7 +43,7 @@ Windows users can use the official toolchain from the manufacturer, [Microchip S
 This is used to send messages between your PC and the target MCU, and you'll find it's a vital debugging tool when coupled with the log_system module. I tend to use [CoolTerm][CoolTerm_URL] which is available on MacOS, Windows and Linux.
 
 
-# Hardware Required:
+# Hardware Required
 
 ## An AVR microcontroller
 An [ATmega328P-PU][ATmega328_URL] is a good place to start - It's a DIP package so fits nicely in a breadboard or an IC socket. If you want something SMD with more GPIO's interrupts and timers, an [ATmega2560][ATmega2560_URL] has plenty to offer. It's worth noting that this family of AVR's is now listed as "Not reccommended for new designs" which means they are being phased out of production in favour of the newer AVR families. Most of the functionality and methodology should be essentially the same with the newer chips, but they will likely have a different pinout and subset of registers so code and hookup will need to be ported. 
@@ -69,6 +69,13 @@ A kit like [this one][Components_Kit_URL] is a frugal way to source many of the 
 
 ## A multimeter
 A multimeter like [this one][Multimeter_URL] will help with debugging when hardware is involved. An [oscilloscope][Oscilloscope_URL] gives an extra dimension of insight into your circuits and applications, but they are an expensive piece of kit so a little out of reach for beginners.
+
+
+
+# Connecting the Hardware
+
+
+
 
 
 
