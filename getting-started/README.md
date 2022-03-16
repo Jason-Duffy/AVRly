@@ -187,6 +187,8 @@ Now we are finally ready to flash the code. Type `make flash`, and the source co
 
 These can of course be combined like so: `make clean flash fuses`.
 
+If you'd like to lear more about the GNU Make Utility, more information can be found [here](https://www.gnu.org/software/make/). I found it to be a steep learning curve, so if you'd rather not wade into it just yet there are plenty of Makefile generators around. 
+
 ## Verify Makefile Settings
 You should now have an LED which blinks on and off in a 2 second cycle - 1 second on, followed by 1 second off. If it is blinking considerably faster or slower than this, check that the value of F_CPU and LFUSE are set correctly. 
 
