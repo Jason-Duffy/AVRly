@@ -191,23 +191,23 @@ Arduino as ISP connections</div></div>
 <h1><a class="anchor" id="autotoc_md21"></a>
 Configuring the Makefile</h1>
 <p >Download the <a href="./source">source</a> folder in this repository and open up the Makefile. The following variables need to be edited for your setup:</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
-MCU</h2>
+<h3><a class="anchor" id="autotoc_md22"></a>
+MCU</h3>
 <p >This is the AVR chip type, a list of valid names can be found <a href="https://www.nongnu.org/avrdude/user-manual/avrdude_3.html">here</a>.</p>
-<h2><a class="anchor" id="autotoc_md23"></a>
-F_CPU</h2>
+<h3><a class="anchor" id="autotoc_md23"></a>
+F_CPU</h3>
 <p >This is the clock speed in Hz. Note the UL assignment (Unsigned Long).</p>
-<h2><a class="anchor" id="autotoc_md24"></a>
-BAUD</h2>
+<h3><a class="anchor" id="autotoc_md24"></a>
+BAUD</h3>
 <p >This is the baud rate used for serial comms with the AVR, usually 9600 but sometimes differs.</p>
-<h2><a class="anchor" id="autotoc_md25"></a>
-LIBDIR</h2>
+<h3><a class="anchor" id="autotoc_md25"></a>
+LIBDIR</h3>
 <p >A directory for common include files, some of which are installed with the AVR toolchain.</p>
-<h2><a class="anchor" id="autotoc_md26"></a>
-PROGRAMMER_TYPE</h2>
+<h3><a class="anchor" id="autotoc_md26"></a>
+PROGRAMMER_TYPE</h3>
 <p >The type of ISP programmer you're using. A list of valid names can be found <a href="https://www.nongnu.org/avrdude/user-manual/avrdude_3.html">here</a></p>
-<h2><a class="anchor" id="autotoc_md27"></a>
-PROGRAMMER_ARGS</h2>
+<h3><a class="anchor" id="autotoc_md27"></a>
+PROGRAMMER_ARGS</h3>
 <p >Extra arguments to avrdude: baud rate, chip type, -F flag, etc. The baud rate is for serial comms to the programmer. The port address also goes here.</p>
 <h2><a class="anchor" id="autotoc_md28"></a>
 Fuses</h2>

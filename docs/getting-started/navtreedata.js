@@ -52,12 +52,6 @@ var NAVTREE =
       [ "Programmer Connections", "index.html#autotoc_md20", null ]
     ] ],
     [ "Configuring the Makefile", "index.html#autotoc_md21", [
-      [ "MCU", "index.html#autotoc_md22", null ],
-      [ "F_CPU", "index.html#autotoc_md23", null ],
-      [ "BAUD", "index.html#autotoc_md24", null ],
-      [ "LIBDIR", "index.html#autotoc_md25", null ],
-      [ "PROGRAMMER_TYPE", "index.html#autotoc_md26", null ],
-      [ "PROGRAMMER_ARGS", "index.html#autotoc_md27", null ],
       [ "Fuses", "index.html#autotoc_md28", null ]
     ] ],
     [ "Bug List", "bug.html", null ],
