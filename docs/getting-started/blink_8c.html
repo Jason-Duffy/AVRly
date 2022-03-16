@@ -143,6 +143,33 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="afc227daac655fc74c1537c0555055987" name="afc227daac655fc74c1537c0555055987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc227daac655fc74c1537c0555055987">&#9670;&nbsp;</a></span>init_led()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_led </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Call this function once on entry of <a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main routine to be executed on the MCU.">main()</a> routine to configure settings and initialise the LED for use. </p>
+
+<p class="definition">Definition at line <a class="el" href="blink_8c_source.html#l00056">56</a> of file <a class="el" href="blink_8c_source.html">blink.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>{</div>
+<div class="line"><span class="lineno">   58</span>    <a class="code hl_define" href="pin__defines_8h.html#a2eb4252b35effe1188cb61b6124fa617">LED_DDR</a> |= (1 &lt;&lt; <a class="code hl_define" href="pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a">LED_GPIO</a>); <span class="comment">// Set LED_GPIO as output</span></div>
+<div class="line"><span class="lineno">   59</span>}</div>
+<div class="ttc" id="apin__defines_8h_html_a2eb4252b35effe1188cb61b6124fa617"><div class="ttname"><a href="pin__defines_8h.html#a2eb4252b35effe1188cb61b6124fa617">LED_DDR</a></div><div class="ttdeci">#define LED_DDR</div><div class="ttdoc">Defines the Data Direction Register for the GPIO connected to our LED.</div><div class="ttdef"><b>Definition:</b> <a href="pin__defines_8h_source.html#l00046">pin_defines.h:46</a></div></div>
+<div class="ttc" id="apin__defines_8h_html_a843b341668408e5656cf19cf3389bb5a"><div class="ttname"><a href="pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a">LED_GPIO</a></div><div class="ttdeci">#define LED_GPIO</div><div class="ttdoc">Defines the GPIO number the LED is wired to.</div><div class="ttdef"><b>Definition:</b> <a href="pin__defines_8h_source.html#l00051">pin_defines.h:51</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a id="a6e518f3cca5a900d14fa0c99d6223f6d" name="a6e518f3cca5a900d14fa0c99d6223f6d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6e518f3cca5a900d14fa0c99d6223f6d">&#9670;&nbsp;</a></span>blink_led()</h2>
 
@@ -170,34 +197,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   71</span>    _delay_ms(<a class="code hl_define" href="blink_8c.html#af492c45e443abbdbe7aa6c5da36c412d">BLINK_TIME_MS</a>); <span class="comment">// Wait a specified length of time</span></div>
 <div class="line"><span class="lineno">   72</span>}</div>
 <div class="ttc" id="ablink_8c_html_af492c45e443abbdbe7aa6c5da36c412d"><div class="ttname"><a href="blink_8c.html#af492c45e443abbdbe7aa6c5da36c412d">BLINK_TIME_MS</a></div><div class="ttdeci">#define BLINK_TIME_MS</div><div class="ttdoc">Define the blink delay time in milliseconds here.</div><div class="ttdef"><b>Definition:</b> <a href="blink_8c_source.html#l00048">blink.c:48</a></div></div>
-<div class="ttc" id="apin__defines_8h_html_a663daa01e565aee93c6f20c5845b90b4"><div class="ttname"><a href="pin__defines_8h.html#a663daa01e565aee93c6f20c5845b90b4">LED_PORT</a></div><div class="ttdeci">#define LED_PORT</div><div class="ttdoc">Definitions for pins and ports are in this header file.</div><div class="ttdef"><b>Definition:</b> <a href="pin__defines_8h_source.html#l00045">pin_defines.h:45</a></div></div>
-<div class="ttc" id="apin__defines_8h_html_a843b341668408e5656cf19cf3389bb5a"><div class="ttname"><a href="pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a">LED_GPIO</a></div><div class="ttdeci">#define LED_GPIO</div><div class="ttdoc">Defines the GPIO number the LED is wired to.</div><div class="ttdef"><b>Definition:</b> <a href="pin__defines_8h_source.html#l00055">pin_defines.h:55</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="afc227daac655fc74c1537c0555055987" name="afc227daac655fc74c1537c0555055987"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc227daac655fc74c1537c0555055987">&#9670;&nbsp;</a></span>init_led()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void init_led </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Call this function once on entry of <a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main routine to be executed on the MCU.">main()</a> routine to configure settings and initialise the LED for use. </p>
-
-<p class="definition">Definition at line <a class="el" href="blink_8c_source.html#l00056">56</a> of file <a class="el" href="blink_8c_source.html">blink.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   57</span>{</div>
-<div class="line"><span class="lineno">   58</span>    <a class="code hl_define" href="pin__defines_8h.html#a2eb4252b35effe1188cb61b6124fa617">LED_DDR</a> |= (1 &lt;&lt; <a class="code hl_define" href="pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a">LED_GPIO</a>); <span class="comment">// Set LED_GPIO as output</span></div>
-<div class="line"><span class="lineno">   59</span>}</div>
-<div class="ttc" id="apin__defines_8h_html_a2eb4252b35effe1188cb61b6124fa617"><div class="ttname"><a href="pin__defines_8h.html#a2eb4252b35effe1188cb61b6124fa617">LED_DDR</a></div><div class="ttdeci">#define LED_DDR</div><div class="ttdoc">Defines the Data Direction Register for the GPIO connected to our LED.</div><div class="ttdef"><b>Definition:</b> <a href="pin__defines_8h_source.html#l00050">pin_defines.h:50</a></div></div>
+<div class="ttc" id="apin__defines_8h_html_a663daa01e565aee93c6f20c5845b90b4"><div class="ttname"><a href="pin__defines_8h.html#a663daa01e565aee93c6f20c5845b90b4">LED_PORT</a></div><div class="ttdeci">#define LED_PORT</div><div class="ttdoc">Defines the AVR port we have wired our LED to.</div><div class="ttdef"><b>Definition:</b> <a href="pin__defines_8h_source.html#l00041">pin_defines.h:41</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
