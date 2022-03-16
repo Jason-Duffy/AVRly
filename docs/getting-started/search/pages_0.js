@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bug_20list_0',['Bug List',['../bug.html',1,'']]]
+  ['getting_20started_20with_20blink_0',['Getting Started with Blink',['../index.html',1,'']]]
 ];
