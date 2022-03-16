@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p ><a class="anchor" id="md_README"></a> The projects outlined in this repository are intended for <a href="https://en.wikipedia.org/wiki/Bare_machine">"bare metal"</a> AVR programming. That is - compiling, debugging and flashing your application without an underlying operating system, directly to the target MCU using the AVR crosspack 2 toolchain and an ISP programmer, rather than using the simpler and more user-friendly Arduino framework.</p>
-<p >The Blink example isn't a particularly groundbreaking project, but it serves to verify the setup of your development environment and configuration of the target MCU have been performed correctly, before moving onto more complex projects and examples where issues could be harder to diagnose.</p>
+<p >The Blink example isn't a particularly groundbreaking project, but it serves to verify that the setup of your development environment and configuration of the target MCU have been performed correctly, before moving onto more complex projects and examples where issues could be harder to diagnose.</p>
 <h1><a class="anchor" id="autotoc_md0"></a>
 Software Requirements</h1>
 <h2><a class="anchor" id="autotoc_md1"></a>
@@ -164,7 +164,7 @@ Connecting the Hardware</h1>
 <p >The following setup guide is for an ATmega328p, so if you're starting with a different model it's best to refer to your part's datasheet for pinout, auxillary components needed, power requirements etc, but the broad principles should be much the same.</p>
 <h2><a class="anchor" id="autotoc_md19"></a>
 MCU Connections</h2>
-<p >Note the 100nF ceramic capacitor between VCC and GND, this is for decoupling and filtering of the power supply, so should be placed as close to the pins as possible.</p>
+<p >Note the 100nF ceramic capacitor between VCC and GND, this is for decoupling and filtering of the power supply, so should be placed as close to the pins as possible. <img src="decoupling_cap.png" alt="" class="inline" title="Decoupling capacitor"/>   </p>
 <p >You can use the MCU with just it's internal oscillator as a clock source, or if you'd prefer a faster clock speed you can use an external crystal oscillator. Refer to your chip's datasheet for the correct oscillator circuit design.</p>
 <p >Connect a GPIO pin (PB0 in this example) to an LED, with a 220Ω resistor in series with the anode, and the cathode to ground.</p>
 <div class="image">
