@@ -97,6 +97,32 @@ Connect a GPIO pin (PB0 in this example) to an LED, with a 220Ω resistor in ser
 ![LED Connection](./images/led_connection.png)
 
 
+
+Connect the programmer to your PC, then check which serial port it's on. If you have the Arduino IDE, you can go to Tools > Port > *port address is shown here*.
+
+For MacOS and Linux, open Terminal and type `ls /dev/tty*` for a list of connected devices. The programmer will look something like `/dev/tty.usbmodem14101`. 
+
+For Windows, it will look something like COM3.
+
+In Terminal/cmd, type `avrdude` to check the AVRDUDE software has been correctly installed. It should give you a helpful list of flags and arguments you can use. 
+
+Now we can check the programmer and target MCU are connected and being recognised correctly by typing:
+`avrdude -p m328p -c arvisp`, replace `m328p` with your MCU type, and `avrisp` with your programmer type if different from these. 
+
+You should then see a success message. If not, check your wiring and connectiuons, check the target MCU is powered, and check the programmer type and AVR chip type are correct.
+
+
+
+# Configuring the Makefile
+
+Download the [source](./source) folder in this repository and open up the Makefile. The following variables need to be edited for your setup:
+
+## MCU
+
+This is the AVR chip type, a list of valid names can be found [here][AVR_GCC_Options_URL].
+
+
+
 [Bare_Metal_URL]: https://en.wikipedia.org/wiki/Bare_machine
 [Sublime_Text_URL]: http://www.sublimetext.com/
 [VS_Code_URL]: https://code.visualstudio.com/
@@ -119,3 +145,5 @@ Connect a GPIO pin (PB0 in this example) to an LED, with a 220Ω resistor in ser
 [Components_Kit_URL]: https://www.amazon.co.uk/Freenove-Ultimate-Compatible-Programming-Electronics/dp/B08B4D5MV5/ref=sr_1_17_sspa?crid=YI7I2MN0COCC&keywords=arduino+components+kit&qid=1647301388&sprefix=arduino+components%2Caps%2C75&sr=8-17-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzTjY0QVFGTEZHREVNJmVuY3J5cHRlZElkPUEwNjU1Mzk4MkRCS1c5UFBaMUI2QiZlbmNyeXB0ZWRBZElkPUEwMDEyMzQxM1NSUDZWS1RPM1Q2SCZ3aWRnZXROYW1lPXNwX210ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=
 [MULTIMETER_URL]: https://www.ebay.co.uk/itm/373974464011?epid=23040427421&_trkparms=ispr%3D1&hash=item57129d760b:g:ecgAAOSwcvJhM~1Y&amdata=enc%3AAQAGAAACoPYe5NmHp%252B2JMhMi7yxGiTJkPrKr5t53CooMSQt2orsSafTQYbq3L7RBVAMi0K9cw1RWXBpCryIDtHtQ%252FwGGrM5qNRo2BcdEvJNXURbFcGIieFzIjcYyayBhlA94swn2TTvs028l2IF1Z7kkPlAkTOZau7i64BOsAJM5jtEUKTzYuTAksI%252B6wqVDHXCmc%252BbqVJWdWCtN%252FedfWrLz22fV7JfFf3r%252BndQy6pgUf%252B0CqyxVpLGK%252FtsA2WoJN66265Nsb%252Biz2cPGbaMohOx96MSBAMI556eVyZ1Jt%252FgLkiIOgy%252F4LEQX%252B3foG6Ptb%252BN9ZmnQkdg5oCnRE0hxlFfAD5SOzEzmtg9%252BIE2HDfbFvLsU0Z0%252BZ2IQwJohjr5c6NdN3ax%252B0NkAFl5TKriVBAerlTCklJ%252BeOmn4DGytxPaRs%252B7VYCtZf8PXhxRmWn89GJw9Xt%252FCGpH1hvp9DXVNVCjJBMZeRVIKV3LmmgTdNnj9a%252FAUNwyB5qnSZWNkYEvX0swcp0PJU6qoVXYAEBLx2T03VucnyJ6R8Ja2NbFUVIPLPL4f4hHTUcR5hxbe0v9ux4iwgbiJLIPIXDKfDovdqX%252BUgBKJiLOUzGZKey7I7PeEDHsw5vr1KEHBd6%252B3Cw0FN0asmNY2XUmwd9LrLf401Wo4ovba%252FjznpyXfGfjHaobMVxQzN%252FAPIdxhcaODHy%252Bku4xgVEgZaD8n58JPn%252Fz0u75IwCzYoV%252FHGCX7zUgjd0Flsw5CiQpHVdB4eqGaKKP97ct2rRUEtd4t5YZJJi7KbHlJxs3Kr4KxuyQ2Xfk4nbZhpRPStSf%252FrLNa%252FxQudCxW2vnABZJayi8xGYlqFq%252BZYczELbh3%252BIyYls%252FmPtJgL%252F0yOiQgmVnId%252BTVMf1Q7taqp1w%252FN0AaMA%253D%253D%7Cclp%3A2334524%7Ctkp%3ABFBMlsihrvFf
 [Oscilloscope_URL]: https://telonic.co.uk/product/rigol-ds1054z-50mhz-digital-oscilloscope/
+
+[AVR_GCC_Options_URL]: https://www.nongnu.org/avr-libc/user-manual/using_tools.html
