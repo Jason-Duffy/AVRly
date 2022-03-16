@@ -189,7 +189,7 @@ You should now have an LED which blinks on and off in a 2 second cycle - 1 secon
 Once you are satisfied that the LED is blinking as it should be, you're ready to proceed to the more exciting projects and examples in this repo!
 
 # Anatomy of Embedded Firmware
-To get a feel for the file structure, layout and formatting of embedded C firmware for AVR, check out the [documentation for the Blink example application.](/files) 
+To get a feel for the file structure, layout and formatting of embedded C firmware for AVR, check out the [documentation for the Blink example application.](/C-Programming-Resources-for-AVR-MCU-s/getting-started/files.html) 
 
 [Bare_Metal_URL]: https://en.wikipedia.org/wiki/Bare_machine
 [Sublime_Text_URL]: http://www.sublimetext.com/
