@@ -136,7 +136,7 @@ A Serial Terminal Program</h2>
 Hardware Required</h1>
 <h2><a class="anchor" id="autotoc_md10"></a>
 An AVR microcontroller</h2>
-<p >An <a href="https://www.amazon.co.uk/Atmel-ATMega328-PU-ATMEL-Microcontroller-Chip/dp/B071Y4YF5X/ref=sr_1_5?crid=564N7F4OE3JE&amp;keywords=atmega328&amp;qid=1647299808&amp;sprefix=atmega328%2Caps%2C62&amp;sr=8-5">ATmega328P-PU</a> is a good place to start - It's a DIP package so fits nicely in a breadboard or an IC socket. If you want something SMD with more GPIO's interrupts and timers, an <a href="https://www.amazon.co.uk/1pcs-lot-ATMEGA2560-16AU-ATMEGA2560-QFP-100/dp/B09SZGJS7C/ref=sr_1_5?crid=3R3LG8NF0EER8&amp;keywords=atmega2560&amp;qid=1647299857&amp;sprefix=atmega256%2Caps%2C76&amp;sr=8-5">ATmega2560</a> has plenty to offer. It's worth noting that this family of AVR's is now listed as "Not reccommended for new designs" which means they are being phased out of production in favour of the newer AVR families. Most of the functionality and methodology should be essentially the same with the newer chips, but they will likely have a different pinout and subset of registers so code and hookup will need to be ported.</p>
+<p >An <a href="https://www.amazon.co.uk/Atmel-ATMega328-PU-ATMEL-Microcontroller-Chip/dp/B071Y4YF5X/ref=sr_1_5?crid=564N7F4OE3JE&amp;keywords=atmega328&amp;qid=1647299808&amp;sprefix=atmega328%2Caps%2C62&amp;sr=8-5">ATmega328P-PU</a> is a good place to start - It's a DIP package so fits nicely in a breadboard or an IC socket. Most of the examples in this repository will be using the ATmega328p, and it is strongly recommended to refer to it's <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datash">datasheet</a> if you are unsure about anything. If you want something SMD with more GPIO's interrupts and timers, an <a href="https://www.amazon.co.uk/1pcs-lot-ATMEGA2560-16AU-ATMEGA2560-QFP-100/dp/B09SZGJS7C/ref=sr_1_5?crid=3R3LG8NF0EER8&amp;keywords=atmega2560&amp;qid=1647299857&amp;sprefix=atmega256%2Caps%2C76&amp;sr=8-5">ATmega2560</a> has plenty to offer. It's worth noting that this family of AVR's is now listed as "Not reccommended for new designs" which means they are being phased out of production in favour of the newer AVR families. Most of the functionality and methodology should be essentially the same with the newer chips, but they will likely have a different pinout and subset of registers so code and hookup will need to be ported.</p>
 <h2><a class="anchor" id="autotoc_md11"></a>
 An ISP Programmer</h2>
 <p >Such as an <a href="https://www.amazon.co.uk/Waveshare-Programmer-USB-AVRISP-XPII/dp/B00KM6ZA9I?th=1">AVRISP MKII</a>, however I had some compatability issues with this one (on MacOS) so instead I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and <a href="/Uno_ISP_Shield">a simple shield I made</a> - though you can achieve the same thing with some dupont cables if you don't want to wait for the shield to come back from fab.</p>
@@ -199,7 +199,7 @@ F_CPU</h3>
 <p >This is the clock speed in Hz. Note the UL assignment (Unsigned Long).</p>
 <h3><a class="anchor" id="autotoc_md24"></a>
 BAUD</h3>
-<p >This is the baud rate used for serial comms with the AVR, usually 9600 but sometimes differs.</p>
+<p >This is the baud rate used for serial comms with the AVR, us ually 9600 but sometimes differs.</p>
 <h3><a class="anchor" id="autotoc_md25"></a>
 LIBDIR</h3>
 <p >A directory for common include files, some of which are installed with the AVR toolchain.</p>
@@ -211,7 +211,29 @@ PROGRAMMER_ARGS</h3>
 <p >Extra arguments to avrdude: baud rate, chip type, -F flag, etc. The baud rate is for serial comms to the programmer. The port address also goes here.</p>
 <h2><a class="anchor" id="autotoc_md28"></a>
 Fuses</h2>
-</div></div><!-- PageDoc -->
+<p ><b>WARNING</b> Take great care when editing these variables, they can brick the MCU if set incorrectly. Always refer to the <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datash">datasheet</a> if unsure, and note that they use an inverse logic - the bit will read 1 if unprogrammed, and 0 if programmed. A handy fuse setting calculator can be found <a href="https://www.engbedded.com/fusecalc/">here</a>.</p>
+<h4><a class="anchor" id="autotoc_md29"></a>
+LFUSE</h4>
+<p >Low fuse byte. This is used to select the clock source and some config settings for clock operation.</p>
+<div class="image">
+<img src="low_fuse.png" alt=""/>
+<div class="caption">
+Fuse low byte register</div></div>
+   <h4><a class="anchor" id="autotoc_md30"></a>
+HFUSE</h4>
+<p >High fuse byte. Bits 2 - 0 are used to select the amount of memory allocated for a bootloader (not required for the projects in this repo). The remaining bits are used to control EEPROM, watchdog timer, programming and reset options. SPIEN and RSTDISBL are the dangerous ones likely to brick your MCU if set incorrectly, so <b>only</b> touch these if you know what you're doing.</p>
+<div class="image">
+<img src="high_fuse.png" alt=""/>
+<div class="caption">
+Fuse high byte register</div></div>
+   <h4><a class="anchor" id="autotoc_md31"></a>
+EFUSE</h4>
+<p >Extended fuse byte. This is used to set the brownout detection level.</p>
+<div class="image">
+<img src="extended_fuse.png" alt=""/>
+<div class="caption">
+Extended fuse byte register</div></div>
+    </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
