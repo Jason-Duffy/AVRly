@@ -1,12 +1,20 @@
 var NAVTREEINDEX0 =
 {
 "blink_8c.html":[6,0,0,0],
+"blink_8c.html#a6e518f3cca5a900d14fa0c99d6223f6d":[6,0,0,0,1],
+"blink_8c.html#af492c45e443abbdbe7aa6c5da36c412d":[6,0,0,0,0],
+"blink_8c.html#afc227daac655fc74c1537c0555055987":[6,0,0,0,2],
 "blink_8c_source.html":[6,0,0,0],
 "blink_8h.html":[6,0,0,1],
+"blink_8h.html#a6e518f3cca5a900d14fa0c99d6223f6d":[6,0,0,1,0],
+"blink_8h.html#afc227daac655fc74c1537c0555055987":[6,0,0,1,1],
 "blink_8h_source.html":[6,0,0,1],
 "bug.html":[5],
 "dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html":[6,0,0],
 "files.html":[6,0],
+"globals.html":[6,1,0],
+"globals_defs.html":[6,1,2],
+"globals_func.html":[6,1,1],
 "index.html":[],
 "index.html#autotoc_md0":[0],
 "index.html#autotoc_md1":[0,0],
@@ -47,8 +55,12 @@ var NAVTREEINDEX0 =
 "index.html#autotoc_md8":[0,2],
 "index.html#autotoc_md9":[1],
 "main_8c.html":[6,0,0,2],
+"main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[6,0,0,2,0],
 "main_8c_source.html":[6,0,0,2],
 "pages.html":[],
 "pin__defines_8h.html":[6,0,0,3],
+"pin__defines_8h.html#a2eb4252b35effe1188cb61b6124fa617":[6,0,0,3,0],
+"pin__defines_8h.html#a663daa01e565aee93c6f20c5845b90b4":[6,0,0,3,2],
+"pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a":[6,0,0,3,1],
 "pin__defines_8h_source.html":[6,0,0,3]
 };
