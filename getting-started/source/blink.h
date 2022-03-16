@@ -41,7 +41,6 @@ void init_led(void);
 
 /**
  * Call this function in the loop of the main() routine to blink the LED. 
- * @param Pass in an unsigned 16 bit integer (0 - 65535) to alter the blink rate. 
  */
 void blink_led(void);
 
