@@ -73,7 +73,10 @@ var NAVTREE =
       ] ],
       [ "Verify Makefile Settings", "index.html#autotoc_md37", null ]
     ] ],
-    [ "Anatomy of Embedded Firmware", "index.html#autotoc_md38", null ],
+    [ "Anatomy of Embedded Firmware", "index.html#autotoc_md38", [
+      [ "Documentation", "index.html#autotoc_md39", null ],
+      [ "Coding Standards", "index.html#autotoc_md40", null ]
+    ] ],
     [ "Bug List", "bug.html", null ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
