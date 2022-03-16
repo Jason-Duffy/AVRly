@@ -52,7 +52,8 @@ An [ATmega328P-PU][ATmega328_URL] is a good place to start - It's a DIP package 
 
 
 ## An ISP Programmer
-Such as an [AVRISP MKII][AVRISP_URL], however I had some compatability issues with this one (on MacOS) so instead I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and [a simple shield I made][Uno_ISP_Shield_URL] - though you can achieve the same thing with some dupont cables if you don't want to wait for the shield to come back from fab. The Arduino as ISP sketch can be found in the Arduino IDE 
+Such as an [AVRISP MKII][AVRISP_URL], however I had some compatability issues with this one (on MacOS) so instead I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and [a simple shield I made][Uno_ISP_Shield_URL] - though you can achieve the same thing with some dupont cables if you don't want to wait for the shield to come back from fab. The Arduino as ISP sketch can be found in the Arduino IDE.
+![Arduino ISP Shield](./images/arduino_isp_shield.jpg)
 
 ## A USB to Serial Converter
 There are many types available, I use one of [these][USB_Serial_URL].
@@ -91,7 +92,9 @@ Connect a GPIO pin (PB0 in this example) to an LED, with a 220Ω resistor in ser
 
 ## Programmer Connections
 
-The IDC connector on your ISP programmer should be connected to the target MCU as shown by the colour codes in the image below. These symbols depict the end of the IDC connector - Note the notch on the right hand side - if you turn the connector to face you and rotate it so the notch is on the right, your orientation will be correct. 
+The IDC connector on your ISP programmer should be connected to the target MCU as shown by the colour codes in the image below. These symbols depict the end of the IDC connector - Note the notch on the right hand side - if you turn the connector to face you and rotate it so the notch is on the right, your orientation will be correct.
+
+![IDC connector orientation](./images/icd_connector_orientation.jpg)
 
 ![ISP programmer connections](./images/isp_header_pinout.png)
 
@@ -139,7 +142,7 @@ A directory for common include files, some of which are installed with the AVR t
 
 ### PROGRAMMER_TYPE
 
-The type of ISP programmer you're using. A list of valid names can be found [here][AVR_GCC_Options_URL]
+The type of ISP programmer you're using. A list of valid names can be found [here][AVR_GCC_Options_URL].
 
 ### PROGRAMMER_ARGS
 
@@ -189,7 +192,13 @@ You should now have an LED which blinks on and off in a 2 second cycle - 1 secon
 Once you are satisfied that the LED is blinking as it should be, you're ready to proceed to the more exciting projects and examples in this repo!
 
 # Anatomy of Embedded Firmware
-To get a feel for the file structure, layout and formatting of embedded C firmware for AVR, check out the [documentation for the Blink example application.](/C-Programming-Resources-for-AVR-MCU-s/getting-started/files.html) 
+
+## Documentation
+To get a feel for the file structure, layout and formatting of embedded C firmware for AVR, check out the [documentation for the Blink example application.](/C-Programming-Resources-for-AVR-MCU-s/getting-started/files.html)
+
+## Coding Standards
+Adhering to coding standards helps to make your code more readable, robust, easier to debug and more portable. The firmware in this repo was written to the [Barr Group C Coding Standard][Barr_Coding_Standard_URL], and I would encourage others to read it and use those guidelines in their own code. 
+
 
 [Bare_Metal_URL]: https://en.wikipedia.org/wiki/Bare_machine
 [Sublime_Text_URL]: http://www.sublimetext.com/
@@ -217,3 +226,5 @@ To get a feel for the file structure, layout and formatting of embedded C firmwa
 
 [AVR_GCC_Options_URL]: https://www.nongnu.org/avrdude/user-manual/avrdude_3.html
 [Fuse_Calculator_URL]: https://www.engbedded.com/fusecalc/
+
+[Barr_Coding_Standard_URL]: https://barrgroup.com/sites/default/files/barr_c_coding_standard_2018.pdf
