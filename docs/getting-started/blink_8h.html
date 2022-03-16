@@ -142,15 +142,15 @@ Functions</h2></td></tr>
 <p >Turn LED off</p>
 <p >Wait a specified length of time</p>
 
-<p class="definition">Definition at line <a class="el" href="blink_8c_source.html#l00066">66</a> of file <a class="el" href="blink_8c_source.html">blink.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   67</span>{</div>
-<div class="line"><span class="lineno">   68</span>    <a class="code hl_define" href="pin__defines_8h.html#a663daa01e565aee93c6f20c5845b90b4">LED_PORT</a> |= (1 &lt;&lt; <a class="code hl_define" href="pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a">LED_GPIO</a>); </div>
-<div class="line"><span class="lineno">   69</span>    _delay_ms(<a class="code hl_define" href="blink_8c.html#af492c45e443abbdbe7aa6c5da36c412d">BLINK_TIME_MS</a>); </div>
-<div class="line"><span class="lineno">   70</span> </div>
-<div class="line"><span class="lineno">   71</span>    <a class="code hl_define" href="pin__defines_8h.html#a663daa01e565aee93c6f20c5845b90b4">LED_PORT</a> &amp;= ~(1 &lt;&lt; <a class="code hl_define" href="pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a">LED_GPIO</a>); </div>
-<div class="line"><span class="lineno">   72</span>    _delay_ms(<a class="code hl_define" href="blink_8c.html#af492c45e443abbdbe7aa6c5da36c412d">BLINK_TIME_MS</a>); </div>
-<div class="line"><span class="lineno">   73</span>}</div>
-<div class="ttc" id="ablink_8c_html_af492c45e443abbdbe7aa6c5da36c412d"><div class="ttname"><a href="blink_8c.html#af492c45e443abbdbe7aa6c5da36c412d">BLINK_TIME_MS</a></div><div class="ttdeci">#define BLINK_TIME_MS</div><div class="ttdoc">Include the header file containing the _delay_ms() macro.</div><div class="ttdef"><b>Definition:</b> <a href="blink_8c_source.html#l00050">blink.c:50</a></div></div>
+<p class="definition">Definition at line <a class="el" href="blink_8c_source.html#l00065">65</a> of file <a class="el" href="blink_8c_source.html">blink.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>{</div>
+<div class="line"><span class="lineno">   67</span>    <a class="code hl_define" href="pin__defines_8h.html#a663daa01e565aee93c6f20c5845b90b4">LED_PORT</a> |= (1 &lt;&lt; <a class="code hl_define" href="pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a">LED_GPIO</a>); </div>
+<div class="line"><span class="lineno">   68</span>    _delay_ms(<a class="code hl_define" href="blink_8c.html#af492c45e443abbdbe7aa6c5da36c412d">BLINK_TIME_MS</a>); </div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>    <a class="code hl_define" href="pin__defines_8h.html#a663daa01e565aee93c6f20c5845b90b4">LED_PORT</a> &amp;= ~(1 &lt;&lt; <a class="code hl_define" href="pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a">LED_GPIO</a>); </div>
+<div class="line"><span class="lineno">   71</span>    _delay_ms(<a class="code hl_define" href="blink_8c.html#af492c45e443abbdbe7aa6c5da36c412d">BLINK_TIME_MS</a>); </div>
+<div class="line"><span class="lineno">   72</span>}</div>
+<div class="ttc" id="ablink_8c_html_af492c45e443abbdbe7aa6c5da36c412d"><div class="ttname"><a href="blink_8c.html#af492c45e443abbdbe7aa6c5da36c412d">BLINK_TIME_MS</a></div><div class="ttdeci">#define BLINK_TIME_MS</div><div class="ttdoc">Define the blink delay time in milliseconds here.</div><div class="ttdef"><b>Definition:</b> <a href="blink_8c_source.html#l00048">blink.c:48</a></div></div>
 <div class="ttc" id="apin__defines_8h_html_a663daa01e565aee93c6f20c5845b90b4"><div class="ttname"><a href="pin__defines_8h.html#a663daa01e565aee93c6f20c5845b90b4">LED_PORT</a></div><div class="ttdeci">#define LED_PORT</div><div class="ttdoc">Definitions for pins and ports are in this header file.</div><div class="ttdef"><b>Definition:</b> <a href="pin__defines_8h_source.html#l00044">pin_defines.h:44</a></div></div>
 <div class="ttc" id="apin__defines_8h_html_a843b341668408e5656cf19cf3389bb5a"><div class="ttname"><a href="pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a">LED_GPIO</a></div><div class="ttdeci">#define LED_GPIO</div><div class="ttdoc">Defines the GPIO number the LED is wired to.</div><div class="ttdef"><b>Definition:</b> <a href="pin__defines_8h_source.html#l00054">pin_defines.h:54</a></div></div>
 </div><!-- fragment -->
@@ -174,10 +174,10 @@ Functions</h2></td></tr>
 
 <p>Call this function once on entry of <a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Include the header from our blink module.">main()</a> routine to configure settings and initialise the LED for use. </p>
 
-<p class="definition">Definition at line <a class="el" href="blink_8c_source.html#l00057">57</a> of file <a class="el" href="blink_8c_source.html">blink.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   58</span>{</div>
-<div class="line"><span class="lineno">   59</span>    <a class="code hl_define" href="pin__defines_8h.html#a2eb4252b35effe1188cb61b6124fa617">LED_DDR</a> |= (1 &lt;&lt; <a class="code hl_define" href="pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a">LED_GPIO</a>); <span class="comment">// Set LED_GPIO as output</span></div>
-<div class="line"><span class="lineno">   60</span>}</div>
+<p class="definition">Definition at line <a class="el" href="blink_8c_source.html#l00056">56</a> of file <a class="el" href="blink_8c_source.html">blink.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>{</div>
+<div class="line"><span class="lineno">   58</span>    <a class="code hl_define" href="pin__defines_8h.html#a2eb4252b35effe1188cb61b6124fa617">LED_DDR</a> |= (1 &lt;&lt; <a class="code hl_define" href="pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a">LED_GPIO</a>); <span class="comment">// Set LED_GPIO as output</span></div>
+<div class="line"><span class="lineno">   59</span>}</div>
 <div class="ttc" id="apin__defines_8h_html_a2eb4252b35effe1188cb61b6124fa617"><div class="ttname"><a href="pin__defines_8h.html#a2eb4252b35effe1188cb61b6124fa617">LED_DDR</a></div><div class="ttdeci">#define LED_DDR</div><div class="ttdoc">Defines the Data Direction Register for the GPIO connected to our LED.</div><div class="ttdef"><b>Definition:</b> <a href="pin__defines_8h_source.html#l00049">pin_defines.h:49</a></div></div>
 </div><!-- fragment -->
 </div>
