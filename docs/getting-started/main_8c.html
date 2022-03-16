@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('main_8c.html',''); initResizable(); })
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a> ()</td></tr>
-<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Include the header from our blink module.  <a href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">More...</a><br /></td></tr>
+<tr class="memdesc:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main routine to be executed on the MCU.  <a href="main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">More...</a><br /></td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -108,7 +108,7 @@ Functions</h2></td></tr>
 <p >THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <dl class="section author"><dt>Author</dt><dd>Jason Duffy </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>15th March 2022</dd></dl>
-<p>Main routine for the Blink example application in Getting Started. </p><dl class="bug"><dt><b><a class="el" href="bug.html#_bug000001">Bug:</a></b></dt><dd>No known bugs. </dd></dl>
+<p>Main routine for the Blink example application in Getting Started. This example application is intended to verify the configuration steps for the MCU have been performed correctly and everything is working as it should. The LED should turn on for 1 second, then turn off for 1 second, and repeat. This file also serves to demonstrate the anatomy of embedded firmware. </p><dl class="bug"><dt><b><a class="el" href="bug.html#_bug000003">Bug:</a></b></dt><dd>No known bugs. </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="main_8c_source.html">main.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -127,25 +127,21 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Include the header from our blink module. </p>
-<p >This allows us to use it's public functions. Main routine to be executed on the MCU. </p>
-<p >Call function to initialise LED for use.</p>
-<p >Loop forever</p>
-<p >This line is never reached.</p>
+<p>Main routine to be executed on the MCU. </p>
 
-<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00042">42</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   43</span>{</div>
-<div class="line"><span class="lineno">   44</span>    <a class="code hl_function" href="blink_8c.html#afc227daac655fc74c1537c0555055987">init_led</a>(); </div>
-<div class="line"><span class="lineno">   45</span> </div>
-<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">while</span> (1) </div>
-<div class="line"><span class="lineno">   47</span>    {</div>
-<div class="line"><span class="lineno">   48</span>        <a class="code hl_function" href="blink_8c.html#a6e518f3cca5a900d14fa0c99d6223f6d">blink_led</a>();</div>
-<div class="line"><span class="lineno">   49</span>    }</div>
-<div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">return</span> 0; </div>
-<div class="line"><span class="lineno">   52</span>}</div>
-<div class="ttc" id="ablink_8c_html_a6e518f3cca5a900d14fa0c99d6223f6d"><div class="ttname"><a href="blink_8c.html#a6e518f3cca5a900d14fa0c99d6223f6d">blink_led</a></div><div class="ttdeci">void blink_led(void)</div><div class="ttdoc">Call this function in the loop of the main() routine to blink the LED.</div><div class="ttdef"><b>Definition:</b> <a href="blink_8c_source.html#l00068">blink.c:68</a></div></div>
-<div class="ttc" id="ablink_8c_html_afc227daac655fc74c1537c0555055987"><div class="ttname"><a href="blink_8c.html#afc227daac655fc74c1537c0555055987">init_led</a></div><div class="ttdeci">void init_led(void)</div><div class="ttdoc">Call this function once on entry of main() routine to configure settings and initialise the LED for u...</div><div class="ttdef"><b>Definition:</b> <a href="blink_8c_source.html#l00059">blink.c:59</a></div></div>
+<p class="definition">Definition at line <a class="el" href="main_8c_source.html#l00044">44</a> of file <a class="el" href="main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   45</span>{</div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_function" href="blink_8c.html#afc227daac655fc74c1537c0555055987">init_led</a>(); <span class="comment">// Call function to initialise LED for use.</span></div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">while</span> (1) <span class="comment">// Loop forever</span></div>
+<div class="line"><span class="lineno">   49</span>    {</div>
+<div class="line"><span class="lineno">   50</span>        <a class="code hl_function" href="blink_8c.html#a6e518f3cca5a900d14fa0c99d6223f6d">blink_led</a>();</div>
+<div class="line"><span class="lineno">   51</span>    }</div>
+<div class="line"><span class="lineno">   52</span> </div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">return</span> 0; <span class="comment">// This line is never reached. </span></div>
+<div class="line"><span class="lineno">   54</span>}</div>
+<div class="ttc" id="ablink_8c_html_a6e518f3cca5a900d14fa0c99d6223f6d"><div class="ttname"><a href="blink_8c.html#a6e518f3cca5a900d14fa0c99d6223f6d">blink_led</a></div><div class="ttdeci">void blink_led(void)</div><div class="ttdoc">Call this function in the loop of the main() routine to blink the LED.</div><div class="ttdef"><b>Definition:</b> <a href="blink_8c_source.html#l00065">blink.c:65</a></div></div>
+<div class="ttc" id="ablink_8c_html_afc227daac655fc74c1537c0555055987"><div class="ttname"><a href="blink_8c.html#afc227daac655fc74c1537c0555055987">init_led</a></div><div class="ttdeci">void init_led(void)</div><div class="ttdoc">Call this function once on entry of main() routine to configure settings and initialise the LED for u...</div><div class="ttdef"><b>Definition:</b> <a href="blink_8c_source.html#l00056">blink.c:56</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
