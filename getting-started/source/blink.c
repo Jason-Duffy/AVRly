@@ -28,26 +28,25 @@
  * 
  */
 
-/**
- * Include the header file containing the _delay_ms() macro.
- */
+
+
+// Include the header file containing the _delay_ms() macro.
 #include <util/delay.h>
 
-/**
- * Include the header file containing pin and port definitions. 
- */
+// Include the header file containing pin and port definitions. 
 #include "pin_defines.h"
 
-/**
- * Include the header file for this module. 
- */
+// Include the header file for this module. 
 #include "blink.h"
+
+
 
 
 /**
  * Define the blink delay time in milliseconds here.
  */
 #define BLINK_TIME_MS   1000
+
 
 
 /**
@@ -71,3 +70,6 @@ void blink_led(void)
     LED_PORT &= ~(1 << LED_GPIO); /// Turn LED off 
     _delay_ms(BLINK_TIME_MS); /// Wait a specified length of time
 }
+
+
+/*** end of file ***/
