@@ -9,9 +9,7 @@ F_CPU = 16000000UL
 BAUD  = 9600UL
 ## Also try BAUD = 19200 or 38400 if you're feeling lucky.
 
-## A directory for common include files and the simple USART library.
-## If you move either the current folder or the Library folder, you'll 
-##  need to change this path to match.
+## A directory for common include files.
 LIBDIR = /usr/local/
 
 ##########------------------------------------------------------##########
