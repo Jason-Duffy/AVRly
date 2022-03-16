@@ -24,18 +24,14 @@
  * @file pin_defines.h
  * @author Jason Duffy
  * @date 15th March 2022
- * @brief Pin and port definitions for the pinout of Getting Started with
- * Blink. This file also serves to demonstrate the anatomy of embedded
- * firmware. 
- * 
+ * @brief Pin and port definitions for Getting Started with Blink. This file
+ * also serves to demonstrate the anatomy of embedded firmware. 
  */
 
 #ifndef PIN_DEFINES_DOT_H
 #define PIN_DEFINES_DOT_H
 
-/**
- * Definitions for pins and ports are in this header file.
- */
+// Definitions for pins and ports are in this header file.
 #include <avr/io.h>
 
 
