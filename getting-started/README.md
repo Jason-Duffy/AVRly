@@ -2,6 +2,8 @@
 
 The projects outlined in this repository are intended for ["bare metal"][Bare_Metal_URL] AVR programming. That is - compiling, debugging and flashing your application without an underlying operating system, directly to the target MCU using the AVR crosspack 2 toolchain and an ISP programmer, rather than using the simpler and more user-friendly Arduino framework.
 
+The Blink example isn't a particularly groundbreaking project, but it serves to verify the setup of your development environment and configuration of the target MCU have been performed correctly, before moving onto more complex projects and examples where issues could be harder to diagnose. 
+
 # Requirements
 
 ## A Source Code Editor
@@ -46,7 +48,7 @@ This is used to send messages between your PC and the target MCU, and you'll fin
 # Hardware Required
 
 ## An AVR microcontroller
-An [ATmega328P-PU][ATmega328_URL] is a good place to start - It's a DIP package so fits nicely in a breadboard or an IC socket. Most of the examples in this repository will be using the ATmega328p, and it is strongly recommended to refer to it's [datasheet][ATmega328p_Datasheet_URL] if you are unsure about anything. If you want something SMD with more GPIO's interrupts and timers, an [ATmega2560][ATmega2560_URL] has plenty to offer. It's worth noting that this family of AVR's is now listed as "Not reccommended for new designs" which means they are being phased out of production in favour of the newer AVR families. Most of the functionality and methodology should be essentially the same with the newer chips, but they will likely have a different pinout and subset of registers so code and hookup will need to be ported. 
+An [ATmega328P-PU][ATmega328_URL] is a good place to start - It's a DIP package so fits nicely in a breadboard or an IC socket, has a whopping 32KB of flash memory (ok it's not much but you can do a surprising amount with that), and 3 GPIO ports. Most of the examples in this repository will be using the ATmega328p, and it is strongly recommended to refer to it's [datasheet][ATmega328p_Datasheet_URL] if you are unsure about anything. If you want something SMD with more GPIO's interrupts and timers, an [ATmega2560][ATmega2560_URL] has plenty to offer. It's worth noting that this family of AVR's is now listed as "Not reccommended for new designs" which means they are being phased out of production in favour of the newer AVR families. Most of the functionality and methodology should be essentially the same with the newer chips, but they will likely have a different pinout and subset of registers so code and hookup will need to be ported. 
 
 
 ## An ISP Programmer
