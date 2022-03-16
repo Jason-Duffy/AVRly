@@ -25,11 +25,8 @@
  * @author Jason Duffy
  * @date 15th March 2022
  * @brief Driver for example application from Getting Started with Blink.
- * This example application is intended to verify the configuration steps for
- * the MCU have been performed correctly and everything is working as it
- * should. The LED should turn on for 1 second, then turn off for 1 second, and
- * repeat. This file also serves to demonstrate the anatomy of embedded
- * firmware. 
+ * This file also serves to demonstrate the anatomy of embedded firmware. 
+ * @bug No known bugs.
  */
 
 

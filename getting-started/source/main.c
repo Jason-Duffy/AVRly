@@ -25,14 +25,16 @@
  * @author Jason Duffy
  * @date 15th March 2022
  * @brief Main routine for the Blink example application in Getting Started.
+ * This example application is intended to verify the configuration steps for
+ * the MCU have been performed correctly and everything is working as it
+ * should. The LED should turn on for 1 second, then turn off for 1 second, and
+ * repeat. This file also serves to demonstrate the anatomy of embedded
+ * firmware. 
  * @bug No known bugs. 
  * 
  */
 
-/**
- * Include the header from our blink module. This allows us to use it's public
- * functions.
- */
+// Include the header from our blink module.
 #include "blink.h"
 
 
@@ -41,14 +43,14 @@
  */
 int main()
 {
-    init_led(); /// Call function to initialise LED for use.
+    init_led(); // Call function to initialise LED for use.
 
-    while (1) /// Loop forever
+    while (1) // Loop forever
     {
         blink_led();
     }
 
-    return 0; /// This line is never reached. 
+    return 0; // This line is never reached. 
 }
 
 

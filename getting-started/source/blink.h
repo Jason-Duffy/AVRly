@@ -24,8 +24,9 @@
  * @file blink.h
  * @author Jason Duffy
  * @date 15th March 2022
- * @brief Driver for example application from Getting Started with Blink. 
- * 
+ * @brief Driver for example application from Getting Started with Blink.
+ * This file also serves to demonstrate the anatomy of embedded firmware. 
+ * @bug No known bugs.
  */
 
 #ifndef BLINK_DOT_H

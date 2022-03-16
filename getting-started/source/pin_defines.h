@@ -25,7 +25,8 @@
  * @author Jason Duffy
  * @date 15th March 2022
  * @brief Pin and port definitions for the pinout of Getting Started with
- * Blink. 
+ * Blink. This file also serves to demonstrate the anatomy of embedded
+ * firmware. 
  * 
  */
 
