@@ -25,7 +25,7 @@
 var NAVTREE =
 [
   [ "Getting Started with Blink", "index.html", [
-    [ "Requirements", "index.html#autotoc_md0", [
+    [ "Software Requirements", "index.html#autotoc_md0", [
       [ "A Source Code Editor", "index.html#autotoc_md1", null ],
       [ "The AVR Toolchain", "index.html#autotoc_md2", [
         [ "MacOS", "index.html#autotoc_md3", null ],
@@ -73,6 +73,7 @@ var NAVTREE =
       ] ],
       [ "Verify Makefile Settings", "index.html#autotoc_md37", null ]
     ] ],
+    [ "Anatomy of Embedded Firmware", "index.html#autotoc_md38", null ],
     [ "Bug List", "bug.html", null ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
