@@ -24,8 +24,12 @@
  * @file blink.c
  * @author Jason Duffy
  * @date 15th March 2022
- * @brief Driver for example application from Getting Started with Blink. 
- * 
+ * @brief Driver for example application from Getting Started with Blink.
+ * This example application is intended to verify the configuration steps for
+ * the MCU have been performed correctly and everything is working as it
+ * should. The LED should turn on for 1 second, then turn off for 1 second, and
+ * repeat. This file also serves to demonstrate the anatomy of embedded
+ * firmware. 
  */
 
 
@@ -38,7 +42,6 @@
 
 // Include the header file for this module. 
 #include "blink.h"
-
 
 
 
@@ -64,11 +67,11 @@ void init_led(void)
  */
 void blink_led(void)
 {
-    LED_PORT |= (1 << LED_GPIO); /// Turn LED on
-    _delay_ms(BLINK_TIME_MS); /// Wait a specified length of time
+    LED_PORT |= (1 << LED_GPIO); // Turn LED on
+    _delay_ms(BLINK_TIME_MS); // Wait a specified length of time
 
-    LED_PORT &= ~(1 << LED_GPIO); /// Turn LED off 
-    _delay_ms(BLINK_TIME_MS); /// Wait a specified length of time
+    LED_PORT &= ~(1 << LED_GPIO); // Turn LED off 
+    _delay_ms(BLINK_TIME_MS); // Wait a specified length of time
 }
 
 
