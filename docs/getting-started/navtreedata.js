@@ -52,18 +52,26 @@ var NAVTREE =
       [ "Programmer Connections", "index.html#autotoc_md20", null ]
     ] ],
     [ "Configuring the Makefile", "index.html#autotoc_md21", [
-      [ "Fuses", "index.html#autotoc_md28", [
-        [ "MCU", "index.html#autotoc_md22", null ],
-        [ "F_CPU", "index.html#autotoc_md23", null ],
-        [ "BAUD", "index.html#autotoc_md24", null ],
-        [ "LIBDIR", "index.html#autotoc_md25", null ],
-        [ "PROGRAMMER_TYPE", "index.html#autotoc_md26", null ],
-        [ "PROGRAMMER_ARGS", "index.html#autotoc_md27", [
-          [ "LFUSE", "index.html#autotoc_md29", null ],
-          [ "HFUSE", "index.html#autotoc_md30", null ],
-          [ "EFUSE", "index.html#autotoc_md31", null ]
-        ] ]
+      [ "MCU, Programmer and Directory variables", "index.html#autotoc_md22", [
+        [ "MCU", "index.html#autotoc_md23", null ],
+        [ "F_CPU", "index.html#autotoc_md24", null ],
+        [ "BAUD", "index.html#autotoc_md25", null ],
+        [ "LIBDIR", "index.html#autotoc_md26", null ],
+        [ "PROGRAMMER_TYPE", "index.html#autotoc_md27", null ],
+        [ "PROGRAMMER_ARGS", "index.html#autotoc_md28", null ]
+      ] ],
+      [ "Fuses", "index.html#autotoc_md29", [
+        [ "LFUSE", "index.html#autotoc_md30", null ],
+        [ "HFUSE", "index.html#autotoc_md31", null ],
+        [ "EFUSE", "index.html#autotoc_md32", null ]
       ] ]
+    ] ],
+    [ "Flashing the Chip", "index.html#autotoc_md33", [
+      [ "Flash Fuses", "index.html#autotoc_md34", null ],
+      [ "Flash the Code", "index.html#autotoc_md35", [
+        [ "Make commands:", "index.html#autotoc_md36", null ]
+      ] ],
+      [ "Verify Makefile Settings", "index.html#autotoc_md37", null ]
     ] ],
     [ "Bug List", "bug.html", null ],
     [ "Files", "files.html", [
