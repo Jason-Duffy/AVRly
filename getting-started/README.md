@@ -117,9 +117,34 @@ You should then see a success message. If not, check your wiring and connectiuon
 
 Download the [source](./source) folder in this repository and open up the Makefile. The following variables need to be edited for your setup:
 
-## MCU
+### MCU
 
 This is the AVR chip type, a list of valid names can be found [here][AVR_GCC_Options_URL].
+
+### F_CPU
+
+This is the clock speed in Hz. Note the UL assignment (Unsigned Long). 
+
+### BAUD
+
+This is the baud rate used for serial comms with the AVR, usually 9600 but sometimes differs.
+
+### LIBDIR
+
+A directory for common include files, some of which are installed with the AVR toolchain. 
+
+### PROGRAMMER_TYPE
+
+The type of ISP programmer you're using. A list of valid names can be found [here][AVR_GCC_Options_URL]
+
+### PROGRAMMER_ARGS
+
+Extra arguments to avrdude: baud rate, chip type, -F flag, etc. The baud rate is for serial comms to the programmer. The port address also goes here. 
+
+
+
+# Fuses
+
 
 
 
@@ -146,4 +171,4 @@ This is the AVR chip type, a list of valid names can be found [here][AVR_GCC_Opt
 [MULTIMETER_URL]: https://www.ebay.co.uk/itm/373974464011?epid=23040427421&_trkparms=ispr%3D1&hash=item57129d760b:g:ecgAAOSwcvJhM~1Y&amdata=enc%3AAQAGAAACoPYe5NmHp%252B2JMhMi7yxGiTJkPrKr5t53CooMSQt2orsSafTQYbq3L7RBVAMi0K9cw1RWXBpCryIDtHtQ%252FwGGrM5qNRo2BcdEvJNXURbFcGIieFzIjcYyayBhlA94swn2TTvs028l2IF1Z7kkPlAkTOZau7i64BOsAJM5jtEUKTzYuTAksI%252B6wqVDHXCmc%252BbqVJWdWCtN%252FedfWrLz22fV7JfFf3r%252BndQy6pgUf%252B0CqyxVpLGK%252FtsA2WoJN66265Nsb%252Biz2cPGbaMohOx96MSBAMI556eVyZ1Jt%252FgLkiIOgy%252F4LEQX%252B3foG6Ptb%252BN9ZmnQkdg5oCnRE0hxlFfAD5SOzEzmtg9%252BIE2HDfbFvLsU0Z0%252BZ2IQwJohjr5c6NdN3ax%252B0NkAFl5TKriVBAerlTCklJ%252BeOmn4DGytxPaRs%252B7VYCtZf8PXhxRmWn89GJw9Xt%252FCGpH1hvp9DXVNVCjJBMZeRVIKV3LmmgTdNnj9a%252FAUNwyB5qnSZWNkYEvX0swcp0PJU6qoVXYAEBLx2T03VucnyJ6R8Ja2NbFUVIPLPL4f4hHTUcR5hxbe0v9ux4iwgbiJLIPIXDKfDovdqX%252BUgBKJiLOUzGZKey7I7PeEDHsw5vr1KEHBd6%252B3Cw0FN0asmNY2XUmwd9LrLf401Wo4ovba%252FjznpyXfGfjHaobMVxQzN%252FAPIdxhcaODHy%252Bku4xgVEgZaD8n58JPn%252Fz0u75IwCzYoV%252FHGCX7zUgjd0Flsw5CiQpHVdB4eqGaKKP97ct2rRUEtd4t5YZJJi7KbHlJxs3Kr4KxuyQ2Xfk4nbZhpRPStSf%252FrLNa%252FxQudCxW2vnABZJayi8xGYlqFq%252BZYczELbh3%252BIyYls%252FmPtJgL%252F0yOiQgmVnId%252BTVMf1Q7taqp1w%252FN0AaMA%253D%253D%7Cclp%3A2334524%7Ctkp%3ABFBMlsihrvFf
 [Oscilloscope_URL]: https://telonic.co.uk/product/rigol-ds1054z-50mhz-digital-oscilloscope/
 
-[AVR_GCC_Options_URL]: https://www.nongnu.org/avr-libc/user-manual/using_tools.html
+[AVR_GCC_Options_URL]: https://www.nongnu.org/avrdude/user-manual/avrdude_3.html
