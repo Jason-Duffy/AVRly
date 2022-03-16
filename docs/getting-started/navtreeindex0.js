@@ -1,11 +1,12 @@
 var NAVTREEINDEX0 =
 {
-"blink_8c.html":[4,0,0],
-"blink_8c_source.html":[4,0,0],
-"blink_8h.html":[4,0,1],
-"blink_8h_source.html":[4,0,1],
-"bug.html":[3],
-"files.html":[4,0],
+"blink_8c.html":[6,0,0,0],
+"blink_8c_source.html":[6,0,0,0],
+"blink_8h.html":[6,0,0,1],
+"blink_8h_source.html":[6,0,0,1],
+"bug.html":[5],
+"dir_b2f33c71d4aa5e7af42a1ca61ff5af1b.html":[6,0,0],
+"files.html":[6,0],
 "index.html":[],
 "index.html#autotoc_md0":[0],
 "index.html#autotoc_md1":[0,0],
@@ -18,7 +19,9 @@ var NAVTREEINDEX0 =
 "index.html#autotoc_md16":[1,6],
 "index.html#autotoc_md17":[1,7],
 "index.html#autotoc_md18":[2],
+"index.html#autotoc_md19":[3],
 "index.html#autotoc_md2":[0,1],
+"index.html#autotoc_md26":[4],
 "index.html#autotoc_md3":[0,1,0],
 "index.html#autotoc_md4":[0,1,1],
 "index.html#autotoc_md5":[0,1,1,0],
@@ -26,9 +29,9 @@ var NAVTREEINDEX0 =
 "index.html#autotoc_md7":[0,1,2],
 "index.html#autotoc_md8":[0,2],
 "index.html#autotoc_md9":[1],
-"main_8c.html":[4,0,2],
-"main_8c_source.html":[4,0,2],
+"main_8c.html":[6,0,0,2],
+"main_8c_source.html":[6,0,0,2],
 "pages.html":[],
-"pin__defines_8h.html":[4,0,3],
-"pin__defines_8h_source.html":[4,0,3]
+"pin__defines_8h.html":[6,0,0,3],
+"pin__defines_8h_source.html":[6,0,0,3]
 };

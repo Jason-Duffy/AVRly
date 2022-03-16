@@ -165,13 +165,49 @@ Connecting the Hardware</h1>
 <div class="image">
 <img src="isp_header_pinout.png" alt=""/>
 <div class="caption">
-isp_header_pinout.png</div></div>
-   <p >If you're using an Arduino Uno with some dupont cables, then you can make the connections as per the schematic below.</p>
+ISP programmer connections</div></div>
+   <p >If you're using an Arduino Uno as an ISP with some dupont cables, then you can make the connections as per the schematic below.</p>
 <div class="image">
 <img src="arduino_isp_hookup.png" alt=""/>
 <div class="caption">
-arduino_isp_hookup.png</div></div>
-    </div></div><!-- PageDoc -->
+Arduino as ISP connections</div></div>
+   <p >Note the 100nF ceramic capacitor between VCC and GND, this is for decoupling and filtering of the power supply, so should be placed as close to the pins as possible.</p>
+<p >You can use the MCU with just it's internal oscillator as a clock source, or if you'd prefer a faster clock speed you can use an external crystal oscillator. Refer to your chip's datasheet for the correct oscillator circuit design.</p>
+<p >Connect a GPIO pin (PB0 in this example) to an LED, with a 220Ω resistor in series with the anode, and the cathode to ground.</p>
+<div class="image">
+<img src="led_connection.png" alt=""/>
+<div class="caption">
+LED Connection</div></div>
+   <p >Connect the programmer to your PC, then check which serial port it's on. If you have the Arduino IDE, you can go to Tools &gt; Port &gt; <em>port address is shown here</em>.</p>
+<p >For MacOS and Linux, open Terminal and type <code>ls /dev/tty*</code> for a list of connected devices. The programmer will look something like <code>/dev/tty.usbmodem14101</code>.</p>
+<p >For Windows, it will look something like COM3.</p>
+<p >In Terminal/cmd, type <code>avrdude</code> to check the AVRDUDE software has been correctly installed. It should give you a helpful list of flags and arguments you can use.</p>
+<p >Now we can check the programmer and target MCU are connected and being recognised correctly by typing: <code>avrdude -p m328p -c arvisp</code>, replace <code>m328p</code> with your MCU type, and <code>avrisp</code> with your programmer type if different from these.</p>
+<p >You should then see a success message. If not, check your wiring and connectiuons, check the target MCU is powered, and check the programmer type and AVR chip type are correct.</p>
+<h1><a class="anchor" id="autotoc_md19"></a>
+Configuring the Makefile</h1>
+<p >Download the <a href="./source">source</a> folder in this repository and open up the Makefile. The following variables need to be edited for your setup:</p>
+<h3><a class="anchor" id="autotoc_md20"></a>
+MCU</h3>
+<p >This is the AVR chip type, a list of valid names can be found <a href="https://www.nongnu.org/avrdude/user-manual/avrdude_3.html">here</a>.</p>
+<h3><a class="anchor" id="autotoc_md21"></a>
+F_CPU</h3>
+<p >This is the clock speed in Hz. Note the UL assignment (Unsigned Long).</p>
+<h3><a class="anchor" id="autotoc_md22"></a>
+BAUD</h3>
+<p >This is the baud rate used for serial comms with the AVR, usually 9600 but sometimes differs.</p>
+<h3><a class="anchor" id="autotoc_md23"></a>
+LIBDIR</h3>
+<p >A directory for common include files, some of which are installed with the AVR toolchain.</p>
+<h3><a class="anchor" id="autotoc_md24"></a>
+PROGRAMMER_TYPE</h3>
+<p >The type of ISP programmer you're using. A list of valid names can be found <a href="https://www.nongnu.org/avrdude/user-manual/avrdude_3.html">here</a></p>
+<h3><a class="anchor" id="autotoc_md25"></a>
+PROGRAMMER_ARGS</h3>
+<p >Extra arguments to avrdude: baud rate, chip type, -F flag, etc. The baud rate is for serial comms to the programmer. The port address also goes here.</p>
+<h1><a class="anchor" id="autotoc_md26"></a>
+Fuses</h1>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -48,6 +48,8 @@ var NAVTREE =
       [ "A multimeter", "index.html#autotoc_md17", null ]
     ] ],
     [ "Connecting the Hardware", "index.html#autotoc_md18", null ],
+    [ "Configuring the Makefile", "index.html#autotoc_md19", null ],
+    [ "Fuses", "index.html#autotoc_md26", null ],
     [ "Bug List", "bug.html", null ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
