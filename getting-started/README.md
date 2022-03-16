@@ -116,27 +116,27 @@ You should then see a success message. If not, check your wiring and connectiuon
 
 Download the [source](./source) folder in this repository and open up the Makefile. The following variables need to be edited for your setup:
 
-## MCU
+### MCU
 
 This is the AVR chip type, a list of valid names can be found [here][AVR_GCC_Options_URL].
 
-## F_CPU
+### F_CPU
 
 This is the clock speed in Hz. Note the UL assignment (Unsigned Long). 
 
-## BAUD
+### BAUD
 
 This is the baud rate used for serial comms with the AVR, usually 9600 but sometimes differs.
 
-## LIBDIR
+### LIBDIR
 
 A directory for common include files, some of which are installed with the AVR toolchain. 
 
-## PROGRAMMER_TYPE
+### PROGRAMMER_TYPE
 
 The type of ISP programmer you're using. A list of valid names can be found [here][AVR_GCC_Options_URL]
 
-## PROGRAMMER_ARGS
+### PROGRAMMER_ARGS
 
 Extra arguments to avrdude: baud rate, chip type, -F flag, etc. The baud rate is for serial comms to the programmer. The port address also goes here. 
 
