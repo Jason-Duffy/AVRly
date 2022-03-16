@@ -74,7 +74,7 @@ A multimeter like [this one][Multimeter_URL] will help with debugging when hardw
 
 # Connecting the Hardware
 
-The following setup guide is for an ATmega328p, so if you're starting with a different model it's best to refer to the datasheet for pinout, auxillary components needed, power requirements etc, but the broad principles should be much the same.
+The following setup guide is for an ATmega328p, so if you're starting with a different model it's best to refer to your part's datasheet for pinout, auxillary components needed, power requirements etc, but the broad principles should be much the same.
 
 
 ## MCU Connections
@@ -114,7 +114,9 @@ You should then see a success message. If not, check your wiring and connectiuon
 
 # Configuring the Makefile
 
-Download the [source](./source) folder in this repository and open up the Makefile. The following variables need to be edited for your setup:
+Download the [source](./source) folder in this repository and open up the Makefile. The following variables need to be edited for your setup.
+
+## MCU, Programmer and Directory variables
 
 ### MCU
 
@@ -145,23 +147,44 @@ Extra arguments to avrdude: baud rate, chip type, -F flag, etc. The baud rate is
 ## Fuses
 
 **WARNING**
-Take great care when editing these variables, they can brick the MCU if set incorrectly. Always refer to the [datasheet][ATmega328p_Datasheet_URL] if unsure, and note that they use an inverse logic - the bit will read 1 if unprogrammed, and 0 if programmed. A handy fuse setting calculator can be found [here][Fuse_Calculator_URL].
+Take great care when editing these variables, they can brick the MCU if set incorrectly. Always refer to the [datasheet][ATmega328p_Datasheet_URL] if unsure, especially if you are using a different MCU to the ATmega328p. And note that they use an inverse logic - the bit will read 1 if unprogrammed, and 0 if programmed. A handy fuse setting calculator can be found [here][Fuse_Calculator_URL].
 
-#### LFUSE
+### LFUSE
 Low fuse byte. This is used to select the clock source and some config settings for clock operation.
 
-![Fuse low byte register](./images/low_fuse.png)
+![Fuse low byte register (ATmega328p)](./images/low_fuse.png)
 
-#### HFUSE
+### HFUSE
 High fuse byte. Bits 2 - 0 are used to select the amount of memory allocated for a bootloader (not required for the projects in this repo). The remaining bits are used to control EEPROM, watchdog timer, programming and reset options. SPIEN and RSTDISBL are the dangerous ones likely to brick your MCU if set incorrectly, so **only** touch these if you know what you're doing. 
 
-![Fuse high byte register](./images/high_fuse.png)
+![Fuse high byte register (ATmega328p)](./images/high_fuse.png)
 
-#### EFUSE
+### EFUSE
 Extended fuse byte. This is used to set the brownout detection level.
 
-![Extended fuse byte register](./images/extended_fuse.png)
+![Extended fuse byte register (ATmega328p)](./images/extended_fuse.png)
 
+# Flashing the Chip
+With the Makefile correctly configured, you are now ready to start writing data to the chip. Open Terminal and navigate to the directory where you stored the local copy of the [source][./source] folder you downloaded.
+
+## Flash Fuses
+First we need to flash the fuse settings. To do this, type `make fuses` and the values from your Makefile will be written to the chip. You only need to do this when a chip is new, in an unknown state (eg. when re-used from a previous project) or you want to change the fuse settings. These new settings will be "burned" into the register and remain the same even after the chip is powered down. 
+
+## Flash the Code
+Now we are finally ready to flash the code. Type `make flash`, and the source code will be compiled and written to the MCU. 
+
+### Make commands:
+- `make` to compile the source code based on the settings in your Makefile.
+- `make flash` to compile and flash the code to the target MCU.
+- `make clean` to delete the compiled output files from the current directory.
+- `make fuses` to write new fuse values.
+
+These can of course be combined like so: `make clean flash fuses`.
+
+## Verify Makefile Settings
+You should now have an LED which blinks on and off in a 2 second cycle - 1 second on, followed by 1 second off. If it is blinking considerably faster or slower than this, check that the value of F_CPU and LFUSE are set correctly. 
+
+Once you are satisfied that the LED is blinking as it should be, you're ready to proceed to the more exciting projects and examples in this repo!
 
 [Bare_Metal_URL]: https://en.wikipedia.org/wiki/Bare_machine
 [Sublime_Text_URL]: http://www.sublimetext.com/
