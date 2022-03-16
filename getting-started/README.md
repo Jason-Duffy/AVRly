@@ -4,7 +4,7 @@ The projects outlined in this repository are intended for ["bare metal"][Bare_Me
 
 The Blink example isn't a particularly groundbreaking project, but it serves to verify the setup of your development environment and configuration of the target MCU have been performed correctly, before moving onto more complex projects and examples where issues could be harder to diagnose. 
 
-# Requirements
+# Software Requirements
 
 ## A Source Code Editor
 I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choose from, some popular choices are:
@@ -52,7 +52,7 @@ An [ATmega328P-PU][ATmega328_URL] is a good place to start - It's a DIP package 
 
 
 ## An ISP Programmer
-Such as an [AVRISP MKII][AVRISP_URL], however I had some compatability issues with this one (on MacOS) so instead I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and [a simple shield I made][Uno_ISP_Shield_URL] - though you can achieve the same thing with some dupont cables if you don't want to wait for the shield to come back from fab.
+Such as an [AVRISP MKII][AVRISP_URL], however I had some compatability issues with this one (on MacOS) so instead I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and [a simple shield I made][Uno_ISP_Shield_URL] - though you can achieve the same thing with some dupont cables if you don't want to wait for the shield to come back from fab. The Arduino as ISP sketch can be found in the Arduino IDE 
 
 ## A USB to Serial Converter
 There are many types available, I use one of [these][USB_Serial_URL].
@@ -187,6 +187,9 @@ These can of course be combined like so: `make clean flash fuses`.
 You should now have an LED which blinks on and off in a 2 second cycle - 1 second on, followed by 1 second off. If it is blinking considerably faster or slower than this, check that the value of F_CPU and LFUSE are set correctly. 
 
 Once you are satisfied that the LED is blinking as it should be, you're ready to proceed to the more exciting projects and examples in this repo!
+
+# Anatomy of Embedded Firmware
+To get a feel for the file structure, layout and formatting of embedded C firmware for AVR, check out the [documentation for the Blink example application.](../docs/getting-started) 
 
 [Bare_Metal_URL]: https://en.wikipedia.org/wiki/Bare_machine
 [Sublime_Text_URL]: http://www.sublimetext.com/
