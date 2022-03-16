@@ -46,7 +46,7 @@ This is used to send messages between your PC and the target MCU, and you'll fin
 # Hardware Required
 
 ## An AVR microcontroller
-An [ATmega328P-PU][ATmega328_URL] is a good place to start - It's a DIP package so fits nicely in a breadboard or an IC socket. If you want something SMD with more GPIO's interrupts and timers, an [ATmega2560][ATmega2560_URL] has plenty to offer. It's worth noting that this family of AVR's is now listed as "Not reccommended for new designs" which means they are being phased out of production in favour of the newer AVR families. Most of the functionality and methodology should be essentially the same with the newer chips, but they will likely have a different pinout and subset of registers so code and hookup will need to be ported. 
+An [ATmega328P-PU][ATmega328_URL] is a good place to start - It's a DIP package so fits nicely in a breadboard or an IC socket. Most of the examples in this repository will be using the ATmega328p, and it is strongly recommended to refer to it's [datasheet][ATmega328p_Datasheet_URL] if you are unsure about anything. If you want something SMD with more GPIO's interrupts and timers, an [ATmega2560][ATmega2560_URL] has plenty to offer. It's worth noting that this family of AVR's is now listed as "Not reccommended for new designs" which means they are being phased out of production in favour of the newer AVR families. Most of the functionality and methodology should be essentially the same with the newer chips, but they will likely have a different pinout and subset of registers so code and hookup will need to be ported. 
 
 
 ## An ISP Programmer
@@ -126,7 +126,8 @@ This is the clock speed in Hz. Note the UL assignment (Unsigned Long).
 
 ### BAUD
 
-This is the baud rate used for serial comms with the AVR, usually 9600 but sometimes differs.
+This is the baud rate used for serial comms with the AVR, us
+ually 9600 but sometimes differs.
 
 ### LIBDIR
 
@@ -141,10 +142,25 @@ The type of ISP programmer you're using. A list of valid names can be found [her
 Extra arguments to avrdude: baud rate, chip type, -F flag, etc. The baud rate is for serial comms to the programmer. The port address also goes here. 
 
 
-
 ## Fuses
 
+**WARNING**
+Take great care when editing these variables, they can brick the MCU if set incorrectly. Always refer to the [datasheet][ATmega328p_Datasheet_URL] if unsure, and note that they use an inverse logic - the bit will read 1 if unprogrammed, and 0 if programmed. A handy fuse setting calculator can be found [here][Fuse_Calculator_URL].
 
+#### LFUSE
+Low fuse byte. This is used to select the clock source and some config settings for clock operation.
+
+![Fuse low byte register](./images/low_fuse.png)
+
+#### HFUSE
+High fuse byte. Bits 2 - 0 are used to select the amount of memory allocated for a bootloader (not required for the projects in this repo). The remaining bits are used to control EEPROM, watchdog timer, programming and reset options. SPIEN and RSTDISBL are the dangerous ones likely to brick your MCU if set incorrectly, so **only** touch these if you know what you're doing. 
+
+![Fuse high byte register](./images/high_fuse.png)
+
+#### EFUSE
+Extended fuse byte. This is used to set the brownout detection level.
+
+![Extended fuse byte register](./images/extended_fuse.png)
 
 
 [Bare_Metal_URL]: https://en.wikipedia.org/wiki/Bare_machine
@@ -163,6 +179,7 @@ Extra arguments to avrdude: baud rate, chip type, -F flag, etc. The baud rate is
 [Small_Breadboard_URL]: https://www.amazon.co.uk/AZDelivery-Breadboard-Supply-Adapter-Jumkper/dp/B01N4VCYUK/ref=sr_1_20?crid=29EM44FS19IF2&keywords=breadboard%2Bwith%2Bpower%2Bsupply&qid=1647296608&sprefix=breadboard%2Bwith%2Bpower%2Bsupply%2Caps%2C64&sr=8-20&th=1
 [Large_Breadboard_URL]: https://www.amazon.co.uk/K-H-RH-74-Solderless-Breadboard/dp/B079H4N8Y4/ref=sr_1_6?crid=18JXJAV0E8H6K&keywords=large+breadboard+electronics&qid=1647296861&sprefix=large+breadboard+electronics%2Caps%2C56&sr=8-6
 [ATmega328_URL]: https://www.amazon.co.uk/Atmel-ATMega328-PU-ATMEL-Microcontroller-Chip/dp/B071Y4YF5X/ref=sr_1_5?crid=564N7F4OE3JE&keywords=atmega328&qid=1647299808&sprefix=atmega328%2Caps%2C62&sr=8-5
+[ATmega328p_Datasheet_URL]: https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datash
 [ATmega2560_URL]: https://www.amazon.co.uk/1pcs-lot-ATMEGA2560-16AU-ATMEGA2560-QFP-100/dp/B09SZGJS7C/ref=sr_1_5?crid=3R3LG8NF0EER8&keywords=atmega2560&qid=1647299857&sprefix=atmega256%2Caps%2C76&sr=8-5
 [Breadboard_Jumpers_URL]: https://www.amazon.co.uk/WANTOUTH-Preformed-Breadboard-Solderless-Prototyping/dp/B08QS6961R/ref=sr_1_5?crid=36KPWIVO59605&keywords=breadboard+jumpers&qid=1647300367&sprefix=breadboard+jumpers%2Caps%2C245&sr=8-5
 [Dupont_Cables_URL]: https://www.amazon.co.uk/YXPCARS-Solderless-Breadboard-Multicolored-Arduino/dp/B08HQ7K6M7/ref=sr_1_27?crid=1GQC7DDTANB5H&keywords=dupont+cables+set&qid=1647301269&sprefix=dupont+cables+set%2Caps%2C71&sr=8-27
@@ -171,3 +188,4 @@ Extra arguments to avrdude: baud rate, chip type, -F flag, etc. The baud rate is
 [Oscilloscope_URL]: https://telonic.co.uk/product/rigol-ds1054z-50mhz-digital-oscilloscope/
 
 [AVR_GCC_Options_URL]: https://www.nongnu.org/avrdude/user-manual/avrdude_3.html
+[Fuse_Calculator_URL]: https://www.engbedded.com/fusecalc/
