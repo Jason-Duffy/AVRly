@@ -94,7 +94,7 @@ Connect a GPIO pin (PB0 in this example) to an LED, with a 220Ω resistor in ser
 
 The IDC connector on your ISP programmer should be connected to the target MCU as shown by the colour codes in the image below. These symbols depict the end of the IDC connector - Note the notch on the right hand side - if you turn the connector to face you and rotate it so the notch is on the right, your orientation will be correct.
 
-![IDC connector orientation](./images/icd_connector_orientation.jpg)
+![IDC connector orientation](./images/idc_connector_orientation.jpg)
 
 ![ISP programmer connections](./images/isp_header_pinout.png)
 
