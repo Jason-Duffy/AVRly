@@ -27,3 +27,47 @@
  * @brief Driver for example application from Getting Started with Blink. 
  * 
  */
+
+/**
+ * Include the header file containing the _delay_ms() macro.
+ */
+#include <util/delay.h>
+
+/**
+ * Include the header file containing pin and port definitions. 
+ */
+#include "pin_defines.h"
+
+/**
+ * Include the header file for this module. 
+ */
+#include "blink.h"
+
+
+/**
+ * Define the blink delay time in milliseconds here.
+ */
+#define BLINK_TIME_MS   1000
+
+
+/**
+ * Call this function once on entry of main() routine to configure settings and
+ * initialise the LED for use. 
+ */
+void init_led(void)
+{
+    LED_DDR |= (1 << LED_GPIO); // Set LED_GPIO as output
+}
+
+
+/**
+ * Call this function in the loop of the main() routine to blink the LED.
+ */
+void blink_led(void)
+{
+    LED_PORT |= (1 << LED_GPIO); /// Turn LED on
+    _delay_ms(BLINK_TIME_MS); /// Wait a specified length of time
+
+    LED_PORT &= ~(1 << LED_GPIO); /// Turn LED off 
+    _delay_ms(BLINK_TIME_MS); /// Wait a specified length of time
+}

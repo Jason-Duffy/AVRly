@@ -28,3 +28,28 @@
  * @bug No known bugs. 
  * 
  */
+
+/**
+ * Include the header from our blink module. This allows us to use it's public
+ * functions.
+ */
+#include "blink.h"
+
+
+/**
+ * Main routine to be executed on the MCU.
+ */
+int main()
+{
+    init_led(); /// Call function to initialise LED for use.
+
+    while (1) /// Loop forever
+    {
+        blink_led();
+    }
+
+    return 0; /// This line is never reached. 
+}
+
+
+/*** end of file ***/

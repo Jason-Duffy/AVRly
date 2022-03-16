@@ -27,3 +27,25 @@
  * @brief Driver for example application from Getting Started with Blink. 
  * 
  */
+
+#ifndef BLINK_DOT_H
+#define BLINK_DOT_H
+
+
+/**
+ * Call this function once on entry of main() routine to configure settings and
+ * initialise the LED for use. 
+ */
+void init_led(void);
+
+
+/**
+ * Call this function in the loop of the main() routine to blink the LED. 
+ * @param Pass in an unsigned 16 bit integer (0 - 65535) to alter the blink rate. 
+ */
+void blink_led(void);
+
+#endif // BLINK_DOT_H
+
+
+/*** end of file ***/

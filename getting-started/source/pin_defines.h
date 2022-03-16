@@ -28,3 +28,33 @@
  * Blink. 
  * 
  */
+
+#ifndef PIN_DEFINES_DOT_H
+#define PIN_DEFINES_DOT_H
+
+/**
+ * Definitions for pins and ports are in this header file.
+ */
+#include <avr/io.h>
+
+
+/**
+ * Defines the AVR port we have wired our LED to.
+ */
+#define LED_PORT        PORTB
+
+/**
+ * Defines the Data Direction Register for the GPIO connected to our LED.
+ */
+#define LED_DDR         DDRB
+
+/**
+ * Defines the GPIO number the LED is wired to
+ */
+#define LED_GPIO        PB0
+
+
+#endif //PIN_DEFINES_DOT_H
+
+
+/*** end of file ***/
