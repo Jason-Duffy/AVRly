@@ -195,7 +195,7 @@ Once you are satisfied that the LED is blinking as it should be, you're ready to
 # Anatomy of Embedded Firmware
 
 ## Documentation
-To get a feel for the file structure, layout and formatting of embedded C firmware for AVR, check out the [documentation for the Blink example application.](/C-Programming-Resources-for-AVR-MCU-s/getting-started/files.html)
+To get a feel for the file structure, layout and formatting of embedded C firmware for AVR, check out the [documentation for the Blink example application.](/C-Programming-Resources-for-AVR-MCU-s/getting-started/files.html){:target="_blank"}
 
 ## Coding Standards
 Adhering to coding standards helps to make your code more readable, robust, easier to debug and more portable. The firmware in this repo was written to the [Barr Group C Coding Standard][Barr_Coding_Standard_URL], and I would encourage others to read it and use those guidelines in their own code. 
