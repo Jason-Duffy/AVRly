@@ -1,6 +1,6 @@
 
 
-The projects outlined in this repository are intended for ["bare metal"][Bare_Metal_URL] AVR programming. That is - compiling, debugging and flashing your application without an underlying operating system, directly to the target MCU using the AVR crosspack 2 toolchain and an ISP programmer, rather than using the simpler and more user-friendly Arduino framework.
+The projects outlined in this repository are intended for ["bare metal"][Bare_Metal_URL] AVR programming. That is - compiling, debugging and flashing your application without an underlying operating system, directly to the target MCU using the AVR crosspack 2 toolchain and an ISP programmer, rather than using the simpler and more user-friendly (but somewhat limiting) Arduino framework.
 
 The Blink example isn't a particularly groundbreaking project, but it serves to verify that the setup of your development environment and configuration of the target MCU have been performed correctly, before moving onto more complex projects and examples where issues could be harder to diagnose. 
 
@@ -63,6 +63,9 @@ It's useful to keep several USB cables, micro, mini, USB-A etc.
 
 ## Breadboards
 I like [these][Small_Breadboard_URL] ones with the power supply module for small test projects, and [these][Large_Breadboard_URL] ones for larger, more complex projects. For anything beyond that, I would design a development PCB with lots of connection and expansion flexibility.
+
+## Power Supply (optional)
+Most ISP programmers will provide a 5V power line for your MCU, however this is likely sourced from your PC's USB port, and there are a few things to be aware of here. First, most USB ports can only source upto 500mA, so if your project is likely to come close to or surpass that limit, you wil need to provide an external power supply capable of sourcing that much current. Also note the GPIO's on the AVR aren't able to source (or sink) much current, 40mA is the upper limit, so further driver circuitry will be needed to drive larger loads.
 
 ## Jumpers/Dupont cables
 A set of [breadboard jumper cables][Breadboard_Jumpers_URL] is handy to keep your close wiring neat and tidy, then a set of various lengths and connection types of [dupont cables][Dupont_Cables_URL] is useful to connect to other peripherals.
@@ -130,12 +133,11 @@ This is the AVR chip type, a list of valid names can be found [here][AVR_GCC_Opt
 
 ### F_CPU
 
-This is the clock speed in Hz. Note the UL assignment (Unsigned Long). 
+This is the clock speed in Hz - Note the UL assignment (Unsigned Long). For the examples covered in this repo we will be using the 8MHz internal oscillator as a clock source for simplicity, though you can use an external clock source upto 20MHz if you'd prefer. By default, the AVR fuses will be set to divide the internal clock speed by 8, but we will override that with some Makefile settings. 
 
 ### BAUD
 
-This is the baud rate used for serial comms with the AVR, us
-ually 9600 but sometimes differs.
+This is the baud rate used for serial comms with the AVR, usually 9600 but sometimes differs.
 
 ### LIBDIR
 
@@ -177,9 +179,9 @@ With the Makefile correctly configured, you are now ready to start writing data 
 First we need to flash the fuse settings. To do this, type `make fuses` and the values from your Makefile will be written to the chip. You only need to do this when a chip is new, in an unknown state (eg. when re-used from a previous project) or you want to change the fuse settings. These new settings will be "burned" into the register and remain the same even after the chip is powered down. 
 
 ## Flash the Code
-Now we are finally ready to flash the code. Type `make flash`, and the source code will be compiled and written to the MCU. 
+Now we are finally ready to flash the code. Type `make flash`, and the source code will be compiled, linked and written to the MCU. 
 
-### Make commands:
+### Basic Make Commands:
 - `make` to compile the source code based on the settings in your Makefile.
 - `make flash` to compile and flash the code to the target MCU.
 - `make clean` to delete the compiled output files from the current directory.
@@ -187,7 +189,9 @@ Now we are finally ready to flash the code. Type `make flash`, and the source co
 
 These can of course be combined like so: `make clean flash fuses`.
 
-If you'd like to lear more about the GNU Make Utility, more information can be found [here](https://www.gnu.org/software/make/). I found it to be a steep learning curve, so if you'd rather not wade into it just yet there are plenty of Makefile generators around. 
+### Advanced Make Commands:
+
+If you'd like to learn more about the GNU Make Utility, more information can be found [here](https://www.gnu.org/software/make/). I found it to be a steep learning curve, so if you'd rather not wade into it just yet there are plenty of Makefile generators around. The Makefile used in these projects was adapted from the code provided with the book Make: AVR Programming by Elliot Williams. His repo, [hexagon5un/AVR-Programming](https://github.com/hexagon5un/AVR-Programming) has some great example projects, and I would thoroughly recommend the book to anyone looking to get into AVR Programming. 
 
 ## Verify Makefile Settings
 You should now have an LED which blinks on and off in a 2 second cycle - 1 second on, followed by 1 second off. If it is blinking considerably faster or slower than this, check that the value of F_CPU and LFUSE are set correctly. 
