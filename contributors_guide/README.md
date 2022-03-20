@@ -392,6 +392,10 @@ PROGRAMMER_ARGS = -b 19200 -P /dev/tty.usbmodem141201
 ```
 If you add a new recipe for users to invoke from terminal, document is by adding it to the `help` recipe at the bottom of the [template file][Makefile_Template_URL].
 
+## Templates
+
+The repository contains [templates for each file type][Templates_URL] mentioned in this guide.
+
 
 
 [Header_File_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/filename.h
@@ -407,3 +411,6 @@ If you add a new recipe for users to invoke from terminal, document is by adding
 [Main_File_Doxygen_Output_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2main_8c.html
 
 [Makefile_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/Makefile
+[Makefile_Template_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/templates/pin_defines.h
+
+[Templates_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/tree/main/contributors_guide/templates
