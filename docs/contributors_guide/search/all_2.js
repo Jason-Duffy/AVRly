@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['get_5fvalue_0',['get_value',['../layout__and__documentation__example_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e',1,'get_value(void):&#160;filename.c'],['../layout__and__documentation__example_2filename_8h.html#a3ebcf9ef84eb47df312281d252a5487e',1,'get_value(void):&#160;filename.c']]]
+  ['filename_2ec_0',['filename.c',['../layout__and__documentation__example_2filename_8c.html',1,'(Global Namespace)'],['../templates_2filename_8c.html',1,'(Global Namespace)']]],
+  ['filename_2eh_1',['filename.h',['../layout__and__documentation__example_2filename_8h.html',1,'(Global Namespace)'],['../templates_2filename_8h.html',1,'(Global Namespace)']]]
 ];

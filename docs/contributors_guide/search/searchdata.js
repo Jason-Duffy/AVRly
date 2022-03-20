@@ -1,9 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "dfgimop",
+  0: "cdfgimop",
   1: "fmp",
   2: "dgim",
-  3: "dio"
+  3: "dio",
+  4: "c"
 };
 
 var indexSectionNames =
@@ -11,7 +12,8 @@ var indexSectionNames =
   0: "all",
   1: "files",
   2: "functions",
-  3: "defines"
+  3: "defines",
+  4: "pages"
 };
 
 var indexSectionLabels =
@@ -19,6 +21,7 @@ var indexSectionLabels =
   0: "All",
   1: "Files",
   2: "Functions",
-  3: "Macros"
+  3: "Macros",
+  4: "Pages"
 };
 

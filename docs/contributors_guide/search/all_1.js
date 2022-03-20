@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['filename_2ec_0',['filename.c',['../layout__and__documentation__example_2filename_8c.html',1,'(Global Namespace)'],['../templates_2filename_8c.html',1,'(Global Namespace)']]],
-  ['filename_2eh_1',['filename.h',['../layout__and__documentation__example_2filename_8h.html',1,'(Global Namespace)'],['../templates_2filename_8h.html',1,'(Global Namespace)']]]
+  ['decimal_5fmacro_0',['DECIMAL_MACRO',['../layout__and__documentation__example_2filename_8c.html#ad0d93be93b87cde29da59e643f7c6112',1,'filename.c']]],
+  ['do_5fsome_5fhelpful_5fstuff_1',['do_some_helpful_stuff',['../layout__and__documentation__example_2filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a',1,'filename.c']]]
 ];
