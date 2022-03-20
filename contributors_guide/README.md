@@ -353,7 +353,7 @@ int main()
 ```
 
 This application that will be run on the target MCU as a superloop.
-![Superloop Diagram](.images/super-loop.jpeg)
+![Superloop Diagram](./images/super-loop.jpeg)
 
 The file is ended with two blank lines and an `/*** end of file ***/` comment followed by a blank line. 
 ```C
