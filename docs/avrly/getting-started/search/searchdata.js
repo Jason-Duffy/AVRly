@@ -1,10 +1,10 @@
 var indexSectionsWithContent =
 {
-  0: "bgilmp",
+  0: "bilmpr",
   1: "bmp",
   2: "bim",
   3: "bl",
-  4: "g"
+  4: "r"
 };
 
 var indexSectionNames =

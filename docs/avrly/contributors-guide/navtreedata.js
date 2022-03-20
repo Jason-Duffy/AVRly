@@ -25,9 +25,11 @@
 var NAVTREE =
 [
   [ "Contributor's Guide", "index.html", [
-    [ "Style Guide", "index.html#autotoc_md1", null ],
-    [ "Templates", "index.html#autotoc_md2", null ],
-    [ "Submitting a Pull Request", "index.html#autotoc_md3", null ],
+    [ "Contributor's Guide", "md__r_e_a_d_m_e.html", [
+      [ "Style Guide", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
+      [ "Templates", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
+      [ "Submitting a Pull Request", "md__r_e_a_d_m_e.html#autotoc_md3", null ]
+    ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ]
     ] ]
