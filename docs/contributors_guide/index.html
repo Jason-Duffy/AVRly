@@ -100,72 +100,38 @@ Anatomy of Embedded Firmware</h1>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Licence</h2>
 <p >At the top of each file, a copyright notice and licence terms are added. This let's other users know whether they can use and distribute this software, and the terms under which they may do so. The software in this repository is released under the MIT licence.</p>
-<div class="fragment"><div class="line">/******************************************************************************</div>
-<div class="line"> Copyright (c) 2022 by Your Name Here</div>
-<div class="line"> </div>
-<div class="line"> Permission is hereby granted, free of charge, to any person obtaining a copy</div>
-<div class="line"> of this software and associated documentation files (the &quot;Software&quot;), to deal</div>
-<div class="line"> in the Software without restriction, including without limitation the rights</div>
-<div class="line"> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</div>
-<div class="line"> copies of the Software, and to permit persons to whom the Software is</div>
-<div class="line"> furnished to do so, subject to the following conditions:</div>
-<div class="line"> </div>
-<div class="line"> The above copyright notice and this permission notice shall be included in all</div>
-<div class="line"> copies or substantial portions of the Software.</div>
-<div class="line"> </div>
-<div class="line"> THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</div>
-<div class="line"> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</div>
-<div class="line"> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</div>
-<div class="line"> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</div>
-<div class="line"> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</div>
-<div class="line"> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</div>
-<div class="line"> SOFTWARE.</div>
-<div class="line">******************************************************************************/</div>
-</div><!-- fragment --><p> The licence and copyright notice are enclosed in a Javadoc style banner, which Doxygen will recognise as a banner comment. To use this stye of banner, JAVADOC_BANNER = YES must be set in the Doxyfile. Add your name in the copyright notice.</p>
+<div class="fragment"><div class="line"> </div>
+</div><!-- fragment --><p> The licence and copyright notice are enclosed in a Javadoc style banner, which Doxygen will recognise as a banner comment. To use this stye of banner, <code>JAVADOC_BANNER = YES</code> must be set in the Doxyfile. Add your name in the copyright notice.</p>
 <h2><a class="anchor" id="autotoc_md4"></a>
 C Header File</h2>
 <p >A C header file should be named after the function of the file or the peripheral that it serves, and the file extension is <code>.h</code>. The filename should be entirely in lowercase. An example can be found [here][Header_File_Example_URL].</p>
 <p >After the license, place a Javadoc style comment block with some special Doxygen commands: <code>@file</code>, <code>@author</code>, <code>@date</code>, <code>@brief</code>, <code>@bug</code> and <code>@see</code>.</p>
-<div class="fragment"><div class="line">/**</div>
-<div class="line"> * @file filename.h</div>
-<div class="line"> * @author Your Name Here.</div>
-<div class="line"> * @date 15th March 2022</div>
-<div class="line"> * @brief The brief description goes here. After the first full stop, this text</div>
-<div class="line"> * becomes the detailed description. Add an explanation of the purpose and</div>
-<div class="line"> * limitations of the module, along with any other notes that may be useful to</div>
-<div class="line"> * others using it. In the Doxyfile, ensure JAVADOC_BANNER = YES, and</div>
-<div class="line"> * JAVADOC_AUTOBRIEF = YES, to use this style of commenting. </div>
-<div class="line"> * @bug Known bugs are declared and described here.</div>
-<div class="line"> * @see &quot;See also&quot; links go here https://www.doxygen.nl/manual/docblocks.html</div>
-<div class="line"> */</div>
+<div class="fragment"><div class="line"> </div>
 </div><!-- fragment --><p >Next come the include guards - a preprocessor mechanism used to prevent the header file contents being included in other files multiple times.</p>
-<div class="fragment"><div class="line">#ifndef FILENAME_DOT_H</div>
-<div class="line">#define FILENAME_DOT_H</div>
+<div class="fragment"><div class="line"><span class="preprocessor">#ifndef FILENAME_DOT_H</span></div>
+<div class="line"><span class="preprocessor">#define FILENAME_DOT_H</span></div>
 <div class="line"> </div>
-<div class="line">// Contents of header file go here. </div>
+<div class="line"><span class="comment">// Contents of header file go here. </span></div>
 <div class="line"> </div>
-<div class="line">#endif // FILENAME_DOT_H</div>
+<div class="line"><span class="preprocessor">#endif </span><span class="comment">// FILENAME_DOT_H</span></div>
 </div><!-- fragment --><p ><code>#include</code> directives come next, with standard library headers listed first, then the local, project specific headers.</p>
-<div class="fragment"><div class="line">// Header file needed for fixed width integer types. </div>
-<div class="line">#include &lt;stdint.h&gt;</div>
+<div class="fragment"><div class="line"><span class="comment">// Header file needed for fixed width integer types. </span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 </div><!-- fragment --><p >Typedefs, enums etc come next, along with any macro definitions.</p>
 <p >Function prototypes/declarations are now listed, with the initialisation function first.</p>
-<div class="fragment"><div class="line">/**</div>
-<div class="line"> * Public initialisation function declaration comes first.</div>
-<div class="line"> */</div>
-<div class="line">void init_object(uint16_t value);</div>
+<div class="fragment"><div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="layout__and__documentation__example_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(uint16_t value);</div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">/**</div>
-<div class="line"> * Other public function declarations come afterwards.</div>
-<div class="line"> */</div>
-<div class="line">uint16_t get_value(void);</div>
+<div class="line">uint16_t <a class="code hl_function" href="layout__and__documentation__example_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a>(<span class="keywordtype">void</span>);</div>
+<div class="ttc" id="alayout__and__documentation__example_2filename_8c_html_a3ebcf9ef84eb47df312281d252a5487e"><div class="ttname"><a href="layout__and__documentation__example_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a></div><div class="ttdeci">uint16_t get_value(void)</div><div class="ttdoc">Get value and return it without exposing a private variable.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2filename_8c_source.html#l00089">filename.c:89</a></div></div>
+<div class="ttc" id="alayout__and__documentation__example_2filename_8c_html_a79a38b8a0c6ba34854b450330b82ebd8"><div class="ttname"><a href="layout__and__documentation__example_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a></div><div class="ttdeci">void init_object(uint16_t value)</div><div class="ttdoc">This is a Javadoc style comment.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2filename_8c_source.html#l00076">filename.c:76</a></div></div>
 </div><!-- fragment --><p >The file ends with closure of the header guards, two blank lines and an <code>/*** end of file ***/</code> comment followed by a blank line.</p>
-<div class="fragment"><div class="line">// End of include guard.</div>
-<div class="line">#endif // FILENAME_DOT_H</div>
+<div class="fragment"><div class="line"><span class="comment">// End of include guard.</span></div>
+<div class="line"><span class="preprocessor">#endif </span><span class="comment">// FILENAME_DOT_H</span></div>
 <div class="line"> </div>
 <div class="line"> </div>
-<div class="line">/*** end of file ***/</div>
+<div class="line"> </div>
 </div><!-- fragment --><p >[Header_File_Example_URL]: </p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
