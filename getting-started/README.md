@@ -207,7 +207,7 @@ To get a feel for the file structure, layout and formatting of embedded C firmwa
 Adhering to coding standards helps to make your code more readable, robust, easier to debug and more portable. The firmware in this repo was written to the [Barr Group C Coding Standard][Barr_Coding_Standard_URL], and I would encourage others to read it and use those guidelines in their own code.
 
 
-[Bare_Metal_URL]: https://en.wikipedia.org/wiki/Bare_machine
+[Bare_Metal_URL]: https://microcontrollerslab.com/difference-bare-metal-and-rtos-based-embedded-systems/
 [Sublime_Text_URL]: http://www.sublimetext.com/
 [VS_Code_URL]: https://code.visualstudio.com/
 [Codespaces_URL]: https://github.com/features/codespaces
