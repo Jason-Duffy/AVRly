@@ -1,14 +1,14 @@
 # Contributor's Guide
 
 ## A Word on Doxygen
-Throughout this repository, the code has been documented using [Doxygen](https://www.doxygen.nl/index.html). It's an easy way to generate documentation which stays close to the code so it's not too difficult to keep the two in line. 
+Throughout this repository, the code has been documented using [Doxygen](https://www.doxygen.nl/index.html). It's an easy way to generate documentation which stays close to the code so it's not too difficult to keep the two in line. The html for this site was also generated using Doxygen. 
 
 ## Anatomy of Embedded Firmware
 
 ### Licence
 At the top of each file, a copyright notice and licence terms are added. This let's other users know whether they can use and distribute this software, and the terms under which they may do so. The software in this repository is released under the MIT licence. 
 
-```C
+```
 /******************************************************************************
  Copyright (c) 2022 by Your Name Here
  
@@ -35,9 +35,9 @@ The licence and copyright notice are enclosed in a Javadoc style banner, which D
 
 
 ### C Header File
-A C header file should be named after the function of the file or the peripheral that it serves, and the file extension is `.h`. The filename should be entirely in lowercase. An example can be found [here][Header_File_Example_URL].
+A C header file should be named after the function of the file or the peripheral that it serves, and the file extension is `.h`. The filename should be entirely in lowercase. An example file can be found in the repo [here][Header_File_Example_URL], and the Doxygen output from these special comments and commands can be found [here][Header_File_Doxygen_Output_URL]. 
 
-After the license, place a Javadoc style comment block with some special Doxygen commands: `@file`, `@author`, `@date`, `@brief`, `@bug` and `@see`. 
+After the license, place a Javadoc style comment block with some special Doxygen commands: `@file`, `@author`, `@date`, `@brief`, `@bug` and `@see`.
 
 ```
 /**
@@ -100,3 +100,4 @@ The file ends with closure of the header guards, two blank lines and an `/*** en
 
 
 [Header_File_Example_URL]: 
+[Header_File_Doxygen_Output_URL]:
