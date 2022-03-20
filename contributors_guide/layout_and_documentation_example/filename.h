@@ -41,8 +41,10 @@
 // Header file needed for fixed width integer types. 
 #include <stdint.h>
 
-/**
- * Public initialisation function declaration comes first.
+/*
+ * Public initialisation function declaration comes first. This is a Javadoc
+ * Autobrief style comment - the first sentence becomes a brief, then after the
+ * first full stop the remaining text becomes a detailed description. 
  */
 void init_object(uint16_t value);
 
