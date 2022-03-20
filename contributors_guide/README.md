@@ -39,7 +39,7 @@ A C header file should be named after the function of the file or the peripheral
 
 After the license, place a Javadoc style comment block with some special Doxygen commands: `@file`, `@author`, `@date`, `@brief`, `@bug` and `@see`. 
 
-```C
+```
 /**
  * @file filename.h
  * @author Your Name Here.
@@ -77,15 +77,11 @@ Typedefs, enums etc come next, along with any macro definitions.
 Function prototypes/declarations are now listed, with the initialisation function first. 
 
 ```C
-/**
- * Public initialisation function declaration comes first.
- */
+// Public initialisation function declaration comes first.
 void init_object(uint16_t value);
 
 
-/**
- * Other public function declarations come afterwards.
- */
+// Other public function declarations come afterwards.
 uint16_t get_value(void);
 ```
 
@@ -95,7 +91,8 @@ The file ends with closure of the header guards, two blank lines and an `/*** en
 // End of include guard.
 #endif // FILENAME_DOT_H
 
-
+```
+```
 /*** end of file ***/
 
 ```
