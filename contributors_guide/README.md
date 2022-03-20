@@ -39,7 +39,7 @@ A C header file should be named after the function of the file or the peripheral
 
 After the license, place a Javadoc style comment block with some special Doxygen commands: `@file`, `@author`, `@date`, `@brief`, `@bug` and `@see`.
 
-```
+```C
 /**
  * @file filename.h
  * @author Your Name Here.
@@ -53,6 +53,8 @@ After the license, place a Javadoc style comment block with some special Doxygen
  * @see "See also" links go here https://www.doxygen.nl/manual/docblocks.html
  */
 ```
+
+The doxygen output from these special comments looks like this:
 
  Next come the include guards - a preprocessor mechanism used to prevent the header file contents being included in other files multiple times. 
 
@@ -77,11 +79,15 @@ Typedefs, enums etc come next, along with any macro definitions.
 Function prototypes/declarations are now listed, with the initialisation function first. 
 
 ```C
-// Public initialisation function declaration comes first.
+/*
+ * Public initialisation function declaration comes first.
+ */
 void init_object(uint16_t value);
 
 
-// Other public function declarations come afterwards.
+/*
+ * Other public function declarations come afterwards.
+ */
 uint16_t get_value(void);
 ```
 
@@ -91,13 +97,12 @@ The file ends with closure of the header guards, two blank lines and an `/*** en
 // End of include guard.
 #endif // FILENAME_DOT_H
 
-```
-```
+
 /*** end of file ***/
 
 ```
 
 
 
-[Header_File_Example_URL]: 
-[Header_File_Doxygen_Output_URL]:
+[Header_File_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/filename.h
+[Header_File_Doxygen_Output_URL]:https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2filename_8h.html
