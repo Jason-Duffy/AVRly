@@ -98,7 +98,7 @@ A Word on Doxygen</h1>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Anatomy of Embedded Firmware</h1>
 <h2><a class="anchor" id="autotoc_md3"></a>
-Whitespace and Character Limit</h2>
+Formatting</h2>
 <p >Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, Source and Makefiles should all be limited to 80 characters wide.</p>
 <h2><a class="anchor" id="autotoc_md4"></a>
 Licence</h2>
@@ -145,7 +145,7 @@ C Header Files</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#ifndef FILENAME_DOT_H</span></div>
 <div class="line"><span class="preprocessor">#define FILENAME_DOT_H</span></div>
 <div class="line"> </div>
-<div class="line"><span class="comment">// Contents of header file go here. </span></div>
+<div class="line"><span class="comment">// Contents of header file goes here. </span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#endif </span><span class="comment">// FILENAME_DOT_H</span></div>
 </div><!-- fragment --><p ><code>#include</code> directives come next, with standard library headers listed first, then the local, project specific headers.</p>
@@ -248,9 +248,9 @@ C Source Files</h2>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> file_scope_variable;</div>
 <div class="line">}</div>
-<div class="ttc" id="alayout__and__documentation__example_2pin__defines_8h_html_a21451ec02a4b1e952ab2e3624fa848af"><div class="ttname"><a href="layout__and__documentation__example_2pin__defines_8h.html#a21451ec02a4b1e952ab2e3624fa848af">OBJECT_PORT</a></div><div class="ttdeci">#define OBJECT_PORT</div><div class="ttdoc">Defines the AVR port we have wired our peripheral to.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2pin__defines_8h_source.html#l00041">pin_defines.h:41</a></div></div>
-<div class="ttc" id="alayout__and__documentation__example_2pin__defines_8h_html_a2386170f552aa5e9a57cc156f315a25a"><div class="ttname"><a href="layout__and__documentation__example_2pin__defines_8h.html#a2386170f552aa5e9a57cc156f315a25a">OBJECT_GPIO</a></div><div class="ttdeci">#define OBJECT_GPIO</div><div class="ttdoc">Defines the GPIO number the peripheral is wired to.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2pin__defines_8h_source.html#l00051">pin_defines.h:51</a></div></div>
-<div class="ttc" id="alayout__and__documentation__example_2pin__defines_8h_html_a5ebaa76de0dba97075bb5ddd49eb4bdd"><div class="ttname"><a href="layout__and__documentation__example_2pin__defines_8h.html#a5ebaa76de0dba97075bb5ddd49eb4bdd">OBJECT_DDR</a></div><div class="ttdeci">#define OBJECT_DDR</div><div class="ttdoc">Defines the Data Direction Register for the GPIO connected to our peripheral.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2pin__defines_8h_source.html#l00046">pin_defines.h:46</a></div></div>
+<div class="ttc" id="alayout__and__documentation__example_2pin__defines_8h_html_a21451ec02a4b1e952ab2e3624fa848af"><div class="ttname"><a href="layout__and__documentation__example_2pin__defines_8h.html#a21451ec02a4b1e952ab2e3624fa848af">OBJECT_PORT</a></div><div class="ttdeci">#define OBJECT_PORT</div><div class="ttdoc">Defines the AVR port we have wired our peripheral to.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2pin__defines_8h_source.html#l00042">pin_defines.h:42</a></div></div>
+<div class="ttc" id="alayout__and__documentation__example_2pin__defines_8h_html_a2386170f552aa5e9a57cc156f315a25a"><div class="ttname"><a href="layout__and__documentation__example_2pin__defines_8h.html#a2386170f552aa5e9a57cc156f315a25a">OBJECT_GPIO</a></div><div class="ttdeci">#define OBJECT_GPIO</div><div class="ttdoc">Defines the GPIO number the peripheral is wired to.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2pin__defines_8h_source.html#l00052">pin_defines.h:52</a></div></div>
+<div class="ttc" id="alayout__and__documentation__example_2pin__defines_8h_html_a5ebaa76de0dba97075bb5ddd49eb4bdd"><div class="ttname"><a href="layout__and__documentation__example_2pin__defines_8h.html#a5ebaa76de0dba97075bb5ddd49eb4bdd">OBJECT_DDR</a></div><div class="ttdeci">#define OBJECT_DDR</div><div class="ttdoc">Defines the Data Direction Register for the GPIO connected to our peripheral.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2pin__defines_8h_source.html#l00047">pin_defines.h:47</a></div></div>
 </div><!-- fragment --><p >Lastly, we have the definitions of private helper functions. Since they are less likely to be needed by people using the software, they are located at the bottom of the file.</p>
 <div class="fragment"><div class="line"><span class="comment">/**</span></div>
 <div class="line"><span class="comment"> * Helper function definitions come last, though their declarations are at the</span></div>
@@ -262,6 +262,47 @@ C Source Files</h2>
 <div class="line">}</div>
 </div><!-- fragment --><p >The file is ended with two blank lines and an <code>/*** end of file ***/</code> comment followed by a blank line. </p><div class="fragment"><div class="line"><span class="comment">/*** end of file ***/</span></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md7"></a>
+pin_defines.h</h2>
+<p >Macro definitions for ports, pins, data direction registers and GPIOs should be listed in the pin_defines.h file. When you have a larger project, it's much clearer to be able to see the pinout all together in one place, rather than strewn across multiple files.</p>
+<p >An example file can be found in the repo <a href="https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/pin_defines.h">here</a>, and the Doxygen output from these special comments and commands can be found <a href="https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2pin__defines_8h.html">here</a>.</p>
+<p >Again we start with the Javadoc style Doxygen comment block to provide some info about the file.</p>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * @file pin_defines.h</span></div>
+<div class="line"><span class="comment"> * @author Your Name Here</span></div>
+<div class="line"><span class="comment"> * @date 15th March 2022</span></div>
+<div class="line"><span class="comment"> * @brief Pin and port definitions for the project.</span></div>
+<div class="line"><span class="comment"> * @see Datasheets or other links can go here. </span></div>
+<div class="line"><span class="comment"> */</span></div>
+</div><!-- fragment --><p >Then we have our include guards, as with all .h files.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#ifndef PIN_DEFINES_DOT_H</span></div>
+<div class="line"><span class="preprocessor">#define PIN_DEFINES_DOT_H</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Contents of header file goes here.</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#endif </span><span class="comment">// PIN_DEFINES_DOT_H </span></div>
+</div><!-- fragment --><p >This header is required to access pin and port names. </p><div class="fragment"><div class="line"><span class="comment">// Definitions for pins and ports are in this header file.</span></div>
+<div class="line"><span class="preprocessor">#include &lt;avr/io.h&gt;</span></div>
+</div><!-- fragment --><p >Then we make our macro definitions for pins, ports and GPIOs - see datasheet for more on this. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Defines the AVR port we have wired our peripheral to.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="preprocessor">#define OBJECT_PORT        PORTB</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Defines the Data Direction Register for the GPIO connected to our peripheral.</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="preprocessor">#define OBJECT_DDR         DDRB</span></div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Defines the GPIO number the peripheral is wired to</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="preprocessor">#define OBJECT_GPIO        PB0</span></div>
+</div><!-- fragment --><p >The file ends with closure of the header guards, two blank lines and an <code>/*** end of file ***/</code> comment followed by a blank line.</p>
+<div class="fragment"><div class="line"><span class="comment">// End of include guard.</span></div>
+<div class="line"><span class="preprocessor">#endif </span><span class="comment">// PIN_DEFINES_DOT_H </span></div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/*** end of file ***/</span></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
 main.c</h2>
 <p >main.c is where the <code>int <a class="el" href="layout__and__documentation__example_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main routine to be executed on MCU.">main()</a></code> routine lives, and is the heart of the application.</p>
 <p >An example file can be found in the repo <a href="https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/main.c">here</a>, and the Doxygen output from these special comments and commands can be found <a href="https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2main_8c.html">here</a>.</p>
@@ -299,7 +340,30 @@ main.c</h2>
 <div class="ttc" id="alayout__and__documentation__example_2main_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="layout__and__documentation__example_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main routine to be executed on MCU.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2main_8c_source.html#l00045">main.c:45</a></div></div>
 </div><!-- fragment --><p >This application that will be run on the target MCU as a superloop. <img src=".images/super-loop.jpeg" alt="Superloop Diagram" class="inline"/></p>
 <p >The file is ended with two blank lines and an <code>/*** end of file ***/</code> comment followed by a blank line. </p><div class="fragment"><div class="line"><span class="comment">/*** end of file ***/</span></div>
-</div><!-- fragment --> </div></div><!-- PageDoc -->
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md9"></a>
+Makefile</h2>
+<p >The Makefile contains "recipes" intended to simplify the process of building your application. With this, you only need to type <code>make</code> to compile and link your code, rather than manually listing the many options, flags, dependancies etc in the terminal each time.</p>
+<p >An example file can be found in the repo <a href="https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/Makefile">here</a>. They cannot be dosumented using Doxygen, so I prefer to use a <code>help</code> recipe instead. Type <code>make help</code> to see a list of commands available to the user.</p>
+<p >The Makefile must always be named "Makefile". Keep basic user defined variables at the top of the file.</p>
+<div class="fragment"><div class="line">MCU   = atmega328p</div>
+<div class="line">F_CPU = 8000000UL  </div>
+<div class="line">BAUD  = 9600UL</div>
+<div class="line">## Also try BAUD = 19200 or 38400 if you&#39;re feeling lucky.</div>
+<div class="line"> </div>
+<div class="line">## A directory for common include files. </div>
+<div class="line">LIBDIR = /usr/local/</div>
+<div class="line"> </div>
+<div class="line">##########-----------------------------------------------------------##########</div>
+<div class="line">##########                   Programmer Defaults                     ##########</div>
+<div class="line">##########            Set up once, then forget about it              ##########</div>
+<div class="line">##########          (Can override.  See bottom of file.)             ##########</div>
+<div class="line">##########-----------------------------------------------------------##########</div>
+<div class="line"> </div>
+<div class="line">PROGRAMMER_TYPE = avrisp</div>
+<div class="line"># extra arguments to avrdude: baud rate, chip type, -F flag, etc.</div>
+<div class="line">PROGRAMMER_ARGS = -b 19200 -P /dev/tty.usbmodem141201</div>
+</div><!-- fragment --><p> If you add a new recipe for users to invoke from terminal, document is by adding it to the <code>help</code> recipe at the bottom of the [template file][Makefile_Template_URL]. </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
