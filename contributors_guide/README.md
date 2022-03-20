@@ -8,7 +8,7 @@ Throughout this repository, the code has been documented using [Doxygen](https:/
 ### Licence
 At the top of each file, a copyright notice and licence terms are added. This let's other users know whether they can use and distribute this software, and the terms under which they may do so. The software in this repository is released under the MIT licence. 
 
-```
+```C
 /******************************************************************************
  Copyright (c) 2022 by Your Name Here
  
@@ -31,7 +31,7 @@ At the top of each file, a copyright notice and licence terms are added. This le
  SOFTWARE.
 ******************************************************************************/
 ```
-The licence and copyright notice are enclosed in a Javadoc style banner, which Doxygen will recognise as a banner comment. To use this stye of banner, JAVADOC_BANNER = YES must be set in the Doxyfile. Add your name in the copyright notice. 
+The licence and copyright notice are enclosed in a Javadoc style banner, which Doxygen will recognise as a banner comment. To use this stye of banner, `JAVADOC_BANNER = YES` must be set in the Doxyfile. Add your name in the copyright notice. 
 
 
 ### C Header File
@@ -39,7 +39,7 @@ A C header file should be named after the function of the file or the peripheral
 
 After the license, place a Javadoc style comment block with some special Doxygen commands: `@file`, `@author`, `@date`, `@brief`, `@bug` and `@see`. 
 
-```
+```C
 /**
  * @file filename.h
  * @author Your Name Here.
@@ -56,7 +56,7 @@ After the license, place a Javadoc style comment block with some special Doxygen
 
  Next come the include guards - a preprocessor mechanism used to prevent the header file contents being included in other files multiple times. 
 
-```
+```C
 #ifndef FILENAME_DOT_H
 #define FILENAME_DOT_H
 
@@ -67,7 +67,7 @@ After the license, place a Javadoc style comment block with some special Doxygen
 
 `#include` directives come next, with standard library headers listed first, then the local, project specific headers. 
 
-```
+```C
 // Header file needed for fixed width integer types. 
 #include <stdint.h>
 ```
@@ -76,7 +76,7 @@ Typedefs, enums etc come next, along with any macro definitions.
 
 Function prototypes/declarations are now listed, with the initialisation function first. 
 
-```
+```C
 /**
  * Public initialisation function declaration comes first.
  */
@@ -91,7 +91,7 @@ uint16_t get_value(void);
 
 The file ends with closure of the header guards, two blank lines and an `/*** end of file ***/` comment followed by a blank line. 
 
-```
+```C
 // End of include guard.
 #endif // FILENAME_DOT_H
 
