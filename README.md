@@ -1,5 +1,5 @@
-# C Programming Resources for AVR MCU's
- 
-@mainpage Table of Contents
+## Getting Started
+[Getting Started with Blink][Getting_Started_URL]
 
-@author Jason Duffy.
+
+[Getting_Started_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/avrly/getting-started/
