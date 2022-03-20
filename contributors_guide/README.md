@@ -8,7 +8,7 @@ Throughout this repository, the code has been documented using [Doxygen](https:/
 ### Licence
 At the top of each file, a copyright notice and licence terms are added. This let's other users know whether they can use and distribute this software, and the terms under which they may do so. The software in this repository is released under the MIT licence. 
 
-```
+```C
 /******************************************************************************
  Copyright (c) 2022 by Your Name Here
  
@@ -80,7 +80,7 @@ Function prototypes/declarations are now listed, with the initialisation functio
 
 ```C
 /*
- * Public initialisation function declaration comes first.
+ * Public initialisation function declaration comes first. This is a Javadoc Autobrief style comment. 
  */
 void init_object(uint16_t value);
 
