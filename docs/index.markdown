@@ -11,6 +11,8 @@ This is some content:
 
 [Contributor's Guide][Contributors_Guide_URL]
 
+[Anatomy of Embedded Firmware][Firmware_Anatomy_URL]
+
 [MCP48x2 DAC Driver and Example Code][MCP48x2_URL]
 
 [CCS811 CO2 Sensor Driver and Example Code][CCS811_URL]
@@ -21,6 +23,7 @@ This is some content:
 
 
 [Getting_started_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/getting-started
+[Firmware_Anatomy_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/index.html#autotoc_md2
 [Contributors_Guide_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide
 [MCP48x2_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/mcp48x2
 [CCS811_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/ccs811
