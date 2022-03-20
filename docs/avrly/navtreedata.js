@@ -25,18 +25,16 @@
 var NAVTREE =
 [
   [ "AVRly - AVR Development Resources", "index.html", [
-    [ "Contributor's Guide", "index.html", [
+    [ "Anatomy of Embedded Firmware", "index.html", [
       [ "A Word on Doxygen", "index.html#autotoc_md1", null ],
-      [ "Anatomy of Embedded Firmware", "index.html#autotoc_md2", [
-        [ "Formatting", "index.html#autotoc_md3", null ],
-        [ "Licence", "index.html#autotoc_md4", null ],
-        [ "C Header Files", "index.html#autotoc_md5", null ],
-        [ "C Source Files", "index.html#autotoc_md6", null ],
-        [ "pin_defines.h", "index.html#autotoc_md7", null ],
-        [ "main.c", "index.html#autotoc_md8", null ],
-        [ "Makefile", "index.html#autotoc_md9", null ]
-      ] ],
-      [ "Templates", "index.html#autotoc_md10", null ]
+      [ "Formatting", "index.html#autotoc_md2", null ],
+      [ "Licence", "index.html#autotoc_md3", null ],
+      [ "C Header Files", "index.html#autotoc_md4", null ],
+      [ "C Source Files", "index.html#autotoc_md5", null ],
+      [ "pin_defines.h", "index.html#autotoc_md6", null ],
+      [ "main.c", "index.html#autotoc_md7", null ],
+      [ "Makefile", "index.html#autotoc_md8", null ],
+      [ "Templates", "index.html#autotoc_md9", null ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -60,8 +58,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"mcp4812__dac_8h.html#ab7d4460badaeb5c1255a471604ee7823"
+"anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html",
+"mcp4812__dac_8h.html#a8e5a30fe5a03338c88ef80b84f3098b7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

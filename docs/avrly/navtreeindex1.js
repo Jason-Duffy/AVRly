@@ -1,8 +1,10 @@
 var NAVTREEINDEX1 =
 {
-"mcp4812__dac_8h.html#ab7d4460badaeb5c1255a471604ee7823":[2,0,6,0,4,4],
-"mcp4812__dac_8h.html#afd38e4b814863ec79d710ee2c3623adb":[2,0,6,0,4,5],
-"mcp4812__dac_8h_source.html":[2,0,6,0,4],
+"mcp4812__dac_8h.html#a8e5a30fe5a03338c88ef80b84f3098b7":[2,0,7,0,4,3],
+"mcp4812__dac_8h.html#aaf5962070b11ed66e257763c365ad321":[2,0,7,0,4,2],
+"mcp4812__dac_8h.html#ab7d4460badaeb5c1255a471604ee7823":[2,0,7,0,4,4],
+"mcp4812__dac_8h.html#afd38e4b814863ec79d710ee2c3623adb":[2,0,7,0,4,5],
+"mcp4812__dac_8h_source.html":[2,0,7,0,4],
 "pages.html":[],
 "structccs811__config__t.html":[1,0,0],
 "structdac__channel__t.html":[1,0,1],
@@ -14,7 +16,5 @@ var NAVTREEINDEX1 =
 "structlcd__config__t.html#a848b26ac11cf574fbf6d74a4300f6e7d":[1,0,3,3],
 "structlcd__config__t.html#a901f76a048a9fc7a55bc7f87002a2772":[1,0,3,6],
 "structlcd__config__t.html#a922f5a375c0c0adc94b5f8e09e08eb62":[1,0,3,2],
-"structlcd__config__t.html#a9ccb959ea17cf7b7f13818e4d606b3af":[1,0,3,1],
-"templates_2filename_8h.html":[2,0,1,1,1],
-"templates_2filename_8h_source.html":[2,0,1,1,1]
+"structlcd__config__t.html#a9ccb959ea17cf7b7f13818e4d606b3af":[1,0,3,1]
 };

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['contributor_27s_20guide_0',['Contributor&apos;s Guide',['../index.html',1,'']]]
+  ['anatomy_20of_20embedded_20firmware_0',['Anatomy of Embedded Firmware',['../index.html',1,'']]]
 ];
