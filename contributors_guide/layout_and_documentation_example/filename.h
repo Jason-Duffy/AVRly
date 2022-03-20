@@ -45,12 +45,14 @@
  * Public initialisation function declaration comes first. This is a Javadoc
  * Autobrief style comment - the first sentence becomes a brief, then after the
  * first full stop the remaining text becomes a detailed description. 
+ * @param parameters can be documented like this. 
  */
 void init_object(uint16_t value);
 
 
 /**
  * Other public function declarations come afterwards.
+ * @return Returns a 16 bit unsigned integer. Returns are documented like this.
  */
 uint16_t get_value(void);
 
