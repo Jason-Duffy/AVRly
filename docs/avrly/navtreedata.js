@@ -25,13 +25,41 @@
 var NAVTREE =
 [
   [ "AVRly - AVR Development Resources", "index.html", [
-    [ "Table of Contents", "index.html", null ]
+    [ "Anatomy of Embedded Firmware", "index.html", [
+      [ "A Word on Doxygen", "index.html#autotoc_md1", null ],
+      [ "Formatting", "index.html#autotoc_md2", null ],
+      [ "Licence", "index.html#autotoc_md3", null ],
+      [ "C Header Files", "index.html#autotoc_md4", null ],
+      [ "C Source Files", "index.html#autotoc_md5", null ],
+      [ "pin_defines.h", "index.html#autotoc_md6", null ],
+      [ "main.c", "index.html#autotoc_md7", null ],
+      [ "Makefile", "index.html#autotoc_md8", null ],
+      [ "Templates", "index.html#autotoc_md9", null ]
+    ] ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
+    ] ],
+    [ "Files", "files.html", [
+      [ "File List", "files.html", "files_dup" ],
+      [ "File Members", "globals.html", [
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Macros", "globals_defs.html", null ]
+      ] ]
+    ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"index.html"
+"anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html",
+"mcp4812__dac_8h.html#a8e5a30fe5a03338c88ef80b84f3098b7"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
