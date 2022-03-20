@@ -345,7 +345,12 @@ Makefile</h2>
 <p >The Makefile contains "recipes" intended to simplify the process of building your application. With this, you only need to type <code>make</code> to compile and link your code, rather than manually listing the many options, flags, dependancies etc in the terminal each time.</p>
 <p >An example file can be found in the repo <a href="https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/Makefile">here</a>. They cannot be dosumented using Doxygen, so I prefer to use a <code>help</code> recipe instead. Type <code>make help</code> to see a list of commands available to the user.</p>
 <p >The Makefile must always be named "Makefile". Keep basic user defined variables at the top of the file.</p>
-<div class="fragment"><div class="line">MCU   = atmega328p</div>
+<div class="fragment"><div class="line">##########-----------------------------------------------------------##########</div>
+<div class="line">##########                 Project-specific Details                  ##########</div>
+<div class="line">##########       Check these every time you start a new project      ##########</div>
+<div class="line">##########-----------------------------------------------------------##########</div>
+<div class="line"> </div>
+<div class="line">MCU   = atmega328p</div>
 <div class="line">F_CPU = 8000000UL  </div>
 <div class="line">BAUD  = 9600UL</div>
 <div class="line">## Also try BAUD = 19200 or 38400 if you&#39;re feeling lucky.</div>
