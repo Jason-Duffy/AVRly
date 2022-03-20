@@ -100,27 +100,27 @@ Anatomy of Embedded Firmware</h1>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Licence</h2>
 <p >At the top of each file, a copyright notice and licence terms are added. This let's other users know whether they can use and distribute this software, and the terms under which they may do so. The software in this repository is released under the MIT licence.</p>
-<div class="fragment"><div class="line">/******************************************************************************</div>
-<div class="line"> Copyright (c) 2022 by Your Name Here</div>
-<div class="line"> </div>
-<div class="line"> Permission is hereby granted, free of charge, to any person obtaining a copy</div>
-<div class="line"> of this software and associated documentation files (the &quot;Software&quot;), to deal</div>
-<div class="line"> in the Software without restriction, including without limitation the rights</div>
-<div class="line"> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</div>
-<div class="line"> copies of the Software, and to permit persons to whom the Software is</div>
-<div class="line"> furnished to do so, subject to the following conditions:</div>
-<div class="line"> </div>
-<div class="line"> The above copyright notice and this permission notice shall be included in all</div>
-<div class="line"> copies or substantial portions of the Software.</div>
-<div class="line"> </div>
-<div class="line"> THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</div>
-<div class="line"> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</div>
-<div class="line"> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</div>
-<div class="line"> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</div>
-<div class="line"> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</div>
-<div class="line"> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</div>
-<div class="line"> SOFTWARE.</div>
-<div class="line">******************************************************************************/</div>
+<div class="fragment"><div class="line"><span class="comment">/******************************************************************************</span></div>
+<div class="line"><span class="comment"> Copyright (c) 2022 by Your Name Here</span></div>
+<div class="line"><span class="comment"> </span></div>
+<div class="line"><span class="comment"> Permission is hereby granted, free of charge, to any person obtaining a copy</span></div>
+<div class="line"><span class="comment"> of this software and associated documentation files (the &quot;Software&quot;), to deal</span></div>
+<div class="line"><span class="comment"> in the Software without restriction, including without limitation the rights</span></div>
+<div class="line"><span class="comment"> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span></div>
+<div class="line"><span class="comment"> copies of the Software, and to permit persons to whom the Software is</span></div>
+<div class="line"><span class="comment"> furnished to do so, subject to the following conditions:</span></div>
+<div class="line"><span class="comment"> </span></div>
+<div class="line"><span class="comment"> The above copyright notice and this permission notice shall be included in all</span></div>
+<div class="line"><span class="comment"> copies or substantial portions of the Software.</span></div>
+<div class="line"><span class="comment"> </span></div>
+<div class="line"><span class="comment"> THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span></div>
+<div class="line"><span class="comment"> IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span></div>
+<div class="line"><span class="comment"> FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span></div>
+<div class="line"><span class="comment"> AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span></div>
+<div class="line"><span class="comment"> LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span></div>
+<div class="line"><span class="comment"> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span></div>
+<div class="line"><span class="comment"> SOFTWARE.</span></div>
+<div class="line"><span class="comment">******************************************************************************/</span></div>
 </div><!-- fragment --><p> The licence and copyright notice are enclosed in a Javadoc style banner, which Doxygen will recognise as a banner comment. To use this stye of banner, <code>JAVADOC_BANNER = YES</code> must be set in the Doxyfile. Add your name in the copyright notice.</p>
 <h2><a class="anchor" id="autotoc_md4"></a>
 C Header File</h2>
@@ -152,7 +152,7 @@ C Header File</h2>
 </div><!-- fragment --><p >Typedefs, enums etc come next, along with any macro definitions.</p>
 <p >Function prototypes/declarations are now listed, with the initialisation function first.</p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
-<div class="line"><span class="comment"> * Public initialisation function declaration comes first.</span></div>
+<div class="line"><span class="comment"> * Public initialisation function declaration comes first. This is a Javadoc Autobrief style comment. </span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="layout__and__documentation__example_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(uint16_t value);</div>
 <div class="line"> </div>
