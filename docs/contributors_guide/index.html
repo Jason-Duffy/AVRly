@@ -130,11 +130,9 @@ C Header File</h2>
 <div class="line"><span class="comment"> * @file filename.h</span></div>
 <div class="line"><span class="comment"> * @author Your Name Here.</span></div>
 <div class="line"><span class="comment"> * @date 15th March 2022</span></div>
-<div class="line"><span class="comment"> * @brief The brief description goes here. After the first full stop, this text</span></div>
-<div class="line"><span class="comment"> * becomes the detailed description. Add an explanation of the purpose and</span></div>
+<div class="line"><span class="comment"> * @brief The brief description goes here. Add an explanation of the purpose and</span></div>
 <div class="line"><span class="comment"> * limitations of the module, along with any other notes that may be useful to</span></div>
-<div class="line"><span class="comment"> * others using it. In the Doxyfile, ensure JAVADOC_BANNER = YES, and</span></div>
-<div class="line"><span class="comment"> * JAVADOC_AUTOBRIEF = YES, to use this style of commenting. </span></div>
+<div class="line"><span class="comment"> * others using it.</span></div>
 <div class="line"><span class="comment"> * @bug Known bugs are declared and described here.</span></div>
 <div class="line"><span class="comment"> * @see &quot;See also&quot; links go here https://www.doxygen.nl/manual/docblocks.html</span></div>
 <div class="line"><span class="comment"> */</span></div>
@@ -150,9 +148,11 @@ C Header File</h2>
 <div class="fragment"><div class="line"><span class="comment">// Header file needed for fixed width integer types. </span></div>
 <div class="line"><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 </div><!-- fragment --><p >Typedefs, enums etc come next, along with any macro definitions.</p>
-<p >Function prototypes/declarations are now listed, with the initialisation function first.</p>
+<p >Function prototypes/declarations are now listed, with the initialisation function first. In the Doxyfile, ensure <code>JAVADOC_AUTOBRIEF = YES</code> to use this style of commenting.</p>
 <div class="fragment"><div class="line"><span class="comment">/*</span></div>
-<div class="line"><span class="comment"> * Public initialisation function declaration comes first. This is a Javadoc Autobrief style comment. </span></div>
+<div class="line"><span class="comment"> * Public initialisation function declaration comes first. This is a Javadoc</span></div>
+<div class="line"><span class="comment"> * Autobrief style comment - the first sentence becomes a brief, then after the</span></div>
+<div class="line"><span class="comment"> * first full stop the remaining text becomes a detailed description. </span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="layout__and__documentation__example_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(uint16_t value);</div>
 <div class="line"> </div>
