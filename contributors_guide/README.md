@@ -372,6 +372,11 @@ An example file can be found in the repo [here][Makefile_Example_URL]. They cann
 The Makefile must always be named "Makefile". Keep basic user defined variables at the top of the file. 
 
 ```make
+##########-----------------------------------------------------------##########
+##########                 Project-specific Details                  ##########
+##########       Check these every time you start a new project      ##########
+##########-----------------------------------------------------------##########
+
 MCU   = atmega328p
 F_CPU = 8000000UL  
 BAUD  = 9600UL
