@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['init_5fled_0',['init_led',['../blink_8c.html#afc227daac655fc74c1537c0555055987',1,'init_led(void):&#160;blink.c'],['../blink_8h.html#afc227daac655fc74c1537c0555055987',1,'init_led(void):&#160;blink.c']]]
+  ['get_5fvalue_0',['get_value',['../layout__and__documentation__example_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e',1,'get_value(void):&#160;filename.c'],['../layout__and__documentation__example_2filename_8h.html#a3ebcf9ef84eb47df312281d252a5487e',1,'get_value(void):&#160;filename.c']]]
 ];
