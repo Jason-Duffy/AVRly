@@ -55,7 +55,7 @@ After the license, place a Javadoc style comment block with some special Doxygen
 ```
 
 The doxygen output from these special comments looks like this:
-![Doxygen Output](../docs/assets/images/doxygen-output.png)
+![Doxygen Output](doxygen-output.png)
 
 
  Next come the include guards - a preprocessor mechanism used to prevent the header file contents being included in other files multiple times. 
