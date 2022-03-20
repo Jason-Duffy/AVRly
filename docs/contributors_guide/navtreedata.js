@@ -35,6 +35,7 @@ var NAVTREE =
       [ "main.c", "index.html#autotoc_md8", null ],
       [ "Makefile", "index.html#autotoc_md9", null ]
     ] ],
+    [ "Templates", "index.html#autotoc_md10", null ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
