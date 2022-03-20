@@ -25,17 +25,15 @@
 var NAVTREE =
 [
   [ "Anatomy of Embedded Firmware", "index.html", [
-    [ "Anatomy of Embedded Firmware", "md__r_e_a_d_m_e.html", [
-      [ "A Word on Doxygen", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
-      [ "Formatting", "md__r_e_a_d_m_e.html#autotoc_md2", null ],
-      [ "Licence", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
-      [ "C Header Files", "md__r_e_a_d_m_e.html#autotoc_md4", null ],
-      [ "C Source Files", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
-      [ "pin_defines.h", "md__r_e_a_d_m_e.html#autotoc_md6", null ],
-      [ "main.c", "md__r_e_a_d_m_e.html#autotoc_md7", null ],
-      [ "Makefile", "md__r_e_a_d_m_e.html#autotoc_md8", null ],
-      [ "Templates", "md__r_e_a_d_m_e.html#autotoc_md9", null ]
-    ] ],
+    [ "A Word on Doxygen", "index.html#autotoc_md1", null ],
+    [ "Formatting", "index.html#autotoc_md2", null ],
+    [ "Licence", "index.html#autotoc_md3", null ],
+    [ "C Header Files", "index.html#autotoc_md4", null ],
+    [ "C Source Files", "index.html#autotoc_md5", null ],
+    [ "pin_defines.h", "index.html#autotoc_md6", null ],
+    [ "main.c", "index.html#autotoc_md7", null ],
+    [ "Makefile", "index.html#autotoc_md8", null ],
+    [ "Templates", "index.html#autotoc_md9", null ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
