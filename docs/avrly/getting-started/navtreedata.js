@@ -25,61 +25,59 @@
 var NAVTREE =
 [
   [ "Getting Started with Blink", "index.html", [
-    [ "README", "md__r_e_a_d_m_e.html", [
-      [ "Software Requirements", "md__r_e_a_d_m_e.html#autotoc_md0", [
-        [ "A Source Code Editor", "md__r_e_a_d_m_e.html#autotoc_md1", null ],
-        [ "The AVR Toolchain", "md__r_e_a_d_m_e.html#autotoc_md2", [
-          [ "MacOS", "md__r_e_a_d_m_e.html#autotoc_md3", null ],
-          [ "Linux", "md__r_e_a_d_m_e.html#autotoc_md4", [
-            [ "Debian/Ubuntu distributions", "md__r_e_a_d_m_e.html#autotoc_md5", null ],
-            [ "Red Hat and Fedora distributions", "md__r_e_a_d_m_e.html#autotoc_md6", null ]
-          ] ],
-          [ "Windows", "md__r_e_a_d_m_e.html#autotoc_md7", null ]
+    [ "Software Requirements", "index.html#autotoc_md0", [
+      [ "A Source Code Editor", "index.html#autotoc_md1", null ],
+      [ "The AVR Toolchain", "index.html#autotoc_md2", [
+        [ "MacOS", "index.html#autotoc_md3", null ],
+        [ "Linux", "index.html#autotoc_md4", [
+          [ "Debian/Ubuntu distributions", "index.html#autotoc_md5", null ],
+          [ "Red Hat and Fedora distributions", "index.html#autotoc_md6", null ]
         ] ],
-        [ "A Serial Terminal Program", "md__r_e_a_d_m_e.html#autotoc_md8", null ]
+        [ "Windows", "index.html#autotoc_md7", null ]
       ] ],
-      [ "Hardware Required", "md__r_e_a_d_m_e.html#autotoc_md9", [
-        [ "An AVR microcontroller", "md__r_e_a_d_m_e.html#autotoc_md10", null ],
-        [ "An ISP Programmer", "md__r_e_a_d_m_e.html#autotoc_md11", null ],
-        [ "A USB to Serial Converter", "md__r_e_a_d_m_e.html#autotoc_md12", null ],
-        [ "Various USB cables", "md__r_e_a_d_m_e.html#autotoc_md13", null ],
-        [ "Breadboards", "md__r_e_a_d_m_e.html#autotoc_md14", null ],
-        [ "Power Supply (optional)", "md__r_e_a_d_m_e.html#autotoc_md15", null ],
-        [ "Jumpers/Dupont cables", "md__r_e_a_d_m_e.html#autotoc_md16", null ],
-        [ "An assortment of components", "md__r_e_a_d_m_e.html#autotoc_md17", null ],
-        [ "A multimeter", "md__r_e_a_d_m_e.html#autotoc_md18", null ]
+      [ "A Serial Terminal Program", "index.html#autotoc_md8", null ]
+    ] ],
+    [ "Hardware Required", "index.html#autotoc_md9", [
+      [ "An AVR microcontroller", "index.html#autotoc_md10", null ],
+      [ "An ISP Programmer", "index.html#autotoc_md11", null ],
+      [ "A USB to Serial Converter", "index.html#autotoc_md12", null ],
+      [ "Various USB cables", "index.html#autotoc_md13", null ],
+      [ "Breadboards", "index.html#autotoc_md14", null ],
+      [ "Power Supply (optional)", "index.html#autotoc_md15", null ],
+      [ "Jumpers/Dupont cables", "index.html#autotoc_md16", null ],
+      [ "An assortment of components", "index.html#autotoc_md17", null ],
+      [ "A multimeter", "index.html#autotoc_md18", null ]
+    ] ],
+    [ "Connecting the Hardware", "index.html#autotoc_md19", [
+      [ "MCU Connections", "index.html#autotoc_md20", null ],
+      [ "Programmer Connections", "index.html#autotoc_md21", null ]
+    ] ],
+    [ "Configuring the Makefile", "index.html#autotoc_md22", [
+      [ "MCU, Programmer and Directory variables", "index.html#autotoc_md23", [
+        [ "MCU", "index.html#autotoc_md24", null ],
+        [ "F_CPU", "index.html#autotoc_md25", null ],
+        [ "BAUD", "index.html#autotoc_md26", null ],
+        [ "LIBDIR", "index.html#autotoc_md27", null ],
+        [ "PROGRAMMER_TYPE", "index.html#autotoc_md28", null ],
+        [ "PROGRAMMER_ARGS", "index.html#autotoc_md29", null ]
       ] ],
-      [ "Connecting the Hardware", "md__r_e_a_d_m_e.html#autotoc_md19", [
-        [ "MCU Connections", "md__r_e_a_d_m_e.html#autotoc_md20", null ],
-        [ "Programmer Connections", "md__r_e_a_d_m_e.html#autotoc_md21", null ]
-      ] ],
-      [ "Configuring the Makefile", "md__r_e_a_d_m_e.html#autotoc_md22", [
-        [ "MCU, Programmer and Directory variables", "md__r_e_a_d_m_e.html#autotoc_md23", [
-          [ "MCU", "md__r_e_a_d_m_e.html#autotoc_md24", null ],
-          [ "F_CPU", "md__r_e_a_d_m_e.html#autotoc_md25", null ],
-          [ "BAUD", "md__r_e_a_d_m_e.html#autotoc_md26", null ],
-          [ "LIBDIR", "md__r_e_a_d_m_e.html#autotoc_md27", null ],
-          [ "PROGRAMMER_TYPE", "md__r_e_a_d_m_e.html#autotoc_md28", null ],
-          [ "PROGRAMMER_ARGS", "md__r_e_a_d_m_e.html#autotoc_md29", null ]
-        ] ],
-        [ "Fuses", "md__r_e_a_d_m_e.html#autotoc_md30", [
-          [ "LFUSE", "md__r_e_a_d_m_e.html#autotoc_md31", null ],
-          [ "HFUSE", "md__r_e_a_d_m_e.html#autotoc_md32", null ],
-          [ "EFUSE", "md__r_e_a_d_m_e.html#autotoc_md33", null ]
-        ] ]
-      ] ],
-      [ "Flashing the Chip", "md__r_e_a_d_m_e.html#autotoc_md34", [
-        [ "Flash Fuses", "md__r_e_a_d_m_e.html#autotoc_md35", null ],
-        [ "Flash the Code", "md__r_e_a_d_m_e.html#autotoc_md36", [
-          [ "Basic Make Commands:", "md__r_e_a_d_m_e.html#autotoc_md37", null ],
-          [ "Advanced Make Commands:", "md__r_e_a_d_m_e.html#autotoc_md38", null ]
-        ] ],
-        [ "Verify Makefile Settings", "md__r_e_a_d_m_e.html#autotoc_md39", null ]
-      ] ],
-      [ "Anatomy of Embedded Firmware", "md__r_e_a_d_m_e.html#autotoc_md40", [
-        [ "Documentation", "md__r_e_a_d_m_e.html#autotoc_md41", null ],
-        [ "Coding Standards", "md__r_e_a_d_m_e.html#autotoc_md42", null ]
+      [ "Fuses", "index.html#autotoc_md30", [
+        [ "LFUSE", "index.html#autotoc_md31", null ],
+        [ "HFUSE", "index.html#autotoc_md32", null ],
+        [ "EFUSE", "index.html#autotoc_md33", null ]
       ] ]
+    ] ],
+    [ "Flashing the Chip", "index.html#autotoc_md34", [
+      [ "Flash Fuses", "index.html#autotoc_md35", null ],
+      [ "Flash the Code", "index.html#autotoc_md36", [
+        [ "Basic Make Commands:", "index.html#autotoc_md37", null ],
+        [ "Advanced Make Commands:", "index.html#autotoc_md38", null ]
+      ] ],
+      [ "Verify Makefile Settings", "index.html#autotoc_md39", null ]
+    ] ],
+    [ "Anatomy of Embedded Firmware", "index.html#autotoc_md40", [
+      [ "Documentation", "index.html#autotoc_md41", null ],
+      [ "Coding Standards", "index.html#autotoc_md42", null ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
