@@ -44,11 +44,9 @@ After the license, place a Javadoc style comment block with some special Doxygen
  * @file filename.h
  * @author Your Name Here.
  * @date 15th March 2022
- * @brief The brief description goes here. After the first full stop, this text
- * becomes the detailed description. Add an explanation of the purpose and
+ * @brief The brief description goes here. Add an explanation of the purpose and
  * limitations of the module, along with any other notes that may be useful to
- * others using it. In the Doxyfile, ensure JAVADOC_BANNER = YES, and
- * JAVADOC_AUTOBRIEF = YES, to use this style of commenting. 
+ * others using it.
  * @bug Known bugs are declared and described here.
  * @see "See also" links go here https://www.doxygen.nl/manual/docblocks.html
  */
@@ -58,7 +56,7 @@ The doxygen output from these special comments looks like this:
 ![Doxygen Output](./images/doxygen-output.png)
 
 
- Next come the include guards - a preprocessor mechanism used to prevent the header file contents being included in other files multiple times. 
+Next come the include guards - a preprocessor mechanism used to prevent the header file contents being included in other files multiple times. 
 
 ```C
 #ifndef FILENAME_DOT_H
@@ -78,11 +76,13 @@ The doxygen output from these special comments looks like this:
 
 Typedefs, enums etc come next, along with any macro definitions. 
 
-Function prototypes/declarations are now listed, with the initialisation function first. 
+Function prototypes/declarations are now listed, with the initialisation function first. In the Doxyfile, ensure `JAVADOC_AUTOBRIEF = YES` to use this style of commenting. 
 
 ```C
 /*
- * Public initialisation function declaration comes first. This is a Javadoc Autobrief style comment. 
+ * Public initialisation function declaration comes first. This is a Javadoc
+ * Autobrief style comment - the first sentence becomes a brief, then after the
+ * first full stop the remaining text becomes a detailed description. 
  */
 void init_object(uint16_t value);
 
