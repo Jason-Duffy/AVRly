@@ -5,7 +5,7 @@ Throughout this repository, the code has been documented using [Doxygen](https:/
 
 ## Anatomy of Embedded Firmware
 
-### Whitespace and Character Limit
+### Formatting
 Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, Source and Makefiles should all be limited to 80 characters wide. 
 
 ### Licence
@@ -67,7 +67,7 @@ Next come the include guards - a preprocessor mechanism used to prevent the head
 #ifndef FILENAME_DOT_H
 #define FILENAME_DOT_H
 
-// Contents of header file go here. 
+// Contents of header file goes here. 
 
 #endif // FILENAME_DOT_H
 ```
@@ -231,6 +231,71 @@ The file is ended with two blank lines and an `/*** end of file ***/` comment fo
 
 ```
 
+### pin_defines.h
+
+Macro definitions for ports, pins, data direction registers and GPIOs should be listed in the pin_defines.h file. When you have a larger project, it's much clearer to be able to see the pinout all together in one place, rather than strewn across multiple files. 
+
+An example file can be found in the repo [here][Pin_Defines_Example_URL], and the Doxygen output from these special comments and commands can be found [here][Pin_Defines_Doxygen_Output_URL].
+
+Again we start with the Javadoc style Doxygen comment block to provide some info about the file.
+
+```C
+/**
+ * @file pin_defines.h
+ * @author Your Name Here
+ * @date 15th March 2022
+ * @brief Pin and port definitions for the project.
+ * @see Datasheets or other links can go here. 
+ */
+```
+
+Then we have our include guards, as with all .h files. 
+
+```C
+#ifndef PIN_DEFINES_DOT_H
+#define PIN_DEFINES_DOT_H
+
+// Contents of header file goes here.
+
+#endif // PIN_DEFINES_DOT_H 
+```
+
+This header is required to access pin and port names.
+```C
+// Definitions for pins and ports are in this header file.
+#include <avr/io.h>
+```
+
+Then we make our macro definitions for pins, ports and GPIOs - see datasheet for more on this. 
+```C
+/**
+ * Defines the AVR port we have wired our peripheral to.
+ */
+#define OBJECT_PORT        PORTB
+
+/**
+ * Defines the Data Direction Register for the GPIO connected to our peripheral.
+ */
+#define OBJECT_DDR         DDRB
+
+/**
+ * Defines the GPIO number the peripheral is wired to
+ */
+#define OBJECT_GPIO        PB0
+```
+
+The file ends with closure of the header guards, two blank lines and an `/*** end of file ***/` comment followed by a blank line. 
+
+```C
+// End of include guard.
+#endif // PIN_DEFINES_DOT_H 
+
+
+/*** end of file ***/
+
+```
+
+
 ### main.c
 
 main.c is where the `int main()` routine lives, and is the heart of the application.
@@ -298,6 +363,36 @@ The file is ended with two blank lines and an `/*** end of file ***/` comment fo
 
 ```
 
+### Makefile
+
+The Makefile contains "recipes" intended to simplify the process of building your application. With this, you only need to type `make` to compile and link your code, rather than manually listing the many options, flags, dependancies etc in the terminal each time. 
+
+An example file can be found in the repo [here][Makefile_Example_URL]. They cannot be dosumented using Doxygen, so I prefer to use a `help` recipe instead. Type `make help` to see a list of commands available to the user. 
+
+The Makefile must always be named "Makefile". Keep basic user defined variables at the top of the file. 
+
+```make
+MCU   = atmega328p
+F_CPU = 8000000UL  
+BAUD  = 9600UL
+## Also try BAUD = 19200 or 38400 if you're feeling lucky.
+
+## A directory for common include files. 
+LIBDIR = /usr/local/
+
+##########-----------------------------------------------------------##########
+##########                   Programmer Defaults                     ##########
+##########            Set up once, then forget about it              ##########
+##########          (Can override.  See bottom of file.)             ##########
+##########-----------------------------------------------------------##########
+
+PROGRAMMER_TYPE = avrisp
+# extra arguments to avrdude: baud rate, chip type, -F flag, etc.
+PROGRAMMER_ARGS = -b 19200 -P /dev/tty.usbmodem141201
+```
+If you add a new recipe for users to invoke from terminal, document is by adding it to the `help` recipe at the bottom of the [template file][Makefile_Template_URL].
+
+
 
 [Header_File_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/filename.h
 [Header_File_Doxygen_Output_URL]:https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2filename_8h.html
@@ -305,5 +400,10 @@ The file is ended with two blank lines and an `/*** end of file ***/` comment fo
 [Source_File_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/filename.c
 [Source_File_Doxygen_Output_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2filename_8c.html
 
+[Pin_Defines_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/pin_defines.h
+[Pin_Defines_Doxygen_Output_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2pin__defines_8h.html
+
 [Main_File_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/main.c
 [Main_File_Doxygen_Output_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2main_8c.html
+
+[Makefile_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/Makefile
