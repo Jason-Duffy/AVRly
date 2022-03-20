@@ -49,7 +49,7 @@
 #include "filename.h"
 
 /**
- * Next comes #define statements/macros. Append integer values with a 'U' to 
+ * Next come #define statements/macros. Append integer values with a 'U' to 
  * make them unsigned, as the default type is signed integer. 
  */
 #define DECIMAL_MACRO     855U
@@ -57,7 +57,7 @@
 
 /**
  * Try to keep the scope of variables limited to the file at least, though
- * function level scope is usually better. 
+ * function level scope is usually better where possible. 
  */
 static uint16_t file_scope_variable = 0;
 
