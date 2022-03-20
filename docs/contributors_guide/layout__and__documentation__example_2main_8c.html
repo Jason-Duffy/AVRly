@@ -126,7 +126,7 @@ Variables</h2></td></tr>
 <p >THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <dl class="section author"><dt>Author</dt><dd>Your Name Here </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>15th March 2022</dd></dl>
-<p>Main source file where <a class="el" href="layout__and__documentation__example_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main routine to be executed on MCU.">main()</a> routine is called.  </p>
+<p>Main source file where <a class="el" href="layout__and__documentation__example_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main routine to be executed on MCU.">main()</a> routine is called. </p><dl class="section see"><dt>See also</dt><dd>links to other files or docs go here. </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="layout__and__documentation__example_2main_8c_source.html">main.c</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -144,7 +144,7 @@ Variables</h2></td></tr>
 
 <p>Avoid using magic bumbers, use defines or typedef enums instead. </p>
 
-<p class="definition">Definition at line <a class="el" href="layout__and__documentation__example_2main_8c_source.html#l00037">37</a> of file <a class="el" href="layout__and__documentation__example_2main_8c_source.html">main.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="layout__and__documentation__example_2main_8c_source.html#l00038">38</a> of file <a class="el" href="layout__and__documentation__example_2main_8c_source.html">main.c</a>.</p>
 
 </div>
 </div>
@@ -166,21 +166,21 @@ Variables</h2></td></tr>
 
 <p>Main routine to be executed on MCU. </p>
 
-<p class="definition">Definition at line <a class="el" href="layout__and__documentation__example_2main_8c_source.html#l00044">44</a> of file <a class="el" href="layout__and__documentation__example_2main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   45</span>{</div>
-<div class="line"><span class="lineno">   46</span>    <span class="comment">// Initialisation routines go here. </span></div>
-<div class="line"><span class="lineno">   47</span>    <a class="code hl_function" href="layout__and__documentation__example_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(<a class="code hl_define" href="layout__and__documentation__example_2main_8c.html#ad35dc899014ff8564722e52ce1019c72">INITIALISATION_VALUE</a>);</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">while</span> (1) <span class="comment">// Loop forever</span></div>
-<div class="line"><span class="lineno">   50</span>    {</div>
-<div class="line"><span class="lineno">   51</span>        returned_value = <a class="code hl_function" href="layout__and__documentation__example_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a>();   </div>
-<div class="line"><span class="lineno">   52</span>    }</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">return</span> 0; <span class="comment">// This line is never reached. </span></div>
-<div class="line"><span class="lineno">   55</span>}</div>
+<p class="definition">Definition at line <a class="el" href="layout__and__documentation__example_2main_8c_source.html#l00045">45</a> of file <a class="el" href="layout__and__documentation__example_2main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>{</div>
+<div class="line"><span class="lineno">   47</span>    <span class="comment">// Initialisation routines go here. </span></div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_function" href="layout__and__documentation__example_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(<a class="code hl_define" href="layout__and__documentation__example_2main_8c.html#ad35dc899014ff8564722e52ce1019c72">INITIALISATION_VALUE</a>);</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>    <span class="keywordflow">while</span> (1) <span class="comment">// Loop forever</span></div>
+<div class="line"><span class="lineno">   51</span>    {</div>
+<div class="line"><span class="lineno">   52</span>        returned_value = <a class="code hl_function" href="layout__and__documentation__example_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a>();   </div>
+<div class="line"><span class="lineno">   53</span>    }</div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>    <span class="keywordflow">return</span> 0; <span class="comment">// This line is never reached. </span></div>
+<div class="line"><span class="lineno">   56</span>}</div>
 <div class="ttc" id="alayout__and__documentation__example_2filename_8c_html_a3ebcf9ef84eb47df312281d252a5487e"><div class="ttname"><a href="layout__and__documentation__example_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a></div><div class="ttdeci">uint16_t get_value(void)</div><div class="ttdoc">Get value and return it without exposing a private variable.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2filename_8c_source.html#l00089">filename.c:89</a></div></div>
 <div class="ttc" id="alayout__and__documentation__example_2filename_8c_html_a79a38b8a0c6ba34854b450330b82ebd8"><div class="ttname"><a href="layout__and__documentation__example_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a></div><div class="ttdeci">void init_object(uint16_t value)</div><div class="ttdoc">This is a Javadoc style comment.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2filename_8c_source.html#l00076">filename.c:76</a></div></div>
-<div class="ttc" id="alayout__and__documentation__example_2main_8c_html_ad35dc899014ff8564722e52ce1019c72"><div class="ttname"><a href="layout__and__documentation__example_2main_8c.html#ad35dc899014ff8564722e52ce1019c72">INITIALISATION_VALUE</a></div><div class="ttdeci">#define INITIALISATION_VALUE</div><div class="ttdoc">Avoid using magic bumbers, use defines or typedef enums instead.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2main_8c_source.html#l00037">main.c:37</a></div></div>
+<div class="ttc" id="alayout__and__documentation__example_2main_8c_html_ad35dc899014ff8564722e52ce1019c72"><div class="ttname"><a href="layout__and__documentation__example_2main_8c.html#ad35dc899014ff8564722e52ce1019c72">INITIALISATION_VALUE</a></div><div class="ttdeci">#define INITIALISATION_VALUE</div><div class="ttdoc">Avoid using magic bumbers, use defines or typedef enums instead.</div><div class="ttdef"><b>Definition:</b> <a href="layout__and__documentation__example_2main_8c_source.html#l00038">main.c:38</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -197,7 +197,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="layout__and__documentation__example_2main_8c_source.html#l00039">39</a> of file <a class="el" href="layout__and__documentation__example_2main_8c_source.html">main.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="layout__and__documentation__example_2main_8c_source.html#l00040">40</a> of file <a class="el" href="layout__and__documentation__example_2main_8c_source.html">main.c</a>.</p>
 
 </div>
 </div>

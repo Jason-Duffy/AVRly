@@ -27,8 +27,11 @@ var NAVTREE =
   [ "Contributor's Guide", "index.html", [
     [ "A Word on Doxygen", "index.html#autotoc_md1", null ],
     [ "Anatomy of Embedded Firmware", "index.html#autotoc_md2", [
-      [ "Licence", "index.html#autotoc_md3", null ],
-      [ "C Header File", "index.html#autotoc_md4", null ]
+      [ "Whitespace and Character Limit", "index.html#autotoc_md3", null ],
+      [ "Licence", "index.html#autotoc_md4", null ],
+      [ "C Header Files", "index.html#autotoc_md5", null ],
+      [ "C Source Files", "index.html#autotoc_md6", null ],
+      [ "main.c", "index.html#autotoc_md7", null ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
