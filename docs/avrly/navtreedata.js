@@ -36,6 +36,7 @@ var NAVTREE =
       [ "Makefile", "index.html#autotoc_md8", null ],
       [ "Templates", "index.html#autotoc_md9", null ]
     ] ],
+    [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
@@ -59,7 +60,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html",
-"mcp4812__dac_8h.html#a8e5a30fe5a03338c88ef80b84f3098b7"
+"mcp4812__dac_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
