@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['eight_5fbit_5fmode_0',['eight_bit_mode',['../structlcd__config__t.html#a5e17470a97fd281d6b7157ccb619b323',1,'lcd_config_t']]]
+  ['get_5fvalue_0',['get_value',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e',1,'get_value(void):&#160;filename.c'],['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8h.html#a3ebcf9ef84eb47df312281d252a5487e',1,'get_value(void):&#160;filename.c']]]
 ];
