@@ -22,6 +22,7 @@
 
 /**
  * @file main.c
+ * \ingroup getting-started
  * @author Jason Duffy
  * @date 15th March 2022
  * @brief Main routine for the Blink example application in Getting Started.
