@@ -19,9 +19,13 @@
  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  SOFTWARE.
 ******************************************************************************/
+/**
+ * \defgroup anatomy Anatomy of Embedded Firmware
+ */
 
 /**
  * @file filename.c
+ * \ingroup anatomy
  * @author Your Name Here.
  * @date 15th March 2022
  * @brief The brief description goes here. After the first full stop, this text
