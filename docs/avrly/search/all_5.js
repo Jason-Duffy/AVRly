@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['init_5fled_0',['init_led',['../blink_8c.html#afc227daac655fc74c1537c0555055987',1,'init_led(void):&#160;blink.c'],['../blink_8h.html#afc227daac655fc74c1537c0555055987',1,'init_led(void):&#160;blink.c']]],
-  ['init_5fobject_1',['init_object',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8',1,'init_object(uint16_t value):&#160;filename.c'],['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8h.html#a79a38b8a0c6ba34854b450330b82ebd8',1,'init_object(uint16_t value):&#160;filename.c']]],
-  ['initialisation_5fvalue_2',['INITIALISATION_VALUE',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ad35dc899014ff8564722e52ce1019c72',1,'main.c']]]
+  ['get_5fvalue_0',['get_value',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e',1,'get_value(void):&#160;filename.c'],['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8h.html#a3ebcf9ef84eb47df312281d252a5487e',1,'get_value(void):&#160;filename.c']]],
+  ['getting_20started_1',['Getting Started',['../group__getting-started.html',1,'']]]
 ];

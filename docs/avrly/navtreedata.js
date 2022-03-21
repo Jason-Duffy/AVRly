@@ -25,16 +25,10 @@
 var NAVTREE =
 [
   [ "AVRly - AVR Development Resources", "index.html", [
-    [ "Anatomy of Embedded Firmware", "index.html", [
-      [ "A Word on Doxygen", "index.html#autotoc_md1", null ],
-      [ "Formatting", "index.html#autotoc_md2", null ],
-      [ "Licence", "index.html#autotoc_md3", null ],
-      [ "C Header Files", "index.html#autotoc_md4", null ],
-      [ "C Source Files", "index.html#autotoc_md5", null ],
-      [ "pin_defines.h", "index.html#autotoc_md6", null ],
-      [ "main.c", "index.html#autotoc_md7", null ],
-      [ "Makefile", "index.html#autotoc_md8", null ],
-      [ "Templates", "index.html#autotoc_md9", null ]
+    [ "Contributor's Guide", "index.html", [
+      [ "Style Guide", "index.html#autotoc_md1", null ],
+      [ "Templates", "index.html#autotoc_md2", null ],
+      [ "Submitting a Pull Request", "index.html#autotoc_md3", null ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Files", "files.html", [
