@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AVRly - AVR Development Resources: avrly-projects/hd44780_lcd/example/hd44780_lcd.c Source File</title>
+<title>AVRly - AVR Development Resources: avrly-projects/drivers-and-examples/hd44780_lcd/example/hd44780_lcd.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('example_2hd44780__lcd_8c_source.html',
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">//Project specific headers.</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#include &quot;<a class="code" href="example_2hd44780__lcd_8h.html">hd44780_lcd.h</a>&quot;</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#include &quot;<a class="code" href="mcp4812__dac_2example_2pin__defines_8h.html">pin_defines.h</a>&quot;</span> <span class="comment">// Pinout for the display is defined here.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#include &quot;<a class="code" href="getting-started_2source_2pin__defines_8h.html">pin_defines.h</a>&quot;</span> <span class="comment">// Pinout for the display is defined here.</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">static</span> <a class="code hl_struct" href="structlcd__config__t.html">lcd_config_t</a> *p_config_local;</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
@@ -523,7 +523,7 @@ $(document).ready(function(){initNavTree('example_2hd44780__lcd_8c_source.html',
 <div class="ttc" id="adriver_2hd44780__lcd_8c_html_acb915e4c09797f59f57f7d64eb405b24"><div class="ttname"><a href="driver_2hd44780__lcd_8c.html#acb915e4c09797f59f57f7d64eb405b24">lcd_shift_cursor_right</a></div><div class="ttdeci">void lcd_shift_cursor_right(uint8_t distance)</div><div class="ttdoc">Moves cursor right without changing DDRAM contents.</div><div class="ttdef"><b>Definition:</b> <a href="driver_2hd44780__lcd_8c_source.html#l00333">hd44780_lcd.c:333</a></div></div>
 <div class="ttc" id="adriver_2hd44780__lcd_8c_html_af6cb9c42cacad130800205a0c1a19086"><div class="ttname"><a href="driver_2hd44780__lcd_8c.html#af6cb9c42cacad130800205a0c1a19086">lcd_set_cursor</a></div><div class="ttdeci">void lcd_set_cursor(uint8_t column, uint8_t row)</div><div class="ttdoc">Sets cursor location using x and y coordinates.</div><div class="ttdef"><b>Definition:</b> <a href="driver_2hd44780__lcd_8c_source.html#l00246">hd44780_lcd.c:246</a></div></div>
 <div class="ttc" id="aexample_2hd44780__lcd_8h_html"><div class="ttname"><a href="example_2hd44780__lcd_8h.html">hd44780_lcd.h</a></div><div class="ttdoc">Copyright (c) 2022 by Jason Duffy.</div></div>
-<div class="ttc" id="amcp4812__dac_2example_2pin__defines_8h_html"><div class="ttname"><a href="mcp4812__dac_2example_2pin__defines_8h.html">pin_defines.h</a></div><div class="ttdoc">Copyright (c) 2022 by Jason Duffy.</div></div>
+<div class="ttc" id="agetting-started_2source_2pin__defines_8h_html"><div class="ttname"><a href="getting-started_2source_2pin__defines_8h.html">pin_defines.h</a></div><div class="ttdoc">Copyright (c) 2022 by Jason Duffy.</div></div>
 <div class="ttc" id="astructlcd__config__t_html"><div class="ttname"><a href="structlcd__config__t.html">lcd_config_t</a></div><div class="ttdoc">Configuration struct, to be instantiated and values assigned before passing it's address into and cal...</div><div class="ttdef"><b>Definition:</b> <a href="driver_2hd44780__lcd_8h_source.html#l00055">hd44780_lcd.h:56</a></div></div>
 <div class="ttc" id="astructlcd__config__t_html_a465f515eb846ceee1b4d8149bc929404"><div class="ttname"><a href="structlcd__config__t.html#a465f515eb846ceee1b4d8149bc929404">lcd_config_t::display_shift</a></div><div class="ttdeci">bool display_shift</div><div class="ttdoc">true = display shift, false = cursor shift.</div><div class="ttdef"><b>Definition:</b> <a href="driver_2hd44780__lcd_8h_source.html#l00061">hd44780_lcd.h:61</a></div></div>
 <div class="ttc" id="astructlcd__config__t_html_a4ef3fbb7b0e5026a0f29bf9aebbb2dff"><div class="ttname"><a href="structlcd__config__t.html#a4ef3fbb7b0e5026a0f29bf9aebbb2dff">lcd_config_t::cursor_enable</a></div><div class="ttdeci">bool cursor_enable</div><div class="ttdoc">true = enabled, false = disabled.</div><div class="ttdef"><b>Definition:</b> <a href="driver_2hd44780__lcd_8h_source.html#l00062">hd44780_lcd.h:62</a></div></div>
@@ -537,7 +537,7 @@ $(document).ready(function(){initNavTree('example_2hd44780__lcd_8c_source.html',
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_188d413ea6aeda29d00ecc1aeaea7353.html">avrly-projects</a></li><li class="navelem"><a class="el" href="dir_23d0d3ba0fe78424f711aecb0cbb34b3.html">hd44780_lcd</a></li><li class="navelem"><a class="el" href="dir_c47a9d2ecc48307fb38b5095447f537d.html">example</a></li><li class="navelem"><a class="el" href="example_2hd44780__lcd_8c.html">hd44780_lcd.c</a></li>
+    <li class="navelem"><a class="el" href="dir_188d413ea6aeda29d00ecc1aeaea7353.html">avrly-projects</a></li><li class="navelem"><a class="el" href="dir_59f245f13c9cf605089524960b299453.html">drivers-and-examples</a></li><li class="navelem"><a class="el" href="dir_915d5080b1d82d8e0747e25cf386afcb.html">hd44780_lcd</a></li><li class="navelem"><a class="el" href="dir_91470bd43108e7acf4bc04a64aad6859.html">example</a></li><li class="navelem"><a class="el" href="example_2hd44780__lcd_8c.html">hd44780_lcd.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
