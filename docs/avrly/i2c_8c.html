@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('i2c_8c.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">i2c.c File Reference</div></div>
+  <div class="headertitle"><div class="title">i2c.c File Reference<div class="ingroups"><a class="el" href="group__ccs811.html">CCS811 Gas Sensor</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -156,12 +156,12 @@ Functions</h2></td></tr>
 <p>SCL frequency = F_CPU / (16 + (2 * TWBR) * PRESCALER) </p>
 <p >Sets pullups and initializes bus speed to desired bus speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00044">44</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   45</span>{</div>
-<div class="line"><span class="lineno">   46</span>  uint32_t base_frequency = (F_CPU / bus_speed);</div>
-<div class="line"><span class="lineno">   47</span>  TWBR = (uint8_t)((base_frequency - 16) / (2 * 1)); <span class="comment">// Prescaler of 1</span></div>
-<div class="line"><span class="lineno">   48</span>  TWCR |= (1 &lt;&lt; TWEN); <span class="comment">// Enable</span></div>
-<div class="line"><span class="lineno">   49</span>}</div>
+<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00045">45</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   46</span>{</div>
+<div class="line"><span class="lineno">   47</span>  uint32_t base_frequency = (F_CPU / bus_speed);</div>
+<div class="line"><span class="lineno">   48</span>  TWBR = (uint8_t)((base_frequency - 16) / (2 * 1)); <span class="comment">// Prescaler of 1</span></div>
+<div class="line"><span class="lineno">   49</span>  TWCR |= (1 &lt;&lt; TWEN); <span class="comment">// Enable</span></div>
+<div class="line"><span class="lineno">   50</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -183,10 +183,10 @@ Functions</h2></td></tr>
 
 <p>Waits until the hardware sets the TWINT flag. </p>
 
-<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00051">51</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   52</span>{</div>
-<div class="line"><span class="lineno">   53</span>  loop_until_bit_is_set(TWCR, TWINT);</div>
-<div class="line"><span class="lineno">   54</span>}</div>
+<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00052">52</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>{</div>
+<div class="line"><span class="lineno">   54</span>  loop_until_bit_is_set(TWCR, TWINT);</div>
+<div class="line"><span class="lineno">   55</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -208,12 +208,12 @@ Functions</h2></td></tr>
 
 <p>Sends a start condition (sets TWSTA). </p>
 
-<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00056">56</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   57</span>{</div>
-<div class="line"><span class="lineno">   58</span>  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWSTA));</div>
-<div class="line"><span class="lineno">   59</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
-<div class="line"><span class="lineno">   60</span>}</div>
-<div class="ttc" id="ai2c_8c_html_a61854d6833c0a31f296b84cdcf057a03"><div class="ttname"><a href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a></div><div class="ttdeci">void i2c_wait_for_complete(void)</div><div class="ttdoc">Waits until the hardware sets the TWINT flag.</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00051">i2c.c:51</a></div></div>
+<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00057">57</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>{</div>
+<div class="line"><span class="lineno">   59</span>  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWSTA));</div>
+<div class="line"><span class="lineno">   60</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
+<div class="line"><span class="lineno">   61</span>}</div>
+<div class="ttc" id="ai2c_8c_html_a61854d6833c0a31f296b84cdcf057a03"><div class="ttname"><a href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a></div><div class="ttdeci">void i2c_wait_for_complete(void)</div><div class="ttdoc">Waits until the hardware sets the TWINT flag.</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00052">i2c.c:52</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -235,10 +235,10 @@ Functions</h2></td></tr>
 
 <p>Sends a stop condition (sets TWSTO). </p>
 
-<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00062">62</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>{</div>
-<div class="line"><span class="lineno">   64</span>  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWSTO));</div>
-<div class="line"><span class="lineno">   65</span>}</div>
+<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00063">63</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   64</span>{</div>
+<div class="line"><span class="lineno">   65</span>  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWSTO));</div>
+<div class="line"><span class="lineno">   66</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -260,12 +260,12 @@ Functions</h2></td></tr>
 
 <p>Loads data, sends it out, waiting for completion. </p>
 
-<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00067">67</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span>{</div>
-<div class="line"><span class="lineno">   69</span>  TWDR = data;</div>
-<div class="line"><span class="lineno">   70</span>  TWCR = (_BV(TWINT) | _BV(TWEN));                  <span class="comment">/* init and enable */</span></div>
-<div class="line"><span class="lineno">   71</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
-<div class="line"><span class="lineno">   72</span>}</div>
+<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00068">68</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>{</div>
+<div class="line"><span class="lineno">   70</span>  TWDR = data;</div>
+<div class="line"><span class="lineno">   71</span>  TWCR = (_BV(TWINT) | _BV(TWEN));                  <span class="comment">/* init and enable */</span></div>
+<div class="line"><span class="lineno">   72</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
+<div class="line"><span class="lineno">   73</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -287,12 +287,12 @@ Functions</h2></td></tr>
 
 <p>Read in from slave, sending ACK when done (sets TWEA). </p>
 
-<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00075">75</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   76</span>{</div>
-<div class="line"><span class="lineno">   77</span>  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWEA));</div>
-<div class="line"><span class="lineno">   78</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
-<div class="line"><span class="lineno">   79</span>  <span class="keywordflow">return</span> (TWDR);</div>
-<div class="line"><span class="lineno">   80</span>}</div>
+<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00076">76</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   77</span>{</div>
+<div class="line"><span class="lineno">   78</span>  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWEA));</div>
+<div class="line"><span class="lineno">   79</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
+<div class="line"><span class="lineno">   80</span>  <span class="keywordflow">return</span> (TWDR);</div>
+<div class="line"><span class="lineno">   81</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -314,12 +314,12 @@ Functions</h2></td></tr>
 
 <p>Read in from slave, sending NOACK when done (no TWEA). </p>
 
-<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00082">82</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   83</span>{</div>
-<div class="line"><span class="lineno">   84</span>  TWCR = (_BV(TWINT) | _BV(TWEN));</div>
-<div class="line"><span class="lineno">   85</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
-<div class="line"><span class="lineno">   86</span>  <span class="keywordflow">return</span> (TWDR);</div>
-<div class="line"><span class="lineno">   87</span>}</div>
+<p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00083">83</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   84</span>{</div>
+<div class="line"><span class="lineno">   85</span>  TWCR = (_BV(TWINT) | _BV(TWEN));</div>
+<div class="line"><span class="lineno">   86</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
+<div class="line"><span class="lineno">   87</span>  <span class="keywordflow">return</span> (TWDR);</div>
+<div class="line"><span class="lineno">   88</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

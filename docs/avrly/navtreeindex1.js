@@ -1,12 +1,13 @@
 var NAVTREEINDEX1 =
 {
+"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md50":[1,6],
 "md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md51":[1,7],
 "md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md52":[1,8],
 "md_avrly_projects_contributors_guide__contributors_guide.html":[2],
 "md_avrly_projects_contributors_guide__contributors_guide.html#autotoc_md54":[2,0],
 "md_avrly_projects_contributors_guide__contributors_guide.html#autotoc_md55":[2,1],
 "md_avrly_projects_contributors_guide__contributors_guide.html#autotoc_md56":[2,2],
-"md_avrly_projects_drivers_and_examples_ccs811_sensor_example_ccs811.html":[3],
+"md_avrly_projects_drivers_and_examples_ccs811_sensor_ccs811.html":[3],
 "md_avrly_projects_drivers_and_examples_drivers_and_examples.html":[4],
 "md_avrly_projects_drivers_and_examples_hd44780_lcd_hd44780_lcd.html":[5],
 "md_avrly_projects_drivers_and_examples_log_system_log_system.html":[6],
