@@ -197,7 +197,6 @@ var NAVTREEINDEX0 =
 "i2c_8h_source.html":[7,0,0,1,0,3],
 "index.html":[],
 "index.html":[0],
-"index.html#autotoc_md58":[0,0],
 "log__system_2example_2log__system_8c_source.html":[7,0,0,5,0,0],
 "log__system_2example_2log__system_8h_source.html":[7,0,0,5,0,1],
 "log__system_2example_2usart_8c_source.html":[7,0,0,5,0,2],
@@ -244,10 +243,11 @@ var NAVTREEINDEX0 =
 "mcp4812__dac_8h.html#afd38e4b814863ec79d710ee2c3623adb":[7,0,0,6,0,4,5],
 "mcp4812__dac_8h_source.html":[7,0,0,6,0,4],
 "md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html":[2],
-"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md44":[2,0],
-"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md45":[2,1],
-"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md46":[2,2],
-"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md47":[2,3],
-"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md48":[2,4],
-"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md49":[2,5]
+"md_avrly_projects_contributors_guide__contributors_guide.html":[3],
+"md_avrly_projects_getting_started__getting_started.html":[1],
+"md_avrly_projects_mcp4812_dac__r_e_a_d_m_e.html":[4],
+"modules.html":[5],
+"pages.html":[],
+"structccs811__config__t.html":[6,0,0],
+"structdac__channel__t.html":[6,0,1]
 };
