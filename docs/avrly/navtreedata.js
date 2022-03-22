@@ -25,32 +25,13 @@
 var NAVTREE =
 [
   [ "AVRly - AVR Development Resources", "index.html", [
-    [ "Getting Started", "index.html", null ],
-    [ "Modules", "modules.html", "modules" ],
-    [ "Classes", "annotated.html", [
-      [ "Class List", "annotated.html", "annotated_dup" ],
-      [ "Class Index", "classes.html", null ],
-      [ "Class Members", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Variables", "functions_vars.html", null ]
-      ] ]
-    ] ],
-    [ "Files", "files.html", [
-      [ "File List", "files.html", "files_dup" ],
-      [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
-        [ "Enumerations", "globals_enum.html", null ],
-        [ "Macros", "globals_defs.html", null ]
-      ] ]
-    ] ]
+    [ "Getting Started", "index.html", null ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html",
-"structccs811__config__t.html"
+"index.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
