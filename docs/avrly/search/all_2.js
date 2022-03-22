@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['ccs811_0',['ccs811',['../md_avrly_projects_drivers_and_examples_ccs811_sensor_ccs811.html',1,'']]],
+  ['ccs811_0',['ccs811',['../md_avrly_projects_drivers_and_examples_ccs811_sensor_example_ccs811.html',1,'']]],
   ['ccs811_2ec_1',['ccs811.c',['../ccs811_8c.html',1,'']]],
   ['ccs811_2eh_2',['ccs811.h',['../ccs811_8h.html',1,'']]],
   ['ccs811_5fconfig_5ft_3',['ccs811_config_t',['../structccs811__config__t.html',1,'']]],
