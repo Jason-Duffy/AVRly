@@ -5,7 +5,9 @@ AVRly provides guides for setting up and testing your development environment, f
 
 [Getting Started with Blink][Getting_Started_URL]
 [Anatomy of Embedded Firmware][Firmware_Anatomy_URL]
+[Contributor's Guide][Contributors_Guide_URL]
 
 
-[Getting_Started_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/avrly/getting-started/
-[Firmware_Anatomy_URL]: 
+[Getting_Started_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/avrly/md_avrly_projects_getting_started__getting_started.html
+[Firmware_Anatomy_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/avrly/md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html
+[Contributors_Guide_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/avrly/md_avrly_projects_contributors_guide__contributors_guide.html
