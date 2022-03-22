@@ -10,5 +10,6 @@ var searchData=
   ['ccs811_5fget_5feco2_5flevel_7',['ccs811_get_eco2_level',['../ccs811_8c.html#a751333bcfd68dc798c02763140e53231',1,'ccs811_get_eco2_level(void):&#160;ccs811.c'],['../ccs811_8h.html#a751333bcfd68dc798c02763140e53231',1,'ccs811_get_eco2_level(void):&#160;ccs811.c']]],
   ['ccs811_5fget_5fetvoc_5flevel_8',['ccs811_get_etvoc_level',['../ccs811_8c.html#a17c8db9a3e783733aca1047f1f101b94',1,'ccs811_get_etvoc_level(void):&#160;ccs811.c'],['../ccs811_8h.html#a17c8db9a3e783733aca1047f1f101b94',1,'ccs811_get_etvoc_level(void):&#160;ccs811.c']]],
   ['ccs811_5fupdate_5fenv_5fdata_9',['ccs811_update_env_data',['../ccs811_8c.html#a0a35b06187cfd628634e4d86faefa3c6',1,'ccs811_update_env_data(uint8_t humidity, uint8_t temp):&#160;ccs811.c'],['../ccs811_8h.html#a0a35b06187cfd628634e4d86faefa3c6',1,'ccs811_update_env_data(uint8_t humidity, uint8_t temp):&#160;ccs811.c']]],
-  ['cursor_5fenable_10',['cursor_enable',['../structlcd__config__t.html#a4ef3fbb7b0e5026a0f29bf9aebbb2dff',1,'lcd_config_t']]]
+  ['contributor_27s_20guide_10',['Contributor&apos;s Guide',['../md_avrly_projects_contributors_guide__r_e_a_d_m_e.html',1,'']]],
+  ['cursor_5fenable_11',['cursor_enable',['../structlcd__config__t.html#a4ef3fbb7b0e5026a0f29bf9aebbb2dff',1,'lcd_config_t']]]
 ];
