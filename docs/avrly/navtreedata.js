@@ -97,7 +97,6 @@ var NAVTREE =
       [ "Submitting a Pull Request", "md_avrly_projects_contributors_guide__contributors_guide.html#autotoc_md56", null ]
     ] ],
     [ "drivers-and-examples", "md_avrly_projects_drivers_and_examples_drivers_and_examples.html", null ],
-    [ "hd44780_lcd", "md_avrly_projects_drivers_and_examples_hd44780_lcd_hd44780_lcd.html", null ],
     [ "log_system", "md_avrly_projects_drivers_and_examples_log_system_log_system.html", null ],
     [ "mcp48x2", "md_avrly_projects_drivers_and_examples_mcp4812_dac_mcp48x2.html", null ],
     [ "Modules", "modules.html", "modules" ],
@@ -124,7 +123,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html",
-"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md48"
+"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md45"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

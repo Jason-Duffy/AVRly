@@ -7,7 +7,7 @@ var indexSectionsWithContent =
   4: "bcdefit",
   5: "c",
   6: "bdilo",
-  7: "acgs",
+  7: "acdghs",
   8: "acdghlm"
 };
 

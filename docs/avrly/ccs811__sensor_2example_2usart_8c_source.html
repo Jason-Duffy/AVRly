@@ -91,7 +91,15 @@ $(document).ready(function(){initNavTree('ccs811__sensor_2example_2usart_8c_sour
   <div class="headertitle"><div class="title">usart.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/******************************************************************************</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">  FileName    [ usart.c ]</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">  PackageName [ logsytem ]</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">  Description [ Setup of USART0 for mega2560, to communicate with PC via USB ]</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">  Author      [ Jason Duffy ]</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">  Copyright   [ ]</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">  Revision    [ V0.0.1 }</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">******************************************************************************/</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;util/setbaud.h&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;avr/io.h&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
@@ -261,7 +269,7 @@ $(document).ready(function(){initNavTree('ccs811__sensor_2example_2usart_8c_sour
 <div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>}</div>
 <div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment">/*** end of file ***/</span></div>
 <div class="ttc" id="accs811__sensor_2example_2usart_8h_html_a26f014257b6300f175bbae63395b6ab7"><div class="ttname"><a href="ccs811__sensor_2example_2usart_8h.html#a26f014257b6300f175bbae63395b6ab7">print_word</a></div><div class="ttdeci">void print_word(uint16_t word)</div><div class="ttdoc">Prints a word (16-bits) out as its 5-digit ascii equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811__sensor_2example_2usart_8c_source.html#l00090">usart.c:90</a></div></div>
 <div class="ttc" id="accs811__sensor_2example_2usart_8h_html_a2cedcd300d876aac422cf9f9e241583a"><div class="ttname"><a href="ccs811__sensor_2example_2usart_8h.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a></div><div class="ttdeci">void print_string(const char myString[])</div><div class="ttdoc">Utility function to transmit an entire string from RAM.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811__sensor_2example_2usart_8c_source.html#l00042">usart.c:42</a></div></div>
 <div class="ttc" id="accs811__sensor_2example_2usart_8h_html_a502d44d5f8098a5e1f767f98493bdd29"><div class="ttname"><a href="ccs811__sensor_2example_2usart_8h.html#a502d44d5f8098a5e1f767f98493bdd29">get_number</a></div><div class="ttdeci">uint8_t get_number(void)</div><div class="ttdoc">Takes in up to three ascii digits, converts them to a byte when press enter.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811__sensor_2example_2usart_8c_source.html#l00140">usart.c:140</a></div></div>

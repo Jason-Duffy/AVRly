@@ -387,7 +387,11 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="mcp4812__dac_8c_source.html#l00072">72</a> of file <a class="el" href="mcp4812__dac_8c_source.html">mcp4812_dac.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   73</span>{</div>
-<div class="line"><span class="lineno">   74</span>    p_config_global = p_config;</div>
+<div class="line"><span class="lineno">   74</span>    p_config_global = p_config;<span class="comment"></span></div>
+<div class="line"><span class="lineno">   75</span><span class="comment">/**</span></div>
+<div class="line"><span class="lineno">   76</span><span class="comment"> * Don&#39;t need to set phase &amp; polarity as the default works with MCP4812 (0,0)</span></div>
+<div class="line"><span class="lineno">   77</span><span class="comment"> * or (1,1).</span></div>
+<div class="line"><span class="lineno">   78</span><span class="comment"> */</span></div>
 <div class="line"><span class="lineno">   79</span>  SPCR |= (1 &lt;&lt; SPR0); <span class="comment">// div 16, safer for breadboards</span></div>
 <div class="line"><span class="lineno">   80</span>  SPCR |= (1 &lt;&lt; MSTR); <span class="comment">// clockmaster</span></div>
 <div class="line"><span class="lineno">   81</span>  SPCR |= (1 &lt;&lt; SPE); <span class="comment">// enable</span></div>
