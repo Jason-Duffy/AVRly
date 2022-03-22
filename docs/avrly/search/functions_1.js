@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['do_5fsome_5fhelpful_5fstuff_0',['do_some_helpful_stuff',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a',1,'filename.c']]]
+  ['init_5fled_0',['init_led',['../blink_8c.html#afc227daac655fc74c1537c0555055987',1,'init_led(void):&#160;blink.c'],['../blink_8h.html#afc227daac655fc74c1537c0555055987',1,'init_led(void):&#160;blink.c']]]
 ];

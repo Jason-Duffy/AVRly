@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['filename_2ec_0',['filename.c',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html',1,'(Global Namespace)'],['../contributors-guide_2templates_2filename_8c.html',1,'(Global Namespace)']]],
-  ['filename_2eh_1',['filename.h',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8h.html',1,'(Global Namespace)'],['../contributors-guide_2templates_2filename_8h.html',1,'(Global Namespace)']]]
+  ['init_5fled_0',['init_led',['../blink_8c.html#afc227daac655fc74c1537c0555055987',1,'init_led(void):&#160;blink.c'],['../blink_8h.html#afc227daac655fc74c1537c0555055987',1,'init_led(void):&#160;blink.c']]]
 ];

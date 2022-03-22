@@ -92,7 +92,7 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html"
+"blink_8c.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

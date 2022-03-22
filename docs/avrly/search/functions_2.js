@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['get_5fvalue_0',['get_value',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e',1,'get_value(void):&#160;filename.c'],['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8h.html#a3ebcf9ef84eb47df312281d252a5487e',1,'get_value(void):&#160;filename.c']]]
+  ['main_0',['main',['../main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4',1,'main.c']]]
 ];
