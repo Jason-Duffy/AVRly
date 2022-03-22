@@ -180,9 +180,10 @@ var NAVTREEINDEX0 =
 "globals_enum.html":[9,1,2],
 "globals_func.html":[9,1,1],
 "group__anatomy.html":[7,1],
-"group__ccs811.html":[7,2],
-"group__ccs811.html#md_avrly_projects_drivers_and_examples_ccs811_sensor_ccs811":[7,2,6],
+"group__ccs811.html":[7,2,0],
+"group__ccs811.html#md_avrly_projects_drivers_and_examples_ccs811_sensor_ccs811":[7,2,0,6],
 "group__getting-started.html":[7,0],
+"group__sensors.html":[7,2],
 "i2c_8c.html":[9,0,0,2,0,0,2],
 "i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788":[9,0,0,2,0,0,2,0],
 "i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03":[9,0,0,2,0,0,2,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md44":[1,0],
 "md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md45":[1,1],
 "md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md46":[1,2],
-"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md47":[1,3],
-"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md48":[1,4]
+"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md47":[1,3]
 };

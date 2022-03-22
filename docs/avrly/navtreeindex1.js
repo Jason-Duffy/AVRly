@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md48":[1,4],
 "md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md49":[1,5],
 "md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md50":[1,6],
 "md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md51":[1,7],
