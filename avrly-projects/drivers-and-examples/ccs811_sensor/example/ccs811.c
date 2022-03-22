@@ -21,7 +21,12 @@
 ******************************************************************************/
 
 /**
+ * \defgroup ccs811 CCS811 Gas Sensor
+ */
+
+/**
  * @file ccs811.c
+ * \ingroup ccs811
  * @author Jason Duffy
  * @date 4th March 2022
  * @brief Driver for the CCS811 gas sensor.

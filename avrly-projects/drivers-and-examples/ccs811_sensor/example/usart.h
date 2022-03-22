@@ -22,6 +22,7 @@
 
 /**
  * @file usart.h
+ * \ingroup ccs811
  * @author Jason Duffy
  * @date 1st March 2022
  * @brief Driver for USART0 communication on the AtMega2560
