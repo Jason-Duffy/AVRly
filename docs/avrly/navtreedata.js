@@ -97,6 +97,7 @@ var NAVTREE =
       [ "Submitting a Pull Request", "md_avrly_projects_contributors_guide__contributors_guide.html#autotoc_md56", null ]
     ] ],
     [ "ccs811", "md_avrly_projects_drivers_and_examples_ccs811_sensor_ccs811.html", null ],
+    [ "drivers-and-examples", "md_avrly_projects_drivers_and_examples_drivers_and_examples.html", null ],
     [ "hd44780_lcd", "md_avrly_projects_drivers_and_examples_hd44780_lcd_hd44780_lcd.html", null ],
     [ "log_system", "md_avrly_projects_drivers_and_examples_log_system_log_system.html", null ],
     [ "mcp48x2", "md_avrly_projects_drivers_and_examples_mcp4812_dac_mcp48x2.html", null ],

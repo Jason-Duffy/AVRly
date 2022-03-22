@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hd44780_5flcd_0',['hd44780_lcd',['../md_avrly_projects_drivers_and_examples_hd44780_lcd_hd44780_lcd.html',1,'']]]
+  ['getting_2dstarted_0',['Getting-started',['../md_avrly_projects_getting_started__getting_started.html',1,'']]]
 ];
