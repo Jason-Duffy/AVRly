@@ -877,6 +877,7 @@ WARN_LOGFILE           =
 INPUT                  = ./avrly-projects/getting-started \
                          ./avrly-projects/anatomy-of-embedded-firmware \
                          ./avrly-projects/contributors-guide \
+                         ./avrly-projects/drivers-and-examples \
                          ./avrly-projects
 
 # This tag can be used to specify the character encoding of the source files
