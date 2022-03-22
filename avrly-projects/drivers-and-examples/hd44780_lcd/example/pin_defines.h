@@ -22,6 +22,7 @@
 
 /**
  * @file pin_defines.h
+ * \ingroup hd44780_lcd
  * @author Jason Duffy
  * @date 1st March 2022
  * @brief Definitions for pin mapping (for hd44780_lcd)

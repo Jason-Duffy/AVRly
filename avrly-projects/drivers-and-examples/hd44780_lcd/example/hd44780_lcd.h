@@ -22,6 +22,7 @@
 
 /**
  * @file hd44780_lcd.h
+ * \ingroup hd44780_lcd
  * @author Jason Duffy
  * @date 1st March 2022
  * @brief Driver for the HD44780 based 16x2 liquid crystal display.
