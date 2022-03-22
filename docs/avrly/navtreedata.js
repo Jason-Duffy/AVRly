@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "AVRly - AVR Development Resources", "index.html", [
+    [ "Getting Started", "index.html", null ],
     [ "README", "md_avrly_projects_getting_started__r_e_a_d_m_e.html", [
       [ "Software Requirements", "md_avrly_projects_getting_started__r_e_a_d_m_e.html#autotoc_md0", [
         [ "A Source Code Editor", "md_avrly_projects_getting_started__r_e_a_d_m_e.html#autotoc_md1", null ],
@@ -97,7 +98,6 @@ var NAVTREE =
       [ "Templates", "md_avrly_projects_anatomy_of_embedded_firmware__r_e_a_d_m_e.html#autotoc_md56", null ]
     ] ],
     [ "README", "md_avrly_projects_mcp4812_dac__r_e_a_d_m_e.html", null ],
-    [ "Getting Started", "md_avrly_projects__r_e_a_d_m_e.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
