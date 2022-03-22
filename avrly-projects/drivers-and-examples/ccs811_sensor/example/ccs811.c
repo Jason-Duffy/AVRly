@@ -21,7 +21,12 @@
 ******************************************************************************/
 
 /**
+ * \defgroup sensors Sensors
+ */
+ 
+/**
  * \defgroup ccs811 CCS811 Gas Sensor
+ * \ingroup sensors
  */
 
 /**
