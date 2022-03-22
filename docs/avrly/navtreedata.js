@@ -25,65 +25,32 @@
 var NAVTREE =
 [
   [ "AVRly - AVR Development Resources", "index.html", [
-    [ "Software Requirements", "index.html#autotoc_md0", [
-      [ "A Source Code Editor", "index.html#autotoc_md1", null ],
-      [ "The AVR Toolchain", "index.html#autotoc_md2", [
-        [ "MacOS", "index.html#autotoc_md3", null ],
-        [ "Linux", "index.html#autotoc_md4", [
-          [ "Debian/Ubuntu distributions", "index.html#autotoc_md5", null ],
-          [ "Red Hat and Fedora distributions", "index.html#autotoc_md6", null ]
-        ] ],
-        [ "Windows", "index.html#autotoc_md7", null ]
-      ] ],
-      [ "A Serial Terminal Program", "index.html#autotoc_md8", null ]
-    ] ],
-    [ "Hardware Required", "index.html#autotoc_md9", [
-      [ "An AVR microcontroller", "index.html#autotoc_md10", null ],
-      [ "An ISP Programmer", "index.html#autotoc_md11", null ],
-      [ "A USB to Serial Converter", "index.html#autotoc_md12", null ],
-      [ "Various USB cables", "index.html#autotoc_md13", null ],
-      [ "Breadboards", "index.html#autotoc_md14", null ],
-      [ "Power Supply (optional)", "index.html#autotoc_md15", null ],
-      [ "Jumpers/Dupont cables", "index.html#autotoc_md16", null ],
-      [ "An assortment of components", "index.html#autotoc_md17", null ],
-      [ "A multimeter", "index.html#autotoc_md18", null ]
-    ] ],
-    [ "Connecting the Hardware", "index.html#autotoc_md19", [
-      [ "MCU Connections", "index.html#autotoc_md20", null ],
-      [ "Programmer Connections", "index.html#autotoc_md21", null ]
-    ] ],
-    [ "Configuring the Makefile", "index.html#autotoc_md22", [
-      [ "MCU, Programmer and Directory variables", "index.html#autotoc_md23", [
-        [ "MCU", "index.html#autotoc_md24", null ],
-        [ "F_CPU", "index.html#autotoc_md25", null ],
-        [ "BAUD", "index.html#autotoc_md26", null ],
-        [ "LIBDIR", "index.html#autotoc_md27", null ],
-        [ "PROGRAMMER_TYPE", "index.html#autotoc_md28", null ],
-        [ "PROGRAMMER_ARGS", "index.html#autotoc_md29", null ]
-      ] ],
-      [ "Fuses", "index.html#autotoc_md30", [
-        [ "LFUSE", "index.html#autotoc_md31", null ],
-        [ "HFUSE", "index.html#autotoc_md32", null ],
-        [ "EFUSE", "index.html#autotoc_md33", null ]
-      ] ]
-    ] ],
-    [ "Flashing the Chip", "index.html#autotoc_md34", [
-      [ "Flash Fuses", "index.html#autotoc_md35", null ],
-      [ "Flash the Code", "index.html#autotoc_md36", [
-        [ "Basic Make Commands:", "index.html#autotoc_md37", null ],
-        [ "Advanced Make Commands:", "index.html#autotoc_md38", null ]
-      ] ],
-      [ "Verify Makefile Settings", "index.html#autotoc_md39", null ],
-      [ "Style Guide", "index.html#autotoc_md40", null ],
-      [ "Documentation", "index.html#autotoc_md41", null ],
-      [ "Coding Standards", "index.html#autotoc_md42", null ]
+    [ "Anatomy of Embedded Firmware", "index.html", [
+      [ "A Word on Doxygen", "index.html#autotoc_md1", null ],
+      [ "Formatting", "index.html#autotoc_md2", null ],
+      [ "Licence", "index.html#autotoc_md3", null ],
+      [ "C Header Files", "index.html#autotoc_md4", null ],
+      [ "C Source Files", "index.html#autotoc_md5", null ],
+      [ "pin_defines.h", "index.html#autotoc_md6", null ],
+      [ "main.c", "index.html#autotoc_md7", null ],
+      [ "Makefile", "index.html#autotoc_md8", null ],
+      [ "Templates", "index.html#autotoc_md9", null ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
+    [ "Classes", "annotated.html", [
+      [ "Class List", "annotated.html", "annotated_dup" ],
+      [ "Class Index", "classes.html", null ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Variables", "functions_vars.html", null ]
+      ] ]
+    ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
@@ -92,7 +59,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"blink_8c.html"
+"anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html",
+"mcp4812__dac_8c_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
