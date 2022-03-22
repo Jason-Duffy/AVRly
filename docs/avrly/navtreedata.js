@@ -96,7 +96,6 @@ var NAVTREE =
       [ "Templates", "md_avrly_projects_contributors_guide__contributors_guide.html#autotoc_md55", null ],
       [ "Submitting a Pull Request", "md_avrly_projects_contributors_guide__contributors_guide.html#autotoc_md56", null ]
     ] ],
-    [ "README", "md_avrly_projects_mcp4812_dac__r_e_a_d_m_e.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
