@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['contributor_27s_20guide_0',['Contributor&apos;s Guide',['../index.html',1,'']]]
+  ['avrly_20_2d_20avr_20development_20resources_0',['AVRly - AVR Development Resources',['../index.html',1,'']]]
 ];

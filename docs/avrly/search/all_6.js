@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['init_5fled_0',['init_led',['../blink_8c.html#afc227daac655fc74c1537c0555055987',1,'init_led(void):&#160;blink.c'],['../blink_8h.html#afc227daac655fc74c1537c0555055987',1,'init_led(void):&#160;blink.c']]],
-  ['init_5fobject_1',['init_object',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8',1,'init_object(uint16_t value):&#160;filename.c'],['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8h.html#a79a38b8a0c6ba34854b450330b82ebd8',1,'init_object(uint16_t value):&#160;filename.c']]],
-  ['initialisation_5fvalue_2',['INITIALISATION_VALUE',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ad35dc899014ff8564722e52ce1019c72',1,'main.c']]]
+  ['led_5fddr_0',['LED_DDR',['../getting-started_2source_2pin__defines_8h.html#a2eb4252b35effe1188cb61b6124fa617',1,'pin_defines.h']]],
+  ['led_5fgpio_1',['LED_GPIO',['../getting-started_2source_2pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a',1,'pin_defines.h']]],
+  ['led_5fport_2',['LED_PORT',['../getting-started_2source_2pin__defines_8h.html#a663daa01e565aee93c6f20c5845b90b4',1,'pin_defines.h']]]
 ];
