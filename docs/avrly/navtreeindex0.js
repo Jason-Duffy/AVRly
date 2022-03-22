@@ -197,6 +197,7 @@ var NAVTREEINDEX0 =
 "i2c_8h_source.html":[7,0,0,1,0,3],
 "index.html":[],
 "index.html":[0],
+"index.html#autotoc_md58":[0,0],
 "log__system_2example_2log__system_8c_source.html":[7,0,0,5,0,0],
 "log__system_2example_2log__system_8h_source.html":[7,0,0,5,0,1],
 "log__system_2example_2usart_8c_source.html":[7,0,0,5,0,2],
@@ -242,12 +243,11 @@ var NAVTREEINDEX0 =
 "mcp4812__dac_8h.html#ab7d4460badaeb5c1255a471604ee7823":[7,0,0,6,0,4,4],
 "mcp4812__dac_8h.html#afd38e4b814863ec79d710ee2c3623adb":[7,0,0,6,0,4,5],
 "mcp4812__dac_8h_source.html":[7,0,0,6,0,4],
-"md_avrly_projects_anatomy_of_embedded_firmware__r_e_a_d_m_e.html":[3],
-"md_avrly_projects_anatomy_of_embedded_firmware__r_e_a_d_m_e.html#autotoc_md48":[3,0],
-"md_avrly_projects_anatomy_of_embedded_firmware__r_e_a_d_m_e.html#autotoc_md49":[3,1],
-"md_avrly_projects_anatomy_of_embedded_firmware__r_e_a_d_m_e.html#autotoc_md50":[3,2],
-"md_avrly_projects_anatomy_of_embedded_firmware__r_e_a_d_m_e.html#autotoc_md51":[3,3],
-"md_avrly_projects_anatomy_of_embedded_firmware__r_e_a_d_m_e.html#autotoc_md52":[3,4],
-"md_avrly_projects_anatomy_of_embedded_firmware__r_e_a_d_m_e.html#autotoc_md53":[3,5],
-"md_avrly_projects_anatomy_of_embedded_firmware__r_e_a_d_m_e.html#autotoc_md54":[3,6]
+"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html":[2],
+"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md44":[2,0],
+"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md45":[2,1],
+"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md46":[2,2],
+"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md47":[2,3],
+"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md48":[2,4],
+"md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html#autotoc_md49":[2,5]
 };
