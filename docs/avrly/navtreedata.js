@@ -25,17 +25,7 @@
 var NAVTREE =
 [
   [ "AVRly - AVR Development Resources", "index.html", [
-    [ "Anatomy of Embedded Firmware", "index.html", [
-      [ "A Word on Doxygen", "index.html#autotoc_md1", null ],
-      [ "Formatting", "index.html#autotoc_md2", null ],
-      [ "Licence", "index.html#autotoc_md3", null ],
-      [ "C Header Files", "index.html#autotoc_md4", null ],
-      [ "C Source Files", "index.html#autotoc_md5", null ],
-      [ "pin_defines.h", "index.html#autotoc_md6", null ],
-      [ "main.c", "index.html#autotoc_md7", null ],
-      [ "Makefile", "index.html#autotoc_md8", null ],
-      [ "Templates", "index.html#autotoc_md9", null ]
-    ] ],
+    [ "Getting Started", "index.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -60,7 +50,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html",
-"mcp4812__dac_8c_source.html"
+"structccs811__config__t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

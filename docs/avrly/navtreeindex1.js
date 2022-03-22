@@ -1,14 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"mcp4812__dac_8c_source.html":[3,0,7,0,3],
-"mcp4812__dac_8h.html":[3,0,7,0,4],
-"mcp4812__dac_8h.html#a8e5a30fe5a03338c88ef80b84f3098b7":[3,0,7,0,4,3],
-"mcp4812__dac_8h.html#aaf5962070b11ed66e257763c365ad321":[3,0,7,0,4,2],
-"mcp4812__dac_8h.html#ab7d4460badaeb5c1255a471604ee7823":[3,0,7,0,4,4],
-"mcp4812__dac_8h.html#afd38e4b814863ec79d710ee2c3623adb":[3,0,7,0,4,5],
-"mcp4812__dac_8h_source.html":[3,0,7,0,4],
-"modules.html":[1],
-"pages.html":[],
 "structccs811__config__t.html":[2,0,0],
 "structdac__channel__t.html":[2,0,1],
 "structdac__config__t.html":[2,0,2],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['anatomy_20of_20embedded_20firmware_0',['Anatomy of Embedded Firmware',['../index.html',1,'']]]
+  ['getting_20started_0',['Getting Started',['../index.html',1,'']]]
 ];
