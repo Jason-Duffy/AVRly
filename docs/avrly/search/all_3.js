@@ -7,6 +7,5 @@ var searchData=
   ['decimal_5fmacro_4',['DECIMAL_MACRO',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#ad0d93be93b87cde29da59e643f7c6112',1,'filename.c']]],
   ['display_5fshift_5',['display_shift',['../structlcd__config__t.html#a465f515eb846ceee1b4d8149bc929404',1,'lcd_config_t']]],
   ['displays_6',['Displays',['../group__displays.html',1,'']]],
-  ['do_5fsome_5fhelpful_5fstuff_7',['do_some_helpful_stuff',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a',1,'filename.c']]],
-  ['drivers_2dand_2dexamples_8',['drivers-and-examples',['../md_avrly_projects_drivers_and_examples_drivers_and_examples.html',1,'']]]
+  ['do_5fsome_5fhelpful_5fstuff_7',['do_some_helpful_stuff',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a',1,'filename.c']]]
 ];

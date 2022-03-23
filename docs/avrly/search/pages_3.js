@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getting_2dstarted_0',['Getting-started',['../md_avrly_projects_getting_started__getting_started.html',1,'']]]
+  ['hd44780_5flcd_0',['hd44780_lcd',['../group__hd44780__lcd.html',1,'']]]
 ];

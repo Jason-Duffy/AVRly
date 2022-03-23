@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['drivers_2dand_2dexamples_0',['drivers-and-examples',['../md_avrly_projects_drivers_and_examples_drivers_and_examples.html',1,'']]]
+  ['getting_2dstarted_0',['Getting-started',['../md_avrly_projects_getting_started__getting_started.html',1,'']]]
 ];
