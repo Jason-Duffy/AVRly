@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "CadAVR - AVR Development Resources", "index.html", [
+  [ "KadAVR - AVR Development Resources", "index.html", [
     [ "Getting-started", "md_avrly_projects_getting_started__getting_started.html", [
       [ "Software Requirements", "md_avrly_projects_getting_started__getting_started.html#autotoc_md0", [
         [ "A Source Code Editor", "md_avrly_projects_getting_started__getting_started.html#autotoc_md1", null ],
