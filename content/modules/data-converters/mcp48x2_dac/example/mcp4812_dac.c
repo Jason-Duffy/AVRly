@@ -26,7 +26,7 @@
 
 /**
  * \defgroup mcp48x2 MCP48x2 DAC
- * \ingroup date_converters
+ * \ingroup data_converters
  */
 
 /**
