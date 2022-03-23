@@ -120,7 +120,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html",
-"mcp48x2__dac_2example_2log__system_8c.html"
+"md_content_getting_started__getting_started.html#autotoc_md14"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

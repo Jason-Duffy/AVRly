@@ -1,7 +1,7 @@
 var dir_d21582d1a0e016fb5573a1a04428266d =
 [
-    [ "ccs811_sensor", "dir_ddc1d64a7ffe4b92bac74bf94e67c95f.html", "dir_ddc1d64a7ffe4b92bac74bf94e67c95f" ],
-    [ "hd44780_lcd", "dir_8b92324a91ab50f840098cee7a3067fb.html", "dir_8b92324a91ab50f840098cee7a3067fb" ],
-    [ "log_system", "dir_63c563daeb3fcef3106d1d2d13657554.html", "dir_63c563daeb3fcef3106d1d2d13657554" ],
-    [ "mcp48x2_dac", "dir_16ba2d2d51453ee1ea085ce5991f4396.html", "dir_16ba2d2d51453ee1ea085ce5991f4396" ]
+    [ "data-converters", "dir_19632f2a80484ef9afe3012ab7dd8955.html", "dir_19632f2a80484ef9afe3012ab7dd8955" ],
+    [ "debug-tools", "dir_f3e604ff482bea37fb27f8989f1199e2.html", "dir_f3e604ff482bea37fb27f8989f1199e2" ],
+    [ "displays", "dir_c39c18534edf3d26aea4c6c1f44a3276.html", "dir_c39c18534edf3d26aea4c6c1f44a3276" ],
+    [ "sensors", "dir_e0967beb1a8a8acc8ea5772396973d37.html", "dir_e0967beb1a8a8acc8ea5772396973d37" ]
 ];
