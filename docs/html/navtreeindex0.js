@@ -187,7 +187,7 @@ var NAVTREEINDEX0 =
 "group__log__system.html":[3,2,0],
 "group__log__system.html#md_content_modules_debug_tools_log_system_log_system":[3,2,0,4],
 "group__mcp48x2.html":[3,4,0],
-"group__mcp48x2.html#md_content_modules_data_converters_mcp48x2_dac_mcp48x2":[3,4,0,3],
+"group__mcp48x2.html#md_content_modules_data_converters_mcp48x2_dac_mcp48x2":[3,4,0,0],
 "group__sensors.html":[3,5],
 "i2c_8c.html":[5,0,0,2,3,0,0,2],
 "i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788":[5,0,0,2,3,0,0,2,0],
