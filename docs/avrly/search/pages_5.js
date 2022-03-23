@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kadavr_20_2d_20avr_20development_20resources_0',['KadAVR - AVR Development Resources',['../index.html',1,'']]]
+  ['log_5fsystem_0',['log_system',['../md_avrly_projects_drivers_and_examples_log_system_log_system.html',1,'']]]
 ];
