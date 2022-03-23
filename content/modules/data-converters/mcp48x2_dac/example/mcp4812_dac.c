@@ -23,9 +23,6 @@
 
 /**
  * @file mcp4812_dac.c
- * \defgroup data_converters Data Converters
- * \defgroup mcp48x2 MCP48x2 DAC
- * \ingroup data_converters
  * \ingroup mcp48x2
  * @author Jason Duffy
  * @date 4th March 2022
