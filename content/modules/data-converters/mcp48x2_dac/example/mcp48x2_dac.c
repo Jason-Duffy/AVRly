@@ -22,8 +22,7 @@
 
 
 /**
- * @file mcp4812_dac.c
- * \ingroup mcp48x2
+ * @file mcp48x2_dac.c
  * @author Jason Duffy
  * @date 4th March 2022
  * @brief Driver for the MCP4812 10 bit DAC (digital to analog converter) chip.
@@ -41,7 +40,7 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
-#include "mcp4812_dac.h"
+#include "mcp48x2_dac.h"
 #include "pin_defines.h"
 
 #define CHANNEL_BIT         15U

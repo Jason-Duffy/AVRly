@@ -21,7 +21,7 @@
 ******************************************************************************/
 
 /**
- * @file mcp4812_dac.h
+ * @file mcp48x2_dac.h
  * \ingroup mcp48x2
  * @author Jason Duffy
  * @date 4th March 2022
@@ -37,8 +37,8 @@
  * @see https://ww1.microchip.com/downloads/en/DeviceDoc/20002249B.pdf
  */
 
-#ifndef MCP_FOUR_EIGHT_ONE_TWO_DOT_H
-#define MCP_FOUR_EIGHT_ONE_TWO_DOT_H
+#ifndef MCP_FOUR_EIGHT_X_TWO_DOT_H
+#define MCP_FOUR_EIGHT_X_TWO_DOT_H
 
 #include <stdbool.h>
 #include <stdint.h>
@@ -101,7 +101,7 @@ void dac_reconfigure(void);
  */
 void pulse_latch(void);
 
-#endif // MCP_FOUR_EIGHT_ONE_TWO_DOT_H
+#endif // MCP_FOUR_EIGHT_X_TWO_DOT_H
 
 
 /*** end of file ***/
