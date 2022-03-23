@@ -22,7 +22,7 @@
 
 /**
  * @file usart.h
- * \ingroup log_system
+ * @ingroup log_system
  * @author Jason Duffy
  * @date 15th March 2022
  * @brief Driver file providing core USART communication between the target MCU

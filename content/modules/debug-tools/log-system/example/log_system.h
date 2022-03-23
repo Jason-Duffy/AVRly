@@ -22,7 +22,7 @@
 
 /**
  * @file log_system.h
- * \ingroup log_system
+ * @ingroup log_system
  * @author Jason Duffy
  * @date 1st March 2022
  * @brief Driver file providing logging functionality over USART, to print

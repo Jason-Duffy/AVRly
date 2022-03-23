@@ -22,7 +22,7 @@
 
 /**
  * @file pin_defines.h
- * \ingroup ccs811
+ * @ingroup ccs811
  * @author Jason Duffy
  * @date 1st March 2022
  * @brief Definitions for pin mapping (for CCS81 gas sensor)

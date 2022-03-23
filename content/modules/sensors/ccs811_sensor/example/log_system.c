@@ -22,7 +22,7 @@
 
 /**
  * @file log_system.c
- * \ingroup ccs811
+ * @ingroup ccs811
  * @author Jason Duffy
  * @date 15th March 2022
  * @brief Driver file providing logging functionality over USART, to print

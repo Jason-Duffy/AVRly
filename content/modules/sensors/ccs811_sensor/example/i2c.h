@@ -22,7 +22,7 @@
 
 /**
  * @file i2c.h
- * \ingroup ccs811
+ * @ingroup ccs811
  * @author Jason Duffy
  * @date 5th March 2022
  * @brief I2C communications driver for AVR MCU's.

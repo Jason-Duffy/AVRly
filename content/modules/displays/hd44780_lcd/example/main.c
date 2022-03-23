@@ -22,7 +22,7 @@
 
 /**
  * @file main.c
- * \ingroup hd44780_lcd
+ * @ingroup hd44780_lcd
  * @author Jason Duffy
  * @date 1st March 2022
  * @brief Example main routine demonstrating the HD44780 based 16x2 liquid

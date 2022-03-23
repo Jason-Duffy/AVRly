@@ -22,7 +22,7 @@
 
 /**
  * @file usart.h
- * \ingroup ccs811
+ * @ingroup ccs811
  * @author Jason Duffy
  * @date 15th March 2022
  * @brief Driver file providing core USART communication between the target MCU

@@ -22,7 +22,7 @@
 
 /**
  * @file pin_defines.h
- * /ingroup mcp48x2
+ * @ingroup mcp48x2
  * @author Jason Duffy
  * @date 1st March 2022
  * @brief Definitions for pin mapping (for mcp4812_dac)

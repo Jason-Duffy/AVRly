@@ -20,18 +20,10 @@
  SOFTWARE.
 ******************************************************************************/
 
-/**
- * \defgroup sensors Sensors
- */
- 
-/**
- * \defgroup ccs811 CCS811 Gas Sensor
- * \ingroup sensors
- */
 
 /**
  * @file ccs811.c
- * \ingroup ccs811
+ * @ingroup ccs811
  * @author Jason Duffy
  * @date 4th March 2022
  * @brief Driver for the CCS811 gas sensor.
