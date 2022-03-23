@@ -22,7 +22,7 @@
 
 /**
  * @file main.c
- * /addtogroup mcp48x2
+ * @ingroup mcp48x2
  * @author Jason Duffy
  * @date 1st March 2022
  * @brief Example main routine demonstrating the mcp48x2 DAC driver. 

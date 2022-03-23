@@ -23,7 +23,7 @@
 
 /**
  * @file mcp48x2_dac.c
- * /addtogroup mcp48x2
+ * @ingroup mcp48x2
  * @author Jason Duffy
  * @date 4th March 2022
  * @brief Driver for the MCP4812 10 bit DAC (digital to analog converter) chip.
