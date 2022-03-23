@@ -72,8 +72,8 @@ typedef struct
 /**
  * Initialisation routine (run once at startup).
  * This function is to be called before using any other DAC functions.
- * Instantiate the dac_config_t object first then pass it's address init_lcd()
- * before using any other lcd functions.
+ * Instantiate the dac_config_t object first then pass it's address into and
+ * call init_lcd() before using any other lcd functions.
  * @param p_config is a pointer to the dac_config_t object.
  * @return Returns void.
  */

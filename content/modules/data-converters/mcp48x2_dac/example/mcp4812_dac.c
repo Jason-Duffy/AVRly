@@ -21,7 +21,12 @@
 ******************************************************************************/
 
 /**
+ * \defgroup data_converters Data Converters
+ */
+
+/**
  * \defgroup mcp48x2 MCP48x2 DAC
+ * \ingroup date_converters
  */
 
 /**
@@ -55,11 +60,11 @@
 #define EIGHT_BIT_OFFSET    4U
 
 /**
- * Local copy of dac_config_t pointer to store address of config object.
+ * File scope copy of dac_config_t pointer to store address of config object.
  */
 static dac_config_t *p_config_global;
 
-// Forward declarations.
+// Forward declarations of private helper functions.
 void spi_trade_byte(uint16_t data);
 void pulse_latch(void);
 void chip_select(void);
@@ -69,8 +74,8 @@ void chip_deselect(void);
 /**
  * Initialisation routine (run once at startup).
  * This function is to be called before using any other DAC functions.
- * Instantiate the dac_config_t object first then pass it's address init_lcd()
- * before using any other lcd functions.
+ * Instantiate the dac_config_t object first then pass it's address into and
+ * call init_lcd() before using any other lcd functions.
  * @param p_config is a pointer to the dac_config_t object.
  * @return Returns void.
  */
