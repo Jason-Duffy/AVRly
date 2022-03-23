@@ -1,1 +1,0 @@
-MCP48x2 Markdown File. 

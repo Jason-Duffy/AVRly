@@ -1,1 +1,0 @@
-Log System Markdown File.
