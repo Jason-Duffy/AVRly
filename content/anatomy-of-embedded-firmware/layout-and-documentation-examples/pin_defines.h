@@ -22,7 +22,7 @@
 
 /**
  * @file pin_defines.h
- * \ingroup anatomy
+ * @ingroup anatomy
  * @author Your Name Here
  * @date 15th March 2022
  * @brief Pin and port definitions for the project.

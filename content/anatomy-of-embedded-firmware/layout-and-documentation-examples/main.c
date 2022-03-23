@@ -22,7 +22,7 @@
 
 /**
  * @file main.c
- * \ingroup anatomy
+ * @ingroup anatomy
  * @author Your Name Here
  * @date 15th March 2022
  * @brief Main source file where main() routine is called.

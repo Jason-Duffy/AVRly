@@ -21,12 +21,8 @@
 ******************************************************************************/
 
 /**
- * \defgroup getting-started Getting Started
- */
-
-/**
  * @file blink.c
- * \ingroup getting-started
+ * @ingroup getting-started
  * @author Jason Duffy
  * @date 15th March 2022
  * @brief Driver for example application from Getting Started with Blink.

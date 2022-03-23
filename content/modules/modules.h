@@ -1,4 +1,16 @@
 /**
+ * \defgroup getting_started Getting Started with Blink
+ * \brief Getting started brief
+ * \details Some details about getting started
+ */
+
+/**
+ * \defgroup anatomy Anatomy of Embedded Firmware
+ * \brief Anatomy of Embedded Firmware brief
+ * \details Some details about Anatomy of Embedded Firmware
+ */
+
+/**
  * \defgroup data_converters Data Converters
  * \brief Data converters brief
  * \details Some details about data converters
