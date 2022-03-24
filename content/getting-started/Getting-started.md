@@ -116,7 +116,7 @@ For MacOS and Linux, open Terminal and type `ls /dev/tty*` for a list of connect
 
 For Windows, it will look something like COM3.
 
-In Terminal/cmd, type `avrdude` to check the AVRDUDE software has been correctly installed. It should give you a helpful list of flags and arguments you can use. 
+In Terminal/cmd, type `avrdude` to check the AVRDUDE software has been correctly installed. It should give you a helpful list of options you can use. 
 
 Now we can check the programmer and target MCU are connected and being recognised correctly by typing:
 `avrdude -p m328p -b 19200 -c avrisp -P /dev/tty.usbmodem141201 `, replace `m328p` with your MCU type, `19200` with the baud rate of your serial programmer, `avrisp` with your programmer type and `/dev/tty.usbmodem141201` with the port address your programmer is connected to if different from these. 
