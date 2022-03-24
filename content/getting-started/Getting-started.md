@@ -123,7 +123,7 @@ Now we can check the programmer and target MCU are connected and being recognise
 
 You should then see a success message like the one below. If not, check your wiring and connections, check the target MCU is powered, and check the programmer type, baud rate and AVR chip type are correct.
 
-![AVRDUDE success message](.images/avrdude-interrogate-success.png)
+![AVRDUDE success message](./images/avrdude-interrogate-success.png)
 
 
 # Configuring the Makefile
