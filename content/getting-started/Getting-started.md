@@ -1,3 +1,5 @@
+# Getting Started with Blink
+
 The projects outlined in this repository are intended for ["bare metal"][Bare_Metal_URL] AVR programming. That is - compiling, debugging and flashing your application without an underlying operating system, directly to the target MCU using the AVR crosspack 2 toolchain and an ISP programmer, rather than using the simpler and more user-friendly (but somewhat limiting) Arduino framework.
 
 The Blink example isn't a particularly groundbreaking project, but it serves to verify that the setup of your development environment and configuration of the target MCU have been performed correctly, before moving onto more complex projects and examples where issues could be harder to diagnose. 
