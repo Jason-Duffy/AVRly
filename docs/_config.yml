@@ -18,13 +18,13 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: avrly
+title: AVRly
 email: Jason.Duffy91@Gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Documented drivers, Kicad schematics and example projects written in the C programming
   language, specifically for AVR microcontrollers and intended to be built using GNU make and AVRdude. 
 domain: jason-duffy.github.io
-baseurl: /AVRly # the subpath of your site, e.g. /blog
+baseurl: /AVRly/html # the subpath of your site, e.g. /blog
 url: https://jason-duffy.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username:  Jason-Duffy
