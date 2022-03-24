@@ -60,7 +60,7 @@ Such as an [AVRISP MKII][AVRISP_URL], however that model is not compattible with
 ![Arduino ISP Shield](./images/arduino_isp_shield.jpg)
 
 ## A USB to Serial Converter
-There are many types available, I use one of [these][USB_Serial_URL].
+There are many types available, I use one of [these][USB_Serial_URL]. Not required for the Blink example but useful for the log_system module and debugging your projects. 
 
 ## Various USB cables
 It's useful to keep several USB cables, micro, mini, USB-A etc.
@@ -75,7 +75,7 @@ Most ISP programmers will provide a 5V power line for your MCU, however this is 
 A set of [breadboard jumper cables][Breadboard_Jumpers_URL] is handy to keep your close wiring neat and tidy, then a set of various lengths and connection types of [dupont cables][Dupont_Cables_URL] is useful to connect to other peripherals.
 
 ## An assortment of components
-A kit like [this one][Components_Kit_URL] is a frugal way to source many of the components and accessories needed. You will certainly need a selection of resistors, capacitors, LEDs etc. 
+A kit like [this one][Components_Kit_URL] is a frugal way to source many of the components and accessories needed - plus some extras which might come in handy along the way. You will certainly need a selection of resistors, capacitors, LEDs etc.
 
 ## A multimeter
 A multimeter like [this one][Multimeter_URL] will help with debugging when hardware is involved. An [oscilloscope][Oscilloscope_URL] gives an extra dimension of insight into your circuits and applications, but they are an expensive piece of kit so a little out of reach for beginners.
@@ -84,14 +84,14 @@ A multimeter like [this one][Multimeter_URL] will help with debugging when hardw
 
 # Connecting the Hardware
 
-The following setup guide is for an ATmega328p, so if you're starting with a different model it's best to refer to your part's datasheet for pinout, auxillary components needed, power requirements etc, but the broad principles should be much the same.
+The following setup guide is for an ATmega328P, so if you're starting with a different model it's best to refer to your part's datasheet for pinout, auxillary components needed, power requirements etc, but the broad principles should be much the same.
 
 
 ## MCU Connections
 Note the 100nF ceramic capacitor between VCC and GND, this is for decoupling and filtering of the power supply, so should be placed as close to the pins as possible.
 ![Decoupling capacitor](./images/decoupling_cap.png)
 
-You can use the MCU with just it's internal oscillator as a clock source, or if you'd prefer a faster clock speed you can use an external crystal oscillator. Refer to your chip's datasheet for the correct oscillator circuit design. 
+You can use the MCU with just it's internal oscillator as a clock source (8MHz or 1MHz depending on configuration), or if you'd prefer a faster clock speed you can use an external crystal oscillator upto 20MHz. Refer to your chip's datasheet and application notes for details on oscillator circuit design. 
 
 Connect a GPIO pin (PB0 in this example) to an LED, with a 220Ω resistor in series with the anode, and the cathode to ground.
 
@@ -100,29 +100,30 @@ Connect a GPIO pin (PB0 in this example) to an LED, with a 220Ω resistor in ser
 
 ## Programmer Connections
 
-The IDC connector on your ISP programmer should be connected to the target MCU as shown by the colour codes in the image below. These symbols depict the end of the IDC connector - Note the notch on the right hand side - if you turn the connector to face you and rotate it so the notch is on the right, your orientation will be correct.
+The IDC connector on your ISP programmer should be connected to the target MCU as shown in the images below. The schematic symbols on the left depict the end of the IDC connector - Note the notch on the right hand side - if you turn the connector to face you and rotate it so the notch is on the right, your orientation will be correct.
 
 ![IDC connector orientation](./images/idc_connector_orientation.jpg)
 
 ![ISP programmer connections](./images/isp_header_pinout.png)
 
-If you're using an Arduino Uno as an ISP with some dupont cables, then you can make the connections as per the schematic below.
+If you're using an Arduino Uno as an ISP with some dupont cables, then you can make the connections between that and the target MCU as per the schematic below.
 
 ![Arduino as ISP connections](./images/arduino_isp_hookup.png)
 
 Connect the programmer to your PC, then check which serial port it's on. If you have the Arduino IDE, you can go to Tools > Port > *port address is shown here*.
 
-For MacOS and Linux, open Terminal and type `ls /dev/tty*` for a list of connected devices. The programmer will look something like `/dev/tty.usbmodem14101`. 
+For MacOS and Linux, open Terminal and type `ls /dev/tty*` for a list of connected devices. The programmer will look something like `/dev/tty.usbmodem141201`. 
 
 For Windows, it will look something like COM3.
 
 In Terminal/cmd, type `avrdude` to check the AVRDUDE software has been correctly installed. It should give you a helpful list of flags and arguments you can use. 
 
 Now we can check the programmer and target MCU are connected and being recognised correctly by typing:
-`avrdude -p m328p -c arvisp`, replace `m328p` with your MCU type, and `avrisp` with your programmer type if different from these. 
+`avrdude -p m328p -b 19200 -c avrisp -P /dev/tty.usbmodem141201 `, replace `m328p` with your MCU type, `19200` with the baud rate of your serial programmer, `avrisp` with your programmer type and `/dev/tty.usbmodem141201` with the port address your programmer is connected to if different from these. 
 
-You should then see a success message. If not, check your wiring and connectiuons, check the target MCU is powered, and check the programmer type and AVR chip type are correct.
+You should then see a success message like the one below. If not, check your wiring and connections, check the target MCU is powered, and check the programmer type, baud rate and AVR chip type are correct.
 
+![AVRDUDE success message](.images/avrdude-interrogate-success.png)
 
 
 # Configuring the Makefile
