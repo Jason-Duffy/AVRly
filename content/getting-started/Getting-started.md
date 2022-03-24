@@ -1,13 +1,13 @@
 # Getting Started with Blink
 
-The projects outlined in this repository are intended for ["bare metal"][Bare_Metal_URL] AVR programming. That is - compiling, debugging and flashing your application without an underlying operating system, directly to the target MCU using the AVR crosspack 2 toolchain and an ISP programmer, rather than using the simpler and more user-friendly (but somewhat limiting) Arduino framework.
+The projects outlined in this repository are intended for ["bare metal"][Bare_Metal_URL] AVR programming. That is - compiling, debugging and flashing your application without an underlying operating system, directly to the target MCU using the AVR toolchain and an ISP programmer, rather than using the simpler and more user-friendly (but somewhat limiting) Arduino framework.
 
 The Blink example isn't a particularly groundbreaking project, but it serves to verify that the setup of your development environment and configuration of the target MCU have been performed correctly, before moving onto more complex projects and examples where issues could be harder to diagnose. 
 
 # Software Requirements
 
 ## A Source Code Editor
-I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choose from, some popular choices are:
+I like [Sublime Text][Sublime_Text_URL], but there are plenty to choose from, some popular choices are:
 - [Sublime Text][Sublime_Text_URL]
 - [Visual Studio Code][VS_Code_URL]
 - [Codespaces][Codespaces_URL]
@@ -15,10 +15,10 @@ I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choos
 
 ## The AVR Toolchain
 ### MacOS
-[AVR CrossPack][AVR_Crosspack_URL] Will provide everything you need to develop for AVR on MacOS; the GNU compile suite, C libraries for the AVR, the AVRDUDE uploader and more.
+[AVR CrossPack][AVR_Crosspack_URL] will provide everything you need to develop for AVR on MacOS; the GNU compile suite, C libraries for the AVR, the AVRDUDE uploader and more.
 ### Linux
 #### Debian/Ubuntu distributions
-- Its helpful to update all your current installed packages first.
+- It's helpful to update all your current installed packages first.
 
 	`sudo apt-get update`
 
@@ -29,7 +29,7 @@ I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choos
 	`sudo apt-get install avrdude avrdude-doc gcc-avr binutils-avr avr-libc gdb-avr`
 
 #### Red Hat and Fedora distributions
-- Its helpful to update all your current installed packages first.
+- It's helpful to update all your current installed packages first.
 
 	`sudo yum update`
 
@@ -40,19 +40,19 @@ I like [Sublime Text][Sublime_Text_URL], but there are plenty of others to choos
 	`sudo yum install avrdude avr-gcc avr-binutils avr-libc avr-gdb`
 
 ### Windows
-Windows users can use the official toolchain from the manufacturer, [Microchip Studio][Microchip_Studio_URL]. This is an IDE so it's full of features, but also has steep learning curve - follow their tutorial [here][Microchip_Studio_Tutorial_URL] to get to grips with it.
+Windows users can use the official toolchain from the manufacturer, [Microchip Studio][Microchip_Studio_URL] (formerly ATmel). This is an IDE so it's full of features, but also has a relatively steep learning curve - follow their tutorial [here][Microchip_Studio_Tutorial_URL] to get to grips with it.
+
 ## A Serial Terminal Program
-This is used to send messages between your PC and the target MCU, and you'll find it's a vital debugging tool when coupled with the log_system module. I tend to use [CoolTerm][CoolTerm_URL] which is available on MacOS, Windows and Linux.
+This is used later in the more advanced modules to send messages between your PC and the target MCU. You'll find it's a vital debugging tool when coupled with the log_system module. I tend to use [CoolTerm][CoolTerm_URL] which is available for free on MacOS, Windows and Linux.
 
 
 # Hardware Required
 
 ## An AVR microcontroller
-An [ATmega328P-PU][ATmega328_URL] is a good place to start - It's a DIP package so fits nicely in a breadboard or an IC socket, has a whopping 32KB of flash memory (ok it's not much but you can do a surprising amount with that), and 3 GPIO ports. Most of the examples in this repository will be using the ATmega328p, and it is strongly recommended to refer to it's [datasheet][ATmega328p_Datasheet_URL] if you are unsure about anything. If you want something SMD with more GPIO's interrupts and timers, an [ATmega2560][ATmega2560_URL] has plenty to offer. It's worth noting that this family of AVR's is now listed as "Not reccommended for new designs" which means they are being phased out of production in favour of the newer AVR families. Most of the functionality and methodology should be essentially the same with the newer chips, but they will likely have a different pinout and subset of registers so code and hookup will need to be ported. 
-
+An [ATmega328P-PU][ATmega328_URL] is a good place to start - It's a DIP package so fits nicely in a breadboard or an IC socket, has a whopping 32KB of flash memory (ok it's not much but you can do a surprising amount with that), and 3 GPIO ports. This chip is ubiquitous so you'll have no problem finding hardware to support it - it's actually the MCU the Arduino Uno is built around. It's worth noting that the ATmega328P now has a status of "Not recommended for new designs" meaning that model is being gradually phased out in favour of the newer ATmega328PB. Code written for the 328P will still work fine on the 328PB thanks to backwards compatability, but it is **not** a drop-in replacement, so the pinout will be different. For more info on the differences betwenn the two, see application note [AT15007][AT15007_URL]. Most of the examples in this repository will be using the ATmega328P, and it is strongly recommended to refer to it's [datasheet][ATmega328p_Datasheet_URL] if you are unsure about anything.
 
 ## An ISP Programmer
-Such as an [AVRISP MKII][AVRISP_URL], however I had some compatability issues with this one (on MacOS) so instead I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and [a simple shield I made][Uno_ISP_Shield_URL] - though you can achieve the same thing with some dupont cables if you don't want to wait for the shield to come back from fab. The Arduino as ISP sketch can be found in the Arduino IDE.
+Such as an [AVRISP MKII][AVRISP_URL], however that model is not compattible with MacOS, so instead I use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and [a simple shield I made][Uno_ISP_Shield_URL] - though you can achieve the same thing with some dupont cables if you don't want to wait for the shield to come back from fab. The Arduino as ISP sketch can be found in the Arduino IDE.
 ![Arduino ISP Shield](./images/arduino_isp_shield.jpg)
 
 ## A USB to Serial Converter
@@ -225,7 +225,7 @@ Adhering to coding standards helps to make your code more readable, robust, easi
 [Large_Breadboard_URL]: https://www.amazon.co.uk/K-H-RH-74-Solderless-Breadboard/dp/B079H4N8Y4/ref=sr_1_6?crid=18JXJAV0E8H6K&keywords=large+breadboard+electronics&qid=1647296861&sprefix=large+breadboard+electronics%2Caps%2C56&sr=8-6
 [ATmega328_URL]: https://www.amazon.co.uk/Atmel-ATMega328-PU-ATMEL-Microcontroller-Chip/dp/B071Y4YF5X/ref=sr_1_5?crid=564N7F4OE3JE&keywords=atmega328&qid=1647299808&sprefix=atmega328%2Caps%2C62&sr=8-5
 [ATmega328p_Datasheet_URL]: https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datash
-[ATmega2560_URL]: https://www.amazon.co.uk/1pcs-lot-ATMEGA2560-16AU-ATMEGA2560-QFP-100/dp/B09SZGJS7C/ref=sr_1_5?crid=3R3LG8NF0EER8&keywords=atmega2560&qid=1647299857&sprefix=atmega256%2Caps%2C76&sr=8-5
+[AT15007_URL]: http://atmel-studio-doc.s3-website-us-east-1.amazonaws.com/webhelp/GUID-CBDC1838-0100-4F26-A45A-134958193C3B-en-US-3/index.html?GUID-2A0D6256-07A2-49A1-B57E-B94459515300
 [Breadboard_Jumpers_URL]: https://www.amazon.co.uk/WANTOUTH-Preformed-Breadboard-Solderless-Prototyping/dp/B08QS6961R/ref=sr_1_5?crid=36KPWIVO59605&keywords=breadboard+jumpers&qid=1647300367&sprefix=breadboard+jumpers%2Caps%2C245&sr=8-5
 [Dupont_Cables_URL]: https://www.amazon.co.uk/YXPCARS-Solderless-Breadboard-Multicolored-Arduino/dp/B08HQ7K6M7/ref=sr_1_27?crid=1GQC7DDTANB5H&keywords=dupont+cables+set&qid=1647301269&sprefix=dupont+cables+set%2Caps%2C71&sr=8-27
 [Components_Kit_URL]: https://www.amazon.co.uk/Freenove-Ultimate-Compatible-Programming-Electronics/dp/B08B4D5MV5/ref=sr_1_17_sspa?crid=YI7I2MN0COCC&keywords=arduino+components+kit&qid=1647301388&sprefix=arduino+components%2Caps%2C75&sr=8-17-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzTjY0QVFGTEZHREVNJmVuY3J5cHRlZElkPUEwNjU1Mzk4MkRCS1c5UFBaMUI2QiZlbmNyeXB0ZWRBZElkPUEwMDEyMzQxM1NSUDZWS1RPM1Q2SCZ3aWRnZXROYW1lPXNwX210ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=
