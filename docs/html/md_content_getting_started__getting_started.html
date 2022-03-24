@@ -91,13 +91,13 @@ $(document).ready(function(){initNavTree('md_content_getting_started__getting_st
   <div class="headertitle"><div class="title">Getting Started with Blink </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p >The projects outlined in this repository are intended for <a href="https://microcontrollerslab.com/difference-bare-metal-and-rtos-based-embedded-systems/" target="_blank">"bare metal"</a> AVR programming. That is - compiling, debugging and flashing your application without an underlying operating system, directly to the target MCU using the AVR crosspack 2 toolchain and an ISP programmer, rather than using the simpler and more user-friendly (but somewhat limiting) Arduino framework.</p>
+<div class="textblock"><p >The projects outlined in this repository are intended for <a href="https://microcontrollerslab.com/difference-bare-metal-and-rtos-based-embedded-systems/" target="_blank">"bare metal"</a> AVR programming. That is - compiling, debugging and flashing your application without an underlying operating system, directly to the target MCU using the AVR toolchain and an ISP programmer, rather than using the simpler and more user-friendly (but somewhat limiting) Arduino framework.</p>
 <p >The Blink example isn't a particularly groundbreaking project, but it serves to verify that the setup of your development environment and configuration of the target MCU have been performed correctly, before moving onto more complex projects and examples where issues could be harder to diagnose.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Software Requirements</h1>
 <h2><a class="anchor" id="autotoc_md2"></a>
 A Source Code Editor</h2>
-<p >I like <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, but there are plenty of others to choose from, some popular choices are:</p><ul>
+<p >I like <a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a>, but there are plenty to choose from, some popular choices are:</p><ul>
 <li><a href="http://www.sublimetext.com/" target="_blank">Sublime Text</a></li>
 <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></li>
 <li><a href="https://github.com/features/codespaces" target="_blank">Codespaces</a></li>
@@ -107,13 +107,13 @@ A Source Code Editor</h2>
 The AVR Toolchain</h2>
 <h3><a class="anchor" id="autotoc_md4"></a>
 MacOS</h3>
-<p ><a href="https://www.obdev.at/products/crosspack/index.html" target="_blank">AVR CrossPack</a> Will provide everything you need to develop for AVR on MacOS; the GNU compile suite, C libraries for the AVR, the AVRDUDE uploader and more. </p>
+<p ><a href="https://www.obdev.at/products/crosspack/index.html" target="_blank">AVR CrossPack</a> will provide everything you need to develop for AVR on MacOS; the GNU compile suite, C libraries for the AVR, the AVRDUDE uploader and more. </p>
 <h3><a class="anchor" id="autotoc_md5"></a>
 Linux</h3>
 <h4><a class="anchor" id="autotoc_md6"></a>
 Debian/Ubuntu distributions</h4>
 <ul>
-<li><p class="startli">Its helpful to update all your current installed packages first.</p>
+<li><p class="startli">It's helpful to update all your current installed packages first.</p>
 <p class="startli"><code>sudo apt-get update</code></p>
 <p class="startli"><code>sudo apt-get upgrade all</code></p>
 </li>
@@ -124,7 +124,7 @@ Debian/Ubuntu distributions</h4>
 <h4><a class="anchor" id="autotoc_md7"></a>
 Red Hat and Fedora distributions</h4>
 <ul>
-<li><p class="startli">Its helpful to update all your current installed packages first.</p>
+<li><p class="startli">It's helpful to update all your current installed packages first.</p>
 <p class="startli"><code>sudo yum update</code></p>
 <p class="startli"><code>sudo yum upgrade-all</code></p>
 </li>
@@ -134,18 +134,18 @@ Red Hat and Fedora distributions</h4>
 </ul>
 <h3><a class="anchor" id="autotoc_md8"></a>
 Windows</h3>
-<p >Windows users can use the official toolchain from the manufacturer, <a href="https://www.microchip.com/en-us/tools-resources/develop/microchip-studio" target="_blank">Microchip Studio</a>. This is an IDE so it's full of features, but also has steep learning curve - follow their tutorial <a href="https://www.microchip.com/en-us/tools-resources/develop/microchip-studio#Getting%20Started" target="_blank">here</a> to get to grips with it. </p>
+<p >Windows users can use the official toolchain from the manufacturer, <a href="https://www.microchip.com/en-us/tools-resources/develop/microchip-studio" target="_blank">Microchip Studio</a> (formerly ATmel). This is an IDE so it's full of features, but also has a relatively steep learning curve - follow their tutorial <a href="https://www.microchip.com/en-us/tools-resources/develop/microchip-studio#Getting%20Started" target="_blank">here</a> to get to grips with it.</p>
 <h2><a class="anchor" id="autotoc_md9"></a>
 A Serial Terminal Program</h2>
-<p >This is used to send messages between your PC and the target MCU, and you'll find it's a vital debugging tool when coupled with the log_system module. I tend to use <a href="https://freeware.the-meiers.org/" target="_blank">CoolTerm</a> which is available on MacOS, Windows and Linux.</p>
+<p >This is used later in the more advanced modules to send messages between your PC and the target MCU. You'll find it's a vital debugging tool when coupled with the log_system module. I tend to use <a href="https://freeware.the-meiers.org/" target="_blank">CoolTerm</a> which is available for free on MacOS, Windows and Linux.</p>
 <h1><a class="anchor" id="autotoc_md10"></a>
 Hardware Required</h1>
 <h2><a class="anchor" id="autotoc_md11"></a>
 An AVR microcontroller</h2>
-<p >An <a href="https://www.amazon.co.uk/Atmel-ATMega328-PU-ATMEL-Microcontroller-Chip/dp/B071Y4YF5X/ref=sr_1_5?crid=564N7F4OE3JE&amp;keywords=atmega328&amp;qid=1647299808&amp;sprefix=atmega328%2Caps%2C62&amp;sr=8-5" target="_blank">ATmega328P-PU</a> is a good place to start - It's a DIP package so fits nicely in a breadboard or an IC socket, has a whopping 32KB of flash memory (ok it's not much but you can do a surprising amount with that), and 3 GPIO ports. Most of the examples in this repository will be using the ATmega328p, and it is strongly recommended to refer to it's <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datash" target="_blank">datasheet</a> if you are unsure about anything. If you want something SMD with more GPIO's interrupts and timers, an <a href="https://www.amazon.co.uk/1pcs-lot-ATMEGA2560-16AU-ATMEGA2560-QFP-100/dp/B09SZGJS7C/ref=sr_1_5?crid=3R3LG8NF0EER8&amp;keywords=atmega2560&amp;qid=1647299857&amp;sprefix=atmega256%2Caps%2C76&amp;sr=8-5" target="_blank">ATmega2560</a> has plenty to offer. It's worth noting that this family of AVR's is now listed as "Not reccommended for new designs" which means they are being phased out of production in favour of the newer AVR families. Most of the functionality and methodology should be essentially the same with the newer chips, but they will likely have a different pinout and subset of registers so code and hookup will need to be ported.</p>
+<p >An <a href="https://www.amazon.co.uk/Atmel-ATMega328-PU-ATMEL-Microcontroller-Chip/dp/B071Y4YF5X/ref=sr_1_5?crid=564N7F4OE3JE&amp;keywords=atmega328&amp;qid=1647299808&amp;sprefix=atmega328%2Caps%2C62&amp;sr=8-5" target="_blank">ATmega328P-PU</a> is a good place to start - It's a DIP package so fits nicely in a breadboard or an IC socket, has a whopping 32KB of flash memory (ok it's not much but you can do a surprising amount with that), and 3 GPIO ports. This chip is ubiquitous so you'll have no problem finding hardware to support it - it's actually the MCU the Arduino Uno is built around. It's worth noting that the ATmega328P now has a status of "Not recommended for new designs" meaning that model is being gradually phased out in favour of the newer ATmega328PB. Code written for the 328P will still work fine on the 328PB thanks to backwards compatability, but it is <b>not</b> a drop-in replacement, so the pinout will be different. For more info on the differences betwenn the two, see application note <a href="http://atmel-studio-doc.s3-website-us-east-1.amazonaws.com/webhelp/GUID-CBDC1838-0100-4F26-A45A-134958193C3B-en-US-3/index.html?GUID-2A0D6256-07A2-49A1-B57E-B94459515300" target="_blank">AT15007</a>. Most of the examples in this repository will be using the ATmega328P, and it is strongly recommended to refer to it's <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datash" target="_blank">datasheet</a> if you are unsure about anything.</p>
 <h2><a class="anchor" id="autotoc_md12"></a>
 An ISP Programmer</h2>
-<p >Such as an <a href="https://www.amazon.co.uk/Waveshare-Programmer-USB-AVRISP-XPII/dp/B00KM6ZA9I?th=1" target="_blank">AVRISP MKII</a>, however I had some compatability issues with this one (on MacOS) so instead I just use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and <a href="/Uno_ISP_Shield" target="_blank">a simple shield I made</a> - though you can achieve the same thing with some dupont cables if you don't want to wait for the shield to come back from fab. The Arduino as ISP sketch can be found in the Arduino IDE. <img src="./images/arduino_isp_shield.jpg" alt="Arduino ISP Shield" class="inline"/></p>
+<p >Such as an <a href="https://www.amazon.co.uk/Waveshare-Programmer-USB-AVRISP-XPII/dp/B00KM6ZA9I?th=1" target="_blank">AVRISP MKII</a>, however that model is not compattible with MacOS, so instead I use an Arduino Uno with the "Arduino as ISP" sketch flashed to it, and <a href="/Uno_ISP_Shield" target="_blank">a simple shield I made</a> - though you can achieve the same thing with some dupont cables if you don't want to wait for the shield to come back from fab. The Arduino as ISP sketch can be found in the Arduino IDE. <img src="arduino_isp_shield.jpg" alt="" class="inline" title="Arduino ISP Shield"/>   </p>
 <h2><a class="anchor" id="autotoc_md13"></a>
 A USB to Serial Converter</h2>
 <p >There are many types available, I use one of <a href="https://www.amazon.co.uk/Ccylez-Converter-Adapter-FT232RL-Android-default/dp/B08DV1SXMQ/ref=sr_1_4?crid=8ZN3WET67TSU&amp;keywords=usb+serial+converter+module&amp;qid=1647296288&amp;sprefix=usb+serial+converter+modul%2Caps%2C72&amp;sr=8-4" target="_blank">these</a>.</p>
@@ -172,18 +172,30 @@ Connecting the Hardware</h1>
 <p >The following setup guide is for an ATmega328p, so if you're starting with a different model it's best to refer to your part's datasheet for pinout, auxillary components needed, power requirements etc, but the broad principles should be much the same.</p>
 <h2><a class="anchor" id="autotoc_md21"></a>
 MCU Connections</h2>
-<p >Note the 100nF ceramic capacitor between VCC and GND, this is for decoupling and filtering of the power supply, so should be placed as close to the pins as possible. <img src="./images/decoupling_cap.png" alt="Decoupling capacitor" class="inline"/></p>
+<p >Note the 100nF ceramic capacitor between VCC and GND, this is for decoupling and filtering of the power supply, so should be placed as close to the pins as possible. <img src="decoupling_cap.png" alt="" class="inline" title="Decoupling capacitor"/>   </p>
 <p >You can use the MCU with just it's internal oscillator as a clock source, or if you'd prefer a faster clock speed you can use an external crystal oscillator. Refer to your chip's datasheet for the correct oscillator circuit design.</p>
 <p >Connect a GPIO pin (PB0 in this example) to an LED, with a 220Ω resistor in series with the anode, and the cathode to ground.</p>
-<p ><img src="./images/led_connection.png" alt="LED Connection" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<div class="image">
+<img src="led_connection.png" alt=""/>
+<div class="caption">
+LED Connection</div></div>
+   <h2><a class="anchor" id="autotoc_md22"></a>
 Programmer Connections</h2>
 <p >The IDC connector on your ISP programmer should be connected to the target MCU as shown by the colour codes in the image below. These symbols depict the end of the IDC connector - Note the notch on the right hand side - if you turn the connector to face you and rotate it so the notch is on the right, your orientation will be correct.</p>
-<p ><img src="./images/idc_connector_orientation.jpg" alt="IDC connector orientation" class="inline"/></p>
-<p ><img src="./images/isp_header_pinout.png" alt="ISP programmer connections" class="inline"/></p>
-<p >If you're using an Arduino Uno as an ISP with some dupont cables, then you can make the connections as per the schematic below.</p>
-<p ><img src="./images/arduino_isp_hookup.png" alt="Arduino as ISP connections" class="inline"/></p>
-<p >Connect the programmer to your PC, then check which serial port it's on. If you have the Arduino IDE, you can go to Tools &gt; Port &gt; <em>port address is shown here</em>.</p>
+<div class="image">
+<img src="idc_connector_orientation.jpg" alt=""/>
+<div class="caption">
+IDC connector orientation</div></div>
+   <div class="image">
+<img src="isp_header_pinout.png" alt=""/>
+<div class="caption">
+ISP programmer connections</div></div>
+   <p >If you're using an Arduino Uno as an ISP with some dupont cables, then you can make the connections as per the schematic below.</p>
+<div class="image">
+<img src="arduino_isp_hookup.png" alt=""/>
+<div class="caption">
+Arduino as ISP connections</div></div>
+   <p >Connect the programmer to your PC, then check which serial port it's on. If you have the Arduino IDE, you can go to Tools &gt; Port &gt; <em>port address is shown here</em>.</p>
 <p >For MacOS and Linux, open Terminal and type <code>ls /dev/tty*</code> for a list of connected devices. The programmer will look something like <code>/dev/tty.usbmodem14101</code>.</p>
 <p >For Windows, it will look something like COM3.</p>
 <p >In Terminal/cmd, type <code>avrdude</code> to check the AVRDUDE software has been correctly installed. It should give you a helpful list of flags and arguments you can use.</p>
@@ -218,16 +230,25 @@ Fuses</h2>
 <h3><a class="anchor" id="autotoc_md32"></a>
 LFUSE</h3>
 <p >Low fuse byte. This is used to select the clock source and some config settings for clock operation.</p>
-<p ><img src="./images/low_fuse.png" alt="Fuse low byte register (ATmega328p)" class="inline"/></p>
-<h3><a class="anchor" id="autotoc_md33"></a>
+<div class="image">
+<img src="low_fuse.png" alt=""/>
+<div class="caption">
+Fuse low byte register (ATmega328p)</div></div>
+   <h3><a class="anchor" id="autotoc_md33"></a>
 HFUSE</h3>
 <p >High fuse byte. Bits 2 - 0 are used to select the amount of memory allocated for a bootloader (not required for the projects in this repo). The remaining bits are used to control EEPROM, watchdog timer, programming and reset options. SPIEN and RSTDISBL are the dangerous ones likely to brick your MCU if set incorrectly, so <b>only</b> touch these if you know what you're doing.</p>
-<p ><img src="./images/high_fuse.png" alt="Fuse high byte register (ATmega328p)" class="inline"/></p>
-<h3><a class="anchor" id="autotoc_md34"></a>
+<div class="image">
+<img src="high_fuse.png" alt=""/>
+<div class="caption">
+Fuse high byte register (ATmega328p)</div></div>
+   <h3><a class="anchor" id="autotoc_md34"></a>
 EFUSE</h3>
 <p >Extended fuse byte. This is used to set the brownout detection level.</p>
-<p ><img src="./images/extended_fuse.png" alt="Extended fuse byte register (ATmega328p)" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md35"></a>
+<div class="image">
+<img src="extended_fuse.png" alt=""/>
+<div class="caption">
+Extended fuse byte register (ATmega328p)</div></div>
+   <h1><a class="anchor" id="autotoc_md35"></a>
 Flashing the Chip</h1>
 <p >With the Makefile correctly configured, you are now ready to start writing data to the chip. Open Terminal and navigate to the directory where you stored the local copy of the [source][./source] folder you downloaded.</p>
 <h2><a class="anchor" id="autotoc_md36"></a>
