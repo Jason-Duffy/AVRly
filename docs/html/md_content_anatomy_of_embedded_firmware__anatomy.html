@@ -156,16 +156,16 @@ C Header Files</h1>
 <div class="line"><span class="comment"> * first full stop the remaining text becomes a detailed description.</span></div>
 <div class="line"><span class="comment"> * @param parameters can be documented like this. </span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(uint16_t value);</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(uint16_t value);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment"></span> </div>
 <div class="line"><span class="comment">/**</span></div>
 <div class="line"><span class="comment"> * Other public function declarations come afterwards.</span></div>
 <div class="line"><span class="comment"> * @return Returns a 16 bit unsigned integer. Returns are documented like this.</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line">uint16_t <a class="code hl_function" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a>(<span class="keywordtype">void</span>);</div>
-<div class="ttc" id="aanatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c_html_a3ebcf9ef84eb47df312281d252a5487e"><div class="ttname"><a href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a></div><div class="ttdeci">uint16_t get_value(void)</div><div class="ttdoc">Get value and return it without exposing a private variable.</div><div class="ttdef"><b>Definition:</b> <a href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c_source.html#l00091">filename.c:91</a></div></div>
-<div class="ttc" id="aanatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c_html_a79a38b8a0c6ba34854b450330b82ebd8"><div class="ttname"><a href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a></div><div class="ttdeci">void init_object(uint16_t value)</div><div class="ttdoc">This is a Javadoc style comment.</div><div class="ttdef"><b>Definition:</b> <a href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c_source.html#l00078">filename.c:78</a></div></div>
+<div class="line">uint16_t <a class="code hl_function" href="filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a>(<span class="keywordtype">void</span>);</div>
+<div class="ttc" id="afilename_8c_html_a3ebcf9ef84eb47df312281d252a5487e"><div class="ttname"><a href="filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a></div><div class="ttdeci">uint16_t get_value(void)</div><div class="ttdoc">Get value and return it without exposing a private variable.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00091">filename.c:91</a></div></div>
+<div class="ttc" id="afilename_8c_html_a79a38b8a0c6ba34854b450330b82ebd8"><div class="ttname"><a href="filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a></div><div class="ttdeci">void init_object(uint16_t value)</div><div class="ttdoc">This is a Javadoc style comment.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00078">filename.c:78</a></div></div>
 </div><!-- fragment --><p >The file ends with closure of the header guards, two blank lines and an <code>/*** end of file ***/</code> comment followed by a blank line.</p>
 <div class="fragment"><div class="line"><span class="comment">// End of include guard.</span></div>
 <div class="line"><span class="preprocessor">#endif </span><span class="comment">// FILENAME_DOT_H</span></div>
@@ -203,7 +203,8 @@ C Source Files</h1>
 <div class="line"><span class="preprocessor">#include &quot;pin_defines.h&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Include the header file for this module, with the same name but .h</span></div>
-<div class="line"><span class="preprocessor">#include &quot;filename.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="filename_8h.html">filename.h</a>&quot;</span></div>
+<div class="ttc" id="afilename_8h_html"><div class="ttname"><a href="filename_8h.html">filename.h</a></div><div class="ttdoc">The brief description goes here, keep it relatively short and to the point.</div></div>
 </div><!-- fragment --><p >Next we have macro definitions.</p>
 <div class="fragment"><div class="line"><span class="comment">/**</span></div>
 <div class="line"><span class="comment"> * Next come #define statements/macros. Append integer values with a &#39;U&#39; to </span></div>
@@ -219,8 +220,8 @@ C Source Files</h1>
 <div class="line"><span class="keyword">static</span> uint16_t file_scope_variable = 0;</div>
 </div><!-- fragment --><p >Next in line are function prototypes/declarations for private helper functions defined at the bottom of the file. They are declared ahead of any definitions to ensure they can be referenced throughout the file.</p>
 <div class="fragment"><div class="line"><span class="comment">// Private helper function declarations go here.</span></div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a">do_some_helpful_stuff</a>(<span class="keywordtype">void</span>);</div>
-<div class="ttc" id="aanatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c_html_a7f2c67cfa7efe3ba9fff45bdf935da0a"><div class="ttname"><a href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a">do_some_helpful_stuff</a></div><div class="ttdeci">void do_some_helpful_stuff(void)</div><div class="ttdoc">Helper function definitions come last, though their declarations are at the top of the file.</div><div class="ttdef"><b>Definition:</b> <a href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c_source.html#l00101">filename.c:101</a></div></div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a">do_some_helpful_stuff</a>(<span class="keywordtype">void</span>);</div>
+<div class="ttc" id="afilename_8c_html_a7f2c67cfa7efe3ba9fff45bdf935da0a"><div class="ttname"><a href="filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a">do_some_helpful_stuff</a></div><div class="ttdeci">void do_some_helpful_stuff(void)</div><div class="ttdoc">Helper function definitions come last, though their declarations are at the top of the file.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00101">filename.c:101</a></div></div>
 </div><!-- fragment --><p >Now we have the definitions for the public functions, listed in the same order as they appear in the header file, with the initialisation routine first. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
 <div class="line"><span class="comment"> * This is a Javadoc style comment. Again, after the first full stop the text</span></div>
 <div class="line"><span class="comment"> * becomes a detailed description. Explain how to use the function here.</span></div>
@@ -228,7 +229,7 @@ C Source Files</h1>
 <div class="line"><span class="comment"> * @param List the parameters here. </span></div>
 <div class="line"><span class="comment"> * @return Declare the return type here (not needed for void return type).</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(uint16_t value)</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(uint16_t value)</div>
 <div class="line">{</div>
 <div class="line">    <a class="code hl_define" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2pin__defines_8h.html#a5ebaa76de0dba97075bb5ddd49eb4bdd">OBJECT_DDR</a> |= (1 &lt;&lt; <a class="code hl_define" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2pin__defines_8h.html#a2386170f552aa5e9a57cc156f315a25a">OBJECT_GPIO</a>); <span class="comment">// Set object gpio as output. </span></div>
 <div class="line"> </div>
@@ -241,7 +242,7 @@ C Source Files</h1>
 <div class="line"><span class="comment">/**</span></div>
 <div class="line"><span class="comment"> * Get value and return it without exposing a private variable. </span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line">uint16_t <a class="code hl_function" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a>(<span class="keywordtype">void</span>)</div>
+<div class="line">uint16_t <a class="code hl_function" href="filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a>(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">return</span> file_scope_variable;</div>
 <div class="line">}</div>
@@ -253,7 +254,7 @@ C Source Files</h1>
 <div class="line"><span class="comment"> * Helper function definitions come last, though their declarations are at the</span></div>
 <div class="line"><span class="comment"> * top of the file. </span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a">do_some_helpful_stuff</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a">do_some_helpful_stuff</a>(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Body of function definition goes here. </span></div>
 <div class="line">}</div>
@@ -312,7 +313,7 @@ main.c</h1>
 <div class="line"><span class="comment"> * @see links to other files or docs go here.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 </div><!-- fragment --><p >Followed by <code>#include</code> directives, (standard library headers first). </p><div class="fragment"><div class="line"><span class="comment">// Include our driver header file here. </span></div>
-<div class="line"><span class="preprocessor">#include &quot;filename.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="filename_8h.html">filename.h</a>&quot;</span></div>
 </div><!-- fragment --><p >And then macro definitions. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
 <div class="line"><span class="comment"> * Avoid using magic bumbers, use defines or typedef enums instead. </span></div>
 <div class="line"><span class="comment"> */</span></div>
@@ -324,11 +325,11 @@ main.c</h1>
 <div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Initialisation routines go here. </span></div>
-<div class="line">    <a class="code hl_function" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(<a class="code hl_define" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ad35dc899014ff8564722e52ce1019c72">INITIALISATION_VALUE</a>);</div>
+<div class="line">    <a class="code hl_function" href="filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(<a class="code hl_define" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ad35dc899014ff8564722e52ce1019c72">INITIALISATION_VALUE</a>);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">while</span> (1) <span class="comment">// Loop forever</span></div>
 <div class="line">    {</div>
-<div class="line">        returned_value = <a class="code hl_function" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a>();   </div>
+<div class="line">        returned_value = <a class="code hl_function" href="filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a>();   </div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0; <span class="comment">// This line is never reached. </span></div>

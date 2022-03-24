@@ -1,6 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"modules_2data-converters_2mcp48x2__dac_2example_2pin__defines_8h.html":[5,0,0,2,0,0,0,3],
 "modules_2data-converters_2mcp48x2__dac_2example_2pin__defines_8h_source.html":[5,0,0,2,0,0,0,3],
 "modules_2displays_2hd44780__lcd_2example_2main_8c.html":[5,0,0,2,2,0,0,2],
 "modules_2displays_2hd44780__lcd_2example_2main_8c_source.html":[5,0,0,2,2,0,0,2],
@@ -10,15 +9,7 @@ var NAVTREEINDEX1 =
 "modules_2sensors_2ccs811__sensor_2example_2main_8c_source.html":[5,0,0,2,3,0,0,6],
 "modules_2sensors_2ccs811__sensor_2example_2pin__defines_8h.html":[5,0,0,2,3,0,0,7],
 "modules_2sensors_2ccs811__sensor_2example_2pin__defines_8h_source.html":[5,0,0,2,3,0,0,7],
-"modules_2templates_2filename_8c.html":[5,0,0,2,4,0],
-"modules_2templates_2filename_8c_source.html":[5,0,0,2,4,0],
-"modules_2templates_2filename_8h.html":[5,0,0,2,4,1],
-"modules_2templates_2filename_8h_source.html":[5,0,0,2,4,1],
-"modules_2templates_2main_8c.html":[5,0,0,2,4,2],
-"modules_2templates_2main_8c_source.html":[5,0,0,2,4,2],
-"modules_2templates_2pin__defines_8h.html":[5,0,0,2,4,3],
-"modules_2templates_2pin__defines_8h_source.html":[5,0,0,2,4,3],
-"modules_8h_source.html":[5,0,0,2,5],
+"modules_8h_source.html":[5,0,0,2,4],
 "pages.html":[],
 "sensors_2ccs811__sensor_2example_2log__system_8c.html":[5,0,0,2,3,0,0,4],
 "sensors_2ccs811__sensor_2example_2log__system_8c_source.html":[5,0,0,2,3,0,0,4],
