@@ -203,8 +203,11 @@ Arduino as ISP connections</div></div>
 <p >In Terminal/cmd, type <code>avrdude</code> to check the AVRDUDE software has been correctly installed. It should give you a helpful list of options you can use.</p>
 <p >Now we can check the programmer and target MCU are connected and being recognised correctly by typing: <code>avrdude -p m328p -b 19200 -c avrisp -P /dev/tty.usbmodem141201</code>, replace <code>m328p</code> with your MCU type, <code>19200</code> with the baud rate of your serial programmer, <code>avrisp</code> with your programmer type and <code>/dev/tty.usbmodem141201</code> with the port address your programmer is connected to if different from these.</p>
 <p >You should then see a success message like the one below. If not, check your wiring and connections, check the target MCU is powered, and check the programmer type, baud rate and AVR chip type are correct.</p>
-<p ><img src=".images/avrdude-interrogate-success.png" alt="AVRDUDE success message" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md23"></a>
+<div class="image">
+<img src="avrdude-interrogate-success.png" alt=""/>
+<div class="caption">
+AVRDUDE success message</div></div>
+   <h1><a class="anchor" id="autotoc_md23"></a>
 Configuring the Makefile</h1>
 <p >Download the <a href="./source" target="_blank">source</a> folder in this repository and open up the Makefile. The following variables need to be edited for your setup.</p>
 <h2><a class="anchor" id="autotoc_md24"></a>
