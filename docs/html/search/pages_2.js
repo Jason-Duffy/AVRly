@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getting_2dstarted_0',['Getting-started',['../group__getting__started.html',1,'']]]
+  ['getting_20started_20with_20blink_0',['Getting Started with Blink',['../index.html',1,'']]]
 ];
