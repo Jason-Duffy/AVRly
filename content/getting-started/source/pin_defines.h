@@ -22,7 +22,7 @@
 
 /**
  * @file pin_defines.h
- * @ingroup getting-started
+ * @ingroup getting_started
  * @author Jason Duffy
  * @date 15th March 2022
  * @brief Pin and port definitions for Getting Started with Blink. This file

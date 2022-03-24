@@ -22,7 +22,7 @@
 
 /**
  * @file blink.c
- * @ingroup getting-started
+ * @ingroup getting_started
  * @author Jason Duffy
  * @date 15th March 2022
  * @brief Driver for example application from Getting Started with Blink.
