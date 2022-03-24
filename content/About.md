@@ -11,6 +11,6 @@ This platform provides documented drivers and example projects written in the C 
 [Contributor's Guide][Contributors_Guide_URL]
 
 
-[Getting_Started_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/avrly/md_avrly_projects_getting_started__getting_started.html
-[Firmware_Anatomy_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/avrly/md_avrly_projects_anatomy_of_embedded_firmware__anatomy.html
-[Contributors_Guide_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/avrly/md_avrly_projects_contributors_guide__contributors_guide.html
+[Getting_Started_URL]: https://jason-duffy.github.io/AVRly/html/md_content_getting_started__getting_started.html
+[Firmware_Anatomy_URL]: https://jason-duffy.github.io/AVRly/html/md_content_anatomy_of_embedded_firmware__anatomy.html
+[Contributors_Guide_URL]: https://jason-duffy.github.io/AVRly/html/md_content_contributors_guide__contributors_guide.html
