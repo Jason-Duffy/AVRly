@@ -118,8 +118,11 @@ For Windows, it will look something like COM3.
 
 In Terminal/cmd, type `avrdude` to check the AVRDUDE software has been correctly installed. It should give you a helpful list of options you can use. 
 
-Now we can check the programmer and target MCU are connected and being recognised correctly by typing:
-`avrdude -p m328p -b 19200 -c avrisp -P /dev/tty.usbmodem141201 `, replace `m328p` with your MCU type, `19200` with the baud rate of your serial programmer, `avrisp` with your programmer type and `/dev/tty.usbmodem141201` with the port address your programmer is connected to if different from these. 
+Now we can check the programmer and target MCU are connected and being recognised correctly by typing something along the lines of:
+```
+avrdude -p m328p -b 19200 -c avrisp -P /dev/tty.usbmodem141201
+```
+But replace `m328p` with your MCU type, `19200` with the baud rate of your serial programmer, `avrisp` with your programmer type and `/dev/tty.usbmodem141201` with the port address your programmer is connected to if different from these. 
 
 You should then see a success message like the one below. If not, check your wiring and connections, check the target MCU is powered, and check the programmer type, baud rate and AVR chip type are correct.
 
@@ -128,7 +131,9 @@ You should then see a success message like the one below. If not, check your wir
 
 # Configuring the Makefile
 
-Download the [source](./source) folder in this repository and open up the Makefile. The following variables need to be edited for your setup.
+The Makefile is there to make your life easier. Instead of having to type out commands and options along with files and dependancies each time you want to build and flash your application, you can just define some variables in a Makefile, then all you have to do is type `make` to build your application. 
+
+Download the [source][Github_Source_URL] folder in this repository and open up the Makefile. The following variables need to be edited for your setup.
 
 ## MCU, Programmer and Directory variables
 
@@ -138,7 +143,7 @@ This is the AVR chip type, a list of valid names can be found [here][AVR_GCC_Opt
 
 ### F_CPU
 
-This is the clock speed in Hz - Note the UL assignment (Unsigned Long). For the examples covered in this repo we will be using the 8MHz internal oscillator as a clock source for simplicity, though you can use an external clock source upto 20MHz if you'd prefer. By default, the AVR fuses will be set to divide the internal clock speed by 8, but we will override that with some Makefile settings. 
+This is the clock speed in Hz - Note the UL assignment (Unsigned Long). For the examples covered in this repo we will be using the 8MHz internal oscillator as a clock source for simplicity, though you can use an external clock source upto 20MHz if you'd prefer. By default, the AVR fuses will be set to divide the internal clock speed by 8 (resulting in a speed of 1MHz) but we will override that with some Makefile settings. 
 
 ### BAUD
 
@@ -154,7 +159,7 @@ The type of ISP programmer you're using. A list of valid names can be found [her
 
 ### PROGRAMMER_ARGS
 
-Extra arguments to avrdude: baud rate, chip type, -F flag, etc. The baud rate is for serial comms to the programmer. The port address also goes here. 
+Extra arguments to avrdude: baud rate, chip type, -F flag, etc. This baud rate is for serial comms to the programmer. The port address also goes here. 
 
 
 ## Fuses
@@ -162,23 +167,51 @@ Extra arguments to avrdude: baud rate, chip type, -F flag, etc. The baud rate is
 **WARNING**
 Take great care when editing these variables, they can brick the MCU if set incorrectly. Always refer to the [datasheet][ATmega328p_Datasheet_URL] if unsure, especially if you are using a different MCU to the ATmega328p. And note that they use an inverse logic - the bit will read 1 if unprogrammed, and 0 if programmed. A handy fuse setting calculator can be found [here][Fuse_Calculator_URL].
 
-### LFUSE
+### Default Fuse Values
+The default fuse values in the Makefile have been set to work with the following MCUs:
+
+- ATmega48
+- ATmega88
+- ATmega168
+- ATmega328 
+
+If you are using a different MCU, check the default fuse values [here][Fuse_Calculator_URL], then change the value of these variables.
+
+#### LFUSE
+Low fuse byte. This is used to select the clock source and some config settings for clock operation. The default value in hexadecimal format is 0x62.
+
+#### HFUSE
+High fuse byte. This is used for bootloader memory allocation, EEPROM, watchdog timer, programming and reset options. The default value is 0xD9.
+
+#### EFUSE
+Extended fuse byte. This is used to configure brown-out detection. The default value is 0xFF.
+
+### Custom Fuse Values
+The custom fuse values in the Makefile have been set to use the internal clock source at 8MHz, for the aforementioned MCUs, so you will need to edit these if you have chosen a different MCU. If you want to customise the fuse settings yourself, then edit these custom values, but don't touch the Default fuse values so you can revert them later if needed.
+
+#### LFUSE_CUSTOM
 Low fuse byte. This is used to select the clock source and some config settings for clock operation.
 
-![Fuse low byte register (ATmega328p)](./images/low_fuse.png)
+![Fuse low byte register (ATmega328P)](./images/low_fuse.png)
 
-### HFUSE
-High fuse byte. Bits 2 - 0 are used to select the amount of memory allocated for a bootloader (not required for the projects in this repo). The remaining bits are used to control EEPROM, watchdog timer, programming and reset options. SPIEN and RSTDISBL are the dangerous ones likely to brick your MCU if set incorrectly, so **only** touch these if you know what you're doing. 
+#### HFUSE_CUSTOM
+High fuse byte. Bits 2 - 0 are used to select the amount of memory allocated for a bootloader (not required for the projects in this collection). The remaining bits are used to control EEPROM, watchdog timer, programming and reset options. SPIEN and RSTDISBL are the dangerous ones likely to brick your MCU if set incorrectly, so **only** touch these if you know what you're doing. 
 
-![Fuse high byte register (ATmega328p)](./images/high_fuse.png)
+![Fuse high byte register (ATmega328P)](./images/high_fuse.png)
 
-### EFUSE
-Extended fuse byte. This is used to set the brownout detection level.
+#### EFUSE_CUSTOM
+Extended fuse byte. This is used to set the brownout detection level. "Brown-out" is the term for the power supply voltage dropping to a point which is unsuitable for the MCU to function properly. If BOD (Brown-Out Detection) is enabled, the reset pin will be held low while a brown-out condition is detected. BOD is not required for the projects in this collection. 
 
-![Extended fuse byte register (ATmega328p)](./images/extended_fuse.png)
+![Extended fuse byte register (ATmega328P)](./images/extended_fuse.png)
 
-# Flashing the Chip
-With the Makefile correctly configured, you are now ready to start writing data to the chip. Open Terminal and navigate to the directory where you stored the local copy of the [source][./source] folder you downloaded.
+# Make Commands
+With the Makefile correctly configured, you are now ready to start using the commands it defines. Open Terminal and navigate to the directory where you stored the local copy of the [source][Github_Source_URL] folder you downloaded. Type `make help` to print a list of commands to the terminal - shown below. 
+
+![make help output](./images/make_help.png)
+
+## Show Fuses
+To see the fuse values already set on the target MCU, type `make show_fuses`. Data will be read from the chip and output via the terminal. An example of that output is shown in the image below.
+![show_fuses output](./images/show_fuses.png)
 
 ## Flash Fuses
 First we need to flash the fuse settings. To do this, type `make fuses` and the values from your Makefile will be written to the chip. You only need to do this when a chip is new, in an unknown state (eg. when re-used from a previous project) or you want to change the fuse settings. These new settings will be "burned" into the register and remain the same even after the chip is powered down. 
@@ -237,6 +270,7 @@ Adhering to coding standards helps to make your code more readable, robust, easi
 [MULTIMETER_URL]: https://www.ebay.co.uk/itm/373974464011?epid=23040427421&_trkparms=ispr%3D1&hash=item57129d760b:g:ecgAAOSwcvJhM~1Y&amdata=enc%3AAQAGAAACoPYe5NmHp%252B2JMhMi7yxGiTJkPrKr5t53CooMSQt2orsSafTQYbq3L7RBVAMi0K9cw1RWXBpCryIDtHtQ%252FwGGrM5qNRo2BcdEvJNXURbFcGIieFzIjcYyayBhlA94swn2TTvs028l2IF1Z7kkPlAkTOZau7i64BOsAJM5jtEUKTzYuTAksI%252B6wqVDHXCmc%252BbqVJWdWCtN%252FedfWrLz22fV7JfFf3r%252BndQy6pgUf%252B0CqyxVpLGK%252FtsA2WoJN66265Nsb%252Biz2cPGbaMohOx96MSBAMI556eVyZ1Jt%252FgLkiIOgy%252F4LEQX%252B3foG6Ptb%252BN9ZmnQkdg5oCnRE0hxlFfAD5SOzEzmtg9%252BIE2HDfbFvLsU0Z0%252BZ2IQwJohjr5c6NdN3ax%252B0NkAFl5TKriVBAerlTCklJ%252BeOmn4DGytxPaRs%252B7VYCtZf8PXhxRmWn89GJw9Xt%252FCGpH1hvp9DXVNVCjJBMZeRVIKV3LmmgTdNnj9a%252FAUNwyB5qnSZWNkYEvX0swcp0PJU6qoVXYAEBLx2T03VucnyJ6R8Ja2NbFUVIPLPL4f4hHTUcR5hxbe0v9ux4iwgbiJLIPIXDKfDovdqX%252BUgBKJiLOUzGZKey7I7PeEDHsw5vr1KEHBd6%252B3Cw0FN0asmNY2XUmwd9LrLf401Wo4ovba%252FjznpyXfGfjHaobMVxQzN%252FAPIdxhcaODHy%252Bku4xgVEgZaD8n58JPn%252Fz0u75IwCzYoV%252FHGCX7zUgjd0Flsw5CiQpHVdB4eqGaKKP97ct2rRUEtd4t5YZJJi7KbHlJxs3Kr4KxuyQ2Xfk4nbZhpRPStSf%252FrLNa%252FxQudCxW2vnABZJayi8xGYlqFq%252BZYczELbh3%252BIyYls%252FmPtJgL%252F0yOiQgmVnId%252BTVMf1Q7taqp1w%252FN0AaMA%253D%253D%7Cclp%3A2334524%7Ctkp%3ABFBMlsihrvFf
 [Oscilloscope_URL]: https://telonic.co.uk/product/rigol-ds1054z-50mhz-digital-oscilloscope/
 
+[Github_Source_URL]https://github.com/Jason-Duffy/AVRly/tree/main/content/getting-started/source
 [AVR_GCC_Options_URL]: https://www.nongnu.org/avrdude/user-manual/avrdude_3.html
 [Fuse_Calculator_URL]: https://www.engbedded.com/fusecalc/
 
