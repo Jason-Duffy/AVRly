@@ -280,8 +280,45 @@ EFUSE_CUSTOM</h4>
 Extended fuse byte register (ATmega328P)</div></div>
    <h1><a class="anchor" id="autotoc_md40"></a>
 Make Commands</h1>
-<p >With the Makefile correctly configured, you are now ready to start using the commands it defines. Open Terminal and navigate to the directory where you stored the local copy of the <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/getting-started/source" target="_blank">source</a> folder you downloaded. Type <code>make help</code> to print a list of commands to the terminal - shown below.</p>
-<div class="image">
+<p >With the Makefile correctly configured, you are now ready to start using the commands it defines. Open Terminal and navigate to the directory where you stored the local copy of the <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/getting-started/source" target="_blank">source</a> folder you downloaded. Type <code>make help</code> to print a list of commands to the terminal - shown below. jason@Jasons-MacBook-Pro AVRly % cd content/getting-started/source jason@Jasons-MacBook-Pro source % make help</p>
+<div class="fragment"><div class="line">-------------------------------------------</div>
+<div class="line">-            Available Options.           -</div>
+<div class="line">-------------------------------------------</div>
+<div class="line"> </div>
+<div class="line">- Type &#39;make&#39; followed by one or more of the following commands to implement them.</div>
+<div class="line">- The &#39;make&#39; command is the only exception to this, and does not need to be preceded with another &#39;make&#39;.</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">  Cleaning output files: </div>
+<div class="line"> </div>
+<div class="line">        clean               - Remove generated files with the name of the enclosing directory.</div>
+<div class="line">        squeaky_clean           - Remove ALL files in current directory with certain extensions.</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">  Compiling, linking and flashing your code </div>
+<div class="line"> </div>
+<div class="line">        make                - Compiles and links your source code into a .hex file</div>
+<div class="line">        flash               - Compiles and flashes the code to the target MCU</div>
+<div class="line">        flash_eeprom            - Flashes the contents of the eeprom file to the target MCU.</div>
+<div class="line">        avrdude_terminal        - Initialises user communication with AVR via terminal.</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">  Setting and clearing Fuses </div>
+<div class="line"> </div>
+<div class="line">        show_fuses          - Reads fuse registers and reports back with the current settings</div>
+<div class="line">        set_default_fuses       - Sets LFUSE, HFUSE and EFUSE values on MCU.</div>
+<div class="line">        set_custom_fuses        - Sets LFUSE_CUSTOM, HFUSE_CUSTOM and EFUSE_CUSTOM values.</div>
+<div class="line">        set_fast_fuse           - Sets fuse value to divide internal clock by 1 rather than 8.</div>
+<div class="line">        set_eeprom_save_fuse        - Set the EESAVE fuse byte to preserve EEPROM across flashes.</div>
+<div class="line">        clear_eeprom_save_fuse      - Clears the EESAVE fuse, data will be lost between flashes.</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">  Debugging: </div>
+<div class="line"> </div>
+<div class="line">        debug               - Prints the variables from the top of the makefile and their values.</div>
+<div class="line">        disassemble         - Creates a .lst file containing an approximate assembly version of the code.</div>
+<div class="line">        size                - Prints a report on the memory usage of the application.</div>
+</div><!-- fragment --><div class="image">
 <img src="make_help.png" alt=""/>
 <div class="caption">
 make help output</div></div>
