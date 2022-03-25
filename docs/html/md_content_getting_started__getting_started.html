@@ -211,7 +211,7 @@ AVRDUDE success message</div></div>
    <h1><a class="anchor" id="autotoc_md23"></a>
 Configuring the Makefile</h1>
 <p >The Makefile is there to make your life easier. Instead of having to type out commands and options along with files and dependancies each time you want to build and flash your application, you can just define some variables in a Makefile, then all you have to do is type <code>make</code> to build your application.</p>
-<p >Download the [source][Github_Source_URL] folder in this repository and open up the Makefile. The following variables need to be edited for your setup.</p>
+<p >Download the <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/getting-started/source" target="_blank">source</a> folder in this repository and open up the Makefile. The following variables need to be edited for your setup.</p>
 <h2><a class="anchor" id="autotoc_md24"></a>
 MCU, Programmer and Directory variables</h2>
 <h3><a class="anchor" id="autotoc_md25"></a>
@@ -280,46 +280,52 @@ EFUSE_CUSTOM</h4>
 Extended fuse byte register (ATmega328P)</div></div>
    <h1><a class="anchor" id="autotoc_md40"></a>
 Make Commands</h1>
-<p >With the Makefile correctly configured, you are now ready to start using the commands it defines. Open Terminal and navigate to the directory where you stored the local copy of the [source][Github_Source_URL] folder you downloaded. Type <code>make help</code> to print a list of commands to the terminal - shown below.</p>
+<p >With the Makefile correctly configured, you are now ready to start using the commands it defines. Open Terminal and navigate to the directory where you stored the local copy of the <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/getting-started/source" target="_blank">source</a> folder you downloaded. Type <code>make help</code> to print a list of commands to the terminal - shown below.</p>
 <div class="image">
 <img src="make_help.png" alt=""/>
 <div class="caption">
 make help output</div></div>
    <h2><a class="anchor" id="autotoc_md41"></a>
 Show Fuses</h2>
-<p >To see the fuse values already set on the target MCU, type <code>make show_fuses</code>. Data will be read from the chip and output via the terminal. An example of that output is shown in the image below. <img src="show_fuses.png" alt="" class="inline" title="show_fuses output"/>   </p>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<p >To see the fuse values already set on the target MCU, type <code>make show_fuses</code>. Data will be read from the chip and output via the terminal. An example of that output is shown in the image below.</p>
+<div class="image">
+<img src="show_fuses.png" alt=""/>
+<div class="caption">
+show_fuses output</div></div>
+   <h2><a class="anchor" id="autotoc_md42"></a>
 Flash Fuses</h2>
-<p >First we need to flash the fuse settings. To do this, type <code>make fuses</code> and the values from your Makefile will be written to the chip. You only need to do this when a chip is new, in an unknown state (eg. when re-used from a previous project) or you want to change the fuse settings. These new settings will be "burned" into the register and remain the same even after the chip is powered down.</p>
+<p >First we need to flash the fuse settings. To do this, type <code>make set_custom_fuses</code> and the custom values from your Makefile will be written to the chip. You only need to do this when a chip is new, in an unknown state (eg. when re-used from a previous project) or you want to change the fuse settings. These new settings will be "burned" into the register and remain even after the chip is powered down.</p>
 <h2><a class="anchor" id="autotoc_md43"></a>
 Flash the Code</h2>
 <p >Now we are finally ready to flash the code. Type <code>make flash</code>, and the source code will be compiled, linked and written to the MCU.</p>
 <h3><a class="anchor" id="autotoc_md44"></a>
-Basic Make Commands:</h3>
+Basic Make Commands</h3>
 <ul>
 <li><code>make</code> to compile the source code based on the settings in your Makefile.</li>
 <li><code>make flash</code> to compile and flash the code to the target MCU.</li>
 <li><code>make clean</code> to delete the compiled output files from the current directory.</li>
-<li><code>make fuses</code> to write new fuse values.</li>
 </ul>
-<p >These can of course be combined like so: <code>make clean flash fuses</code>.</p>
-<h3><a class="anchor" id="autotoc_md45"></a>
-Advanced Make Commands:</h3>
+<p >These can of course be combined like so: <code>make clean flash</code>. Output is shown below.</p>
+<div class="image">
+<img src="make_clean_flash.png" alt=""/>
+<div class="caption">
+make clean flash output</div></div>
+   <h3><a class="anchor" id="autotoc_md45"></a>
+Advanced Make Commands</h3>
 <p >If you'd like to learn more about the GNU Make Utility, more information can be found <a href="https://www.gnu.org/software/make/" target="_blank">here</a>. I found it to be a steep learning curve, so if you'd rather not wade into it just yet there are plenty of Makefile generators around. The Makefile used in these projects was adapted from the code provided with the book Make: AVR Programming by Elliot Williams. His repo, <a href="https://github.com/hexagon5un/AVR-Programming" target="_blank">hexagon5un/AVR-Programming</a> has some great example projects, and I would thoroughly recommend the book to anyone looking to get into AVR Programming.</p>
 <h2><a class="anchor" id="autotoc_md46"></a>
 Verify Makefile Settings</h2>
 <p >You should now have an LED which blinks on and off in a 2 second cycle - 1 second on, followed by 1 second off. If it is blinking considerably faster or slower than this, check that the value of F_CPU and LFUSE are set correctly.</p>
 <p >Once you are satisfied that the LED is blinking as it should be, you're ready to proceed to the more exciting projects and examples in this repo!</p>
 <h2><a class="anchor" id="autotoc_md47"></a>
-Style Guide</h2>
-<p >For a comprehensive guide on layout, style and documentation, see the [Anatomy of Embedded Firmware page][Firmware_Anatomy_URL].</p>
+Style &amp; Layout Guide</h2>
+<p >For a comprehensive guide on layout, style and documentation, see the <a href="https://jason-duffy.github.io/AVRly/html/md_content_anatomy_of_embedded_firmware__anatomy.html" target="_blank">Anatomy of Embedded Firmware page</a>.</p>
 <h2><a class="anchor" id="autotoc_md48"></a>
 Documentation</h2>
 <p >To get a feel for the file structure, layout and formatting of embedded C firmware for AVR, check out the <a href="/C-Programming-Resources-for-AVR-MCU-s/getting-started/files.html" target="_blank">documentation for the Blink example application.</a></p>
 <h2><a class="anchor" id="autotoc_md49"></a>
 Coding Standards</h2>
-<p >Adhering to coding standards helps to make your code more readable, robust, easier to debug and more portable. The firmware in this repo was written to the <a href="https://barrgroup.com/sites/default/files/barr_c_coding_standard_2018.pdf" target="_blank">Barr Group C Coding Standard</a>, and I would encourage others to read it and use those guidelines in their own code.</p>
-<p >[Github_Source_URL]<a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/getting-started/source">https://github.com/Jason-Duffy/AVRly/tree/main/content/getting-started/source</a> </p>
+<p >Adhering to coding standards helps to make your code more readable, robust, easier to debug and more portable. The firmware in this repo was written to the <a href="https://barrgroup.com/sites/default/files/barr_c_coding_standard_2018.pdf" target="_blank">Barr Group C Coding Standard</a>, and I would encourage others to read it and use those guidelines in their own code. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
