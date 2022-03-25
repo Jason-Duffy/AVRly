@@ -233,14 +233,15 @@ These can of course be combined like so: `make clean flash`, though you do not n
 
 ![make clean flash output](./images/make_clean_flash.png)
 
-### Advanced Make Commands
-
-If you'd like to learn more about the GNU Make Utility, more information can be found [here](https://www.gnu.org/software/make/). I found it to be a steep learning curve, so if you'd rather not wade into it just yet there are plenty of Makefile generators around. The Makefile used in these projects was adapted from the code provided with the book Make: AVR Programming by Elliot Williams. His repo, [hexagon5un/AVR-Programming](https://github.com/hexagon5un/AVR-Programming) has some great example projects, and I would thoroughly recommend the book to anyone looking to get into AVR Programming. 
-
-## Verify Makefile Settings
+# Verify Makefile Settings
 You should now have an LED which blinks on and off in a 2 second cycle - 1 second on, followed by 1 second off. If it is blinking considerably faster or slower than this, check that the value of F_CPU and LFUSE are set correctly. 
 
 Once you are satisfied that the LED is blinking as it should be, you're ready to proceed to the [more exciting projects and examples][Modules_URL] in this repo!
+
+# Further Reading
+
+## GNU Make Utility
+If you'd like to learn more about the GNU Make Utility, more information can be found [here](https://www.gnu.org/software/make/). I found it to be a steep learning curve, so if you'd rather not wade into it just yet there are plenty of Makefile generators around. The Makefile used in these projects was adapted from the code provided with the book Make: AVR Programming by Elliot Williams. His repo, [hexagon5un/AVR-Programming](https://github.com/hexagon5un/AVR-Programming) has some great example projects, and I would thoroughly recommend the book to anyone looking to get into AVR Programming. 
 
 ## Style & Layout Guide
 For a comprehensive guide on layout, style and documentation, see the [Anatomy of Embedded Firmware page][Firmware_Anatomy_URL].
