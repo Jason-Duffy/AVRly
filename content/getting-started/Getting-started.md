@@ -211,23 +211,25 @@ With the Makefile correctly configured, you are now ready to start using the com
 
 ## Show Fuses
 To see the fuse values already set on the target MCU, type `make show_fuses`. Data will be read from the chip and output via the terminal. An example of that output is shown in the image below.
+
 ![show_fuses output](./images/show_fuses.png)
 
 ## Flash Fuses
-First we need to flash the fuse settings. To do this, type `make fuses` and the values from your Makefile will be written to the chip. You only need to do this when a chip is new, in an unknown state (eg. when re-used from a previous project) or you want to change the fuse settings. These new settings will be "burned" into the register and remain the same even after the chip is powered down. 
+First we need to flash the fuse settings. To do this, type `make set_custom_fuses` and the custom values from your Makefile will be written to the chip. You only need to do this when a chip is new, in an unknown state (eg. when re-used from a previous project) or you want to change the fuse settings. These new settings will be "burned" into the register and remain even after the chip is powered down. 
 
 ## Flash the Code
 Now we are finally ready to flash the code. Type `make flash`, and the source code will be compiled, linked and written to the MCU. 
 
-### Basic Make Commands:
+### Basic Make Commands
 - `make` to compile the source code based on the settings in your Makefile.
 - `make flash` to compile and flash the code to the target MCU.
 - `make clean` to delete the compiled output files from the current directory.
-- `make fuses` to write new fuse values.
 
-These can of course be combined like so: `make clean flash fuses`.
+These can of course be combined like so: `make clean flash`. Output is shown below.
 
-### Advanced Make Commands:
+![make clean flash output](./images/make_clean_flash.png)
+
+### Advanced Make Commands
 
 If you'd like to learn more about the GNU Make Utility, more information can be found [here](https://www.gnu.org/software/make/). I found it to be a steep learning curve, so if you'd rather not wade into it just yet there are plenty of Makefile generators around. The Makefile used in these projects was adapted from the code provided with the book Make: AVR Programming by Elliot Williams. His repo, [hexagon5un/AVR-Programming](https://github.com/hexagon5un/AVR-Programming) has some great example projects, and I would thoroughly recommend the book to anyone looking to get into AVR Programming. 
 
@@ -236,7 +238,7 @@ You should now have an LED which blinks on and off in a 2 second cycle - 1 secon
 
 Once you are satisfied that the LED is blinking as it should be, you're ready to proceed to the more exciting projects and examples in this repo!
 
-## Style Guide
+## Style & Layout Guide
 For a comprehensive guide on layout, style and documentation, see the [Anatomy of Embedded Firmware page][Firmware_Anatomy_URL].
 
 ## Documentation
@@ -270,8 +272,9 @@ Adhering to coding standards helps to make your code more readable, robust, easi
 [MULTIMETER_URL]: https://www.ebay.co.uk/itm/373974464011?epid=23040427421&_trkparms=ispr%3D1&hash=item57129d760b:g:ecgAAOSwcvJhM~1Y&amdata=enc%3AAQAGAAACoPYe5NmHp%252B2JMhMi7yxGiTJkPrKr5t53CooMSQt2orsSafTQYbq3L7RBVAMi0K9cw1RWXBpCryIDtHtQ%252FwGGrM5qNRo2BcdEvJNXURbFcGIieFzIjcYyayBhlA94swn2TTvs028l2IF1Z7kkPlAkTOZau7i64BOsAJM5jtEUKTzYuTAksI%252B6wqVDHXCmc%252BbqVJWdWCtN%252FedfWrLz22fV7JfFf3r%252BndQy6pgUf%252B0CqyxVpLGK%252FtsA2WoJN66265Nsb%252Biz2cPGbaMohOx96MSBAMI556eVyZ1Jt%252FgLkiIOgy%252F4LEQX%252B3foG6Ptb%252BN9ZmnQkdg5oCnRE0hxlFfAD5SOzEzmtg9%252BIE2HDfbFvLsU0Z0%252BZ2IQwJohjr5c6NdN3ax%252B0NkAFl5TKriVBAerlTCklJ%252BeOmn4DGytxPaRs%252B7VYCtZf8PXhxRmWn89GJw9Xt%252FCGpH1hvp9DXVNVCjJBMZeRVIKV3LmmgTdNnj9a%252FAUNwyB5qnSZWNkYEvX0swcp0PJU6qoVXYAEBLx2T03VucnyJ6R8Ja2NbFUVIPLPL4f4hHTUcR5hxbe0v9ux4iwgbiJLIPIXDKfDovdqX%252BUgBKJiLOUzGZKey7I7PeEDHsw5vr1KEHBd6%252B3Cw0FN0asmNY2XUmwd9LrLf401Wo4ovba%252FjznpyXfGfjHaobMVxQzN%252FAPIdxhcaODHy%252Bku4xgVEgZaD8n58JPn%252Fz0u75IwCzYoV%252FHGCX7zUgjd0Flsw5CiQpHVdB4eqGaKKP97ct2rRUEtd4t5YZJJi7KbHlJxs3Kr4KxuyQ2Xfk4nbZhpRPStSf%252FrLNa%252FxQudCxW2vnABZJayi8xGYlqFq%252BZYczELbh3%252BIyYls%252FmPtJgL%252F0yOiQgmVnId%252BTVMf1Q7taqp1w%252FN0AaMA%253D%253D%7Cclp%3A2334524%7Ctkp%3ABFBMlsihrvFf
 [Oscilloscope_URL]: https://telonic.co.uk/product/rigol-ds1054z-50mhz-digital-oscilloscope/
 
-[Github_Source_URL]https://github.com/Jason-Duffy/AVRly/tree/main/content/getting-started/source
+[Github_Source_URL]: https://github.com/Jason-Duffy/AVRly/tree/main/content/getting-started/source
 [AVR_GCC_Options_URL]: https://www.nongnu.org/avrdude/user-manual/avrdude_3.html
 [Fuse_Calculator_URL]: https://www.engbedded.com/fusecalc/
 
+[Firmware_Anatomy_URL]: https://jason-duffy.github.io/AVRly/html/md_content_anatomy_of_embedded_firmware__anatomy.html
 [Barr_Coding_Standard_URL]: https://barrgroup.com/sites/default/files/barr_c_coding_standard_2018.pdf
