@@ -225,7 +225,7 @@ Now we are finally ready to flash the code. Type `make flash`, and the source co
 - `make flash` to compile and flash the code to the target MCU.
 - `make clean` to delete the compiled output files from the current directory.
 
-These can of course be combined like so: `make clean flash`. Output is shown below.
+These can of course be combined like so: `make clean flash`, though you do not need to run `clean` each time - usually `make flash` works just fine. Output is shown below.
 
 ![make clean flash output](./images/make_clean_flash.png)
 
@@ -236,7 +236,7 @@ If you'd like to learn more about the GNU Make Utility, more information can be 
 ## Verify Makefile Settings
 You should now have an LED which blinks on and off in a 2 second cycle - 1 second on, followed by 1 second off. If it is blinking considerably faster or slower than this, check that the value of F_CPU and LFUSE are set correctly. 
 
-Once you are satisfied that the LED is blinking as it should be, you're ready to proceed to the more exciting projects and examples in this repo!
+Once you are satisfied that the LED is blinking as it should be, you're ready to proceed to the [more exciting projects and examples][Modules_URL] in this repo!
 
 ## Style & Layout Guide
 For a comprehensive guide on layout, style and documentation, see the [Anatomy of Embedded Firmware page][Firmware_Anatomy_URL].
@@ -276,6 +276,7 @@ Adhering to coding standards helps to make your code more readable, robust, easi
 [AVR_GCC_Options_URL]: https://www.nongnu.org/avrdude/user-manual/avrdude_3.html
 [Fuse_Calculator_URL]: https://www.engbedded.com/fusecalc/
 
+[Modules_URL]: https://github.com/Jason-Duffy/AVRly/tree/main/content/modules
 [Firmware_Anatomy_URL]: https://jason-duffy.github.io/AVRly/html/md_content_anatomy_of_embedded_firmware__anatomy.html
 [Doxygen_URL]: https://www.doxygen.nl/index.html
 [Blink_Docs_URL]: https://jason-duffy.github.io/AVRly/html/group__getting__started.html
