@@ -79,11 +79,11 @@ var NAVTREE =
         [ "Show Fuses", "md_content_getting_started__getting_started.html#autotoc_md41", null ],
         [ "Flash Fuses", "md_content_getting_started__getting_started.html#autotoc_md42", null ],
         [ "Flash the Code", "md_content_getting_started__getting_started.html#autotoc_md43", [
-          [ "Basic Make Commands:", "md_content_getting_started__getting_started.html#autotoc_md44", null ],
-          [ "Advanced Make Commands:", "md_content_getting_started__getting_started.html#autotoc_md45", null ]
+          [ "Basic Make Commands", "md_content_getting_started__getting_started.html#autotoc_md44", null ],
+          [ "Advanced Make Commands", "md_content_getting_started__getting_started.html#autotoc_md45", null ]
         ] ],
         [ "Verify Makefile Settings", "md_content_getting_started__getting_started.html#autotoc_md46", null ],
-        [ "Style Guide", "md_content_getting_started__getting_started.html#autotoc_md47", null ],
+        [ "Style & Layout Guide", "md_content_getting_started__getting_started.html#autotoc_md47", null ],
         [ "Documentation", "md_content_getting_started__getting_started.html#autotoc_md48", null ],
         [ "Coding Standards", "md_content_getting_started__getting_started.html#autotoc_md49", null ]
       ] ]
