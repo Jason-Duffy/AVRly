@@ -1,5 +1,11 @@
 var NAVTREEINDEX1 =
 {
+"md_content_getting_started__getting_started.html#autotoc_md8":[0,0,1,2],
+"md_content_getting_started__getting_started.html#autotoc_md9":[0,0,2],
+"modules.html":[3],
+"modules_2data-converters_2mcp48x2__dac_2example_2main_8c.html":[5,0,0,2,0,0,0,0],
+"modules_2data-converters_2mcp48x2__dac_2example_2main_8c_source.html":[5,0,0,2,0,0,0,0],
+"modules_2data-converters_2mcp48x2__dac_2example_2pin__defines_8h.html":[5,0,0,2,0,0,0,3],
 "modules_2data-converters_2mcp48x2__dac_2example_2pin__defines_8h_source.html":[5,0,0,2,0,0,0,3],
 "modules_2displays_2hd44780__lcd_2example_2main_8c.html":[5,0,0,2,2,0,0,2],
 "modules_2displays_2hd44780__lcd_2example_2main_8c_source.html":[5,0,0,2,2,0,0,2],

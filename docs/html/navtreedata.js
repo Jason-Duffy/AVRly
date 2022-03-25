@@ -63,38 +63,46 @@ var NAVTREE =
           [ "PROGRAMMER_ARGS", "md_content_getting_started__getting_started.html#autotoc_md30", null ]
         ] ],
         [ "Fuses", "md_content_getting_started__getting_started.html#autotoc_md31", [
-          [ "LFUSE", "md_content_getting_started__getting_started.html#autotoc_md32", null ],
-          [ "HFUSE", "md_content_getting_started__getting_started.html#autotoc_md33", null ],
-          [ "EFUSE", "md_content_getting_started__getting_started.html#autotoc_md34", null ]
+          [ "Default Fuse Values", "md_content_getting_started__getting_started.html#autotoc_md32", [
+            [ "LFUSE", "md_content_getting_started__getting_started.html#autotoc_md33", null ],
+            [ "HFUSE", "md_content_getting_started__getting_started.html#autotoc_md34", null ],
+            [ "EFUSE", "md_content_getting_started__getting_started.html#autotoc_md35", null ]
+          ] ],
+          [ "Custom Fuse Values", "md_content_getting_started__getting_started.html#autotoc_md36", [
+            [ "LFUSE_CUSTOM", "md_content_getting_started__getting_started.html#autotoc_md37", null ],
+            [ "HFUSE_CUSTOM", "md_content_getting_started__getting_started.html#autotoc_md38", null ],
+            [ "EFUSE_CUSTOM", "md_content_getting_started__getting_started.html#autotoc_md39", null ]
+          ] ]
         ] ]
       ] ],
-      [ "Flashing the Chip", "md_content_getting_started__getting_started.html#autotoc_md35", [
-        [ "Flash Fuses", "md_content_getting_started__getting_started.html#autotoc_md36", null ],
-        [ "Flash the Code", "md_content_getting_started__getting_started.html#autotoc_md37", [
-          [ "Basic Make Commands:", "md_content_getting_started__getting_started.html#autotoc_md38", null ],
-          [ "Advanced Make Commands:", "md_content_getting_started__getting_started.html#autotoc_md39", null ]
+      [ "Make Commands", "md_content_getting_started__getting_started.html#autotoc_md40", [
+        [ "Show Fuses", "md_content_getting_started__getting_started.html#autotoc_md41", null ],
+        [ "Flash Fuses", "md_content_getting_started__getting_started.html#autotoc_md42", null ],
+        [ "Flash the Code", "md_content_getting_started__getting_started.html#autotoc_md43", [
+          [ "Basic Make Commands:", "md_content_getting_started__getting_started.html#autotoc_md44", null ],
+          [ "Advanced Make Commands:", "md_content_getting_started__getting_started.html#autotoc_md45", null ]
         ] ],
-        [ "Verify Makefile Settings", "md_content_getting_started__getting_started.html#autotoc_md40", null ],
-        [ "Style Guide", "md_content_getting_started__getting_started.html#autotoc_md41", null ],
-        [ "Documentation", "md_content_getting_started__getting_started.html#autotoc_md42", null ],
-        [ "Coding Standards", "md_content_getting_started__getting_started.html#autotoc_md43", null ]
+        [ "Verify Makefile Settings", "md_content_getting_started__getting_started.html#autotoc_md46", null ],
+        [ "Style Guide", "md_content_getting_started__getting_started.html#autotoc_md47", null ],
+        [ "Documentation", "md_content_getting_started__getting_started.html#autotoc_md48", null ],
+        [ "Coding Standards", "md_content_getting_started__getting_started.html#autotoc_md49", null ]
       ] ]
     ] ],
     [ "Anatomy of Embedded Firmware", "md_content_anatomy_of_embedded_firmware__anatomy.html", [
-      [ "A Word on Doxygen", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md45", null ],
-      [ "Formatting", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md46", null ],
-      [ "Licence", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md47", null ],
-      [ "C Header Files", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md48", null ],
-      [ "C Source Files", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md49", null ],
-      [ "pin_defines.h", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md50", null ],
-      [ "main.c", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md51", null ],
-      [ "Makefile", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md52", null ],
-      [ "Templates", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md53", null ]
+      [ "A Word on Doxygen", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md51", null ],
+      [ "Formatting", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md52", null ],
+      [ "Licence", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md53", null ],
+      [ "C Header Files", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md54", null ],
+      [ "C Source Files", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md55", null ],
+      [ "pin_defines.h", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md56", null ],
+      [ "main.c", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md57", null ],
+      [ "Makefile", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md58", null ],
+      [ "Templates", "md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md59", null ]
     ] ],
     [ "Contributor's Guide", "md_content_contributors_guide__contributors_guide.html", [
-      [ "Style Guide", "md_content_contributors_guide__contributors_guide.html#autotoc_md55", null ],
-      [ "Templates", "md_content_contributors_guide__contributors_guide.html#autotoc_md56", null ],
-      [ "Submitting a Pull Request", "md_content_contributors_guide__contributors_guide.html#autotoc_md57", null ]
+      [ "Style Guide", "md_content_contributors_guide__contributors_guide.html#autotoc_md61", null ],
+      [ "Templates", "md_content_contributors_guide__contributors_guide.html#autotoc_md62", null ],
+      [ "Submitting a Pull Request", "md_content_contributors_guide__contributors_guide.html#autotoc_md63", null ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
@@ -120,7 +128,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html",
-"modules_2data-converters_2mcp48x2__dac_2example_2pin__defines_8h_source.html"
+"md_content_getting_started__getting_started.html#autotoc_md8"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

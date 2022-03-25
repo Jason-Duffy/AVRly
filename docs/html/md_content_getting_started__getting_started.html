@@ -201,7 +201,8 @@ Arduino as ISP connections</div></div>
 <p >For MacOS and Linux, open Terminal and type <code>ls /dev/tty*</code> for a list of connected devices. The programmer will look something like <code>/dev/tty.usbmodem141201</code>.</p>
 <p >For Windows, it will look something like COM3.</p>
 <p >In Terminal/cmd, type <code>avrdude</code> to check the AVRDUDE software has been correctly installed. It should give you a helpful list of options you can use.</p>
-<p >Now we can check the programmer and target MCU are connected and being recognised correctly by typing: <code>avrdude -p m328p -b 19200 -c avrisp -P /dev/tty.usbmodem141201</code>, replace <code>m328p</code> with your MCU type, <code>19200</code> with the baud rate of your serial programmer, <code>avrisp</code> with your programmer type and <code>/dev/tty.usbmodem141201</code> with the port address your programmer is connected to if different from these.</p>
+<p >Now we can check the programmer and target MCU are connected and being recognised correctly by typing something along the lines of: </p><div class="fragment"><div class="line">avrdude -p m328p -b 19200 -c avrisp -P /dev/tty.usbmodem141201</div>
+</div><!-- fragment --><p> But replace <code>m328p</code> with your MCU type, <code>19200</code> with the baud rate of your serial programmer, <code>avrisp</code> with your programmer type and <code>/dev/tty.usbmodem141201</code> with the port address your programmer is connected to if different from these.</p>
 <p >You should then see a success message like the one below. If not, check your wiring and connections, check the target MCU is powered, and check the programmer type, baud rate and AVR chip type are correct.</p>
 <div class="image">
 <img src="avrdude-interrogate-success.png" alt=""/>
@@ -209,7 +210,8 @@ Arduino as ISP connections</div></div>
 AVRDUDE success message</div></div>
    <h1><a class="anchor" id="autotoc_md23"></a>
 Configuring the Makefile</h1>
-<p >Download the <a href="./source" target="_blank">source</a> folder in this repository and open up the Makefile. The following variables need to be edited for your setup.</p>
+<p >The Makefile is there to make your life easier. Instead of having to type out commands and options along with files and dependancies each time you want to build and flash your application, you can just define some variables in a Makefile, then all you have to do is type <code>make</code> to build your application.</p>
+<p >Download the [source][Github_Source_URL] folder in this repository and open up the Makefile. The following variables need to be edited for your setup.</p>
 <h2><a class="anchor" id="autotoc_md24"></a>
 MCU, Programmer and Directory variables</h2>
 <h3><a class="anchor" id="autotoc_md25"></a>
@@ -217,7 +219,7 @@ MCU</h3>
 <p >This is the AVR chip type, a list of valid names can be found <a href="https://www.nongnu.org/avrdude/user-manual/avrdude_3.html" target="_blank">here</a>.</p>
 <h3><a class="anchor" id="autotoc_md26"></a>
 F_CPU</h3>
-<p >This is the clock speed in Hz - Note the UL assignment (Unsigned Long). For the examples covered in this repo we will be using the 8MHz internal oscillator as a clock source for simplicity, though you can use an external clock source upto 20MHz if you'd prefer. By default, the AVR fuses will be set to divide the internal clock speed by 8, but we will override that with some Makefile settings.</p>
+<p >This is the clock speed in Hz - Note the UL assignment (Unsigned Long). For the examples covered in this repo we will be using the 8MHz internal oscillator as a clock source for simplicity, though you can use an external clock source upto 20MHz if you'd prefer. By default, the AVR fuses will be set to divide the internal clock speed by 8 (resulting in a speed of 1MHz) but we will override that with some Makefile settings.</p>
 <h3><a class="anchor" id="autotoc_md27"></a>
 BAUD</h3>
 <p >This is the baud rate used for serial comms with the AVR, usually 9600 but sometimes differs.</p>
@@ -229,41 +231,70 @@ PROGRAMMER_TYPE</h3>
 <p >The type of ISP programmer you're using. A list of valid names can be found <a href="https://www.nongnu.org/avrdude/user-manual/avrdude_3.html" target="_blank">here</a>.</p>
 <h3><a class="anchor" id="autotoc_md30"></a>
 PROGRAMMER_ARGS</h3>
-<p >Extra arguments to avrdude: baud rate, chip type, -F flag, etc. The baud rate is for serial comms to the programmer. The port address also goes here.</p>
+<p >Extra arguments to avrdude: baud rate, chip type, -F flag, etc. This baud rate is for serial comms to the programmer. The port address also goes here.</p>
 <h2><a class="anchor" id="autotoc_md31"></a>
 Fuses</h2>
 <p ><b>WARNING</b> Take great care when editing these variables, they can brick the MCU if set incorrectly. Always refer to the <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-7810-Automotive-Microcontrollers-ATmega328P_Datasheet.pdf" target="_blank">datasheet</a> if unsure, especially if you are using a different MCU to the ATmega328p. And note that they use an inverse logic - the bit will read 1 if unprogrammed, and 0 if programmed. A handy fuse setting calculator can be found <a href="https://www.engbedded.com/fusecalc/" target="_blank">here</a>.</p>
 <h3><a class="anchor" id="autotoc_md32"></a>
-LFUSE</h3>
+Default Fuse Values</h3>
+<p >The default fuse values in the Makefile have been set to work with the following MCUs:</p>
+<ul>
+<li>ATmega48</li>
+<li>ATmega88</li>
+<li>ATmega168</li>
+<li>ATmega328</li>
+</ul>
+<p >If you are using a different MCU, check the default fuse values <a href="https://www.engbedded.com/fusecalc/" target="_blank">here</a>, then change the value of these variables.</p>
+<h4><a class="anchor" id="autotoc_md33"></a>
+LFUSE</h4>
+<p >Low fuse byte. This is used to select the clock source and some config settings for clock operation. The default value in hexadecimal format is 0x62.</p>
+<h4><a class="anchor" id="autotoc_md34"></a>
+HFUSE</h4>
+<p >High fuse byte. This is used for bootloader memory allocation, EEPROM, watchdog timer, programming and reset options. The default value is 0xD9.</p>
+<h4><a class="anchor" id="autotoc_md35"></a>
+EFUSE</h4>
+<p >Extended fuse byte. This is used to configure brown-out detection. The default value is 0xFF.</p>
+<h3><a class="anchor" id="autotoc_md36"></a>
+Custom Fuse Values</h3>
+<p >The custom fuse values in the Makefile have been set to use the internal clock source at 8MHz, for the aforementioned MCUs, so you will need to edit these if you have chosen a different MCU. If you want to customise the fuse settings yourself, then edit these custom values, but don't touch the Default fuse values so you can revert them later if needed.</p>
+<h4><a class="anchor" id="autotoc_md37"></a>
+LFUSE_CUSTOM</h4>
 <p >Low fuse byte. This is used to select the clock source and some config settings for clock operation.</p>
 <div class="image">
 <img src="low_fuse.png" alt=""/>
 <div class="caption">
-Fuse low byte register (ATmega328p)</div></div>
-   <h3><a class="anchor" id="autotoc_md33"></a>
-HFUSE</h3>
-<p >High fuse byte. Bits 2 - 0 are used to select the amount of memory allocated for a bootloader (not required for the projects in this repo). The remaining bits are used to control EEPROM, watchdog timer, programming and reset options. SPIEN and RSTDISBL are the dangerous ones likely to brick your MCU if set incorrectly, so <b>only</b> touch these if you know what you're doing.</p>
+Fuse low byte register (ATmega328P)</div></div>
+   <h4><a class="anchor" id="autotoc_md38"></a>
+HFUSE_CUSTOM</h4>
+<p >High fuse byte. Bits 2 - 0 are used to select the amount of memory allocated for a bootloader (not required for the projects in this collection). The remaining bits are used to control EEPROM, watchdog timer, programming and reset options. SPIEN and RSTDISBL are the dangerous ones likely to brick your MCU if set incorrectly, so <b>only</b> touch these if you know what you're doing.</p>
 <div class="image">
 <img src="high_fuse.png" alt=""/>
 <div class="caption">
-Fuse high byte register (ATmega328p)</div></div>
-   <h3><a class="anchor" id="autotoc_md34"></a>
-EFUSE</h3>
-<p >Extended fuse byte. This is used to set the brownout detection level.</p>
+Fuse high byte register (ATmega328P)</div></div>
+   <h4><a class="anchor" id="autotoc_md39"></a>
+EFUSE_CUSTOM</h4>
+<p >Extended fuse byte. This is used to set the brownout detection level. "Brown-out" is the term for the power supply voltage dropping to a point which is unsuitable for the MCU to function properly. If BOD (Brown-Out Detection) is enabled, the reset pin will be held low while a brown-out condition is detected. BOD is not required for the projects in this collection.</p>
 <div class="image">
 <img src="extended_fuse.png" alt=""/>
 <div class="caption">
-Extended fuse byte register (ATmega328p)</div></div>
-   <h1><a class="anchor" id="autotoc_md35"></a>
-Flashing the Chip</h1>
-<p >With the Makefile correctly configured, you are now ready to start writing data to the chip. Open Terminal and navigate to the directory where you stored the local copy of the [source][./source] folder you downloaded.</p>
-<h2><a class="anchor" id="autotoc_md36"></a>
+Extended fuse byte register (ATmega328P)</div></div>
+   <h1><a class="anchor" id="autotoc_md40"></a>
+Make Commands</h1>
+<p >With the Makefile correctly configured, you are now ready to start using the commands it defines. Open Terminal and navigate to the directory where you stored the local copy of the [source][Github_Source_URL] folder you downloaded. Type <code>make help</code> to print a list of commands to the terminal - shown below.</p>
+<div class="image">
+<img src="make_help.png" alt=""/>
+<div class="caption">
+make help output</div></div>
+   <h2><a class="anchor" id="autotoc_md41"></a>
+Show Fuses</h2>
+<p >To see the fuse values already set on the target MCU, type <code>make show_fuses</code>. Data will be read from the chip and output via the terminal. An example of that output is shown in the image below. <img src="show_fuses.png" alt="" class="inline" title="show_fuses output"/>   </p>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Flash Fuses</h2>
 <p >First we need to flash the fuse settings. To do this, type <code>make fuses</code> and the values from your Makefile will be written to the chip. You only need to do this when a chip is new, in an unknown state (eg. when re-used from a previous project) or you want to change the fuse settings. These new settings will be "burned" into the register and remain the same even after the chip is powered down.</p>
-<h2><a class="anchor" id="autotoc_md37"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Flash the Code</h2>
 <p >Now we are finally ready to flash the code. Type <code>make flash</code>, and the source code will be compiled, linked and written to the MCU.</p>
-<h3><a class="anchor" id="autotoc_md38"></a>
+<h3><a class="anchor" id="autotoc_md44"></a>
 Basic Make Commands:</h3>
 <ul>
 <li><code>make</code> to compile the source code based on the settings in your Makefile.</li>
@@ -272,22 +303,23 @@ Basic Make Commands:</h3>
 <li><code>make fuses</code> to write new fuse values.</li>
 </ul>
 <p >These can of course be combined like so: <code>make clean flash fuses</code>.</p>
-<h3><a class="anchor" id="autotoc_md39"></a>
+<h3><a class="anchor" id="autotoc_md45"></a>
 Advanced Make Commands:</h3>
 <p >If you'd like to learn more about the GNU Make Utility, more information can be found <a href="https://www.gnu.org/software/make/" target="_blank">here</a>. I found it to be a steep learning curve, so if you'd rather not wade into it just yet there are plenty of Makefile generators around. The Makefile used in these projects was adapted from the code provided with the book Make: AVR Programming by Elliot Williams. His repo, <a href="https://github.com/hexagon5un/AVR-Programming" target="_blank">hexagon5un/AVR-Programming</a> has some great example projects, and I would thoroughly recommend the book to anyone looking to get into AVR Programming.</p>
-<h2><a class="anchor" id="autotoc_md40"></a>
+<h2><a class="anchor" id="autotoc_md46"></a>
 Verify Makefile Settings</h2>
 <p >You should now have an LED which blinks on and off in a 2 second cycle - 1 second on, followed by 1 second off. If it is blinking considerably faster or slower than this, check that the value of F_CPU and LFUSE are set correctly.</p>
 <p >Once you are satisfied that the LED is blinking as it should be, you're ready to proceed to the more exciting projects and examples in this repo!</p>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md47"></a>
 Style Guide</h2>
 <p >For a comprehensive guide on layout, style and documentation, see the [Anatomy of Embedded Firmware page][Firmware_Anatomy_URL].</p>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<h2><a class="anchor" id="autotoc_md48"></a>
 Documentation</h2>
 <p >To get a feel for the file structure, layout and formatting of embedded C firmware for AVR, check out the <a href="/C-Programming-Resources-for-AVR-MCU-s/getting-started/files.html" target="_blank">documentation for the Blink example application.</a></p>
-<h2><a class="anchor" id="autotoc_md43"></a>
+<h2><a class="anchor" id="autotoc_md49"></a>
 Coding Standards</h2>
-<p >Adhering to coding standards helps to make your code more readable, robust, easier to debug and more portable. The firmware in this repo was written to the <a href="https://barrgroup.com/sites/default/files/barr_c_coding_standard_2018.pdf" target="_blank">Barr Group C Coding Standard</a>, and I would encourage others to read it and use those guidelines in their own code. </p>
+<p >Adhering to coding standards helps to make your code more readable, robust, easier to debug and more portable. The firmware in this repo was written to the <a href="https://barrgroup.com/sites/default/files/barr_c_coding_standard_2018.pdf" target="_blank">Barr Group C Coding Standard</a>, and I would encourage others to read it and use those guidelines in their own code.</p>
+<p >[Github_Source_URL]<a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/getting-started/source">https://github.com/Jason-Duffy/AVRly/tree/main/content/getting-started/source</a> </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
