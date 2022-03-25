@@ -206,6 +206,48 @@ Extended fuse byte. This is used to set the brownout detection level. "Brown-out
 
 # Make Commands
 With the Makefile correctly configured, you are now ready to start using the commands it defines. Open Terminal and navigate to the directory where you stored the local copy of the [source][Github_Source_URL] folder you downloaded. Type `make help` to print a list of commands to the terminal - shown below. 
+jason@Jasons-MacBook-Pro AVRly % cd content/getting-started/source
+jason@Jasons-MacBook-Pro source % make help
+
+```
+-------------------------------------------
+-            Available Options.           -
+-------------------------------------------
+
+- Type 'make' followed by one or more of the following commands to implement them.
+- The 'make' command is the only exception to this, and does not need to be preceded with another 'make'.
+
+
+  Cleaning output files: 
+
+		clean 				- Remove generated files with the name of the enclosing directory.
+		squeaky_clean 			- Remove ALL files in current directory with certain extensions.
+
+
+  Compiling, linking and flashing your code 
+
+		make				- Compiles and links your source code into a .hex file
+		flash 				- Compiles and flashes the code to the target MCU
+		flash_eeprom 			- Flashes the contents of the eeprom file to the target MCU.
+		avrdude_terminal		- Initialises user communication with AVR via terminal.
+
+
+  Setting and clearing Fuses 
+
+		show_fuses			- Reads fuse registers and reports back with the current settings
+		set_default_fuses		- Sets LFUSE, HFUSE and EFUSE values on MCU.
+		set_custom_fuses		- Sets LFUSE_CUSTOM, HFUSE_CUSTOM and EFUSE_CUSTOM values.
+		set_fast_fuse			- Sets fuse value to divide internal clock by 1 rather than 8.
+		set_eeprom_save_fuse		- Set the EESAVE fuse byte to preserve EEPROM across flashes.
+ 		clear_eeprom_save_fuse		- Clears the EESAVE fuse, data will be lost between flashes.
+
+
+  Debugging: 
+
+		debug				- Prints the variables from the top of the makefile and their values.
+		disassemble			- Creates a .lst file containing an approximate assembly version of the code.
+		size 				- Prints a report on the memory usage of the application.
+```
 
 ![make help output](./images/make_help.png)
 
