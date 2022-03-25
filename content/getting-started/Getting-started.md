@@ -238,6 +238,8 @@ You should now have an LED which blinks on and off in a 2 second cycle - 1 secon
 
 Once you are satisfied that the LED is blinking as it should be, you're ready to proceed to the [more exciting projects and examples][Modules_URL] in this repo!
 
+If you're ready to start developing using your own source code, some blank template files can be found [here][Templates_URL].
+
 # Further Reading
 
 ## GNU Make Utility
@@ -282,6 +284,7 @@ Adhering to coding standards helps to make your code more readable, robust, easi
 [Fuse_Calculator_URL]: https://www.engbedded.com/fusecalc/
 
 [Modules_URL]: https://github.com/Jason-Duffy/AVRly/tree/main/content/modules
+[Templates_URL]: https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/templates
 [Firmware_Anatomy_URL]: https://jason-duffy.github.io/AVRly/html/md_content_anatomy_of_embedded_firmware__anatomy.html
 [Doxygen_URL]: https://www.doxygen.nl/index.html
 [Blink_Docs_URL]: https://jason-duffy.github.io/AVRly/html/group__getting__started.html
