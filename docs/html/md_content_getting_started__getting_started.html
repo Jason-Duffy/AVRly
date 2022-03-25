@@ -172,7 +172,12 @@ A multimeter</h2>
 <h1><a class="anchor" id="autotoc_md20"></a>
 Connecting the Hardware</h1>
 <p >The following setup guide is for an ATmega328P, so if you're starting with a different model it's best to refer to your part's datasheet for pinout, auxillary components needed, power requirements etc, but the broad principles should be much the same.</p>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<p >The pinout of the ATmega328P is shown below.</p>
+<div class="image">
+<img src="ATmega328P-pinout.webp" alt=""/>
+<div class="caption">
+ATmega328P pinout</div></div>
+   <h2><a class="anchor" id="autotoc_md21"></a>
 MCU Connections</h2>
 <p >Note the 100nF ceramic capacitor between VCC and GND, this is for decoupling and filtering of the power supply, so should be placed as close to the pins as possible. <img src="decoupling_cap.png" alt="" class="inline" title="Decoupling capacitor"/>   </p>
 <p >You can use the MCU with just it's internal oscillator as a clock source (8MHz or 1MHz depending on configuration), or if you'd prefer a faster clock speed you can use an external crystal oscillator upto 20MHz. Refer to your chip's datasheet and application notes for details on oscillator circuit design.</p>
