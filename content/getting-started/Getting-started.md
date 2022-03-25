@@ -86,6 +86,10 @@ A multimeter like [this one][Multimeter_URL] will help with debugging when hardw
 
 The following setup guide is for an ATmega328P, so if you're starting with a different model it's best to refer to your part's datasheet for pinout, auxillary components needed, power requirements etc, but the broad principles should be much the same.
 
+The pinout of the ATmega328P is shown below.
+
+![ATmega328P pinout](ATmega328P-pinout.webp)
+
 
 ## MCU Connections
 Note the 100nF ceramic capacitor between VCC and GND, this is for decoupling and filtering of the power supply, so should be placed as close to the pins as possible.
