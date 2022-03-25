@@ -91,13 +91,13 @@ $(document).ready(function(){initNavTree('md_content_anatomy_of_embedded_firmwar
   <div class="headertitle"><div class="title">Anatomy of Embedded Firmware </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md51"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md52"></a>
 A Word on Doxygen</h1>
 <p >Throughout this repository, the code has been documented using <a href="https://www.doxygen.nl/index.html" target="_blank">Doxygen</a>. It's an easy way to generate documentation which stays close to the code so it's not too difficult to keep the two in line. The html for this site was also generated using Doxygen. It uses special comments, however normal C style comments <code>//</code> are ignored by Doxygen.</p>
-<h1><a class="anchor" id="autotoc_md52"></a>
+<h1><a class="anchor" id="autotoc_md53"></a>
 Formatting</h1>
 <p >Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, Source and Makefiles should all be limited to 80 characters wide.</p>
-<h1><a class="anchor" id="autotoc_md53"></a>
+<h1><a class="anchor" id="autotoc_md54"></a>
 Licence</h1>
 <p >At the top of each file, a copyright notice and licence terms are added. This let's other users know whether they can use and distribute this software, and the terms under which they may do so. The software in this repository is released under the MIT licence.</p>
 <div class="fragment"><div class="line"><span class="comment">/******************************************************************************</span></div>
@@ -122,7 +122,7 @@ Licence</h1>
 <div class="line"><span class="comment"> SOFTWARE.</span></div>
 <div class="line"><span class="comment">******************************************************************************/</span></div>
 </div><!-- fragment --><p> The licence and copyright notice are enclosed in a Javadoc style banner, which Doxygen will recognise as a banner comment. To use this stye of banner, <code>JAVADOC_BANNER = YES</code> must be set in the Doxyfile. Add your name in the copyright notice.</p>
-<h1><a class="anchor" id="autotoc_md54"></a>
+<h1><a class="anchor" id="autotoc_md55"></a>
 C Header Files</h1>
 <p >A C header file should be named after the function of the file or the peripheral that it serves, and the file extension is <code>.h</code>. The filename should be entirely in lowercase. The aim is to expose as little information as possible in the header file, so only include data the other files need to interact with it, without them having to know too much about how it actually works.</p>
 <p >An example file can be found in the repo <a href="https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/filename.h" target="_blank">here</a>, and the Doxygen output from these special comments and commands can be found <a href="https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2filename_8h.html" target="_blank">here</a>.</p>
@@ -172,7 +172,7 @@ C Header Files</h1>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">/*** end of file ***/</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md55"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md56"></a>
 C Source Files</h1>
 <p >C source files should have the same name as their respective header file (if they have one) all in lowercase, with the filename extension <code>.c</code></p>
 <p >The source file provides the implementation and definitions of the public functions listed in it's header file, usually along with some helper functions, structs, macros and variables private to the file.</p>
@@ -259,7 +259,7 @@ C Source Files</h1>
 <div class="line">    <span class="comment">// Body of function definition goes here. </span></div>
 <div class="line">}</div>
 </div><!-- fragment --><p >The file is ended with two blank lines and an <code>/*** end of file ***/</code> comment followed by a blank line. </p><div class="fragment"><div class="line"><span class="comment">/*** end of file ***/</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md56"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md57"></a>
 pin_defines.h</h1>
 <p >Macro definitions for ports, pins, data direction registers and GPIOs should be listed in the pin_defines.h file. When you have a larger project, it's much clearer to be able to see the pinout all together in one place, rather than strewn across multiple files.</p>
 <p >An example file can be found in the repo <a href="https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/pin_defines.h" target="_blank">here</a>, and the Doxygen output from these special comments and commands can be found <a href="https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2pin__defines_8h.html" target="_blank">here</a>.</p>
@@ -300,7 +300,7 @@ pin_defines.h</h1>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line"><span class="comment">/*** end of file ***/</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md57"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md58"></a>
 main.c</h1>
 <p >main.c is where the <code>int <a class="el" href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main routine to be executed on the MCU.">main()</a></code> routine lives, and is the heart of the application.</p>
 <p >An example file can be found in the repo <a href="https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/main.c" target="_blank">here</a>, and the Doxygen output from these special comments and commands can be found <a href="https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2main_8c.html" target="_blank">here</a>.</p>
@@ -338,7 +338,7 @@ main.c</h1>
 <div class="ttc" id="agetting-started_2source_2main_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main routine to be executed on the MCU.</div><div class="ttdef"><b>Definition:</b> <a href="getting-started_2source_2main_8c_source.html#l00045">main.c:45</a></div></div>
 </div><!-- fragment --><p >This application that will be run on the target MCU as a superloop. <img src="super-loop.jpeg" alt="" class="inline" title="Superloop Diagram"/>   </p>
 <p >The file is ended with two blank lines and an <code>/*** end of file ***/</code> comment followed by a blank line. </p><div class="fragment"><div class="line"><span class="comment">/*** end of file ***/</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md58"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md59"></a>
 Makefile</h1>
 <p >The Makefile contains "recipes" intended to simplify the process of building your application. With this, you only need to type <code>make</code> to compile and link your code, rather than manually listing the many options, flags, dependancies etc in the terminal each time.</p>
 <p >An example file can be found in the repo <a href="https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/Makefile" target="_blank">here</a>. They cannot be dosumented using Doxygen, so I prefer to use a <code>help</code> recipe instead. Type <code>make help</code> to see a list of commands available to the user.</p>
@@ -366,7 +366,7 @@ Makefile</h1>
 <div class="line"># extra arguments to avrdude: baud rate, chip type, -F flag, etc.</div>
 <div class="line">PROGRAMMER_ARGS = -b 19200 -P /dev/tty.usbmodem141201</div>
 </div><!-- fragment --><p> If you add a new recipe for users to invoke from terminal, document is by adding it to the <code>help</code> recipe at the bottom of the <a href="https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/templates/Makefile" target="_blank">template file</a>.</p>
-<h1><a class="anchor" id="autotoc_md59"></a>
+<h1><a class="anchor" id="autotoc_md60"></a>
 Templates</h1>
 <p >The repository contains <a href="https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/tree/main/contributors_guide/templates" target="_blank">templates for each file type</a> mentioned in this guide. </p>
 </div></div><!-- contents -->
