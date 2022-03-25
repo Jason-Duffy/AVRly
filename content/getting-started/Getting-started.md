@@ -215,7 +215,7 @@ To see the fuse values already set on the target MCU, type `make show_fuses`. Da
 ![show_fuses output](./images/show_fuses.png)
 
 ## Flash Fuses
-First we need to flash the fuse settings. To do this, type `make set_custom_fuses` and the custom values from your Makefile will be written to the chip. You only need to do this when a chip is new, in an unknown state (eg. when re-used from a previous project) or you want to change the fuse settings. These new settings will be "burned" into the register and remain even after the chip is powered down. 
+First we need to flash the fuse settings. To do this, type `make set_custom_fuses` and the custom values from your Makefile will be written to the chip. You only need to do this when a chip is new, in an unknown state (eg. when re-used from a previous project) or you want to change the fuse settings. These new settings will be "burned" into the register and remain even after the chip is powered down. To revert to default fuse values, run `make set_default_fuses`.
 
 ## Flash the Code
 Now we are finally ready to flash the code. Type `make flash`, and the source code will be compiled, linked and written to the MCU. 
