@@ -294,7 +294,7 @@ Show Fuses</h2>
 show_fuses output</div></div>
    <h2><a class="anchor" id="autotoc_md42"></a>
 Flash Fuses</h2>
-<p >First we need to flash the fuse settings. To do this, type <code>make set_custom_fuses</code> and the custom values from your Makefile will be written to the chip. You only need to do this when a chip is new, in an unknown state (eg. when re-used from a previous project) or you want to change the fuse settings. These new settings will be "burned" into the register and remain even after the chip is powered down.</p>
+<p >First we need to flash the fuse settings. To do this, type <code>make set_custom_fuses</code> and the custom values from your Makefile will be written to the chip. You only need to do this when a chip is new, in an unknown state (eg. when re-used from a previous project) or you want to change the fuse settings. These new settings will be "burned" into the register and remain even after the chip is powered down. To revert to default fuse values, run <code>make set_default_fuses</code>.</p>
 <h2><a class="anchor" id="autotoc_md43"></a>
 Flash the Code</h2>
 <p >Now we are finally ready to flash the code. Type <code>make flash</code>, and the source code will be compiled, linked and written to the MCU.</p>
