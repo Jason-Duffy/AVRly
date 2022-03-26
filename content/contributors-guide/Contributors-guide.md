@@ -32,14 +32,14 @@ In the **File** menu, go to **Clone Repository**, then select the **URL** tab. I
 
 In the **Local Path** field, select the location you'd like your local repo to be stored. Ensure the last directory in the path is empty. If the location you want has files in already, you can just create a new subdirectory by adding the new folder name on the end of the path. Then click **Clone**.
 
-![Clone Repository][./images/git_clone.png]
+![Clone Repository](./images/git_clone.png)
 
 As you will not have write access to this repository, Github will create a fork, and will ask you how you plan to use it. Select **To contribute to the parent project** if you plan on doing so, otherwise select **For my own purposes**, then click **Continue**.
 
 ### Workflow
 Use the **development** branch while working on your code, try to make regular commits with a message briefly explaining the changes you have made. This is valuable for yourself and others to see what has been done, when and why. 
 
-![Commit Message][./images/commit_message.png]
+![Commit Message](./images/commit_message.png)
 
 
 
