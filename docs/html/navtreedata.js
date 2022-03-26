@@ -109,7 +109,8 @@ var NAVTREE =
       [ "Development Process", "md_content_contributors_guide__contributors_guide.html#autotoc_md66", [
         [ "Cloning/Forking the Repository", "md_content_contributors_guide__contributors_guide.html#autotoc_md67", null ],
         [ "Workflow", "md_content_contributors_guide__contributors_guide.html#autotoc_md68", null ]
-      ] ]
+      ] ],
+      [ "Submitting a Pull Request", "md_content_contributors_guide__contributors_guide.html#autotoc_md69", null ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
@@ -135,7 +136,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html",
-"md_content_getting_started__getting_started.html#autotoc_md49"
+"md_content_getting_started__getting_started.html#autotoc_md48"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
