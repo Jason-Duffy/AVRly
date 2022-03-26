@@ -37,11 +37,11 @@ In the **Local Path** field, select the location you'd like your local repo to b
 As you will not have write access to this repository, Github will create a fork, and will ask you how you plan to use it. Select **To contribute to the parent project** if you plan on doing so, otherwise select **For my own purposes**, then click **Continue**.
 
 ### Workflow
-Use the **development** branch while working on your code, try to make regular commits with a message briefly explaining the changes you have made. This is valuable for yourself and others to see what has been done, when and why. 
+Use the **development** branch while working on your code, try to make regular commits with a message briefly explaining the changes you have made. This is valuable for yourself and others to see what has been done, when and why. Of course when working on your cloned or forked repo you can create as many branches as youd like and call them whatever you like - this is just a guide. 
 
 ![Commit Message](./images/commit_message.png)
 
-
+Once you reach a stage where your code is working as you'd like, it's a good idea to either **merge** the changes on development into your main branch, or create a **pull request** to pull your changes into main branch. 
 
 
 [Firmware_Anatomy_URL]: https://jason-duffy.github.io/AVRly/html/md_content_anatomy_of_embedded_firmware__anatomy.html
