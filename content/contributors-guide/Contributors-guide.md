@@ -37,11 +37,22 @@ In the **Local Path** field, select the location you'd like your local repo to b
 As you will not have write access to this repository, Github will create a fork, and will ask you how you plan to use it. Select **To contribute to the parent project** if you plan on doing so, otherwise select **For my own purposes**, then click **Continue**.
 
 ### Workflow
-Use the **development** branch while working on your code, try to make regular commits with a message briefly explaining the changes you have made. This is valuable for yourself and others to see what has been done, when and why. Of course when working on your cloned or forked repo you can create as many branches as youd like and call them whatever you like - this is just a guide. 
+Use the development branch while working on your code, try to make regular commits with a message briefly explaining the changes you have made. This is valuable for yourself and others to see what has been done, when and why. Of course when working on your cloned or forked repo you can create as many branches as youd like and call them whatever you like - this is just a guide. 
 
 ![Commit Message](./images/commit_message.png)
 
-Once you reach a stage where your code is working as you'd like, it's a good idea to either **merge** the changes on development into your main branch, or create a **pull request** to pull your changes into main branch. 
+Once you reach a stage where your code is working as you'd like, it's a good idea to either **merge** the changes on development into your main branch, or create a **pull request** to pull your changes into main branch. When working on your own, merging is just fine, however when collaborating with others, pull requests are generally favoured.
+
+To merge into main, first ensure all your local changes have been committed to the development branch, then switch to the main branch. Go to the **Branch** menu, then click **Merge into current branch**, and select the branch you'd like to merge into main.
+
+![Merge Branches](./images/merge_branches.png)
+
+Now that the main branch has been brought upto date, you are free to switch back to development and fiddle about with the code. If you go down a particular route and find it was huge mistake and everythign breaks, you still have your main branch intact. Your commits can also be reverted in the **History** tab. 
+
+## Submitting a Pull Request
+Once you're confident your module is complete, has been tested and everything works as it should, you can submit a pull request for the changes to be pulled into the AVRly public main branch. Pull requests will be reviewed before being accepted, so please bear with me on those.
+
+
 
 
 [Firmware_Anatomy_URL]: https://jason-duffy.github.io/AVRly/html/md_content_anatomy_of_embedded_firmware__anatomy.html
