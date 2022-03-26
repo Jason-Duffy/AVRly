@@ -24,7 +24,9 @@ Avoid using bulky standard library functions as these can link in alot of unwant
 ## Bugs
 Known bugs in your own work should be documented in the Doxygen special comment block at the top of the file, using the `@bug` command. Ideally, don't submit work with known bugs, but if it's minor, the module generally works well and you feel you need other contributors to help you solve the issue, thats what `@bug` is there for. Opening and solving "Issues" on the Github repo is also encouraged where necessary. 
 
-## Submitting a Pull Request
+## Development Process
+My personal preference for managing the Git workflow is [Github Desktop][Github_Desktop_URL] as I think it provides the most clarity, but some users may prefer to use Git in the command line. 
+
 
 
 
@@ -39,3 +41,5 @@ Known bugs in your own work should be documented in the Doxygen special comment 
 [Github_Repo_URL]: https://github.com/Jason-Duffy/AVRly
 
 [Templates_URL]: https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/templates
+
+[Github_Desktop_URL]: https://desktop.github.com/
