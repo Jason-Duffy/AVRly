@@ -114,7 +114,18 @@ What to Avoid</h1>
 Bugs</h1>
 <p >Known bugs in your own work should be documented in the Doxygen special comment block at the top of the file, using the <code>@bug</code> command. Ideally, don't submit work with known bugs, but if it's minor, the module generally works well and you feel you need other contributors to help you solve the issue, thats what <code>@bug</code> is there for. Opening and solving "Issues" on the Github repo is also encouraged where necessary.</p>
 <h1><a class="anchor" id="autotoc_md66"></a>
-Submitting a Pull Request</h1>
+Development Process</h1>
+<p >My personal preference for managing the Git workflow is <a href="https://desktop.github.com/" target="_blank">Github Desktop</a> as I think it provides the most clarity, but some users may prefer to use Git in the command line. The steps described below are for Github Desktop. I'll outline the basics here, but for an in-depth guide on the git workflow, see their documentation <a href="https://docs.github.com/en/desktop" target="_blank">here</a>.</p>
+<h2><a class="anchor" id="autotoc_md67"></a>
+Cloning/Forking the Repository</h2>
+<p >In the <b>File</b> menu, go to <b>Clone Repository</b>, then select the <b>URL</b> tab. In the <b>URL</b> field, paste in the following: <a href="https://github.com/Jason-Duffy/AVRly">https://github.com/Jason-Duffy/AVRly</a></p>
+<p >In the <b>Local Path</b> field, select the location you'd like your local repo to be stored. Ensure the last directory in the path is empty. If the location you want has files in already, you can just create a new subdirectory by adding the new folder name on the end of the path. Then click <b>Clone</b>.</p>
+<p >![Clone Repository][./images/git_clone.png]</p>
+<p >As you will not have write access to this repository, Github will create a fork, and will ask you how you plan to use it. Select <b>To contribute to the parent project</b> if you plan on doing so, otherwise select <b>For my own purposes</b>, then click <b>Continue</b>.</p>
+<h2><a class="anchor" id="autotoc_md68"></a>
+Workflow</h2>
+<p >Use the <b>development</b> branch while working on your code, try to make regular commits with a message briefly explaining the changes you have made. This is valuable for yourself and others to see what has been done, when and why.</p>
+<p >![Commit Message][./images/commit_message.png] </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
