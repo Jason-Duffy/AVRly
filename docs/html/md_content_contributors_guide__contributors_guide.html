@@ -139,9 +139,16 @@ Commit Message</div></div>
 <div class="caption">
 Merge Branches</div></div>
    <p >Now that the main branch has been brought upto date, you are free to switch back to development and fiddle about with the code. If you go down a particular route and find it was huge mistake and everythign breaks, you still have your main branch intact. Your commits can also be reverted in the <b>History</b> tab. You can push those commits from your local repo to the remote repo (cloud storage with Github online) by clicking <b>Push origin</b>. If changes have been made on Github online, you can bring these onto your local copy by clicking <b>Fetch Origin</b>.</p>
-<h1><a class="anchor" id="autotoc_md69"></a>
-Submitting a Pull Request</h1>
-<p >Once you're confident your module is complete, has been tested and everything works as it should, you can submit a pull request for the changes to be pulled into the AVRly public main branch. Pull requests will be reviewed before being accepted, so please bear with me on those. </p>
+<p >You may be wondering about the gh-pages branch - that's the source Github Pages uses to build this website, so unless you want to test how things will display in a web browser, you can just ignore that branch.</p>
+<h2><a class="anchor" id="autotoc_md69"></a>
+Submitting a Pull Request</h2>
+<p >Once you're confident your module is complete, has been tested and everything works as it should, you can submit a pull request for the changes to be pulled into the AVRly public main branch. Pull requests will be reviewed before being accepted, so please bear with me on those.</p>
+<p >Make sure you have the right branch selected (usually the main branch in your local repo), and click <b>Create Pull Request</b>. This will open a new browser window for Github online, where you can configure your request. The <b>base</b> is the main branch on the public AVRly repo, and <b>compare</b> is the forked branch with changes we would like to pull into the base.</p>
+<div class="image">
+<img src="pull_request.png" alt=""/>
+<div class="caption">
+Pull Request Configuration</div></div>
+   <p >Give as much information as you can about the changes you made and why you made them. This will be used to review your changes and decide whwther to accept or reject them. Once this is done, click "Create Pull Request" and it will be submitted for review. If your request is rejected, please try not to take it too personally - I'll try to provide as much information about why the request was declined on code review, and give pointers where I can. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

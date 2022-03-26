@@ -108,9 +108,9 @@ var NAVTREE =
       [ "Bugs", "md_content_contributors_guide__contributors_guide.html#autotoc_md65", null ],
       [ "Development Process", "md_content_contributors_guide__contributors_guide.html#autotoc_md66", [
         [ "Cloning/Forking the Repository", "md_content_contributors_guide__contributors_guide.html#autotoc_md67", null ],
-        [ "Workflow", "md_content_contributors_guide__contributors_guide.html#autotoc_md68", null ]
-      ] ],
-      [ "Submitting a Pull Request", "md_content_contributors_guide__contributors_guide.html#autotoc_md69", null ]
+        [ "Workflow", "md_content_contributors_guide__contributors_guide.html#autotoc_md68", null ],
+        [ "Submitting a Pull Request", "md_content_contributors_guide__contributors_guide.html#autotoc_md69", null ]
+      ] ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
