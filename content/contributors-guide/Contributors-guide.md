@@ -54,7 +54,7 @@ You may be wondering about the gh-pages branch - that's the source Github Pages 
 ### Submitting a Pull Request
 Once you're confident your module is complete, has been tested and everything works as it should, you can submit a pull request for the changes to be pulled into the AVRly public main branch. Pull requests will be reviewed before being accepted, so please bear with me on those.
 
-
+Make sure you have the right branch selected (usually the main branch in your local repo), and click **Create Pull Request**. This will open a new browser window for Github online, where you can configure your request. 
 
 
 [Firmware_Anatomy_URL]: https://jason-duffy.github.io/AVRly/html/md_content_anatomy_of_embedded_firmware__anatomy.html
