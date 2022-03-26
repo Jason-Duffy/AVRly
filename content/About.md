@@ -2,7 +2,7 @@ AVRly was created to provide a framework for embedded firmware development with 
 
 This platform provides documented drivers and example projects written in the C programming language, along with Kicad files and schematics for interfacing with a variety of components including sensors, displays, SOC's, debugging tools and more. It also provides guides for setting up and testing your development environment, style, layout, file structure and documentation.
 
-Due to the constraints of embedded systems, the drivers in this collection are designed to be lightweight, without dependance on standard library functions such as printf(), and thus avoiding linking in bulky sections of code. 
+Due to the constraints often present with embedded systems, the drivers in this collection are designed to be lightweight, without dependance on standard library functions such as printf(), and thus avoiding linking in bulky sections of code. 
 
 
 

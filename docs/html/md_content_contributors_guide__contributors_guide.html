@@ -91,15 +91,30 @@ $(document).ready(function(){initNavTree('md_content_contributors_guide__contrib
   <div class="headertitle"><div class="title">Contributor's Guide </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md61"></a>
-Style Guide</h1>
-<p >For a comprehensive guide on layout, style and documentation, see the [Anatomy of Embedded Firmware page][Firmware_Anatomy_URL].</p>
+<div class="textblock"><p >Contibutions to AVRly are more than welcome!</p>
+<p >If you feel you could improve on a module in this collection, or add new modules for other components users might like to see, it would be great to have you involved! Contributors will be credited on the site and in Copyright notices in each file they worked on. Some examples of modules which other users may find useful are:</p>
+<ul>
+<li>Drivers for AVR peripheral features (interrupts, timers, ADC etc).</li>
+<li>Drivers to interface with sensors.</li>
+<li>Display drivers.</li>
+<li>User input drivers (buttons, encoders, touchpads etc).</li>
+<li>Whole projects implementing several other modules. These will need to be documented carefully with their own guides in .md files, and Kicad schematics and files for any hardware needed.</li>
+</ul>
 <h1><a class="anchor" id="autotoc_md62"></a>
-Templates</h1>
-<p >The repository contains <a href="https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/tree/main/contributors_guide/templates" target="_blank">templates for each file type</a> mentioned in this guide.</p>
+Style Guide</h1>
+<p >For a comprehensive guide on layout, style and documentation, see the <a href="https://jason-duffy.github.io/AVRly/html/md_content_anatomy_of_embedded_firmware__anatomy.html" target="_blank">Anatomy of Embedded Firmware</a> page. For even more detail on this, see the <a href="https://barrgroup.com/sites/default/files/barr_c_coding_standard_2018.pdf" target="_blank">Barr Group C Coding Standard</a>. Modularity and compartmentalisation are key for ease of maintainance and code re-use, just because this isn't C++ doesn't mean we have to throw away all those object oriented principles! If you want to extend a module in this collection to provide an extra layer of functionality for a specific purpose, the <a href="https://en.wikipedia.org/wiki/Facade_pattern" target="_blank">facade pattern</a> should be used. For an example on this, see the <a href="https://jason-duffy.github.io/AVRly/html/group__log__system.html" target="_blank">log system module</a> and observe how the USART driver is implemented, hiding it's inner workings from the layer above.</p>
 <h1><a class="anchor" id="autotoc_md63"></a>
+Templates</h1>
+<p >The <a href="https://github.com/Jason-Duffy/AVRly" target="_blank">Github repository</a> contains <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/templates" target="_blank">templates for each file type</a> mentioned in the <a href="https://jason-duffy.github.io/AVRly/html/md_content_anatomy_of_embedded_firmware__anatomy.html" target="_blank">Anatomy of Embedded Firmware</a> guide. These templates will provide the bare-bones file structure for your project, along with a Makefile to assist with building and compiling your application.</p>
+<h1><a class="anchor" id="autotoc_md64"></a>
+What to Avoid</h1>
+<p >Try to keep drivers and modules concise. Each driver should perform a specific set of tasks well, and should expose the least possible data from within the source code. To share data between files, queues and/or getter and setter functions should be used to return data, rather than using <code>extern</code> variables in the header file (where possible).</p>
+<p >Avoid using bulky standard library functions as these can link in alot of unwanted code. Instead, it's sometimes better to provide your own stripped back implementation of these functions. That doesn't mean don't use the standard library of course, just have some awareness of the overhead of external code. You can see the code size of the compiled binary by running <code>make size</code>, and you can get an idea of what the linker script is doing by running <code>make disassemble</code>, which will generate a .lst file containing an approximate assembly version of the code.</p>
+<h1><a class="anchor" id="autotoc_md65"></a>
+Bugs</h1>
+<p >Known bugs in your own work should be documented in the Doxygen special comment block at the top of the file, using the <code>@bug</code> command. Ideally, don't submit work with known bugs, but if it's minor, the module generally works well and you feel you need other contributors to help you solve the issue, thats what <code>@bug</code> is there for. Opening and solving "Issues" on the Github repo is also encouraged where necessary.</p>
+<h1><a class="anchor" id="autotoc_md66"></a>
 Submitting a Pull Request</h1>
-<p >[Firmware_Anatomy_URL]: </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->

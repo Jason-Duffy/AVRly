@@ -86,6 +86,10 @@ A multimeter like [this one][Multimeter_URL] will help with debugging when hardw
 
 The following setup guide is for an ATmega328P, so if you're starting with a different model it's best to refer to your part's datasheet for pinout, auxillary components needed, power requirements etc, but the broad principles should be much the same.
 
+The pinout of the ATmega328P is shown below.
+
+![ATmega328P pinout](ATmega328P-pinout.webp)
+
 
 ## MCU Connections
 Note the 100nF ceramic capacitor between VCC and GND, this is for decoupling and filtering of the power supply, so should be placed as close to the pins as possible.
@@ -229,14 +233,17 @@ These can of course be combined like so: `make clean flash`, though you do not n
 
 ![make clean flash output](./images/make_clean_flash.png)
 
-### Advanced Make Commands
-
-If you'd like to learn more about the GNU Make Utility, more information can be found [here](https://www.gnu.org/software/make/). I found it to be a steep learning curve, so if you'd rather not wade into it just yet there are plenty of Makefile generators around. The Makefile used in these projects was adapted from the code provided with the book Make: AVR Programming by Elliot Williams. His repo, [hexagon5un/AVR-Programming](https://github.com/hexagon5un/AVR-Programming) has some great example projects, and I would thoroughly recommend the book to anyone looking to get into AVR Programming. 
-
-## Verify Makefile Settings
+# Verify Makefile Settings
 You should now have an LED which blinks on and off in a 2 second cycle - 1 second on, followed by 1 second off. If it is blinking considerably faster or slower than this, check that the value of F_CPU and LFUSE are set correctly. 
 
 Once you are satisfied that the LED is blinking as it should be, you're ready to proceed to the [more exciting projects and examples][Modules_URL] in this repo!
+
+If you're ready to start developing using your own source code, some blank template files can be found [here][Templates_URL].
+
+# Further Reading
+
+## GNU Make Utility
+If you'd like to learn more about the GNU Make Utility, more information can be found [here](https://www.gnu.org/software/make/). I found it to be a steep learning curve, so if you'd rather not wade into it just yet there are plenty of Makefile generators around. The Makefile used in these projects was adapted from the code provided with the book Make: AVR Programming by Elliot Williams. His repo, [hexagon5un/AVR-Programming](https://github.com/hexagon5un/AVR-Programming) has some great example projects, and I would thoroughly recommend the book to anyone looking to get into AVR Programming. 
 
 ## Style & Layout Guide
 For a comprehensive guide on layout, style and documentation, see the [Anatomy of Embedded Firmware page][Firmware_Anatomy_URL].
@@ -277,6 +284,7 @@ Adhering to coding standards helps to make your code more readable, robust, easi
 [Fuse_Calculator_URL]: https://www.engbedded.com/fusecalc/
 
 [Modules_URL]: https://github.com/Jason-Duffy/AVRly/tree/main/content/modules
+[Templates_URL]: https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/templates
 [Firmware_Anatomy_URL]: https://jason-duffy.github.io/AVRly/html/md_content_anatomy_of_embedded_firmware__anatomy.html
 [Doxygen_URL]: https://www.doxygen.nl/index.html
 [Blink_Docs_URL]: https://jason-duffy.github.io/AVRly/html/group__getting__started.html
