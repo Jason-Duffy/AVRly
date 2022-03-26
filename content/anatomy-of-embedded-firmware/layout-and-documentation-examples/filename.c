@@ -69,7 +69,7 @@ void do_some_helpful_stuff(void);
 
 
 /**
- * This is a Javadoc style comment. Again, after the first full stop the text
+ * This is a Javadoc autobrief style comment. After the first full stop the text
  * becomes a detailed description. Explain how to use the function here.
  * Initialisation function names should start with 'init' and appear first.
  * @param List the parameters here. 
@@ -86,7 +86,8 @@ void init_object(uint16_t value)
 
 
 /**
- * Get value and return it without exposing a private variable. 
+ * Other public function declarations come afterwards.
+ * @return Returns a 16 bit unsigned integer. Returns are documented like this.
  */
 uint16_t get_value(void)
 {

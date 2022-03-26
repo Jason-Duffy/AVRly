@@ -43,11 +43,12 @@
 // Header file needed for fixed width integer types. 
 #include <stdint.h>
 
-/*
- * Public initialisation function declaration comes first. This is a Javadoc
- * Autobrief style comment - the first sentence becomes a brief, then after the
- * first full stop the remaining text becomes a detailed description. 
- * @param parameters can be documented like this. 
+/**
+ * This is a Javadoc autobrief style comment. After the first full stop the text
+ * becomes a detailed description. Explain how to use the function here.
+ * Initialisation function names should start with 'init' and appear first.
+ * @param List the parameters here. 
+ * @return Declare the return type here (not needed for void return type).
  */
 void init_object(uint16_t value);
 
