@@ -1,7 +1,17 @@
 # Anatomy of Embedded Firmware
 
 ## A Word on Doxygen
-Throughout this repository, the code has been documented using [Doxygen](https://www.doxygen.nl/index.html). It's an easy way to generate documentation which stays closely coupled with the code so it's not too difficult to keep the two in line. The html for this site was also generated using Doxygen. It relies on special comments like `/** Comment goes here */` however normal C style comments like `// Comment goes here` are ignored by Doxygen. 
+Throughout this repository, the code has been documented using [Doxygen](https://www.doxygen.nl/index.html). It's an easy way to generate documentation which stays closely coupled with the code so it's not too difficult to keep the two in line. The html for this site was also generated using Doxygen. It relies on special comments like this:
+```C
+/**
+ * Comment goes here
+ */
+```
+However, normal C style comments like:
+```C
+// Comment goes here
+```
+are ignored by Doxygen. 
 
 ## Formatting
 Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, Source and Makefiles should all be limited to 80 characters wide. 
