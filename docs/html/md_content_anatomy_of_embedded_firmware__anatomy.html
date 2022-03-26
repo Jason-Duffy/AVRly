@@ -97,13 +97,17 @@ A Word on Doxygen</h1>
 <div class="line"><span class="comment"> * Comment goes here</span></div>
 <div class="line"><span class="comment"> */</span></div>
 </div><!-- fragment --><p> However, normal C style comments like: </p><div class="fragment"><div class="line"><span class="comment">// Comment goes here</span></div>
+</div><!-- fragment --><p> or </p><div class="fragment"><div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> * Comment goes here</span></div>
+<div class="line"><span class="comment"> */</span></div>
 </div><!-- fragment --><p> are ignored by Doxygen.</p>
+<p >Comment lines starting with an @ symbol are special Doxygen commands.</p>
 <h1><a class="anchor" id="autotoc_md53"></a>
 Formatting</h1>
-<p >Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, Source and Makefiles should all be limited to 80 characters wide.</p>
+<p >Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, source, and Makefiles should all be limited to 80 characters wide.</p>
 <h1><a class="anchor" id="autotoc_md54"></a>
 Licence</h1>
-<p >At the top of each file, a copyright notice and licence terms are added. This let's other users know whether they can use and distribute this software, and the terms under which they may do so. The software in this repository is released under the MIT licence. Add the year the work was produced and your name at the top.</p>
+<p >At the top of each file, a Copyright notice and licence terms are added. This let's other users know whether they can use and distribute this software, and the terms under which they may do so. The software in this repository is released under the MIT licence.</p>
 <div class="fragment"><div class="line"><span class="comment">/******************************************************************************</span></div>
 <div class="line"><span class="comment"> @copyright Copyright © YYYY by Your Name Here.</span></div>
 <div class="line"><span class="comment"> </span></div>
@@ -125,12 +129,13 @@ Licence</h1>
 <div class="line"><span class="comment"> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span></div>
 <div class="line"><span class="comment"> SOFTWARE.</span></div>
 <div class="line"><span class="comment">******************************************************************************/</span></div>
-</div><!-- fragment --><p> The licence and copyright notice are enclosed in a Javadoc style banner, which Doxygen will recognise as a banner comment. To use this stye of banner, <code>JAVADOC_BANNER = YES</code> must be set in the Doxyfile. Add your name in the copyright notice.</p>
+</div><!-- fragment --><p> The licence and copyright notice are enclosed in a Javadoc style banner, which Doxygen will recognise as a banner comment. To use this stye of banner, <code>JAVADOC_BANNER = YES</code> must be set in the Doxyfile. Add your name and the year the work was produced in the copyright notice.</p>
 <h1><a class="anchor" id="autotoc_md55"></a>
 C Header Files</h1>
-<p >A C header file should be named after the function of the file or the peripheral that it serves. The filename should be entirely in lowercase, and the file extension is <code>.h</code>. The aim is to expose as little information as possible in the header file - just the public function declarations and any macros or typedefs etc required by other files, without them having to know too much about how it actually works.</p>
+<p >The purpose of a C header file is to provide public data which can be shared with other files.</p>
+<p >A C header file should be named after the function of the module or the peripheral that it serves. The filename should be entirely in lowercase, and the file extension is <code>.h</code>. The aim is to expose as little information as possible in the header file - just the public function declarations and any macros or typedefs etc required by other files, without them having to know too much about how it actually works.</p>
 <p >An example file can be found in the repo <a href="https://github.com/Jason-Duffy/AVRly/blob/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples/filename.h" target="_blank">here</a>, and the Doxygen output from these special comments and commands can be found <a href="https://jason-duffy.github.io/AVRly/html/filename_8h.html" target="_blank">here</a>.</p>
-<p >After the license, place a Javadoc style comment block with some special Doxygen commands: <code>@file</code>, <code>@author</code>, <code>@date</code>, <code>@brief</code>, <code>@bug</code> and <code>@see</code>.</p>
+<p >After the license, place a Javadoc style comment block with some special Doxygen commands: <code>@file</code>, <code>@group</code>, <code>@author</code>, <code>@date</code>, <code>@brief</code>, <code>@bug</code> and <code>@see</code>.</p>
 <div class="fragment"><div class="line"><span class="comment">/**</span></div>
 <div class="line"><span class="comment"> * @file filename.h</span></div>
 <div class="line"><span class="comment"> * @author Your Name Here.</span></div>
