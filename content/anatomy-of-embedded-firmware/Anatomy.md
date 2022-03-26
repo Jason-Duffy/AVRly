@@ -7,11 +7,11 @@ Throughout this repository, the code has been documented using [Doxygen](https:/
 Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, Source and Makefiles should all be limited to 80 characters wide. 
 
 ## Licence
-At the top of each file, a copyright notice and licence terms are added. This let's other users know whether they can use and distribute this software, and the terms under which they may do so. The software in this repository is released under the MIT licence. 
+At the top of each file, a copyright notice and licence terms are added. This let's other users know whether they can use and distribute this software, and the terms under which they may do so. The software in this repository is released under the MIT licence. Add the year the work was produced and your name at the top. 
 
 ```C
 /******************************************************************************
- Copyright (c) 2022 by Your Name Here
+ @copyright Copyright © YYYY by Your Name Here.
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -36,7 +36,7 @@ The licence and copyright notice are enclosed in a Javadoc style banner, which D
 
 
 ## C Header Files
-A C header file should be named after the function of the file or the peripheral that it serves, and the file extension is `.h`. The filename should be entirely in lowercase. The aim is to expose as little information as possible in the header file, so only include data the other files need to interact with it, without them having to know too much about how it actually works.
+A C header file should be named after the function of the file or the peripheral that it serves. The filename should be entirely in lowercase, and the file extension is `.h`. The aim is to expose as little information as possible in the header file - just the public function declarations and any macros or typedefs etc required by other files, without them having to know too much about how it actually works.
 
 An example file can be found in the repo [here][Header_File_Example_URL], and the Doxygen output from these special comments and commands can be found [here][Header_File_Doxygen_Output_URL]. 
 
@@ -70,7 +70,7 @@ Next come the include guards - a preprocessor mechanism used to prevent the head
 #endif // FILENAME_DOT_H
 ```
 
-`#include` directives come next, with standard library headers listed first, then the local, project specific headers. 
+`#include` directives come next, with standard library headers listed first, then the local, project specific headers. You can think of these `#include` directives as inserting the whole contents of the header file referenced into that section of the file. 
 
 ```C
 // Header file needed for fixed width integer types. 
@@ -83,10 +83,11 @@ Function prototypes/declarations are now listed, with the initialisation functio
 
 ```C
 /**
- * Public initialisation function declaration comes first. This is a Javadoc
- * Autobrief style comment - the first sentence becomes a brief, then after the
- * first full stop the remaining text becomes a detailed description.
- * @param parameters can be documented like this. 
+ * This is a Javadoc autobrief style comment. After the first full stop the text
+ * becomes a detailed description. Explain how to use the function here.
+ * Initialisation function names should start with 'init' and appear first.
+ * @param List the parameters here. 
+ * @return Declare the return type here (not needed for void return type).
  */
 void init_object(uint16_t value);
 
@@ -401,19 +402,19 @@ The repository contains [templates for each file type][Templates_URL] mentioned 
 
 
 
-[Header_File_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/filename.h
-[Header_File_Doxygen_Output_URL]:https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2filename_8h.html
+[Header_File_Example_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples/filename.h
+[Header_File_Doxygen_Output_URL]: https://jason-duffy.github.io/AVRly/html/filename_8h.html
 
-[Source_File_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/filename.c
-[Source_File_Doxygen_Output_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2filename_8c.html
+[Source_File_Example_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples/filename.c
+[Source_File_Doxygen_Output_URL]: https://jason-duffy.github.io/AVRly/html/filename_8c.html
 
-[Pin_Defines_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/pin_defines.h
-[Pin_Defines_Doxygen_Output_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2pin__defines_8h.html
+[Pin_Defines_Example_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples/pin_defines.h
+[Pin_Defines_Doxygen_Output_URL]: https://jason-duffy.github.io/AVRly/html/anatomy-of-embedded-firmware_2layout-and-documentation-examples_2pin__defines_8h.html
 
-[Main_File_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/main.c
-[Main_File_Doxygen_Output_URL]: https://jason-duffy.github.io/C-Programming-Resources-for-AVR-MCU-s/contributors_guide/layout__and__documentation__example_2main_8c.html
+[Main_File_Example_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples/main.c
+[Main_File_Doxygen_Output_URL]: https://jason-duffy.github.io/AVRly/html/anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html
 
-[Makefile_Example_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/layout_and_documentation_example/Makefile
+[Makefile_Example_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples/Makefile
 [Makefile_Template_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/templates/Makefile
 
-[Templates_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/tree/main/contributors_guide/templates
+[Templates_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/modules/templates/Makefile
