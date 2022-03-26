@@ -1,7 +1,7 @@
 # Anatomy of Embedded Firmware
 
 ## A Word on Doxygen
-Throughout this repository, the code has been documented using [Doxygen](https://www.doxygen.nl/index.html). It's an easy way to generate documentation which stays close to the code so it's not too difficult to keep the two in line. The html for this site was also generated using Doxygen. It uses special comments, however normal C style comments `//` are ignored by Doxygen. 
+Throughout this repository, the code has been documented using [Doxygen](https://www.doxygen.nl/index.html). It's an easy way to generate documentation which stays closely coupled with the code so it's not too difficult to keep the two in line. The html for this site was also generated using Doxygen. It relies on special comments like `/** Comment goes here */` however normal C style comments like `// Comment goes here` are ignored by Doxygen. 
 
 ## Formatting
 Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, Source and Makefiles should all be limited to 80 characters wide. 
@@ -394,7 +394,7 @@ PROGRAMMER_TYPE = avrisp
 # extra arguments to avrdude: baud rate, chip type, -F flag, etc.
 PROGRAMMER_ARGS = -b 19200 -P /dev/tty.usbmodem141201
 ```
-If you add a new recipe for users to invoke from terminal, document is by adding it to the `help` recipe at the bottom of the [template file][Makefile_Template_URL].
+If you add a new recipe for users to invoke from terminal, document it by adding it to the `help` recipe at the bottom of the Makefile.
 
 ## Templates
 
