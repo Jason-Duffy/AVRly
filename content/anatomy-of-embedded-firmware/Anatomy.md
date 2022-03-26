@@ -403,18 +403,23 @@ The repository contains [templates for each file type][Templates_URL] mentioned 
 
 
 [Header_File_Example_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples/filename.h
+
 [Header_File_Doxygen_Output_URL]: https://jason-duffy.github.io/AVRly/html/filename_8h.html
 
 [Source_File_Example_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples/filename.c
+
 [Source_File_Doxygen_Output_URL]: https://jason-duffy.github.io/AVRly/html/filename_8c.html
 
 [Pin_Defines_Example_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples/pin_defines.h
+
 [Pin_Defines_Doxygen_Output_URL]: https://jason-duffy.github.io/AVRly/html/anatomy-of-embedded-firmware_2layout-and-documentation-examples_2pin__defines_8h.html
 
 [Main_File_Example_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples/main.c
+
 [Main_File_Doxygen_Output_URL]: https://jason-duffy.github.io/AVRly/html/anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html
 
 [Makefile_Example_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples/Makefile
-[Makefile_Template_URL]: https://github.com/Jason-Duffy/C-Programming-Resources-for-AVR-MCU-s/blob/main/contributors_guide/templates/Makefile
 
-[Templates_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/modules/templates/Makefile
+[Makefile_Template_URL]: https://github.com/Jason-Duffy/AVRly/blob/main/content/modules/templates/Makefile
+
+[Templates_URL]: https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/templates
