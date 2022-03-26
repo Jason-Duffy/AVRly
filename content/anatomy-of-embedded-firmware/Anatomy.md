@@ -11,13 +11,21 @@ However, normal C style comments like:
 ```C
 // Comment goes here
 ```
-are ignored by Doxygen. 
+or
+```C
+/*
+ * Comment goes here
+ */
+```
+are ignored by Doxygen.
+
+Comment lines starting with an @ symbol are special Doxygen commands. 
 
 ## Formatting
-Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, Source and Makefiles should all be limited to 80 characters wide. 
+Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, source, and Makefiles should all be limited to 80 characters wide. 
 
 ## Licence
-At the top of each file, a copyright notice and licence terms are added. This let's other users know whether they can use and distribute this software, and the terms under which they may do so. The software in this repository is released under the MIT licence. Add the year the work was produced and your name at the top. 
+At the top of each file, a Copyright notice and licence terms are added. This let's other users know whether they can use and distribute this software, and the terms under which they may do so. The software in this repository is released under the MIT licence.
 
 ```C
 /******************************************************************************
@@ -42,15 +50,17 @@ At the top of each file, a copyright notice and licence terms are added. This le
  SOFTWARE.
 ******************************************************************************/
 ```
-The licence and copyright notice are enclosed in a Javadoc style banner, which Doxygen will recognise as a banner comment. To use this stye of banner, `JAVADOC_BANNER = YES` must be set in the Doxyfile. Add your name in the copyright notice. 
+The licence and copyright notice are enclosed in a Javadoc style banner, which Doxygen will recognise as a banner comment. To use this stye of banner, `JAVADOC_BANNER = YES` must be set in the Doxyfile. Add your name and the year the work was produced in the copyright notice. 
 
 
 ## C Header Files
-A C header file should be named after the function of the file or the peripheral that it serves. The filename should be entirely in lowercase, and the file extension is `.h`. The aim is to expose as little information as possible in the header file - just the public function declarations and any macros or typedefs etc required by other files, without them having to know too much about how it actually works.
+The purpose of a C header file is to provide public data which can be shared with other files. 
+
+A C header file should be named after the function of the module or the peripheral that it serves. The filename should be entirely in lowercase, and the file extension is `.h`. The aim is to expose as little information as possible in the header file - just the public function declarations and any macros or typedefs etc required by other files, without them having to know too much about how it actually works.
 
 An example file can be found in the repo [here][Header_File_Example_URL], and the Doxygen output from these special comments and commands can be found [here][Header_File_Doxygen_Output_URL]. 
 
-After the license, place a Javadoc style comment block with some special Doxygen commands: `@file`, `@author`, `@date`, `@brief`, `@bug` and `@see`.
+After the license, place a Javadoc style comment block with some special Doxygen commands: `@file`, `@group`, `@author`, `@date`, `@brief`, `@bug` and `@see`.
 
 ```C
 /**
