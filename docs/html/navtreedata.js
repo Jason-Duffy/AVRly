@@ -104,7 +104,8 @@ var NAVTREE =
     [ "Contributor's Guide", "md_content_contributors_guide__contributors_guide.html", [
       [ "Style Guide", "md_content_contributors_guide__contributors_guide.html#autotoc_md62", null ],
       [ "Templates", "md_content_contributors_guide__contributors_guide.html#autotoc_md63", null ],
-      [ "Submitting a Pull Request", "md_content_contributors_guide__contributors_guide.html#autotoc_md64", null ]
+      [ "What to Avoid", "md_content_contributors_guide__contributors_guide.html#autotoc_md64", null ],
+      [ "Submitting a Pull Request", "md_content_contributors_guide__contributors_guide.html#autotoc_md65", null ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
@@ -130,7 +131,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html",
-"md_content_getting_started__getting_started.html#autotoc_md7"
+"md_content_getting_started__getting_started.html#autotoc_md6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
