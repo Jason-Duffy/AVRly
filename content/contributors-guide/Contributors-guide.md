@@ -49,7 +49,9 @@ To merge into main, first ensure all your local changes have been committed to t
 
 Now that the main branch has been brought upto date, you are free to switch back to development and fiddle about with the code. If you go down a particular route and find it was huge mistake and everythign breaks, you still have your main branch intact. Your commits can also be reverted in the **History** tab. You can push those commits from your local repo to the remote repo (cloud storage with Github online) by clicking **Push origin**. If changes have been made on Github online, you can bring these onto your local copy by clicking **Fetch Origin**.
 
-## Submitting a Pull Request
+You may be wondering about the gh-pages branch - that's the source Github Pages uses to build this website, so unless you want to test how things will display in a web browser, you can just ignore that branch. 
+
+### Submitting a Pull Request
 Once you're confident your module is complete, has been tested and everything works as it should, you can submit a pull request for the changes to be pulled into the AVRly public main branch. Pull requests will be reviewed before being accepted, so please bear with me on those.
 
 
