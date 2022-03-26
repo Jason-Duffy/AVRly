@@ -25,7 +25,21 @@ Avoid using bulky standard library functions as these can link in alot of unwant
 Known bugs in your own work should be documented in the Doxygen special comment block at the top of the file, using the `@bug` command. Ideally, don't submit work with known bugs, but if it's minor, the module generally works well and you feel you need other contributors to help you solve the issue, thats what `@bug` is there for. Opening and solving "Issues" on the Github repo is also encouraged where necessary. 
 
 ## Development Process
-My personal preference for managing the Git workflow is [Github Desktop][Github_Desktop_URL] as I think it provides the most clarity, but some users may prefer to use Git in the command line. 
+My personal preference for managing the Git workflow is [Github Desktop][Github_Desktop_URL] as I think it provides the most clarity, but some users may prefer to use Git in the command line. The steps described below are for Github Desktop. I'll outline the basics here, but for an in-depth guide on the git workflow, see their documentation [here][Github_Desktop_Docs_URL].
+
+### Cloning/Forking the Repository
+In the **File** menu, go to **Clone Repository**, then select the **URL** tab. In the **URL** field, paste in the following: https://github.com/Jason-Duffy/AVRly
+
+In the **Local Path** field, select the location you'd like your local repo to be stored. Ensure the last directory in the path is empty. If the location you want has files in already, you can just create a new subdirectory by adding the new folder name on the end of the path. Then click **Clone**.
+
+![Clone Repository][./images/git_clone.png]
+
+As you will not have write access to this repository, Github will create a fork, and will ask you how you plan to use it. Select **To contribute to the parent project** if you plan on doing so, otherwise select **For my own purposes**, then click **Continue**.
+
+### Workflow
+Use the **development** branch while working on your code, try to make regular commits with a message briefly explaining the changes you have made. This is valuable for yourself and others to see what has been done, when and why. 
+
+![Commit Message][./images/commit_message.png]
 
 
 
@@ -43,3 +57,5 @@ My personal preference for managing the Git workflow is [Github Desktop][Github_
 [Templates_URL]: https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/templates
 
 [Github_Desktop_URL]: https://desktop.github.com/
+
+[Github_Desktop_Docs_URL]: https://docs.github.com/en/desktop
