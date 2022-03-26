@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('md_content_anatomy_of_embedded_firmwar
 <div class="contents">
 <div class="textblock"><h1><a class="anchor" id="autotoc_md52"></a>
 A Word on Doxygen</h1>
-<p >Throughout this repository, the code has been documented using <a href="https://www.doxygen.nl/index.html" target="_blank">Doxygen</a>. It's an easy way to generate documentation which stays close to the code so it's not too difficult to keep the two in line. The html for this site was also generated using Doxygen. It uses special comments, however normal C style comments <code>//</code> are ignored by Doxygen.</p>
+<p >Throughout this repository, the code has been documented using <a href="https://www.doxygen.nl/index.html" target="_blank">Doxygen</a>. It's an easy way to generate documentation which stays closely coupled with the code so it's not too difficult to keep the two in line. The html for this site was also generated using Doxygen. It relies on special comments like <code>/** Comment goes here */</code> however normal C style comments like <code>// Comment goes here</code> are ignored by Doxygen.</p>
 <h1><a class="anchor" id="autotoc_md53"></a>
 Formatting</h1>
 <p >Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, Source and Makefiles should all be limited to 80 characters wide.</p>
@@ -366,7 +366,7 @@ Makefile</h1>
 <div class="line">PROGRAMMER_TYPE = avrisp</div>
 <div class="line"># extra arguments to avrdude: baud rate, chip type, -F flag, etc.</div>
 <div class="line">PROGRAMMER_ARGS = -b 19200 -P /dev/tty.usbmodem141201</div>
-</div><!-- fragment --><p> If you add a new recipe for users to invoke from terminal, document is by adding it to the <code>help</code> recipe at the bottom of the <a href="https://github.com/Jason-Duffy/AVRly/blob/main/content/modules/templates/Makefile" target="_blank">template file</a>.</p>
+</div><!-- fragment --><p> If you add a new recipe for users to invoke from terminal, document it by adding it to the <code>help</code> recipe at the bottom of the Makefile.</p>
 <h1><a class="anchor" id="autotoc_md60"></a>
 Templates</h1>
 <p >The repository contains <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/templates" target="_blank">templates for each file type</a> mentioned in this guide. </p>
