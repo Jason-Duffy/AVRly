@@ -102,7 +102,7 @@ A Word on Doxygen</h1>
 <div class="line"><span class="comment"> */</span></div>
 </div><!-- fragment --><p> are ignored by Doxygen.</p>
 <p >Comment lines starting with an @ symbol are special Doxygen commands.</p>
-<p >Ordinarily (and throughout the modules on this site), it's best to only use Doxygen documentation for the header file rather than it's accompanying source file, as we are documenting the API. If you were documenting source code for other developers you might want to document the source code instead, but never both.</p>
+<p >Ordinarily it's best to only use Doxygen documentation for the public function declarations in the header file rather than the source file definitions, as we are documenting the API. If you were documenting source code for other developers you might want to document the source code instead, but never both. If you provide a <b>brief</b> for both, then the one from the <b>declaration</b> will be used, the other will be ignored. If you provide a <b>detailed description</b> for both, the one for the <b>definition</b> is used and the other ignored.</p>
 <h1><a class="anchor" id="autotoc_md53"></a>
 Formatting</h1>
 <p >Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, source, and Makefiles should all be limited to 80 characters wide.</p>
@@ -175,8 +175,8 @@ C Header Files</h1>
 <div class="line"><span class="comment"> * @return Returns a 16 bit unsigned integer. Returns are documented like this.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line">uint16_t <a class="code hl_function" href="filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a>(<span class="keywordtype">void</span>);</div>
-<div class="ttc" id="afilename_8c_html_a3ebcf9ef84eb47df312281d252a5487e"><div class="ttname"><a href="filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a></div><div class="ttdeci">uint16_t get_value(void)</div><div class="ttdoc">Other public function declarations come afterwards.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00092">filename.c:92</a></div></div>
-<div class="ttc" id="afilename_8c_html_a79a38b8a0c6ba34854b450330b82ebd8"><div class="ttname"><a href="filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a></div><div class="ttdeci">void init_object(uint16_t value)</div><div class="ttdoc">This is a Javadoc autobrief style comment.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00078">filename.c:78</a></div></div>
+<div class="ttc" id="afilename_8c_html_a3ebcf9ef84eb47df312281d252a5487e"><div class="ttname"><a href="filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a></div><div class="ttdeci">uint16_t get_value(void)</div><div class="ttdoc">Other public function declarations come afterwards.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00086">filename.c:86</a></div></div>
+<div class="ttc" id="afilename_8c_html_a79a38b8a0c6ba34854b450330b82ebd8"><div class="ttname"><a href="filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a></div><div class="ttdeci">void init_object(uint16_t value)</div><div class="ttdoc">This is a Javadoc autobrief style comment.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00075">filename.c:75</a></div></div>
 </div><!-- fragment --><p >The file ends with closure of the header guards, two blank lines and an <code>/*** end of file ***/</code> comment followed by a blank line.</p>
 <div class="fragment"><div class="line"><span class="comment">// End of include guard.</span></div>
 <div class="line"><span class="preprocessor">#endif </span><span class="comment">// FILENAME_DOT_H</span></div>
@@ -233,14 +233,10 @@ C Source Files</h1>
 <div class="line"><span class="keyword">static</span> uint16_t file_scope_variable = 0;</div>
 </div><!-- fragment --><p >Next in line are function prototypes/declarations for private helper functions defined at the bottom of the file. They are declared ahead of any definitions to ensure they can be referenced throughout the file.</p>
 <div class="fragment"><div class="line"><span class="comment">// Private helper function declarations go here.</span></div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a">do_some_helpful_stuff</a>(<span class="keywordtype">void</span>);</div>
-<div class="ttc" id="afilename_8c_html_a7f2c67cfa7efe3ba9fff45bdf935da0a"><div class="ttname"><a href="filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a">do_some_helpful_stuff</a></div><div class="ttdeci">void do_some_helpful_stuff(void)</div><div class="ttdoc">Helper function definitions come last, though their declarations are at the top of the file.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00102">filename.c:102</a></div></div>
-</div><!-- fragment --><p >Now we have the definitions for the public functions, listed in the same order as they appear in the header file, with the initialisation routine first. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
-<div class="line"><span class="comment"> * This is a Javadoc style comment. Again, after the first full stop the text</span></div>
-<div class="line"><span class="comment"> * becomes a detailed description. Explain how to use the function here.</span></div>
-<div class="line"><span class="comment"> * Initialisation function names should start with &#39;init&#39; and appear first.</span></div>
-<div class="line"><span class="comment"> * @param List the parameters here. </span></div>
-<div class="line"><span class="comment"> * @return Declare the return type here (not needed for void return type).</span></div>
+<div class="line"><span class="keywordtype">void</span> do_some_helpful_stuff(<span class="keywordtype">void</span>);</div>
+</div><!-- fragment --><p >Now we have the definitions for the public functions, listed in the same order as they appear in the header file, with the initialisation routine first. </p><div class="fragment"><div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> * Note that in the C source files, I&#39;ve switched back to regular C style comment blocks. </span></div>
+<div class="line"><span class="comment"> * This is so that Doxygen ignores them. </span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(uint16_t value)</div>
 <div class="line">{</div>
@@ -267,7 +263,7 @@ C Source Files</h1>
 <div class="line"><span class="comment"> * Helper function definitions come last, though their declarations are at the</span></div>
 <div class="line"><span class="comment"> * top of the file. </span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a">do_some_helpful_stuff</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><span class="keywordtype">void</span> do_some_helpful_stuff(<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Body of function definition goes here. </span></div>
 <div class="line">}</div>
