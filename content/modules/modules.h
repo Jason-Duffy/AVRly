@@ -60,3 +60,16 @@
  * 
  * Repository contents:
  */
+
+ /**
+ * @defgroup avr_peripherals AVR Peripheral Features
+ * @brief A collection of guides and code documentation for AVR peripheral
+ * features such as timers and counters, interrupts etc. 
+ * @defgroup timer_counter Timer/Counter
+ * @brief Driver for the timer/counter hardware fetaured on the ATmega328P. 
+ * @ingroup avr_peripherals
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/avr-peripheral-features/timer-counter/example/digital-clock
+ * 
+ * Repository contents:
+ */
