@@ -26,11 +26,11 @@
  * @author Jason Duffy
  * @date 15th March 2022
  * @brief Main routine for the Blink example application in Getting Started.
+ * This file also serves to demonstrate the anatomy of embedded firmware. 
  * @details This example application is intended to verify the configuration
  * steps for the MCU have been performed correctly and everything is working
  * as it should. The LED should turn on for 1 second, then turn off for 1
- * second, and repeat. This file also serves to demonstrate the anatomy of
- * embedded firmware. 
+ * second, and repeat.
  * @bug No known bugs. 
  * 
  */

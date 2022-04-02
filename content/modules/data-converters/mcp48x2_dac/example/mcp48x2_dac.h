@@ -27,13 +27,12 @@
  * @date 4th March 2022
  * @brief Driver for the MCP4812 10 bit DAC (digital to analog converter) chip.
  * @bug No known bugs. 
- * 
+ * @detail
  * This file provides the basic low-level functionality for the MCP4812 10 bit
  * DAC from Microchip. This driver currently only allows for a single DAC to be
- * used, but this might be improved on at a later date.
- * 
- * This driver was written using the datasheet for the Microchip MCP4812 chip,
- * which can be found at the link below.
+ * used, but this might be improved on at a later date. This driver was written
+ * using the datasheet for the Microchip MCP4812 chip, which can be found at
+ * the link below.
  * @see https://ww1.microchip.com/downloads/en/DeviceDoc/20002249B.pdf
  */
 
