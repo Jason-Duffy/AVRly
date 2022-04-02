@@ -8,8 +8,7 @@
  * @brief Documentation for the files referenced in Anatomy of Embedded
  * Firmware.
  * @see The files can be downloaded from the repo at:
- * https://github.com/Jason-Duffy/AVRly/tree/main/content/anatomy-of-embedded-\
- * firmware/layout-and-documentation-examples
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples
  */
 
 /**
