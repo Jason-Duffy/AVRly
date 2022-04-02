@@ -91,7 +91,8 @@ $(document).ready(function(){initNavTree('md_content_anatomy_of_embedded_firmwar
   <div class="headertitle"><div class="title">Anatomy of Embedded Firmware </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md52"></a>
+<div class="textblock"><p >The style and layout guidelines shown here are based on my personal preference; of cource you are free to develop your code in whichever way you choose - this is just a guide for users who are unsure how to correctly structure their projects, or for developers contributing to this site.</p>
+<h1><a class="anchor" id="autotoc_md52"></a>
 A Word on Doxygen</h1>
 <p >Throughout this repository, the code has been documented using <a href="https://www.doxygen.nl/index.html" target="_blank">Doxygen</a>. It's an easy way to generate documentation which stays closely coupled with the code so it's not too difficult to keep the two in line. The html for this site was also generated using Doxygen. It relies on special comments like this: </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
 <div class="line"><span class="comment"> * Comment goes here</span></div>
@@ -175,7 +176,7 @@ C Header Files</h1>
 <div class="line"><span class="comment"> * @return Returns a 16 bit unsigned integer. Returns are documented like this.</span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line">uint16_t <a class="code hl_function" href="filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a>(<span class="keywordtype">void</span>);</div>
-<div class="ttc" id="afilename_8c_html_a3ebcf9ef84eb47df312281d252a5487e"><div class="ttname"><a href="filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a></div><div class="ttdeci">uint16_t get_value(void)</div><div class="ttdoc">Other public function declarations come afterwards.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00086">filename.c:86</a></div></div>
+<div class="ttc" id="afilename_8c_html_a3ebcf9ef84eb47df312281d252a5487e"><div class="ttname"><a href="filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a></div><div class="ttdeci">uint16_t get_value(void)</div><div class="ttdoc">Other public function declarations come afterwards.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00088">filename.c:88</a></div></div>
 <div class="ttc" id="afilename_8c_html_a79a38b8a0c6ba34854b450330b82ebd8"><div class="ttname"><a href="filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a></div><div class="ttdeci">void init_object(uint16_t value)</div><div class="ttdoc">This is a Javadoc autobrief style comment.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00075">filename.c:75</a></div></div>
 </div><!-- fragment --><p >The file ends with closure of the header guards, two blank lines and an <code>/*** end of file ***/</code> comment followed by a blank line.</p>
 <div class="fragment"><div class="line"><span class="comment">// End of include guard.</span></div>
@@ -234,7 +235,7 @@ C Source Files</h1>
 </div><!-- fragment --><p >Next in line are function prototypes/declarations for private helper functions defined at the bottom of the file. They are declared ahead of any definitions to ensure they can be referenced throughout the file.</p>
 <div class="fragment"><div class="line"><span class="comment">// Private helper function declarations go here.</span></div>
 <div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a">do_some_helpful_stuff</a>(<span class="keywordtype">void</span>);</div>
-<div class="ttc" id="afilename_8c_html_a7f2c67cfa7efe3ba9fff45bdf935da0a"><div class="ttname"><a href="filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a">do_some_helpful_stuff</a></div><div class="ttdeci">void do_some_helpful_stuff(void)</div><div class="ttdoc">Helper function definitions come last, though their declarations are at the top of the file.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00096">filename.c:96</a></div></div>
+<div class="ttc" id="afilename_8c_html_a7f2c67cfa7efe3ba9fff45bdf935da0a"><div class="ttname"><a href="filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a">do_some_helpful_stuff</a></div><div class="ttdeci">void do_some_helpful_stuff(void)</div><div class="ttdoc">Helper function definitions come last, though their declarations are at the top of the file.</div><div class="ttdef"><b>Definition:</b> <a href="filename_8c_source.html#l00098">filename.c:98</a></div></div>
 </div><!-- fragment --><p >Now we have the definitions for the public functions, listed in the same order as they appear in the header file, with the initialisation routine first. </p><div class="fragment"><div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> * Note that in the C source files, I&#39;ve switched back to regular C style comment blocks. </span></div>
 <div class="line"><span class="comment"> * This is so that Doxygen ignores them. </span></div>
@@ -248,8 +249,8 @@ C Source Files</h1>
 <div class="line">    <span class="comment">// Do some other stuff with the parameters</span></div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="comment"></span> </div>
-<div class="line"><span class="comment">/**</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/*</span></div>
 <div class="line"><span class="comment"> * Get value and return it without exposing a private variable. </span></div>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line">uint16_t <a class="code hl_function" href="filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e">get_value</a>(<span class="keywordtype">void</span>)</div>
