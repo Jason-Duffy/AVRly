@@ -21,6 +21,8 @@
  * @ingroup data_converters
  * @see The files can be downloaded from the repo at:
  * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/data-converters/mcp48x2_dac
+ * 
+ * Repository contents:
  */
 
 /**
@@ -31,6 +33,8 @@
  * @ingroup debug_tools
  * @see The files can be downloaded from the repo at:
  * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/debug-tools/log-system
+ * 
+ * Repository contents:
  */
 
 /**
@@ -53,4 +57,6 @@
  * @ingroup sensors
  * @see The files can be downloaded from the repo at:
  * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/sensors/ccs811_sensor
+ * 
+ * Repository contents:
  */
