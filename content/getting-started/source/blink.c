@@ -1,5 +1,5 @@
 /******************************************************************************
- @copyright Copyright © 2022 by Jason Duffy.
+Copyright © 2022 by Jason Duffy.
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -20,14 +20,14 @@
  SOFTWARE.
 ******************************************************************************/
 
-/**
- * @file blink.c
- * @ingroup getting_started
- * @author Jason Duffy
- * @date 15th March 2022
- * @brief Driver for example application from Getting Started with Blink.
+/*
+ * File: blink.c
+ * Group: getting_started
+ * Author: Jason Duffy
+ * Date: 15th March 2022
+ * Brief: Driver for example application from Getting Started with Blink.
  * This file also serves to demonstrate the anatomy of embedded firmware. 
- * @bug No known bugs.
+ * Bugs: No known bugs.
  */
 
 
@@ -43,14 +43,14 @@
 
 
 
-/**
+/*
  * Define the blink delay time in milliseconds here.
  */
 #define BLINK_TIME_MS   1000
 
 
 
-/**
+/*
  * Call this function once on entry of main() routine to configure settings and
  * initialise the LED for use. 
  */
@@ -60,7 +60,7 @@ void init_led(void)
 }
 
 
-/**
+/*
  * Call this function in the loop of the main() routine to blink the LED.
  */
 void blink_led(void)
