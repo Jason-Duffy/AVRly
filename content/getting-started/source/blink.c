@@ -1,5 +1,5 @@
 /******************************************************************************
-Copyright © 2022 by Jason Duffy.
+ @copyright Copyright © 2022 by Jason Duffy.
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -21,13 +21,13 @@ Copyright © 2022 by Jason Duffy.
 ******************************************************************************/
 
 /*
- * File: blink.c
- * Group: getting_started
- * Author: Jason Duffy
- * Date: 15th March 2022
- * Brief: Driver for example application from Getting Started with Blink.
+ * @file blink.c
+ * @ingroup getting_started
+ * @author Jason Duffy
+ * @date 15th March 2022
+ * @brief Driver for example application from Getting Started with Blink.
  * This file also serves to demonstrate the anatomy of embedded firmware. 
- * Bugs: No known bugs.
+ * @bug No known bugs.
  */
 
 
