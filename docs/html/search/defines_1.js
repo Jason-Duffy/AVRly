@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['decimal_5fmacro_0',['DECIMAL_MACRO',['../filename_8c.html#ad0d93be93b87cde29da59e643f7c6112',1,'filename.c']]]
+  ['initialisation_5fvalue_0',['INITIALISATION_VALUE',['../anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ad35dc899014ff8564722e52ce1019c72',1,'main.c']]]
 ];

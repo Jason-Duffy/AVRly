@@ -10,10 +10,6 @@ var NAVTREEINDEX0 =
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2pin__defines_8h.html#a5ebaa76de0dba97075bb5ddd49eb4bdd":[5,0,0,0,0,3,1],
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2pin__defines_8h_source.html":[5,0,0,0,0,3],
 "annotated.html":[4,0],
-"blink_8c.html":[5,0,0,1,0,0],
-"blink_8c.html#a6e518f3cca5a900d14fa0c99d6223f6d":[5,0,0,1,0,0,2],
-"blink_8c.html#af492c45e443abbdbe7aa6c5da36c412d":[5,0,0,1,0,0,0],
-"blink_8c.html#afc227daac655fc74c1537c0555055987":[5,0,0,1,0,0,1],
 "blink_8c_source.html":[5,0,0,1,0,0],
 "blink_8h.html":[5,0,0,1,0,1],
 "blink_8h.html#a6e518f3cca5a900d14fa0c99d6223f6d":[5,0,0,1,0,1,1],
@@ -101,8 +97,6 @@ var NAVTREEINDEX0 =
 "files.html":[5,0],
 "functions.html":[4,2,0],
 "functions_vars.html":[4,2,1],
-"getting-started_2source_2main_8c.html":[5,0,0,1,0,2],
-"getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4":[5,0,0,1,0,2,0],
 "getting-started_2source_2main_8c_source.html":[5,0,0,1,0,2],
 "getting-started_2source_2pin__defines_8h.html":[5,0,0,1,0,3],
 "getting-started_2source_2pin__defines_8h.html#a2eb4252b35effe1188cb61b6124fa617":[5,0,0,1,0,3,1],
@@ -249,5 +243,11 @@ var NAVTREEINDEX0 =
 "md_content_getting_started__getting_started.html#autotoc_md44":[0,4,2,0],
 "md_content_getting_started__getting_started.html#autotoc_md45":[0,5],
 "md_content_getting_started__getting_started.html#autotoc_md46":[0,6],
-"md_content_getting_started__getting_started.html#autotoc_md47":[0,6,0]
+"md_content_getting_started__getting_started.html#autotoc_md47":[0,6,0],
+"md_content_getting_started__getting_started.html#autotoc_md48":[0,6,1],
+"md_content_getting_started__getting_started.html#autotoc_md49":[0,6,2],
+"md_content_getting_started__getting_started.html#autotoc_md5":[0,0,1,1],
+"md_content_getting_started__getting_started.html#autotoc_md50":[0,6,3],
+"md_content_getting_started__getting_started.html#autotoc_md6":[0,0,1,1,0],
+"md_content_getting_started__getting_started.html#autotoc_md7":[0,0,1,1,1]
 };

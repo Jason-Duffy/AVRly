@@ -102,6 +102,7 @@ A Word on Doxygen</h1>
 <div class="line"><span class="comment"> */</span></div>
 </div><!-- fragment --><p> are ignored by Doxygen.</p>
 <p >Comment lines starting with an @ symbol are special Doxygen commands.</p>
+<p >Ordinarily (and throughout the modules on this site), it's best to only use Doxygen documentation for the header file rather than it's accompanying source file, as we are documenting the API. If you were documenting source code for other developers you might want to document the source code instead, but never both.</p>
 <h1><a class="anchor" id="autotoc_md53"></a>
 Formatting</h1>
 <p >Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, source, and Makefiles should all be limited to 80 characters wide.</p>
@@ -314,7 +315,7 @@ pin_defines.h</h1>
 <div class="line"><span class="comment">/*** end of file ***/</span></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md58"></a>
 main.c</h1>
-<p >main.c is where the <code>int <a class="el" href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main routine to be executed on the MCU.">main()</a></code> routine lives, and is the heart of the application.</p>
+<p >main.c is where the <code>int <a class="el" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main routine to be executed on MCU.">main()</a></code> routine lives, and is the heart of the application.</p>
 <p >An example file can be found in the repo <a href="https://github.com/Jason-Duffy/AVRly/blob/main/content/anatomy-of-embedded-firmware/layout-and-documentation-examples/main.c" target="_blank">here</a>, and the Doxygen output from these special comments and commands can be found <a href="https://jason-duffy.github.io/AVRly/html/anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html" target="_blank">here</a>.</p>
 <p >It begins, as usual with the Javadoc style Doxygen comment block to provide some info about the file. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
 <div class="line"><span class="comment"> * @file main.c</span></div>
@@ -331,10 +332,10 @@ main.c</h1>
 <div class="line"><span class="comment"> */</span></div>
 <div class="line"><span class="preprocessor">#define INITIALISATION_VALUE    3000</span></div>
 </div><!-- fragment --><p >Then we have structs, enums, typedefs, and variable declarations and initialisations. </p><div class="fragment"><div class="line">uint16_t returned_value = 0;</div>
-</div><!-- fragment --><p >Lastly, we have the <code><a class="el" href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main routine to be executed on the MCU.">main()</a></code> routine. Initialisation routines are called on entry of the main routine, this is the Setup stage. Then we enter the while loop, and this runs continuously until the device is powered off or a reset condition is met. The return statement is needed for valid syntax, as the special function <a class="el" href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main routine to be executed on the MCU.">main()</a> expects to return an integer value. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
+</div><!-- fragment --><p >Lastly, we have the <code><a class="el" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main routine to be executed on MCU.">main()</a></code> routine. Initialisation routines are called on entry of the main routine, this is the Setup stage. Then we enter the while loop, and this runs continuously until the device is powered off or a reset condition is met. The return statement is needed for valid syntax, as the special function <a class="el" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title="Main routine to be executed on MCU.">main()</a> expects to return an integer value. </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
 <div class="line"><span class="comment"> * Main routine to be executed on MCU.</span></div>
 <div class="line"><span class="comment"> */</span></div>
-<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// Initialisation routines go here. </span></div>
 <div class="line">    <a class="code hl_function" href="filename_8c.html#a79a38b8a0c6ba34854b450330b82ebd8">init_object</a>(<a class="code hl_define" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ad35dc899014ff8564722e52ce1019c72">INITIALISATION_VALUE</a>);</div>
@@ -347,7 +348,7 @@ main.c</h1>
 <div class="line">    <span class="keywordflow">return</span> 0; <span class="comment">// This line is never reached. </span></div>
 <div class="line">}</div>
 <div class="ttc" id="aanatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c_html_ad35dc899014ff8564722e52ce1019c72"><div class="ttname"><a href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ad35dc899014ff8564722e52ce1019c72">INITIALISATION_VALUE</a></div><div class="ttdeci">#define INITIALISATION_VALUE</div><div class="ttdoc">Avoid using magic bumbers, use defines or typedef enums instead.</div><div class="ttdef"><b>Definition:</b> <a href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c_source.html#l00039">main.c:39</a></div></div>
-<div class="ttc" id="agetting-started_2source_2main_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main routine to be executed on the MCU.</div><div class="ttdef"><b>Definition:</b> <a href="getting-started_2source_2main_8c_source.html#l00045">main.c:45</a></div></div>
+<div class="ttc" id="aanatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main routine to be executed on MCU.</div><div class="ttdef"><b>Definition:</b> <a href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c_source.html#l00046">main.c:46</a></div></div>
 </div><!-- fragment --><p >This application that will be run on the target MCU as a superloop. <img src="super-loop.jpeg" alt="" class="inline" title="Superloop Diagram"/>   </p>
 <p >The file is ended with two blank lines and an <code>/*** end of file ***/</code> comment followed by a blank line. </p><div class="fragment"><div class="line"><span class="comment">/*** end of file ***/</span></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md59"></a>

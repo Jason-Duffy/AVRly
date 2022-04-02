@@ -6,7 +6,7 @@ var indexSectionsWithContent =
   3: "bcdgilmnpr",
   4: "bcdefit",
   5: "c",
-  6: "bdilo",
+  6: "dilo",
   7: "acdghlms",
   8: "acghlm"
 };
