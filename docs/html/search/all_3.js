@@ -8,5 +8,6 @@ var searchData=
   ['debug_20tools_5',['Debug Tools',['../group__debug__tools.html',1,'']]],
   ['decimal_5fmacro_6',['DECIMAL_MACRO',['../filename_8c.html#ad0d93be93b87cde29da59e643f7c6112',1,'filename.c']]],
   ['display_5fshift_7',['display_shift',['../structlcd__config__t.html#a465f515eb846ceee1b4d8149bc929404',1,'lcd_config_t']]],
-  ['displays_8',['Displays',['../group__displays.html',1,'']]]
+  ['displays_8',['Displays',['../group__displays.html',1,'']]],
+  ['do_5fsome_5fhelpful_5fstuff_9',['do_some_helpful_stuff',['../filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a',1,'filename.c']]]
 ];
