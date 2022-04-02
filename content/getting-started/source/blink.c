@@ -20,7 +20,7 @@
  SOFTWARE.
 ******************************************************************************/
 
-/*
+/**
  * @file blink.c
  * @ingroup getting_started
  * @author Jason Duffy
