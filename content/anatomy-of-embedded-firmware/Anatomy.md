@@ -1,4 +1,5 @@
 # Anatomy of Embedded Firmware
+The style and layout guidelines shown here are based on my personal preference; of cource you are free to develop your code in whichever way you choose - this is just a guide for users who are unsure how to correctly structure their projects, or for developers contributing to this site. 
 
 ## A Word on Doxygen
 Throughout this repository, the code has been documented using [Doxygen](https://www.doxygen.nl/index.html). It's an easy way to generate documentation which stays closely coupled with the code so it's not too difficult to keep the two in line. The html for this site was also generated using Doxygen. It relies on special comments like this:
@@ -222,7 +223,7 @@ void init_object(uint16_t value)
 }
 
 
-/**
+/*
  * Get value and return it without exposing a private variable. 
  */
 uint16_t get_value(void)
