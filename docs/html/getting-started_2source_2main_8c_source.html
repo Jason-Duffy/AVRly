@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('getting-started_2source_2main_8c_sourc
   <div class="headertitle"><div class="title">main.c</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/******************************************************************************</span></div>
+<a href="getting-started_2source_2main_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/******************************************************************************</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> @copyright Copyright © 2022 by Jason Duffy.</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> </span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> Permission is hereby granted, free of charge, to any person obtaining a copy</span></div>
@@ -112,8 +112,8 @@ $(document).ready(function(){initNavTree('getting-started_2source_2main_8c_sourc
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> SOFTWARE.</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">******************************************************************************/</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"></span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * @file main.c</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @ingroup getting_started</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * @author Jason Duffy</span></div>
@@ -131,32 +131,34 @@ $(document).ready(function(){initNavTree('getting-started_2source_2main_8c_sourc
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">// Include the header from our blink module.</span></div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;<a class="code" href="blink_8h.html">blink.h</a>&quot;</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">//Main routine to be executed on the MCU.</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keywordtype">int</span> <a class="code hl_function" href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <a class="code hl_function" href="blink_8c.html#afc227daac655fc74c1537c0555055987">init_led</a>(); <span class="comment">// Call function to initialise LED for use.</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">while</span> (1) <span class="comment">// Loop forever</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_function" href="blink_8c.html#a6e518f3cca5a900d14fa0c99d6223f6d">blink_led</a>();</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keywordflow">return</span> 0; <span class="comment">// This line is never reached. </span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">/*** end of file ***/</span></div>
-<div class="ttc" id="aanatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main routine to be executed on MCU.</div><div class="ttdef"><b>Definition:</b> <a href="anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c_source.html#l00046">main.c:46</a></div></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * Main routine to be executed on the MCU.</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">   45</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <a class="code hl_function" href="blink_8c.html#afc227daac655fc74c1537c0555055987">init_led</a>(); <span class="comment">// Call function to initialise LED for use.</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordflow">while</span> (1) <span class="comment">// Loop forever</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_function" href="blink_8c.html#a6e518f3cca5a900d14fa0c99d6223f6d">blink_led</a>();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordflow">return</span> 0; <span class="comment">// This line is never reached. </span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">/*** end of file ***/</span></div>
 <div class="ttc" id="ablink_8c_html_a6e518f3cca5a900d14fa0c99d6223f6d"><div class="ttname"><a href="blink_8c.html#a6e518f3cca5a900d14fa0c99d6223f6d">blink_led</a></div><div class="ttdeci">void blink_led(void)</div><div class="ttdoc">Call this function in the loop of the main() routine to blink the LED.</div><div class="ttdef"><b>Definition:</b> <a href="blink_8c_source.html#l00064">blink.c:64</a></div></div>
 <div class="ttc" id="ablink_8c_html_afc227daac655fc74c1537c0555055987"><div class="ttname"><a href="blink_8c.html#afc227daac655fc74c1537c0555055987">init_led</a></div><div class="ttdeci">void init_led(void)</div><div class="ttdoc">Call this function once on entry of main() routine to configure settings and initialise the LED for u...</div><div class="ttdef"><b>Definition:</b> <a href="blink_8c_source.html#l00055">blink.c:55</a></div></div>
 <div class="ttc" id="ablink_8h_html"><div class="ttname"><a href="blink_8h.html">blink.h</a></div><div class="ttdoc">Driver for example application from Getting Started with Blink. This file also serves to demonstrate ...</div></div>
+<div class="ttc" id="agetting-started_2source_2main_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main routine to be executed on the MCU.</div><div class="ttdef"><b>Definition:</b> <a href="getting-started_2source_2main_8c_source.html#l00045">main.c:45</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9c069a2336cfd446496c25258e848904.html">content</a></li><li class="navelem"><a class="el" href="dir_2cdafb8c6d974097f01385cb73faa9ec.html">getting-started</a></li><li class="navelem"><a class="el" href="dir_af10c8a4d74e370c9ca6172b48728bea.html">source</a></li><li class="navelem"><b>main.c</b></li>
+    <li class="navelem"><a class="el" href="dir_9c069a2336cfd446496c25258e848904.html">content</a></li><li class="navelem"><a class="el" href="dir_2cdafb8c6d974097f01385cb73faa9ec.html">getting-started</a></li><li class="navelem"><a class="el" href="dir_af10c8a4d74e370c9ca6172b48728bea.html">source</a></li><li class="navelem"><a class="el" href="getting-started_2source_2main_8c.html">main.c</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
