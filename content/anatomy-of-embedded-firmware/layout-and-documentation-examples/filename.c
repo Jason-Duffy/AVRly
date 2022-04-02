@@ -69,8 +69,8 @@ void do_some_helpful_stuff(void);
 
 
 /*
- * Note that in the C source files, I've switched back to regular C style comment blocks. 
- * This is so that Doxygen ignores them. 
+ * Note that in the C source files, I've switched back to regular C style comment
+ * blocks for public function definitions. This is so that Doxygen ignores them. 
  */
 void init_object(uint16_t value)
 {
