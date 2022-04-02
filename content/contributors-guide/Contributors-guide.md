@@ -24,8 +24,41 @@ Avoid using bulky standard library functions as these can link in alot of unwant
 ## Bugs
 Known bugs in your own work should be documented in the Doxygen special comment block at the top of the file, using the `@bug` command. Ideally, don't submit work with known bugs, but if it's minor, the module generally works well and you feel you need other contributors to help you solve the issue, thats what `@bug` is there for. Opening and solving "Issues" on the Github repo is also encouraged where necessary. 
 
-## Submitting a Pull Request
+## Development Process
+My personal preference for managing the Git workflow is [Github Desktop][Github_Desktop_URL] as I think it provides the most clarity, but some users may prefer to use Git in the command line. The steps described below are for Github Desktop. I'll outline the basics here, but for an in-depth guide on the git workflow, see their documentation [here][Github_Desktop_Docs_URL].
 
+### Cloning/Forking the Repository
+In the **File** menu, go to **Clone Repository**, then select the **URL** tab. In the **URL** field, paste in the following: https://github.com/Jason-Duffy/AVRly
+
+In the **Local Path** field, select the location you'd like your local repo to be stored. Ensure the last directory in the path is empty. If the location you want has files in already, you can just create a new subdirectory by adding the new folder name on the end of the path. Then click **Clone**.
+
+![Clone Repository](./images/git_clone.png)
+
+As you will not have write access to this repository, Github will create a fork, and will ask you how you plan to use it. Select **To contribute to the parent project** if you plan on doing so, otherwise select **For my own purposes**, then click **Continue**.
+
+### Workflow
+Use the development branch while working on your code, try to make regular commits with a message briefly explaining the changes you have made. This is valuable for yourself and others to see what has been done, when and why. Of course when working on your cloned or forked repo you can create as many branches as youd like and call them whatever you like - this is just a guide. 
+
+![Commit Message](./images/commit_message.png)
+
+Once you reach a stage where your code is working as you'd like, it's a good idea to either **merge** the changes on development into your main branch, or create a **pull request** to pull your changes into main branch. When working on your own, merging is just fine, however when collaborating with others, pull requests are generally favoured.
+
+To merge into main, first ensure all your local changes have been committed to the development branch, then switch to the main branch. Go to the **Branch** menu, then click **Merge into current branch**, and select the branch you'd like to merge into main.
+
+![Merge Branches](./images/merge_branches.png)
+
+Now that the main branch has been brought upto date, you are free to switch back to development and fiddle about with the code. If you go down a particular route and find it was huge mistake and everythign breaks, you still have your main branch intact. Your commits can also be reverted in the **History** tab. You can push those commits from your local repo to the remote repo (cloud storage with Github online) by clicking **Push origin**. If changes have been made on Github online, you can bring these onto your local copy by clicking **Fetch Origin**.
+
+You may be wondering about the gh-pages branch - that's the source Github Pages uses to build this website, so unless you want to test how things will display in a web browser, you can just ignore that branch. 
+
+### Submitting a Pull Request
+Once you're confident your module is complete, has been tested and everything works as it should, you can submit a pull request for the changes to be pulled into the AVRly public main branch. Pull requests will be reviewed before being accepted, so please bear with me on those.
+
+Make sure you have the right branch selected (usually the main branch in your local repo), and click **Create Pull Request**. This will open a new browser window for Github online, where you can configure your request. The **base** is the main branch on the public AVRly repo, and **compare** is the forked branch with changes we would like to pull into the base. 
+
+![Pull Request Configuration](./images/pull_request.png)
+
+Give as much information as you can about the changes you made and why you made them. This will be used to review your changes and decide whwther to accept or reject them. Once this is done, click "Create Pull Request" and it will be submitted for review. If your request is rejected, please try not to take it too personally - I'll try to provide as much information about why the request was declined on code review, and give pointers where I can. 
 
 
 [Firmware_Anatomy_URL]: https://jason-duffy.github.io/AVRly/html/md_content_anatomy_of_embedded_firmware__anatomy.html
@@ -39,3 +72,7 @@ Known bugs in your own work should be documented in the Doxygen special comment 
 [Github_Repo_URL]: https://github.com/Jason-Duffy/AVRly
 
 [Templates_URL]: https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/templates
+
+[Github_Desktop_URL]: https://desktop.github.com/
+
+[Github_Desktop_Docs_URL]: https://docs.github.com/en/desktop

@@ -43,14 +43,12 @@
 
 
 
-/**
- * Define the blink delay time in milliseconds here.
- */
+// Define the blink delay time in milliseconds here.
 #define BLINK_TIME_MS   1000
 
 
 
-/**
+/*
  * Call this function once on entry of main() routine to configure settings and
  * initialise the LED for use. 
  */
@@ -60,7 +58,7 @@ void init_led(void)
 }
 
 
-/**
+/*
  * Call this function in the loop of the main() routine to blink the LED.
  */
 void blink_led(void)
