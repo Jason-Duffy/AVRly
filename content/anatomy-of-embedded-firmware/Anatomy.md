@@ -144,13 +144,15 @@ Begin with a licence and copyright notice as before, and then the Doxygen comman
 ```C
 /**
  * @file filename.c
+ * @ingroup anatomy
  * @author Your Name Here.
  * @date 15th March 2022
- * @brief The brief description goes here. After the first full stop, this text
- * becomes the detailed description. Add an explanation of the purpose and
- * limitations of the module, along with any other notes that may be useful to
- * others using it. In the Doxyfile, ensure JAVADOC_BANNER = YES, and
- * JAVADOC_AUTOBRIEF = YES, to use this style of commenting. 
+ * @brief The brief description goes here, keep it relatively short and to the
+ * point. 
+ * 
+ * After the brief, this text becomes the detailed description. Add an
+ * explanation of the purpose and limitations of the module, along with any
+ * other notes that may be useful to others using it.
  * @bug Known bugs are declared and described here.
  * @see "See also" links go here https://www.doxygen.nl/manual/docblocks.html
  */
