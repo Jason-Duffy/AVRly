@@ -82,7 +82,9 @@ void init_object(uint16_t value)
 }
 
 
-// Returns the value of file_scope_variable
+/*
+ * Get value and return it without exposing a private variable. 
+ */
 uint16_t get_value(void)
 {
     return file_scope_variable;
