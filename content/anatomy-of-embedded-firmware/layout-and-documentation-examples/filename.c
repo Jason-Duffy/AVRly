@@ -89,7 +89,7 @@ uint16_t get_value(void)
 }
 
 
-/*
+/**
  * Helper function definitions come last, though their declarations are at the
  * top of the file. 
  */
