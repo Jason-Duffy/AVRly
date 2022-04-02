@@ -1,6 +1,8 @@
 /**
  * @defgroup getting_started Getting Started with Blink
  * @brief Documentation for the files referenced in Getting Started with Blink.
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/getting-started/source
  */
 
 /**
@@ -17,6 +19,8 @@
  * @defgroup mcp48x2 MCP48x2 DAC Example
  * @brief Driver for the MCP48x2 family of DAC chips from Microchip.
  * @ingroup data_converters
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/data-converters/mcp48x2_dac
  */
 
 /**
@@ -25,6 +29,8 @@
  * @defgroup log_system Log System Example
  * @brief Logging subsystem to print debug messages over USART to PC.
  * @ingroup debug_tools
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/debug-tools/log-system
  */
 
 /**
@@ -33,6 +39,8 @@
  * @defgroup hd44780_lcd HD44780 16x2 LCD Example
  * @brief Driver for the HD44780 based 16x2 liquid crystal display.
  * @ingroup displays
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd
  */
 
  /**
@@ -41,4 +49,6 @@
  * @defgroup ccs811 CCS811 Gas Sensor
  * @brief Driver for the CCS811 gas sensor. 
  * @ingroup sensors
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/sensors/ccs811_sensor
  */
