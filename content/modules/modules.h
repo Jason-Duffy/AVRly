@@ -20,7 +20,7 @@
  * @brief Driver for the MCP48x2 family of DAC chips from Microchip.
  * @ingroup data_converters
  * @see The files can be downloaded from the repo at:
- * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/data-converters/mcp48x2_dac
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/data-converters/mcp48x2_dac/example
  * 
  * Repository contents:
  */
@@ -32,7 +32,7 @@
  * @brief Logging subsystem to print debug messages over USART to PC.
  * @ingroup debug_tools
  * @see The files can be downloaded from the repo at:
- * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/debug-tools/log-system
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/debug-tools/log-system/example
  * 
  * Repository contents:
  */
@@ -44,7 +44,7 @@
  * @brief Driver for the HD44780 based 16x2 liquid crystal display.
  * @ingroup displays
  * @see The files can be downloaded from the repo at:
- * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd/example
  * 
  * Repository contents:
  */
@@ -56,7 +56,7 @@
  * @brief Driver for the CCS811 gas sensor. 
  * @ingroup sensors
  * @see The files can be downloaded from the repo at:
- * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/sensors/ccs811_sensor
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/sensors/ccs811_sensor/example
  * 
  * Repository contents:
  */
