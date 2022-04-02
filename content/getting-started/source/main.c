@@ -20,7 +20,7 @@
  SOFTWARE.
 ******************************************************************************/
 
-/*
+/**
  * @file main.c
  * @ingroup getting_started
  * @author Jason Duffy
@@ -39,7 +39,9 @@
 #include "blink.h"
 
 
-//Main routine to be executed on the MCU.
+/**
+ * Main routine to be executed on the MCU.
+ */
 int main()
 {
     init_led(); // Call function to initialise LED for use.
