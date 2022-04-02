@@ -1,5 +1,5 @@
 /******************************************************************************
-Copyright © 2022 by Jason Duffy.
+ @copyright Copyright © 2022 by Jason Duffy.
  
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -21,17 +21,17 @@ Copyright © 2022 by Jason Duffy.
 ******************************************************************************/
 
 /*
- * File: main.c
- * Group: getting_started
- * Author: Jason Duffy
- * Date: 15th March 2022
- * Brief: Main routine for the Blink example application in Getting Started.
+ * @file main.c
+ * @ingroup getting_started
+ * @author Jason Duffy
+ * @date 15th March 2022
+ * @brief Main routine for the Blink example application in Getting Started.
  * This example application is intended to verify the configuration steps for
  * the MCU have been performed correctly and everything is working as it
  * should. The LED should turn on for 1 second, then turn off for 1 second, and
  * repeat. This file also serves to demonstrate the anatomy of embedded
  * firmware. 
- * Bugs: No known bugs. 
+ * @bug No known bugs. 
  * 
  */
 
@@ -39,9 +39,7 @@ Copyright © 2022 by Jason Duffy.
 #include "blink.h"
 
 
-/*
- * Main routine to be executed on the MCU.
- */
+//Main routine to be executed on the MCU.
 int main()
 {
     init_led(); // Call function to initialise LED for use.

@@ -43,9 +43,7 @@
 
 
 
-/*
- * Define the blink delay time in milliseconds here.
- */
+// Define the blink delay time in milliseconds here.
 #define BLINK_TIME_MS   1000
 
 

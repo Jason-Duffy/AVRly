@@ -21,7 +21,8 @@ are ignored by Doxygen.
 
 Comment lines starting with an @ symbol are special Doxygen commands.
 
-Ordinarily (and throughout the modules on this site), it's best to only use Doxygen documentation for the header file rather than it's accompanying source file, as we are documenting the API. If you were documenting source code for other developers you might want to document the source code instead, but never both. 
+Ordinarily it's best to only use Doxygen documentation for the public function declarations in the header file rather than the source file definitions, as we are documenting the API. If you were documenting source code for other developers you might want to document the source code instead, but never both. If you provide a **brief** for both, then the one from the **declaration** will be used, the other will be ignored. If you provide a **detailed description** for both, the one for the **definition** is used and the other ignored.
+
 
 ## Formatting
 Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, source, and Makefiles should all be limited to 80 characters wide. 
@@ -207,12 +208,9 @@ void do_some_helpful_stuff(void);
 
 Now we have the definitions for the public functions, listed in the same order as they appear in the header file, with the initialisation routine first. 
 ```C
-/**
- * This is a Javadoc style comment. Again, after the first full stop the text
- * becomes a detailed description. Explain how to use the function here.
- * Initialisation function names should start with 'init' and appear first.
- * @param List the parameters here. 
- * @return Declare the return type here (not needed for void return type).
+/*
+ * Note that in the C source files, I've switched back to regular C style comment blocks. 
+ * This is so that Doxygen ignores them. 
  */
 void init_object(uint16_t value)
 {
