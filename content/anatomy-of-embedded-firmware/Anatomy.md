@@ -58,7 +58,7 @@ The licence and copyright notice are enclosed in a Javadoc style banner, which D
 
 
 ## C Header Files
-The purpose of a C header file is to provide public data which can be shared with other files. 
+The purpose of a C header file is to provide public data which can be shared with other files. Users wanting to get a feel for how to use an API will first look at the header file, as the function signatures will provide information on how to use them. 
 
 A C header file should be named after the function of the module or the peripheral that it serves. The filename should be entirely in lowercase, and the file extension is `.h`. The aim is to expose as little information as possible in the header file - just the public function declarations and any macros or typedefs etc required by other files, without them having to know too much about how it actually works.
 
