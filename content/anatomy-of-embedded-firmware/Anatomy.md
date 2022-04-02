@@ -19,7 +19,9 @@ or
 ```
 are ignored by Doxygen.
 
-Comment lines starting with an @ symbol are special Doxygen commands. 
+Comment lines starting with an @ symbol are special Doxygen commands.
+
+Ordinarily (and throughout the modules on this site), it's best to only use Doxygen documentation for the header file rather than it's accompanying source file, as we are documenting the API. If you were documenting source code for other developers you might want to document the source code instead, but never both. 
 
 ## Formatting
 Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, source, and Makefiles should all be limited to 80 characters wide. 
