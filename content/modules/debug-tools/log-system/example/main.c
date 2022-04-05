@@ -30,6 +30,7 @@
  */
 
 #include <util/delay.h>
+#include "log_system.h"
 
 static const char *p_system_tag = "Main";
 
@@ -41,7 +42,7 @@ int main()
     // Loop forever
     while(1)
     {
-        log_message(p_system_tag, INFO, "Hello, World!")
+        log_message(p_system_tag, INFO, "Hello, World!");
         _delay_ms(1000);
     }
 
