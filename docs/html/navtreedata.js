@@ -110,10 +110,6 @@ var NAVTREE =
         [ "Cloning/Forking the Repository", "md_content_contributors_guide__contributors_guide.html#autotoc_md67", null ],
         [ "Workflow", "md_content_contributors_guide__contributors_guide.html#autotoc_md68", null ],
         [ "Submitting a Pull Request", "md_content_contributors_guide__contributors_guide.html#autotoc_md69", null ]
-      ] ],
-      [ "MCP48x2 Dual Channel DAC", "group__mcp48x2.html#autotoc_md70", [
-        [ "Introduction", "group__mcp48x2.html#autotoc_md71", null ],
-        [ "Hookup", "group__mcp48x2.html#autotoc_md72", null ]
       ] ]
     ] ],
     [ "Modules", "modules.html", "modules" ],
@@ -140,7 +136,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html",
-"md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md56"
+"md_content_contributors_guide__contributors_guide.html#autotoc_md65"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

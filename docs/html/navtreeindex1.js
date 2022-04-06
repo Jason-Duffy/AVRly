@@ -1,14 +1,5 @@
 var NAVTREEINDEX1 =
 {
-"md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md56":[1,4],
-"md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md57":[1,5],
-"md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md58":[1,6],
-"md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md59":[1,7],
-"md_content_anatomy_of_embedded_firmware__anatomy.html#autotoc_md60":[1,8],
-"md_content_contributors_guide__contributors_guide.html":[2],
-"md_content_contributors_guide__contributors_guide.html#autotoc_md62":[2,0],
-"md_content_contributors_guide__contributors_guide.html#autotoc_md63":[2,1],
-"md_content_contributors_guide__contributors_guide.html#autotoc_md64":[2,2],
 "md_content_contributors_guide__contributors_guide.html#autotoc_md65":[2,3],
 "md_content_contributors_guide__contributors_guide.html#autotoc_md66":[2,4],
 "md_content_contributors_guide__contributors_guide.html#autotoc_md67":[2,4,0],
