@@ -137,7 +137,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html",
-"md_content_getting_started__getting_started.html#autotoc_md43"
+"md_content_contributors_guide__contributors_guide.html#autotoc_md66"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
