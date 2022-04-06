@@ -8,6 +8,17 @@ This module was tested on an MCP4812 10 bit DAC, but should also work with the o
 ## Hookup
 The host MCU sends data to the DAC using the SPI (Serial Peripheral Interface) protocol. For a quick guide on SPI communication, take a look at the module [here][SPI_Module_URL].
 
+![MCP48x2 Pinout](.images/mcp4812_pinout.png)
+
+Pin function:
+- (1) VDD - Positive supply pin, 2.7V to 5.5V.
+- (2) CS - Chip Select pin, device is selected when this is pulled low. 
+- (3) SCK - Serial Clock signal from host MCU.
+- (4) SDI - Serial Data Input pin - same as MOSI.
+- (5) LDAC - Latch pin, to control when outputs are updated with new values.
+- (6) VoutB - Output pin for Channel B.
+- (7) Vss - Ground connection. 
+- (8) VoutA - Output pin for Channel A.
 
 ## API Reference
 
