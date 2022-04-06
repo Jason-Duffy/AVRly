@@ -129,24 +129,31 @@ Pinout</h2>
 <img src="mcp48x2_pinout.png" alt=""/>
 <div class="caption">
 MCP48x2 Pinout</div></div>
-   <p >Pin function:</p><ul>
-<li>(1) VDD - Positive supply pin, 2.7V to 5.5V.</li>
-<li>(2) CS - Chip Select pin, device is selected when this is pulled low.</li>
-<li>(3) SCK - Serial Clock signal from host MCU.</li>
-<li>(4) SDI - Serial Data Input pin - same as MOSI.</li>
-<li>(5) LDAC - Latch pin, to control when outputs are updated with new values. Pull low to latch new values into outputs.</li>
-<li>(6) VoutB - Output pin for Channel B.</li>
-<li>(7) Vss - Ground connection.</li>
-<li>(8) VoutA - Output pin for Channel A.</li>
-</ul>
+   <table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Pin   </th><th class="markdownTableHeadNone">Function    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">(1) VDD   </td><td class="markdownTableBodyNone">Positive supply pin, 2.7V to 5.5V    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">(2) CS   </td><td class="markdownTableBodyNone">Chip Select pin, device is selected when this is pulled low    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">(3) SCK   </td><td class="markdownTableBodyNone">Serial Clock signal from host MCU    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">(4) SDI   </td><td class="markdownTableBodyNone">Serial Data Input pin - same as MOSI    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">(5) LDAC   </td><td class="markdownTableBodyNone">Latch pin, to control when outputs are updated with new values. Pull low to latch new values into outputs    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">(6) VoutB   </td><td class="markdownTableBodyNone">Output pin for Channel B    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">(8) VoutA   </td><td class="markdownTableBodyNone">Output pin for Channel A   </td></tr>
+</table>
 <h2><a class="anchor" id="autotoc_md72"></a>
 Hookup</h2>
 <div class="image">
 <img src="mcp48x2_hookup.png" alt=""/>
 <div class="caption">
 MCP48x2 Hookup</div></div>
-   <ul>
-<li>Connections:</li>
+   <p >Connections:</p><ul>
 <li>(1) VDD - +5V Supply. Decoupling caps are recommended but optional.</li>
 <li>(2) CS - Connect to PB2.</li>
 <li>(3) SCK - Connect to PB5.</li>
