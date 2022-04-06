@@ -122,9 +122,9 @@ Files</h2></td></tr>
 Introduction</h2>
 <p >The MCP48x2 series from Microchip are dual buffered output <a href="https://en.wikipedia.org/wiki/Digital-to-analog_converter" target="_blank">Digital to Analog converters</a> available in 8 bit, 10 bit and 12 bit resolutions. These devices operate from a single 2.7V to 5.5V supply and an <a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface" target="_blank">SPI</a> interface, and can be used for sensor calibration, hardware self-testing, op-amp control, programmable voltage reference and more.</p>
 <p >This module was tested on an MCP4812 10 bit DAC, but should also work with the other models if configured correctly. The datasheet for all 3 devices can be found <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/20002249B.pdf" target="_blank">here</a>.</p>
+<p >The host MCU sends data to the DAC using the SPI (Serial Peripheral Interface) protocol. For a quick guide on SPI communication, take a look at the module <a href="https://jason-duffy.github.io/AVRly/html/group__spi.html" target="_blank">here</a>.</p>
 <h2><a class="anchor" id="autotoc_md71"></a>
-Hookup</h2>
-<p >The host MCU sends data to the DAC using the SPI (Serial Peripheral Interface) protocol. For a quick guide on SPI communication, take a look at the module [here][SPI_Module_URL].</p>
+Pinout</h2>
 <div class="image">
 <img src="mcp48x2_pinout.png" alt=""/>
 <div class="caption">
@@ -134,12 +134,29 @@ MCP48x2 Pinout</div></div>
 <li>(2) CS - Chip Select pin, device is selected when this is pulled low.</li>
 <li>(3) SCK - Serial Clock signal from host MCU.</li>
 <li>(4) SDI - Serial Data Input pin - same as MOSI.</li>
-<li>(5) LDAC - Latch pin, to control when outputs are updated with new values.</li>
+<li>(5) LDAC - Latch pin, to control when outputs are updated with new values. Pull low to latch new values into outputs.</li>
 <li>(6) VoutB - Output pin for Channel B.</li>
 <li>(7) Vss - Ground connection.</li>
 <li>(8) VoutA - Output pin for Channel A.</li>
 </ul>
 <h2><a class="anchor" id="autotoc_md72"></a>
+Hookup</h2>
+<div class="image">
+<img src="mcp48x2_hookup.png" alt=""/>
+<div class="caption">
+MCP48x2 Hookup</div></div>
+   <ul>
+<li>Connections:</li>
+<li>(1) VDD - +5V Supply. Decoupling caps are recommended but optional.</li>
+<li>(2) CS - Connect to PB2.</li>
+<li>(3) SCK - Connect to PB5.</li>
+<li>(4) SDI - Connect to PB3.</li>
+<li>(5) LDAC - Optional, if latching of output is desired, connect to PB1. If not required, tie to GND.</li>
+<li>(6) VoutB - Multimeter 1 test probe.</li>
+<li>(7) Vss - Ground.</li>
+<li>(8) VoutA - Multimeter 2 test probe.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md73"></a>
 API Reference</h2>
 <p >Before initialising the DAC for use, you'll need to instantiate a <a class="el" href="structdac__config__t.html">dac_config_t</a> object, and set the configuration values you'd like.</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="structdac__config__t.html">dac_config_t</a> dac_config =</div>
@@ -156,7 +173,7 @@ API Reference</h2>
 <div class="line">    .channel_b.level = 0,</div>
 <div class="line">};</div>
 <div class="ttc" id="astructdac__config__t_html"><div class="ttname"><a href="structdac__config__t.html">dac_config_t</a></div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8h_source.html#l00061">mcp48x2_dac.h:62</a></div></div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md73"></a>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md74"></a>
 Members</h3>
 <ul>
 <li>model: Valid selections are mcp4802, mcp4812 or mcp4822.</li>
