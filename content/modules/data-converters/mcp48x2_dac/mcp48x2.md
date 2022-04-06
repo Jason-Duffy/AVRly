@@ -19,21 +19,25 @@ The host MCU sends data to the DAC using the SPI (Serial Peripheral Interface) p
 | (4) SDI   | Serial Data Input pin - same as MOSI |
 | (5) LDAC  | Latch pin, to control when outputs are updated with new values. Pull low to latch new values into outputs |
 | (6) VoutB  | Output pin for Channel B |
+| (7) Vss    | Ground connection |
 | (8) VoutA  | Output pin for Channel A |
 
 ## Hookup
 
 ![MCP48x2 Hookup](./images/mcp48x2_hookup.png)
 
-Connections:
-- (1) VDD - +5V Supply. Decoupling caps are recommended but optional.
-- (2) CS - Connect to PB2. 
-- (3) SCK - Connect to PB5.
-- (4) SDI - Connect to PB3.
-- (5) LDAC - Optional, if latching of output is desired, connect to PB1. If not required, tie to GND.
-- (6) VoutB - Multimeter 1 test probe. 
-- (7) Vss - Ground. 
-- (8) VoutA - Multimeter 2 test probe. 
+| Pin       | Connection   |
+| --------- | ------------ |
+| (1) VDD   | +5V Supply. Decoupling caps are recommended but optional |
+| (2) CS    | Connect to PB2 |
+| (3) SCK   | Connect to PB5 |
+| (4) SDI   | Connect to PB3 |
+| (5) LDAC  | Optional, if latching of output is desired, connect to PB1. If not required, tie to GND |
+| (6) VoutB | Multimeter 1 test probe |
+| (7) Vss   | Ground |
+| (8) VoutA | Multimeter 2 test probe |
+
+Note that there is no connection to the host MCU MISO pin, as this device is write only - the data only goes in one direction, from the MCU to the DAC.
 
 ## API Reference
 
