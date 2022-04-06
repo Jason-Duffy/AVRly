@@ -145,6 +145,8 @@ MCP48x2 Pinout</div></div>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">(6) VoutB   </td><td class="markdownTableBodyNone">Output pin for Channel B    </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">(7) Vss   </td><td class="markdownTableBodyNone">Ground connection    </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">(8) VoutA   </td><td class="markdownTableBodyNone">Output pin for Channel A   </td></tr>
 </table>
 <h2><a class="anchor" id="autotoc_md72"></a>
@@ -153,16 +155,27 @@ Hookup</h2>
 <img src="mcp48x2_hookup.png" alt=""/>
 <div class="caption">
 MCP48x2 Hookup</div></div>
-   <p >Connections:</p><ul>
-<li>(1) VDD - +5V Supply. Decoupling caps are recommended but optional.</li>
-<li>(2) CS - Connect to PB2.</li>
-<li>(3) SCK - Connect to PB5.</li>
-<li>(4) SDI - Connect to PB3.</li>
-<li>(5) LDAC - Optional, if latching of output is desired, connect to PB1. If not required, tie to GND.</li>
-<li>(6) VoutB - Multimeter 1 test probe.</li>
-<li>(7) Vss - Ground.</li>
-<li>(8) VoutA - Multimeter 2 test probe.</li>
-</ul>
+   <table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Pin   </th><th class="markdownTableHeadNone">Connection    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">(1) VDD   </td><td class="markdownTableBodyNone">+5V Supply. Decoupling caps are recommended but optional    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">(2) CS   </td><td class="markdownTableBodyNone">Connect to PB2    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">(3) SCK   </td><td class="markdownTableBodyNone">Connect to PB5    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">(4) SDI   </td><td class="markdownTableBodyNone">Connect to PB3    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">(5) LDAC   </td><td class="markdownTableBodyNone">Optional, if latching of output is desired, connect to PB1. If not required, tie to GND    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">(6) VoutB   </td><td class="markdownTableBodyNone">Multimeter 1 test probe    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">(7) Vss   </td><td class="markdownTableBodyNone">Ground    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">(8) VoutA   </td><td class="markdownTableBodyNone">Multimeter 2 test probe   </td></tr>
+</table>
+<p >Note that there is no connection to the host MCU MISO pin, as this device is write only - the data only goes in one direction, from the MCU to the DAC.</p>
 <h2><a class="anchor" id="autotoc_md73"></a>
 API Reference</h2>
 <p >Before initialising the DAC for use, you'll need to instantiate a <a class="el" href="structdac__config__t.html">dac_config_t</a> object, and set the configuration values you'd like.</p>
