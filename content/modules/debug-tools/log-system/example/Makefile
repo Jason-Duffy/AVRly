@@ -184,7 +184,7 @@ set_default_fuses:  FUSE_STRING = -U lfuse:w:$(LFUSE):m -U hfuse:w:$(HFUSE):m \
 -U efuse:w:$(EFUSE):m 
 set_default_fuses:  fuses
 
-## Called with no extra definitions, sets to defaults
+## Called with no extra definitions, sets custom values
 set_custom_fuses:  FUSE_STRING = -U lfuse:w:$(LFUSE_CUSTOM):m \
 -U hfuse:w:$(HFUSE_CUSTOM):m -U efuse:w:$(EFUSE_CUSTOM):m 
 set_custom_fuses:  fuses
