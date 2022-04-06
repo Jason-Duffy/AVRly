@@ -67,7 +67,7 @@
  * features such as timers and counters, interrupts etc. 
  * @defgroup timer_counter Timer/Counter
  * @ingroup avr_peripherals
- * @defgroup digital-clock Digital Clock
+ * @defgroup digital_clock Digital Clock
  * @ingroup timer_counter
  * @see The files can be downloaded from the repo at:
  * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/avr-peripheral-features/timer-counter/digital-clock/example
