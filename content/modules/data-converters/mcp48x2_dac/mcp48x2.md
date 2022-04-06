@@ -11,21 +11,21 @@ The host MCU sends data to the DAC using the SPI (Serial Peripheral Interface) p
 
 ![MCP48x2 Pinout](./images/mcp48x2_pinout.png)
 
-Pin function:
-- (1) VDD - Positive supply pin, 2.7V to 5.5V.
-- (2) CS - Chip Select pin, device is selected when this is pulled low. 
-- (3) SCK - Serial Clock signal from host MCU.
-- (4) SDI - Serial Data Input pin - same as MOSI.
-- (5) LDAC - Latch pin, to control when outputs are updated with new values. Pull low to latch new values into outputs. 
-- (6) VoutB - Output pin for Channel B.
-- (7) Vss - Ground connection. 
-- (8) VoutA - Output pin for Channel A.
+| Pin       | Function  |
+| --------- | --------- |
+| (1) VDD   | Positive supply pin, 2.7V to 5.5V |
+| (2) CS    | Chip Select pin, device is selected when this is pulled low |
+| (3) SCK   | Serial Clock signal from host MCU |
+| (4) SDI   | Serial Data Input pin - same as MOSI |
+| (5) LDAC  | Latch pin, to control when outputs are updated with new values. Pull low to latch new values into outputs |
+| (6) VoutB  | Output pin for Channel B |
+| (8) VoutA  | Output pin for Channel A |
 
 ## Hookup
 
 ![MCP48x2 Hookup](./images/mcp48x2_hookup.png)
 
-- Connections:
+Connections:
 - (1) VDD - +5V Supply. Decoupling caps are recommended but optional.
 - (2) CS - Connect to PB2. 
 - (3) SCK - Connect to PB5.
