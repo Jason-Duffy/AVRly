@@ -193,7 +193,7 @@ var NAVTREEINDEX0 =
 "group__ccs811.html#md_content_modules_sensors_ccs811_sensor_ccs811":[3,5,0,10],
 "group__data__converters.html":[3,2],
 "group__debug__tools.html":[3,3],
-"group__digital-clock.html":[3,6,0,0],
+"group__digital__clock.html":[3,6,0,0],
 "group__displays.html":[3,4],
 "group__getting__started.html":[3,0],
 "group__hd44780__lcd.html":[3,4,0],
