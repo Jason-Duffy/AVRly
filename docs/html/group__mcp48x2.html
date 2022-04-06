@@ -125,6 +125,20 @@ Introduction</h2>
 <h2><a class="anchor" id="autotoc_md71"></a>
 Hookup</h2>
 <p >The host MCU sends data to the DAC using the SPI (Serial Peripheral Interface) protocol. For a quick guide on SPI communication, take a look at the module [here][SPI_Module_URL].</p>
+<div class="image">
+<img src="mcp48x2_pinout.png" alt=""/>
+<div class="caption">
+MCP48x2 Pinout</div></div>
+   <p >Pin function:</p><ul>
+<li>(1) VDD - Positive supply pin, 2.7V to 5.5V.</li>
+<li>(2) CS - Chip Select pin, device is selected when this is pulled low.</li>
+<li>(3) SCK - Serial Clock signal from host MCU.</li>
+<li>(4) SDI - Serial Data Input pin - same as MOSI.</li>
+<li>(5) LDAC - Latch pin, to control when outputs are updated with new values.</li>
+<li>(6) VoutB - Output pin for Channel B.</li>
+<li>(7) Vss - Ground connection.</li>
+<li>(8) VoutA - Output pin for Channel A.</li>
+</ul>
 <h2><a class="anchor" id="autotoc_md72"></a>
 API Reference</h2>
 <p >Before initialising the DAC for use, you'll need to instantiate a <a class="el" href="structdac__config__t.html">dac_config_t</a> object, and set the configuration values you'd like.</p>
