@@ -8,7 +8,7 @@ This module was tested on an MCP4812 10 bit DAC, but should also work with the o
 ## Hookup
 The host MCU sends data to the DAC using the SPI (Serial Peripheral Interface) protocol. For a quick guide on SPI communication, take a look at the module [here][SPI_Module_URL].
 
-![MCP48x2 Pinout](.images/mcp4812_pinout.png)
+![MCP48x2 Pinout](./images/mcp4812_pinout.png)
 
 Pin function:
 - (1) VDD - Positive supply pin, 2.7V to 5.5V.
