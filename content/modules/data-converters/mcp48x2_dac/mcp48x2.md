@@ -5,8 +5,9 @@ The MCP48x2 series from Microchip are dual buffered output [Digital to Analog co
 
 This module was tested on an MCP4812 10 bit DAC, but should also work with the other models if configured correctly. The datasheet for all 3 devices can be found [here][MCP48x2_Datasheet_URL].
 
-## Hookup
 The host MCU sends data to the DAC using the SPI (Serial Peripheral Interface) protocol. For a quick guide on SPI communication, take a look at the module [here][SPI_Module_URL].
+
+## Pinout
 
 ![MCP48x2 Pinout](./images/mcp48x2_pinout.png)
 
@@ -15,10 +16,24 @@ Pin function:
 - (2) CS - Chip Select pin, device is selected when this is pulled low. 
 - (3) SCK - Serial Clock signal from host MCU.
 - (4) SDI - Serial Data Input pin - same as MOSI.
-- (5) LDAC - Latch pin, to control when outputs are updated with new values.
+- (5) LDAC - Latch pin, to control when outputs are updated with new values. Pull low to latch new values into outputs. 
 - (6) VoutB - Output pin for Channel B.
 - (7) Vss - Ground connection. 
 - (8) VoutA - Output pin for Channel A.
+
+## Hookup
+
+![MCP48x2 Hookup](./images/mcp48x2_hookup.png)
+
+- Connections:
+- (1) VDD - +5V Supply. Decoupling caps are recommended but optional.
+- (2) CS - Connect to PB2. 
+- (3) SCK - Connect to PB5.
+- (4) SDI - Connect to PB3.
+- (5) LDAC - Optional, if latching of output is desired, connect to PB1. If not required, tie to GND.
+- (6) VoutB - Multimeter 1 test probe. 
+- (7) Vss - Ground. 
+- (8) VoutA - Multimeter 2 test probe. 
 
 ## API Reference
 
@@ -47,3 +62,4 @@ dac_config_t dac_config =
 [DAC_URL]: https://en.wikipedia.org/wiki/Digital-to-analog_converter
 [SPI_URL]: https://en.wikipedia.org/wiki/Serial_Peripheral_Interface
 [MCP48x2_Datasheet_URL]: https://ww1.microchip.com/downloads/en/DeviceDoc/20002249B.pdf
+[SPI_Module_URL]: https://jason-duffy.github.io/AVRly/html/group__spi.html
