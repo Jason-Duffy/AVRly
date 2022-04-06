@@ -36,6 +36,9 @@
 
 #include "digital_clock.h"
 
+#define PRESCALER           64
+#define UNITS_PER_SECOND    1000
+
 /**
  * File scope variables for digital clock functionality.
  * Must be declared volatile if used in ISR. 
@@ -95,6 +98,7 @@ ISR(TIMER0_COMPA_vect)
  */
 void init_timer_counter_0(void)
 {
+    /*
     cli();
     OCR0A = 125; // Set initial compare value A.
 
@@ -102,6 +106,15 @@ void init_timer_counter_0(void)
     TCCR0B |= (1 << CS00) | (1 << CS01); // start timer with 64 prescaler
     TIMSK0 |= (1 << OCIE0A); // enable output compare interrupt for OCR4A
     sei();
+    */
+
+    cli();
+    OCR0A = (F_CPU / PRESCALER / UNITS_PER_SECOND);
+    TCCR0A |= (1 << WGM01); // CTC mode, OCR0A is TOP
+    TCCR0B |= (1 << CS00) | (1 << CS01); // start timer with 64 prescaler
+    TIMSK0 |= (1 << OCIE0A); // enable output compare interrupt for OCR4A
+    sei();
+
 }
 
 
