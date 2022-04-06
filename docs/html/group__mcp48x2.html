@@ -124,6 +124,30 @@ Introduction</h2>
 <p >This module was tested on an MCP4812 10 bit DAC, but should also work with the other models if configured correctly. The datasheet for all 3 devices can be found <a href="https://ww1.microchip.com/downloads/en/DeviceDoc/20002249B.pdf" target="_blank">here</a>.</p>
 <h2><a class="anchor" id="autotoc_md71"></a>
 Hookup</h2>
+<p >The host MCU sends data to the DAC using the SPI (Serial Peripheral Interface) protocol. For a quick guide on SPI communication, take a look at the module [here][SPI_Module_URL].</p>
+<h2><a class="anchor" id="autotoc_md72"></a>
+API Reference</h2>
+<p >Before initialising the DAC for use, you'll need to instantiate a <a class="el" href="structdac__config__t.html">dac_config_t</a> object, and set the configuration values you'd like.</p>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="structdac__config__t.html">dac_config_t</a> dac_config =</div>
+<div class="line">{</div>
+<div class="line">    .model = mcp4812,</div>
+<div class="line">    .sync_manually = <span class="keyword">false</span>,</div>
+<div class="line"> </div>
+<div class="line">    .channel_a.gain_low = <span class="keyword">false</span>,</div>
+<div class="line">    .channel_a.active = <span class="keyword">true</span>,</div>
+<div class="line">    .channel_a.level = 0,</div>
+<div class="line"> </div>
+<div class="line">    .channel_b.gain_low = <span class="keyword">false</span>,</div>
+<div class="line">    .channel_b.active = <span class="keyword">true</span>,</div>
+<div class="line">    .channel_b.level = 0,</div>
+<div class="line">};</div>
+<div class="ttc" id="astructdac__config__t_html"><div class="ttname"><a href="structdac__config__t.html">dac_config_t</a></div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8h_source.html#l00061">mcp48x2_dac.h:62</a></div></div>
+</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md73"></a>
+Members</h3>
+<ul>
+<li>model: Valid selections are mcp4802, mcp4812 or mcp4822.</li>
+<li>sync_manually: true = manual sync, false = sync automatically. </li>
+</ul>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

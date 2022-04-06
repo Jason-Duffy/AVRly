@@ -112,205 +112,204 @@ $(document).ready(function(){initNavTree('mcp48x2__dac_8c_source.html',''); init
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> SOFTWARE.</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">******************************************************************************/</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment"></span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @file mcp48x2_dac.c</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * @ingroup mcp48x2</span></div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @author Jason Duffy</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * @date 4th March 2022</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * @brief Driver for the MCP4812 10 bit DAC (digital to analog converter) chip.</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * @bug No known bugs. </span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * @details This file provides the basic low-level functionality for the</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * MCP4812 10 bit DAC from Microchip. This driver currently only allows for a</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * single DAC to be used, but this might be improved on at a later date. This</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * driver was written using the datasheet for the Microchip MCP4812 chip, which</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * can be found at the link below.</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * @see https://ww1.microchip.com/downloads/en/DeviceDoc/20002249B.pdf</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;util/delay.h&gt;</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;avr/interrupt.h&gt;</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &quot;<a class="code" href="mcp48x2__dac_8h.html">mcp48x2_dac.h</a>&quot;</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &quot;<a class="code" href="modules_2sensors_2ccs811__sensor_2example_2pin__defines_8h.html">pin_defines.h</a>&quot;</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#define CHANNEL_BIT         15U</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define GAIN_BIT            13U</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#define SHUTDOWN_BIT        12U</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define TWELVE_BIT_OFFSET   0U</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#define TEN_BIT_OFFSET      2U</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#define EIGHT_BIT_OFFSET    4U</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"></span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * File scope copy of dac_config_t pointer to store address of config object.</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">static</span> <a class="code hl_struct" href="structdac__config__t.html">dac_config_t</a> *p_config_global;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">// Forward declarations of private helper functions.</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">void</span> spi_trade_byte(uint16_t data);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">void</span> chip_select(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keywordtype">void</span> chip_deselect(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"></span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> * Initialisation routine (run once at startup).</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> * This function is to be called before using any other DAC functions.</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> * Instantiate the dac_config_t object first then pass it&#39;s address into and</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> * call init_lcd() before using any other lcd functions.</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> * @param p_config is a pointer to the dac_config_t object.</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> * @return Returns void.</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">   72</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a>(<a class="code hl_struct" href="structdac__config__t.html">dac_config_t</a> *p_config)</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>{</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    p_config_global = p_config;<span class="comment"></span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> * Don&#39;t need to set phase &amp; polarity as the default works with MCP4812 (0,0)</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> * or (1,1).</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  SPCR |= (1 &lt;&lt; SPR0); <span class="comment">// div 16, safer for breadboards</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  SPCR |= (1 &lt;&lt; MSTR); <span class="comment">// clockmaster</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  SPCR |= (1 &lt;&lt; SPE); <span class="comment">// enable</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  DAC_CTRL_DDR |= (1 &lt;&lt; DAC_CS); <span class="comment">// Set chip select as output.</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  DAC_CTRL_PORT |= (1 &lt;&lt; DAC_CS); <span class="comment">// Set CS line high (not selected).</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  DAC_CTRL_DDR |= (1 &lt;&lt; LDAC); <span class="comment">// Set LDAC line (latch) as output.</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  DAC_CTRL_PORT |= (1 &lt;&lt; LDAC); <span class="comment">// Set LDAC high.</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  SPI_DDR |= (1 &lt;&lt; SPI_MOSI); <span class="comment">// Set MOSI as output.</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  SPI_PORT |= (1 &lt;&lt; SPI_MISO); <span class="comment">// Set pullup on MISO.</span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  SPI_DDR |= (1 &lt;&lt; SPI_SCK); <span class="comment">// Set SCK as output.</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  sei(); <span class="comment">// Set interrupt enable flag</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keywordflow">if</span> (!p_config_global-&gt;sync_manually)</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  {</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    DAC_CTRL_PORT &amp;= ~(1 &lt;&lt; LDAC);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  }</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  <a class="code hl_function" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>(); <span class="comment">// Apply config settings.</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"></span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> * Sends a new millivolts value to be output on DAC. </span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">  104</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(<span class="keywordtype">bool</span> channel_a, uint16_t millivolts)</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>{</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordflow">if</span> (channel_a)</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    {</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        <span class="keywordflow">if</span> (p_config_global-&gt;channel_a.gain_low)</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>        {   </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            <span class="comment">// Divide mV by 2 bitwise style (faster).</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>            p_config_global-&gt;channel_a.level = (millivolts &gt;&gt; 1);</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        }</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        {</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            <span class="comment">// Divide mV by 4 bitwise style (faster).</span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>            p_config_global-&gt;channel_a.level = (millivolts &gt;&gt; 2);</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        }</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    {</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        <span class="keywordflow">if</span> (p_config_global-&gt;channel_b.gain_low)</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        {</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            <span class="comment">// Divide mV by 2 bitwise style (faster).</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>            p_config_global-&gt;channel_b.level = (millivolts &gt;&gt; 1);</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        }</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        {</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            <span class="comment">// Divide mV by 4 bitwise style (faster).</span></div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>            p_config_global-&gt;channel_b.level = (millivolts &gt;&gt; 2);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        }</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    }</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="comment">// Send new values to DAC</span></div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>();</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment"></span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment"> * Applies new config settings. This function takes updated config settings for</span></div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment"> * both channels of DAC, then re-sends data so that the new settings take</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment"> * effect.</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">  142</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>{</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    uint16_t channel_a_data = 0;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    uint16_t channel_b_data = 0;</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    channel_a_data &amp;= ~(1 &lt;&lt; CHANNEL_BIT); <span class="comment">// Clear channel bit (Channel A).</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    channel_a_data |= (p_config_global-&gt;channel_a.gain_low &lt;&lt; GAIN_BIT);</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    channel_a_data |= (p_config_global-&gt;channel_a.active &lt;&lt; SHUTDOWN_BIT);</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    channel_b_data |= (1 &lt;&lt; CHANNEL_BIT); <span class="comment">// Set channel bit (Channel B).</span></div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    channel_b_data |= (p_config_global-&gt;channel_b.gain_low &lt;&lt; GAIN_BIT);</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    channel_b_data |= (p_config_global-&gt;channel_b.active &lt;&lt; SHUTDOWN_BIT);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordflow">if</span> (p_config_global-&gt;model == mcp4802)</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    {</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        channel_a_data |= (p_config_global-&gt;channel_a.level &lt;&lt; EIGHT_BIT_OFFSET);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        channel_b_data |= (p_config_global-&gt;channel_b.level &lt;&lt; EIGHT_BIT_OFFSET);</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    }</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (p_config_global-&gt;model == mcp4812)</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    {</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        channel_a_data |= (p_config_global-&gt;channel_a.level &lt;&lt; TEN_BIT_OFFSET);</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>        channel_b_data |= (p_config_global-&gt;channel_b.level &lt;&lt; TEN_BIT_OFFSET);</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    }</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    {</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        channel_a_data |= (p_config_global-&gt;channel_a.level &lt;&lt; TWELVE_BIT_OFFSET);</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        channel_b_data |= (p_config_global-&gt;channel_b.level &lt;&lt; TWELVE_BIT_OFFSET);</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    }</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    spi_trade_byte(channel_a_data);</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    spi_trade_byte(channel_b_data);</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="keywordflow">if</span> (!p_config_global-&gt;sync_manually)</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    {</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <a class="code hl_function" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a>();</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    }</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"></span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * @file mcp48x2_dac.c</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @ingroup mcp48x2</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * @author Jason Duffy</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @date 4th March 2022</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * @brief Driver for the MCP4812 10 bit DAC (digital to analog converter) chip.</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * @bug No known bugs. </span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * @details This file provides the basic low-level functionality for the</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * MCP4812 10 bit DAC from Microchip. This driver currently only allows for a</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * single DAC to be used, but this might be improved on at a later date. This</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * driver was written using the datasheet for the Microchip MCP4812 chip, which</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * can be found at the link below.</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> * @see https://ww1.microchip.com/downloads/en/DeviceDoc/20002249B.pdf</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &lt;util/delay.h&gt;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;avr/interrupt.h&gt;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#include &quot;<a class="code" href="mcp48x2__dac_8h.html">mcp48x2_dac.h</a>&quot;</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#include &quot;<a class="code" href="modules_2sensors_2ccs811__sensor_2example_2pin__defines_8h.html">pin_defines.h</a>&quot;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#define CHANNEL_BIT         15U</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#define GAIN_BIT            13U</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define SHUTDOWN_BIT        12U</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#define TWELVE_BIT_OFFSET   0U</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define TEN_BIT_OFFSET      2U</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#define EIGHT_BIT_OFFSET    4U</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"></span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> * File scope copy of dac_config_t pointer to store address of config object.</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keyword">static</span> <a class="code hl_struct" href="structdac__config__t.html">dac_config_t</a> *p_config_global;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">// Forward declarations of private helper functions.</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keywordtype">void</span> spi_trade_byte(uint16_t data);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">void</span> chip_select(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="keywordtype">void</span> chip_deselect(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"></span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"> * Initialisation routine (run once at startup).</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"> * This function is to be called before using any other DAC functions.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> * Instantiate the dac_config_t object first then pass it&#39;s address into and</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> * call init_lcd() before using any other lcd functions.</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> * @param p_config is a pointer to the dac_config_t object.</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> * @return Returns void.</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">   71</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a>(<a class="code hl_struct" href="structdac__config__t.html">dac_config_t</a> *p_config)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    p_config_global = p_config;<span class="comment"></span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> * Don&#39;t need to set phase &amp; polarity as the default works with MCP4812 (0,0)</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> * or (1,1).</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  SPCR |= (1 &lt;&lt; SPR0); <span class="comment">// div 16, safer for breadboards</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  SPCR |= (1 &lt;&lt; MSTR); <span class="comment">// clockmaster</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  SPCR |= (1 &lt;&lt; SPE); <span class="comment">// enable</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  DAC_CTRL_DDR |= (1 &lt;&lt; DAC_CS); <span class="comment">// Set chip select as output.</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  DAC_CTRL_PORT |= (1 &lt;&lt; DAC_CS); <span class="comment">// Set CS line high (not selected).</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  DAC_CTRL_DDR |= (1 &lt;&lt; LDAC); <span class="comment">// Set LDAC line (latch) as output.</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  DAC_CTRL_PORT |= (1 &lt;&lt; LDAC); <span class="comment">// Set LDAC high.</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  SPI_DDR |= (1 &lt;&lt; SPI_MOSI); <span class="comment">// Set MOSI as output.</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>  SPI_PORT |= (1 &lt;&lt; SPI_MISO); <span class="comment">// Set pullup on MISO.</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  SPI_DDR |= (1 &lt;&lt; SPI_SCK); <span class="comment">// Set SCK as output.</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  sei(); <span class="comment">// Set interrupt enable flag</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <span class="keywordflow">if</span> (!p_config_global-&gt;sync_manually)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  {</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    DAC_CTRL_PORT &amp;= ~(1 &lt;&lt; LDAC);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  }</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  <a class="code hl_function" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>(); <span class="comment">// Apply config settings.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>}</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"></span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> * Sends a new millivolts value to be output on DAC. </span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">  103</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(<span class="keywordtype">bool</span> channel_a, uint16_t millivolts)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>{</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordflow">if</span> (channel_a)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        <span class="keywordflow">if</span> (p_config_global-&gt;channel_a.gain_low)</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>        {   </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>            <span class="comment">// Divide mV by 2 bitwise style (faster).</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>            p_config_global-&gt;channel_a.level = (millivolts &gt;&gt; 1);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        }</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>            <span class="comment">// Divide mV by 4 bitwise style (faster).</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>            p_config_global-&gt;channel_a.level = (millivolts &gt;&gt; 2);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">if</span> (p_config_global-&gt;channel_b.gain_low)</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>            <span class="comment">// Divide mV by 2 bitwise style (faster).</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>            p_config_global-&gt;channel_b.level = (millivolts &gt;&gt; 1);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        }</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        {</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            <span class="comment">// Divide mV by 4 bitwise style (faster).</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>            p_config_global-&gt;channel_b.level = (millivolts &gt;&gt; 2);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        }</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="comment">// Send new values to DAC</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>();</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>}</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="comment"></span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="comment"> * Applies new config settings. This function takes updated config settings for</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span><span class="comment"> * both channels of DAC, then re-sends data so that the new settings take</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment"> * effect.</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">  141</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>{</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    uint16_t channel_a_data = 0;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    uint16_t channel_b_data = 0;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    channel_a_data &amp;= ~(1 &lt;&lt; CHANNEL_BIT); <span class="comment">// Clear channel bit (Channel A).</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    channel_a_data |= (p_config_global-&gt;channel_a.gain_low &lt;&lt; GAIN_BIT);</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    channel_a_data |= (p_config_global-&gt;channel_a.active &lt;&lt; SHUTDOWN_BIT);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    channel_b_data |= (1 &lt;&lt; CHANNEL_BIT); <span class="comment">// Set channel bit (Channel B).</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    channel_b_data |= (p_config_global-&gt;channel_b.gain_low &lt;&lt; GAIN_BIT);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    channel_b_data |= (p_config_global-&gt;channel_b.active &lt;&lt; SHUTDOWN_BIT);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordflow">if</span> (p_config_global-&gt;model == mcp4802)</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        channel_a_data |= (p_config_global-&gt;channel_a.level &lt;&lt; EIGHT_BIT_OFFSET);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        channel_b_data |= (p_config_global-&gt;channel_b.level &lt;&lt; EIGHT_BIT_OFFSET);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    }</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (p_config_global-&gt;model == mcp4812)</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        channel_a_data |= (p_config_global-&gt;channel_a.level &lt;&lt; TEN_BIT_OFFSET);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        channel_b_data |= (p_config_global-&gt;channel_b.level &lt;&lt; TEN_BIT_OFFSET);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        channel_a_data |= (p_config_global-&gt;channel_a.level &lt;&lt; TWELVE_BIT_OFFSET);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        channel_b_data |= (p_config_global-&gt;channel_b.level &lt;&lt; TWELVE_BIT_OFFSET);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    spi_trade_byte(channel_a_data);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    spi_trade_byte(channel_b_data);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="keywordflow">if</span> (!p_config_global-&gt;sync_manually)</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    {</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        <a class="code hl_function" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a>();</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    }</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>}</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">//TODO: Make this interrupt based with SPIE bit in SPCR register (Pg198)</span></div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="keywordtype">void</span> spi_trade_byte(uint16_t data)</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>{</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    uint8_t msb = 0;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    uint8_t lsb = 0;</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    chip_select();</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    msb |= (data &gt;&gt; 8U);</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    lsb |= (data);</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    SPDR = msb; </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    loop_until_bit_is_set(SPSR, SPIF);</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    SPDR = lsb;</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    loop_until_bit_is_set(SPSR, SPIF);</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    chip_deselect();</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>}</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">  199</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a>(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>{</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    DAC_CTRL_PORT &amp;= ~(1 &lt;&lt; LDAC);</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    _delay_us(1);</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    DAC_CTRL_PORT |= (1 &lt;&lt; LDAC);</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>}</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span><span class="keywordtype">void</span> chip_select(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>{</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    DAC_CTRL_PORT &amp;= ~(1 &lt;&lt; DAC_CS);</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>}</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">//TODO: Make this interrupt based with SPIE bit in SPCR register (Pg198)</span></div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="keywordtype">void</span> spi_trade_byte(uint16_t data)</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>{</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    uint8_t msb = 0;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    uint8_t lsb = 0;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    chip_select();</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    msb |= (data &gt;&gt; 8U);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    lsb |= (data);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    SPDR = msb; </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    loop_until_bit_is_set(SPSR, SPIF);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    SPDR = lsb;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    loop_until_bit_is_set(SPSR, SPIF);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    chip_deselect();</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">  198</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>{</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    DAC_CTRL_PORT &amp;= ~(1 &lt;&lt; LDAC);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    _delay_us(1);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    DAC_CTRL_PORT |= (1 &lt;&lt; LDAC);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>}</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keywordtype">void</span> chip_select(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>{</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    DAC_CTRL_PORT &amp;= ~(1 &lt;&lt; DAC_CS);</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>}</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="keywordtype">void</span> chip_deselect(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>{</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    DAC_CTRL_PORT |= (1 &lt;&lt; DAC_CS);</div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>}</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">/*** end of file ***/</span></div>
-<div class="ttc" id="amcp48x2__dac_8c_html_a8e5a30fe5a03338c88ef80b84f3098b7"><div class="ttname"><a href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a></div><div class="ttdeci">void dac_set_voltage(bool channel_a, uint16_t millivolts)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00104">mcp48x2_dac.c:104</a></div></div>
-<div class="ttc" id="amcp48x2__dac_8c_html_aaf5962070b11ed66e257763c365ad321"><div class="ttname"><a href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a></div><div class="ttdeci">void init_dac(dac_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00072">mcp48x2_dac.c:72</a></div></div>
-<div class="ttc" id="amcp48x2__dac_8c_html_ab7d4460badaeb5c1255a471604ee7823"><div class="ttname"><a href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a></div><div class="ttdeci">void dac_reconfigure(void)</div><div class="ttdoc">Applies new config settings.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00142">mcp48x2_dac.c:142</a></div></div>
-<div class="ttc" id="amcp48x2__dac_8c_html_afd38e4b814863ec79d710ee2c3623adb"><div class="ttname"><a href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a></div><div class="ttdeci">void pulse_latch(void)</div><div class="ttdoc">Pulses LDAC pin low for a brief time (1uS).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00199">mcp48x2_dac.c:199</a></div></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="keywordtype">void</span> chip_deselect(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>{</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    DAC_CTRL_PORT |= (1 &lt;&lt; DAC_CS);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>}</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">/*** end of file ***/</span></div>
+<div class="ttc" id="amcp48x2__dac_8c_html_a8e5a30fe5a03338c88ef80b84f3098b7"><div class="ttname"><a href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a></div><div class="ttdeci">void dac_set_voltage(bool channel_a, uint16_t millivolts)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00103">mcp48x2_dac.c:103</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8c_html_aaf5962070b11ed66e257763c365ad321"><div class="ttname"><a href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a></div><div class="ttdeci">void init_dac(dac_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00071">mcp48x2_dac.c:71</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8c_html_ab7d4460badaeb5c1255a471604ee7823"><div class="ttname"><a href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a></div><div class="ttdeci">void dac_reconfigure(void)</div><div class="ttdoc">Applies new config settings.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00141">mcp48x2_dac.c:141</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8c_html_afd38e4b814863ec79d710ee2c3623adb"><div class="ttname"><a href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a></div><div class="ttdeci">void pulse_latch(void)</div><div class="ttdoc">Pulses LDAC pin low for a brief time (1uS).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00198">mcp48x2_dac.c:198</a></div></div>
 <div class="ttc" id="amcp48x2__dac_8h_html"><div class="ttname"><a href="mcp48x2__dac_8h.html">mcp48x2_dac.h</a></div><div class="ttdoc">Driver for the MCP4812 10 bit DAC (digital to analog converter) chip.</div></div>
 <div class="ttc" id="amodules_2sensors_2ccs811__sensor_2example_2pin__defines_8h_html"><div class="ttname"><a href="modules_2sensors_2ccs811__sensor_2example_2pin__defines_8h.html">pin_defines.h</a></div><div class="ttdoc">Definitions for pin mapping (for CCS81 gas sensor)</div></div>
 <div class="ttc" id="astructdac__config__t_html"><div class="ttname"><a href="structdac__config__t.html">dac_config_t</a></div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8h_source.html#l00061">mcp48x2_dac.h:62</a></div></div>
