@@ -53,6 +53,12 @@
  */
 static dac_config_t *p_config_global;
 
+/**
+ * File scope variable to store the bitshift value to account for resolution
+ * differences between chip models. 
+ */
+static uint8_t resolution_shift = 0;
+
 // Forward declarations of private helper functions.
 void spi_trade_byte(uint16_t data);
 void pulse_latch(void);
@@ -89,10 +95,27 @@ void init_dac(dac_config_t *p_config)
 
   sei(); // Set interrupt enable flag
 
+
+  // Save the value to bitshift millivolts value by. 
+  if (p_config_global->model == mcp4802)
+  {
+    resolution_shift = EIGHT_BIT_OFFSET;
+  }
+  else if (p_config_global->model == mcp4812)
+  {
+    resolution_shift = TEN_BIT_OFFSET;
+  }
+  else
+  {
+    resolution_shift = TWELVE_BIT_OFFSET;
+  }
+
+  // Establish latching settings
   if (!p_config_global->sync_manually)
   {
     DAC_CTRL_PORT &= ~(1 << LDAC);
   }
+
   dac_reconfigure(); // Apply config settings.
 }
 
