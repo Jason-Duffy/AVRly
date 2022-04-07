@@ -175,7 +175,7 @@ MCP48x2 Hookup</div></div>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">(8) VoutA   </td><td class="markdownTableBodyNone">Multimeter 2 test probe   </td></tr>
 </table>
-<p >Note that there is no connection to the host MCU MISO pin, as this device is write only - the data only goes in one direction, from the MCU to the DAC. The LDAC connection is optional, but is required in this example project.</p>
+<p >Note that there is no connection to the host MCU MISO pin, as this device is write only - the data only goes in one direction, from the MCU to the DAC. The LDAC connection is optional, but is required in this example project. An internal pullup is applied to the MISO pin to ensure it always reads high for the SPI byte trade.</p>
 <p >If you connect the output pins to a multimeter (keeping several meters is helpful for tasks like this), you can monitor the output voltage of each channel.</p>
 <h2><a class="anchor" id="autotoc_md73"></a>
 API Reference</h2>
@@ -194,7 +194,11 @@ API Reference</h2>
 <div class="line">    .channel_b.level = 0,</div>
 <div class="line">};</div>
 <div class="ttc" id="astructdac__config__t_html"><div class="ttname"><a href="structdac__config__t.html">dac_config_t</a></div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8h_source.html#l00061">mcp48x2_dac.h:62</a></div></div>
-</div><!-- fragment --> <h3><a class="anchor" id="autotoc_md74"></a>
+</div><!-- fragment --><p >Then pass the address of the config object into the initialisation routine.</p>
+<div class="fragment"><div class="line"><a class="code hl_function" href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a>(&amp;dac_config);</div>
+<div class="ttc" id="amcp48x2__dac_8c_html_aaf5962070b11ed66e257763c365ad321"><div class="ttname"><a href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a></div><div class="ttdeci">void init_dac(dac_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00077">mcp48x2_dac.c:77</a></div></div>
+</div><!-- fragment --><p >Once inside</p>
+<h3><a class="anchor" id="autotoc_md74"></a>
 Members</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -217,11 +221,17 @@ Members</h3>
 <td class="markdownTableBodyNone">channel_b.level   </td><td class="markdownTableBodyNone">0 - 255 for 8 bit DAC, 0 - 1023 for 10 bit DAC, 0 - 4095 for 12 bit DAC   </td></tr>
 </table>
 <p >When sync_manually is set to true, new voltage levels will not be latched into the output registers until the <a class="el" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb" title="Pulses LDAC pin low for a brief time (1uS).">pulse_latch()</a> function is called. Using this method, you can ensure the voltage level of both channels is updated exactly when required. When sync_manually is set to false, the <a class="el" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb" title="Pulses LDAC pin low for a brief time (1uS).">pulse_latch()</a> function is called automatically when the voltage values are updated.</p>
+<p >Unless you need to guarantee a specific voltage output on startup, level can be set to 0.</p>
 <h3><a class="anchor" id="autotoc_md75"></a>
 Setting the Output Voltage</h3>
 <p >The internal reference voltage (VREF) is 2.048V. When gain_low is set to true, the output range for that channel is from 0.0V to (1023/1024 * 2.048V), roughly a gain of 1. When gain_low is set to false, the output range for that channel is doubled, from 0.0V to (1023/1024 * 4.096V), or roughly 2(VREF).</p>
 <p >The resolution of the DAC dictates the increments it can be adjusted to. The MCP4802 has an 8 bit resolution, so the increments can be calculated as 2048mV/(2<sup>8</sup>) = 8mV, or 16mV when gain_low is set to false. For the MCP4812 it's 2mV or 4mV, and for the MCP4822 it's 500µV or 1mV.</p>
 <p >So to recap, if we want to set an output voltage of 4092mV, you'd have to set gain_low to false and level to 1023.</p>
+<p >Once the DAC is initialised, the output voltage can be set for each channel can be set using the function <a class="el" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7" title="Sends a new millivolts value to be output on DAC.">dac_set_voltage()</a>.</p>
+<div class="fragment"><div class="line"><a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_A, 3000U);</div>
+<div class="line"><a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_B, 1500U);</div>
+<div class="ttc" id="amcp48x2__dac_8c_html_a8e5a30fe5a03338c88ef80b84f3098b7"><div class="ttname"><a href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a></div><div class="ttdeci">void dac_set_voltage(bool channel_a, uint16_t millivolts)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00126">mcp48x2_dac.c:126</a></div></div>
+</div><!-- fragment --><p >The unit here is millivolts, unlike the <a class="el" href="structdac__config__t.html">dac_config_t</a> member variable level which must be calculated based on the resolution of the DAC.</p>
 <h3><a class="anchor" id="autotoc_md76"></a>
 Reconfiguring the DAC</h3>
 <p >If after initialisation you'd like to change the settings of the DAC, you can change the values of the <a class="el" href="structdac__config__t.html">dac_config_t</a> member variables, then call <a class="el" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823" title="Applies new config settings.">dac_reconfigure()</a> to update the DAC with those new config settings. </p>
