@@ -37,7 +37,7 @@ The host MCU sends data to the DAC using the SPI (Serial Peripheral Interface) p
 | (7) Vss   | Ground |
 | (8) VoutA | Multimeter 2 test probe |
 
-Note that there is no connection to the host MCU MISO pin, as this device is write only - the data only goes in one direction, from the MCU to the DAC. The LDAC connection is optional, but is required in this example project. 
+Note that there is no connection to the host MCU MISO pin, as this device is write only - the data only goes in one direction, from the MCU to the DAC. The LDAC connection is optional, but is required in this example project. An internal pullup is applied to the MISO pin to ensure it always reads high for the SPI byte trade. 
 
 If you connect the output pins to a multimeter (keeping several meters is helpful for tasks like this), you can monitor the output voltage of each channel.
 
@@ -60,6 +60,15 @@ dac_config_t dac_config =
 	.channel_b.level = 0,
 };
 ```
+
+Then pass the address of the config object into the initialisation routine.
+
+```C
+init_dac(&dac_config);
+```
+
+Once inside
+
 ### Members
 
 | dac_config_t member     | Valid Selections    |
@@ -73,7 +82,9 @@ dac_config_t dac_config =
 | channel_b.active        | true = Channel is active, false = channel is shut down |
 | channel_b.level         | 0 - 255 for 8 bit DAC, 0 - 1023 for 10 bit DAC, 0 - 4095 for 12 bit DAC |
 
-When sync_manually is set to true, new voltage levels will not be latched into the output registers until the pulse_latch() function is called. Using this method, you can ensure the voltage level of both channels is updated exactly when required. When sync_manually is set to false, the pulse_latch() function is called automatically when the voltage values are updated.
+When sync_manually is set to true, new voltage levels will not be latched into the output registers until the pulse_latch() function is called. Using this method, you can ensure the voltage level of both channels is updated exactly when required. When sync_manually is set to false, the pulse_latch() function is called automatically when the voltage values are updated. 
+
+Unless you need to guarantee a specific voltage output on startup, level can be set to 0.
 
 ### Setting the Output Voltage
 
@@ -82,6 +93,15 @@ The internal reference voltage (VREF) is 2.048V. When gain_low is set to true, t
 The resolution of the DAC dictates the increments it can be adjusted to. The MCP4802 has an 8 bit resolution, so the increments can be calculated as 2048mV/(2<sup>8</sup>) = 8mV, or 16mV when gain_low is set to false. For the MCP4812 it's 2mV or 4mV, and for the MCP4822 it's 500µV or 1mV.
 
 So to recap, if we want to set an output voltage of 4092mV, you'd have to set gain_low to false and level to 1023.
+
+Once the DAC is initialised, the output voltage can be set for each channel can be set using the function dac_set_voltage().
+
+```C
+dac_set_voltage(DAC_CHANNEL_A, 3000U);
+dac_set_voltage(DAC_CHANNEL_B, 1500U);
+```
+
+The unit here is millivolts, unlike the dac_config_t member variable level which must be calculated based on the resolution of the DAC. 
 
 ### Reconfiguring the DAC
 
