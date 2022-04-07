@@ -77,9 +77,15 @@ When sync_manually is set to true, new voltage levels will not be latched into t
 
 ### Setting the Output Voltage
 
-The internal reference voltage (VREF) is 2.048V. When gain_low is set to true, the output range for that channel is from 0 - 2.048V, so a gain of 1. When gain_low is set to false, the output range for that channel is doubled, from 0 - 4.096V, or 2(VREF). 
+The internal reference voltage (VREF) is 2.048V. When gain_low is set to true, the output range for that channel is from 0.0V to (1023/1024 * 2.048V), roughly a gain of 1. When gain_low is set to false, the output range for that channel is doubled, from 0.0V to (1023/1024 * 4.096V), or roughly 2(VREF).
 
 The resolution of the DAC dictates the increments it can be adjusted to. The MCP4802 has an 8 bit resolution, so the increments can be calculated as 2048mV/(2<sup>8</sup>) = 8mV, or 16mV when gain_low is set to false. For the MCP4812 it's 2mV or 4mV, and for the MCP4822 it's 500µV or 1mV.
+
+So to recap, if we want to set an output voltage of 4092mV, you'd have to set gain_low to false and level to 1023.
+
+### Reconfiguring the DAC
+
+If after initialisation you'd like to change the settings of the DAC, you can change the values of the dac_config_t member variables, then call dac_reconfigure() to update the DAC with those new config settings. 
 
 
 [DAC_URL]: https://en.wikipedia.org/wiki/Digital-to-analog_converter
