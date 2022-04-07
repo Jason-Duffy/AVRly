@@ -37,7 +37,7 @@ The host MCU sends data to the DAC using the SPI (Serial Peripheral Interface) p
 | (7) Vss   | Ground |
 | (8) VoutA | Multimeter 2 test probe |
 
-Note that there is no connection to the host MCU MISO pin, as this device is write only - the data only goes in one direction, from the MCU to the DAC.
+Note that there is no connection to the host MCU MISO pin, as this device is write only - the data only goes in one direction, from the MCU to the DAC. The LDAC connection is optional, but is required in this example project. 
 
 If you connect the output pins to a multimeter (keeping several meters is helpful for tasks like this), you can monitor the output voltage of each channel.
 
@@ -72,6 +72,14 @@ dac_config_t dac_config =
 | channel_b.gain_low 	  | true = Gain of 1, false = gain of 2 |
 | channel_b.active        | true = Channel is active, false = channel is shut down |
 | channel_b.level         | 0 - 255 for 8 bit DAC, 0 - 1023 for 10 bit DAC, 0 - 4095 for 12 bit DAC |
+
+When sync_manually is set to true, new voltage levels will not be latched into the output registers until the pulse_latch() function is called. Using this method, you can ensure the voltage level of both channels is updated exactly when required. When sync_manually is set to false, the pulse_latch() function is called automatically when the voltage values are updated.
+
+### Setting the Output Voltage
+
+The internal reference voltage (VREF) is 2.048V. When gain_low is set to true, the output range for that channel is from 0 - 2.048V, so a gain of 1. When gain_low is set to false, the output range for that channel is doubled, from 0 - 4.096V, or 2(VREF). 
+
+The resolution of the DAC dictates the increments it can be adjusted to. The MCP4802 has an 8 bit resolution, so the increments can be calculated as 2048mV/(2^8) = 8mV, or 16mV when gain_low is set to false. For the MCP4812 it's 2mV or 4mV, and for the MCP4822 it's 500µV or 1mV.
 
 
 [DAC_URL]: https://en.wikipedia.org/wiki/Digital-to-analog_converter
