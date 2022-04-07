@@ -176,6 +176,7 @@ MCP48x2 Hookup</div></div>
 <td class="markdownTableBodyNone">(8) VoutA   </td><td class="markdownTableBodyNone">Multimeter 2 test probe   </td></tr>
 </table>
 <p >Note that there is no connection to the host MCU MISO pin, as this device is write only - the data only goes in one direction, from the MCU to the DAC.</p>
+<p >If you connect the output pins to a multimeter (keeping several meters is helpful for tasks like this), you can monitor the output voltage of each channel.</p>
 <h2><a class="anchor" id="autotoc_md73"></a>
 API Reference</h2>
 <p >Before initialising the DAC for use, you'll need to instantiate a <a class="el" href="structdac__config__t.html">dac_config_t</a> object, and set the configuration values you'd like.</p>
@@ -195,10 +196,26 @@ API Reference</h2>
 <div class="ttc" id="astructdac__config__t_html"><div class="ttname"><a href="structdac__config__t.html">dac_config_t</a></div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8h_source.html#l00061">mcp48x2_dac.h:62</a></div></div>
 </div><!-- fragment --> <h3><a class="anchor" id="autotoc_md74"></a>
 Members</h3>
-<ul>
-<li>model: Valid selections are mcp4802, mcp4812 or mcp4822.</li>
-<li>sync_manually: true = manual sync, false = sync automatically. </li>
-</ul>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone"><a class="el" href="structdac__config__t.html">dac_config_t</a> member   </th><th class="markdownTableHeadNone">Valid Selections    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">model   </td><td class="markdownTableBodyNone">mcp4802, mcp4812 or mcp4822    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">sync_manually   </td><td class="markdownTableBodyNone">true = manual sync, false = sync automatically    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">channel_a.gain_low   </td><td class="markdownTableBodyNone">true = Gain of 1, false = gain of 2    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">channel_a.active   </td><td class="markdownTableBodyNone">true = Channel is active, false = channel is shut down    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">channel_a.level   </td><td class="markdownTableBodyNone">0 - 255 for 8 bit DAC, 0 - 1023 for 10 bit DAC, 0 - 4095 for 12 bit DAC    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">channel_b.gain_low   </td><td class="markdownTableBodyNone">true = Gain of 1, false = gain of 2    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">channel_b.active   </td><td class="markdownTableBodyNone">true = Channel is active, false = channel is shut down    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">channel_b.level   </td><td class="markdownTableBodyNone">0 - 255 for 8 bit DAC, 0 - 1023 for 10 bit DAC, 0 - 4095 for 12 bit DAC   </td></tr>
+</table>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
