@@ -93,9 +93,9 @@ void dac_reconfigure(void);
 
 
 /**
- * Pulses LDAC pin low for a brief time (1uS). When sync_on_recofigure is
- * false, and sync_manually is true, call this function to latch both config
- * settings and new voltage value into both channels of DAC simultaneously. 
+ * Pulses LDAC pin low for a brief time (1uS). When sync_manually is true, call
+ * this function to latch both config settings and new voltage value into both
+ * channels of DAC simultaneously. 
  */
 void pulse_latch(void);
 
