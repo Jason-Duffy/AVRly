@@ -39,6 +39,8 @@ The host MCU sends data to the DAC using the SPI (Serial Peripheral Interface) p
 
 Note that there is no connection to the host MCU MISO pin, as this device is write only - the data only goes in one direction, from the MCU to the DAC.
 
+If you connect the output pins to a multimeter (keeping several meters is helpful for tasks like this), you can monitor the output voltage of each channel.
+
 ## API Reference
 
 Before initialising the DAC for use, you'll need to instantiate a dac_config_t object, and set the configuration values you'd like.
@@ -59,8 +61,17 @@ dac_config_t dac_config =
 };
 ```
 ### Members
-- model: Valid selections are mcp4802, mcp4812 or mcp4822.
-- sync_manually: true = manual sync, false = sync automatically.
+
+| dac_config_t member     | Valid Selections    |
+| ----------------------- | ------------------- |
+| model                   | mcp4802, mcp4812 or mcp4822 |
+| sync_manually           | true = manual sync, false = sync automatically |
+| channel_a.gain_low 	  | true = Gain of 1, false = gain of 2 |
+| channel_a.active        | true = Channel is active, false = channel is shut down |
+| channel_a.level         | 0 - 255 for 8 bit DAC, 0 - 1023 for 10 bit DAC, 0 - 4095 for 12 bit DAC |
+| channel_b.gain_low 	  | true = Gain of 1, false = gain of 2 |
+| channel_b.active        | true = Channel is active, false = channel is shut down |
+| channel_b.level         | 0 - 255 for 8 bit DAC, 0 - 1023 for 10 bit DAC, 0 - 4095 for 12 bit DAC |
 
 
 [DAC_URL]: https://en.wikipedia.org/wiki/Digital-to-analog_converter
