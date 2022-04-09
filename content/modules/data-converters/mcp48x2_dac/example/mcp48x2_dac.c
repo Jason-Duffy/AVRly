@@ -39,6 +39,7 @@
 #include <avr/interrupt.h>
 
 #include "mcp48x2_dac.h"
+#include "atmega_spi.h"
 #include "pin_defines.h"
 
 #include "log_system.h"
@@ -74,8 +75,6 @@ static uint8_t mv_resolution_shift = 0;
 static uint8_t level_resolution_shift = 0;
 
 // Forward declarations of private helper functions.
-void spi_trade_byte(uint16_t data);
-void pulse_latch(void);
 void chip_select(void);
 void chip_deselect(void);
 
@@ -91,26 +90,20 @@ void chip_deselect(void);
 void init_dac(dac_config_t *p_config)
 {
     p_config_global = p_config;
-    /**
-    * Don't need to set phase & polarity as the default works with MCP4812 (0,0)
-    * or (1,1).
-    */
 
     // Delay to allow power ramp up in device.
     _delay_ms(500);
 
-    cli();
-    SPCR |= (1 << SPR0); // div 16, safer for breadboards
-    SPCR |= (1 << MSTR); // Master mode
-    SPCR |= (1 << SPE); // enable   
+    init_spi(lsb_first,
+             controller,
+             lead_sample_rising_edge,
+             cpu_clk_div_16,
+             single_speed);
+ 
     DAC_CTRL_DDR |= (1 << DAC_CS); // Set chip select as output.
     DAC_CTRL_PORT |= (1 << DAC_CS); // Set CS line high (not selected).
     DAC_CTRL_DDR |= (1 << LDAC); // Set LDAC line (latch) as output.
     DAC_CTRL_PORT |= (1 << LDAC); // Set LDAC high.
-    SPI_DDR |= (1 << SPI_MOSI); // Set MOSI as output.
-    SPI_PORT |= (1 << SPI_MISO); // Set pullup on MISO.
-    SPI_DDR |= (1 << SPI_SCK); // Set SCK as output.    
-    sei(); // Set interrupt enable flag 
 
     // Save the value to bitshift millivolts value by. 
     if (p_config_global->model == mcp4802)
@@ -134,9 +127,9 @@ void init_dac(dac_config_t *p_config)
     {
       DAC_CTRL_PORT &= ~(1 << LDAC);
     }
-    log_message(p_system_tag, DEBUG, "About to call dac_reconfigure()");   
-    dac_reconfigure(); // Apply config settings.
-    log_message(p_system_tag, INFO, "DAC initialised");
+
+    // Send new values to DAC
+    dac_reconfigure();
 }
 
 
@@ -258,8 +251,10 @@ void dac_reconfigure(void)
                 (p_config_global->channel_b.level << level_resolution_shift);
 
     // Send new data to DAC over SPI. 
-    spi_trade_byte(channel_a_data);
-    spi_trade_byte(channel_b_data);
+    chip_select();
+    spi_trade_word(channel_a_data);
+    spi_trade_word(channel_b_data);
+    chip_deselect();
 
     // If sync_manually is set to false, pulse LDAC to update values. 
     if (!p_config_global->sync_manually)
@@ -285,24 +280,6 @@ void pulse_latch(void)
 // ------------------------------------------------------------------------- //
 // ------------------------ Private Helper Functions ----------------------- //
 // ------------------------------------------------------------------------- // 
-
-//TODO: Make this interrupt based with SPIE bit in SPCR register (Pg198)
-void spi_trade_byte(uint16_t data)
-{
-    uint8_t msb = 0;
-    uint8_t lsb = 0;
-
-    chip_select();
-
-    msb |= (data >> 8U);
-    lsb |= (data);
-    SPDR = msb; 
-    loop_until_bit_is_set(SPSR, SPIF);
-    SPDR = lsb;
-    loop_until_bit_is_set(SPSR, SPIF);
-    
-    chip_deselect();
-}
 
 
 /*
