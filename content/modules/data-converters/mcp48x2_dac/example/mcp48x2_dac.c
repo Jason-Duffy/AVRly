@@ -67,6 +67,12 @@ static dac_config_t *p_config_global;
  */
 static uint8_t mv_resolution_shift = 0;
 
+/**
+ * File scope variable to store the bitshift value to account for resolution
+ * differences between chip models. 
+ */
+static uint8_t level_resolution_shift = 0;
+
 // Forward declarations of private helper functions.
 void spi_trade_byte(uint16_t data);
 void pulse_latch(void);
@@ -110,14 +116,17 @@ void init_dac(dac_config_t *p_config)
     if (p_config_global->model == mcp4802)
     {
       mv_resolution_shift = EIGHT_BIT_MV_OFFSET;
+      level_resolution_shift = EIGHT_BIT_LEVEL_OFFSET;
     }
     else if (p_config_global->model == mcp4812)
     {
       mv_resolution_shift = TEN_BIT_MV_OFFSET;
+      level_resolution_shift = TEN_BIT_LEVEL_OFFSET;
     }
     else
     {
       mv_resolution_shift = TWELVE_BIT_MV_OFFSET;
+      level_resolution_shift = TWELVE_BIT_LEVEL_OFFSET;
     }  
 
     // Establish latching settings
@@ -242,29 +251,11 @@ void dac_reconfigure(void)
     channel_b_data |= (p_config_global->channel_b.active << SHUTDOWN_BIT);
 
     // Shift level into correct place for chip and OR it into our 16bit word.
-    if (p_config_global->model == mcp4802)
-    {
-        channel_a_data |=
-                (p_config_global->channel_a.level << EIGHT_BIT_LEVEL_OFFSET);
+    channel_a_data |=
+                (p_config_global->channel_a.level << level_resolution_shift);
 
-        channel_b_data |=
-                (p_config_global->channel_b.level << EIGHT_BIT_LEVEL_OFFSET);
-    }
-    else if (p_config_global->model == mcp4812)
-    {
-        channel_a_data |=
-                (p_config_global->channel_a.level << TEN_BIT_LEVEL_OFFSET);
-
-        channel_b_data |=
-                (p_config_global->channel_b.level << TEN_BIT_LEVEL_OFFSET);
-    }
-    else
-    {
-        channel_a_data |=
-                (p_config_global->channel_a.level << TWELVE_BIT_LEVEL_OFFSET);
-        channel_b_data |=
-                (p_config_global->channel_b.level << TWELVE_BIT_LEVEL_OFFSET);
-    }
+    channel_b_data |=
+                (p_config_global->channel_b.level << level_resolution_shift);
 
     // Send new data to DAC over SPI. 
     spi_trade_byte(channel_a_data);
