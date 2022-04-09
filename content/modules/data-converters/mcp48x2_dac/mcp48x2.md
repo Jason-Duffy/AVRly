@@ -67,8 +67,6 @@ Then pass the address of the config object into the initialisation routine.
 init_dac(&dac_config);
 ```
 
-Once inside
-
 ### Members
 
 | dac_config_t member     | Valid Selections    |
