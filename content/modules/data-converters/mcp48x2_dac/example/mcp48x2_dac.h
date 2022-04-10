@@ -87,7 +87,9 @@ void dac_set_voltage(bool channel_a, uint16_t millivolts);
 /**
  * Sends a new millivolts value to be output on DAC (Along with config settings). 
  */
-void dac_set_voltage_12_bit(bool channel_a, uint16_t millivolts, bool fractional);
+void dac_set_voltage_12_bit(bool channel_a,
+                            uint16_t millivolts,
+                            bool fractional);
 
 
 /**

@@ -42,8 +42,6 @@
 #include "atmega_spi.h"
 #include "pin_defines.h"
 
-#include "log_system.h"
-
 #define CHANNEL_BIT              15U
 #define GAIN_BIT                 13U
 #define SHUTDOWN_BIT             12U
@@ -55,7 +53,6 @@
 #define TEN_BIT_MV_OFFSET        1U
 #define EIGHT_BIT_MV_OFFSET      3U
 
-static const char *p_system_tag = "MCP48x2_DAC";
 
 /**
  * File scope copy of dac_config_t pointer to store address of config object.
@@ -79,7 +76,6 @@ void chip_select(void);
 void chip_deselect(void);
 
 
-
 /**
  * Initialisation routine (run once at startup).
  * This function is to be called before using any other DAC functions.
@@ -96,7 +92,8 @@ void init_dac(dac_config_t *p_config)
 
     init_spi(lsb_first,
              controller,
-             lead_sample_rising_edge,
+             rising_edge,
+             sample_leading_edge,
              cpu_clk_div_16,
              single_speed);
  
@@ -180,7 +177,9 @@ void dac_set_voltage(bool channel_a, uint16_t millivolts)
  * integer millivolt value as the second parameter, then add a boolean
  * true/false for the third parameter. True = 0.5mV, false = 0mV. 
  */
-void dac_set_voltage_12_bit(bool channel_a, uint16_t millivolts, bool fractional)
+void dac_set_voltage_12_bit(bool channel_a,
+                            uint16_t millivolts,
+                            bool fractional)
 {
     if (channel_a)
     {
@@ -253,6 +252,9 @@ void dac_reconfigure(void)
     // Send new data to DAC over SPI. 
     chip_select();
     spi_trade_word(channel_a_data);
+    chip_deselect();
+
+    chip_select();
     spi_trade_word(channel_b_data);
     chip_deselect();
 
