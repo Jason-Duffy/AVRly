@@ -42,13 +42,12 @@
 /**
  * Initialisation routine to set up SPI comms. Must be called before any other
  * functions in this file can be used.
- * @param spi_transfer_mode_t: lsb_first or msb_first.
- * @param spi_control_mode_t control_mode: controller or peripheral.
- * @param spi_phase_mode_t phase_mode: lead_sample_rising_edge or
- * lead_setup_rising_edge.
- * @param spi_clk_rate_t clk_rate: Sets the speed of the SPI clock - divided
- * down from F_CPU speed.
- * @param spi_dbl_clk_mode_t: single_speed or double_speed. 
+ * @param transfer_mode lsb_first or msb_first.
+ * @param control_mode controller or peripheral.
+ * @param phase_mode lead_sample_rising_edge or lead_setup_rising_edge.
+ * @param clk_rate Sets the speed of the SPI clock - divided down from F_CPU
+ * speed.
+ * @param dbl_clock single_speed or double_speed. 
  */
 void init_spi(spi_transfer_mode_t transfer_mode,
               spi_control_mode_t control_mode,
