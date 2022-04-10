@@ -135,86 +135,85 @@ $(document).ready(function(){initNavTree('atmega__spi_8c_source.html',''); initR
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment"> * Initialisation routine to set up SPI comms. Must be called before any other</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * functions in this file can be used.</span></div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * @param spi_transfer_mode_t: lsb_first or msb_first.</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * @param spi_control_mode_t control_mode: controller or peripheral.</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * @param spi_phase_mode_t phase_mode: lead_sample_rising_edge or</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * lead_setup_rising_edge.</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * @param spi_clk_rate_t clk_rate: Sets the speed of the SPI clock - divided</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * down from F_CPU speed.</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * @param spi_dbl_clk_mode_t: single_speed or double_speed. </span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="atmega__spi_8c.html#a5217b7d219487d49ba5f23b16fcf26b1">   53</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="atmega__spi_8c.html#a5217b7d219487d49ba5f23b16fcf26b1">init_spi</a>(<a class="code hl_enumeration" href="atmega__spi_8h.html#a396aee59d9a83d5205e2cafdd13ec7bc">spi_transfer_mode_t</a> transfer_mode,</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>              <a class="code hl_enumeration" href="atmega__spi_8h.html#ac87a2a6328113e64ea0b2a42d8d46335">spi_control_mode_t</a> control_mode,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>              <a class="code hl_enumeration" href="atmega__spi_8h.html#a75ba6918728b038fd6c73ac864ea8e7b">spi_polarity_mode_t</a> polarity_mode,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>              <a class="code hl_enumeration" href="atmega__spi_8h.html#a4e4524aaff15d8e69d04201291be1b44">spi_phase_mode_t</a> phase_mode,</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>              <a class="code hl_enumeration" href="atmega__spi_8h.html#a8d6b0bcbdebc08266d4e37a546caafab">spi_clk_rate_t</a> clk_rate,</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>              <a class="code hl_enumeration" href="atmega__spi_8h.html#a04dedad47b9e8c76480747b52ec76413">spi_dbl_clk_mode_t</a> dbl_clock)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    SPI_DDR |= (1 &lt;&lt; SPI_MOSI); <span class="comment">// Set MOSI as output.</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    SPI_DDR |= (1 &lt;&lt; SPI_SCK); <span class="comment">// Set SCK as output.</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    SPI_DDR &amp;= ~(1 &lt;&lt; SPI_MISO); <span class="comment">// Set MISO as input. </span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    SPI_DDR &amp;= ~(1 &lt;&lt; SPI_SS); <span class="comment">// Set SS as input.</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    SPI_PORT |= (1 &lt;&lt; SPI_MISO); <span class="comment">// Set pullup on MISO.</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    SPI_PORT |= (1 &lt;&lt; SPI_SS); <span class="comment">// Set pullup on SS.</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    cli(); <span class="comment">// Clear interrupt enable flag.</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    SPCR |= (transfer_mode &lt;&lt; DORD); <span class="comment">// Set data order.</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    SPCR |= (control_mode &lt;&lt; MSTR); <span class="comment">// Controller/peripheral mode select.</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    SPCR |= (polarity_mode &lt;&lt; CPOL); <span class="comment">// Set polarity of SPI data. </span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    SPCR |= (phase_mode &lt;&lt; CPHA); <span class="comment">// Set phase of SPI data.</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    SPCR |= (clk_rate); <span class="comment">// Set speed</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    SPSR |= (dbl_clock &lt;&lt; SPI2X); <span class="comment">// Set double speed bit. </span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    SPCR |= (1 &lt;&lt; SPE); <span class="comment">// Enable SPI. </span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    sei(); <span class="comment">// Set interrupt enable flag.</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"></span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"> * Sends out a byte of data over SPI and returns the byte it receives. </span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="atmega__spi_8c.html#acd0061be20136ad912e5c590a35f0f87">   85</a></span>uint8_t <a class="code hl_function" href="atmega__spi_8c.html#acd0061be20136ad912e5c590a35f0f87">spi_trade_byte</a>(uint8_t data)</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>{</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    SPDR = data; <span class="comment">// Send out byte of data. </span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    loop_until_bit_is_set(SPSR, SPIF); <span class="comment">// Wait for flag to be set. </span></div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    data = SPDR; <span class="comment">// Store the data received. </span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">return</span> data;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"></span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> * Sends out a 16bit word of data over spi (in two bytes) and returns the byte</span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> * it receives. </span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">   98</a></span>uint16_t <a class="code hl_function" href="atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a>(uint16_t data)</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>{</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    uint8_t msb = 0;</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    uint8_t lsb = 0;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// Split word to send into 2 bytes and send the first one out. </span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    msb |= (data &gt;&gt; 8U);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    lsb |= (data);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    SPDR = msb; </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    loop_until_bit_is_set(SPSR, SPIF);</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    msb = SPDR; <span class="comment">// Store the byte received. </span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="comment">// Send the second byte out. </span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    SPDR = lsb;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    loop_until_bit_is_set(SPSR, SPIF);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    lsb = SPDR; <span class="comment">// Store the second byte received. </span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="comment">// Combine the bytes received into 1 word. </span></div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    uint16_t received_data = 0;</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    received_data = (msb &lt;&lt; 8U);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    received_data |= (lsb);</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordflow">return</span> received_data;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>}</div>
-<div class="ttc" id="aatmega__spi_8c_html_a5217b7d219487d49ba5f23b16fcf26b1"><div class="ttname"><a href="atmega__spi_8c.html#a5217b7d219487d49ba5f23b16fcf26b1">init_spi</a></div><div class="ttdeci">void init_spi(spi_transfer_mode_t transfer_mode, spi_control_mode_t control_mode, spi_polarity_mode_t polarity_mode, spi_phase_mode_t phase_mode, spi_clk_rate_t clk_rate, spi_dbl_clk_mode_t dbl_clock)</div><div class="ttdoc">Initialisation routine to set up SPI comms.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__spi_8c_source.html#l00053">atmega_spi.c:53</a></div></div>
-<div class="ttc" id="aatmega__spi_8c_html_acd0061be20136ad912e5c590a35f0f87"><div class="ttname"><a href="atmega__spi_8c.html#acd0061be20136ad912e5c590a35f0f87">spi_trade_byte</a></div><div class="ttdeci">uint8_t spi_trade_byte(uint8_t data)</div><div class="ttdoc">Sends out a byte of data over SPI and returns the byte it receives.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__spi_8c_source.html#l00085">atmega_spi.c:85</a></div></div>
-<div class="ttc" id="aatmega__spi_8c_html_ae48f6a6f69805dfd10b3ac13c37f8428"><div class="ttname"><a href="atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a></div><div class="ttdeci">uint16_t spi_trade_word(uint16_t data)</div><div class="ttdoc">Sends out a 16bit word of data over spi (in two bytes) and returns the byte it receives.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__spi_8c_source.html#l00098">atmega_spi.c:98</a></div></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * @param transfer_mode lsb_first or msb_first.</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * @param control_mode controller or peripheral.</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * @param phase_mode lead_sample_rising_edge or lead_setup_rising_edge.</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * @param clk_rate Sets the speed of the SPI clock - divided down from F_CPU</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> * speed.</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment"> * @param dbl_clock single_speed or double_speed. </span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="atmega__spi_8c.html#a5217b7d219487d49ba5f23b16fcf26b1">   52</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="atmega__spi_8c.html#a5217b7d219487d49ba5f23b16fcf26b1">init_spi</a>(<a class="code hl_enumeration" href="atmega__spi_8h.html#a396aee59d9a83d5205e2cafdd13ec7bc">spi_transfer_mode_t</a> transfer_mode,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>              <a class="code hl_enumeration" href="atmega__spi_8h.html#ac87a2a6328113e64ea0b2a42d8d46335">spi_control_mode_t</a> control_mode,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>              <a class="code hl_enumeration" href="atmega__spi_8h.html#a75ba6918728b038fd6c73ac864ea8e7b">spi_polarity_mode_t</a> polarity_mode,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>              <a class="code hl_enumeration" href="atmega__spi_8h.html#a4e4524aaff15d8e69d04201291be1b44">spi_phase_mode_t</a> phase_mode,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>              <a class="code hl_enumeration" href="atmega__spi_8h.html#a8d6b0bcbdebc08266d4e37a546caafab">spi_clk_rate_t</a> clk_rate,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>              <a class="code hl_enumeration" href="atmega__spi_8h.html#a04dedad47b9e8c76480747b52ec76413">spi_dbl_clk_mode_t</a> dbl_clock)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>{</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    SPI_DDR |= (1 &lt;&lt; SPI_MOSI); <span class="comment">// Set MOSI as output.</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    SPI_DDR |= (1 &lt;&lt; SPI_SCK); <span class="comment">// Set SCK as output.</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    SPI_DDR &amp;= ~(1 &lt;&lt; SPI_MISO); <span class="comment">// Set MISO as input. </span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    SPI_DDR &amp;= ~(1 &lt;&lt; SPI_SS); <span class="comment">// Set SS as input.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    SPI_PORT |= (1 &lt;&lt; SPI_MISO); <span class="comment">// Set pullup on MISO.</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    SPI_PORT |= (1 &lt;&lt; SPI_SS); <span class="comment">// Set pullup on SS.</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    cli(); <span class="comment">// Clear interrupt enable flag.</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    SPCR |= (transfer_mode &lt;&lt; DORD); <span class="comment">// Set data order.</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    SPCR |= (control_mode &lt;&lt; MSTR); <span class="comment">// Controller/peripheral mode select.</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    SPCR |= (polarity_mode &lt;&lt; CPOL); <span class="comment">// Set polarity of SPI data. </span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    SPCR |= (phase_mode &lt;&lt; CPHA); <span class="comment">// Set phase of SPI data.</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    SPCR |= (clk_rate); <span class="comment">// Set speed</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    SPSR |= (dbl_clock &lt;&lt; SPI2X); <span class="comment">// Set double speed bit. </span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    SPCR |= (1 &lt;&lt; SPE); <span class="comment">// Enable SPI. </span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    sei(); <span class="comment">// Set interrupt enable flag.</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"></span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"> * Sends out a byte of data over SPI and returns the byte it receives. </span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="atmega__spi_8c.html#acd0061be20136ad912e5c590a35f0f87">   84</a></span>uint8_t <a class="code hl_function" href="atmega__spi_8c.html#acd0061be20136ad912e5c590a35f0f87">spi_trade_byte</a>(uint8_t data)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>{</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    SPDR = data; <span class="comment">// Send out byte of data. </span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    loop_until_bit_is_set(SPSR, SPIF); <span class="comment">// Wait for flag to be set. </span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    data = SPDR; <span class="comment">// Store the data received. </span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordflow">return</span> data;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>}</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"></span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> * Sends out a 16bit word of data over spi (in two bytes) and returns the byte</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> * it receives. </span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">   97</a></span>uint16_t <a class="code hl_function" href="atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a>(uint16_t data)</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>{</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    uint8_t msb = 0;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    uint8_t lsb = 0;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// Split word to send into 2 bytes and send the first one out. </span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    msb |= (data &gt;&gt; 8U);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    lsb |= (data);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    SPDR = msb; </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    loop_until_bit_is_set(SPSR, SPIF);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    msb = SPDR; <span class="comment">// Store the byte received. </span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">// Send the second byte out. </span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    SPDR = lsb;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    loop_until_bit_is_set(SPSR, SPIF);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    lsb = SPDR; <span class="comment">// Store the second byte received. </span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="comment">// Combine the bytes received into 1 word. </span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    uint16_t received_data = 0;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    received_data = (msb &lt;&lt; 8U);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    received_data |= (lsb);</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordflow">return</span> received_data;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
+<div class="ttc" id="aatmega__spi_8c_html_a5217b7d219487d49ba5f23b16fcf26b1"><div class="ttname"><a href="atmega__spi_8c.html#a5217b7d219487d49ba5f23b16fcf26b1">init_spi</a></div><div class="ttdeci">void init_spi(spi_transfer_mode_t transfer_mode, spi_control_mode_t control_mode, spi_polarity_mode_t polarity_mode, spi_phase_mode_t phase_mode, spi_clk_rate_t clk_rate, spi_dbl_clk_mode_t dbl_clock)</div><div class="ttdoc">Initialisation routine to set up SPI comms.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__spi_8c_source.html#l00052">atmega_spi.c:52</a></div></div>
+<div class="ttc" id="aatmega__spi_8c_html_acd0061be20136ad912e5c590a35f0f87"><div class="ttname"><a href="atmega__spi_8c.html#acd0061be20136ad912e5c590a35f0f87">spi_trade_byte</a></div><div class="ttdeci">uint8_t spi_trade_byte(uint8_t data)</div><div class="ttdoc">Sends out a byte of data over SPI and returns the byte it receives.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__spi_8c_source.html#l00084">atmega_spi.c:84</a></div></div>
+<div class="ttc" id="aatmega__spi_8c_html_ae48f6a6f69805dfd10b3ac13c37f8428"><div class="ttname"><a href="atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a></div><div class="ttdeci">uint16_t spi_trade_word(uint16_t data)</div><div class="ttdoc">Sends out a 16bit word of data over spi (in two bytes) and returns the byte it receives.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__spi_8c_source.html#l00097">atmega_spi.c:97</a></div></div>
 <div class="ttc" id="aatmega__spi_8h_html"><div class="ttname"><a href="atmega__spi_8h.html">atmega_spi.h</a></div><div class="ttdoc">Driver for SPI communication between the ATmega328P and other SPI compatible devices.</div></div>
 <div class="ttc" id="aatmega__spi_8h_html_a04dedad47b9e8c76480747b52ec76413"><div class="ttname"><a href="atmega__spi_8h.html#a04dedad47b9e8c76480747b52ec76413">spi_dbl_clk_mode_t</a></div><div class="ttdeci">spi_dbl_clk_mode_t</div><div class="ttdoc">Enumerated constants for selecting whether the SPI clock speed is doubled.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__spi_8h_source.html#l00096">atmega_spi.h:97</a></div></div>
 <div class="ttc" id="aatmega__spi_8h_html_a396aee59d9a83d5205e2cafdd13ec7bc"><div class="ttname"><a href="atmega__spi_8h.html#a396aee59d9a83d5205e2cafdd13ec7bc">spi_transfer_mode_t</a></div><div class="ttdeci">spi_transfer_mode_t</div><div class="ttdoc">Enumerated constants for selecting the transfer mode, most significant bit first of least significant...</div><div class="ttdef"><b>Definition:</b> <a href="atmega__spi_8h_source.html#l00045">atmega_spi.h:46</a></div></div>
