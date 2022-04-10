@@ -46,7 +46,7 @@
 
 #define DAC_CTRL_PORT          PORTB
 #define DAC_CTRL_DDR           DDRB
-#define DAC_CS                 PB2
+#define DAC_CS                 PB0
 #define LDAC                   PB1
 
 #define SPI_PORT               PORTB
@@ -54,6 +54,7 @@
 #define SPI_MOSI               PB3
 #define SPI_MISO               PB4
 #define SPI_SCK                PB5
+#define SPI_SS                 PB2
 
 #endif //PIN_DEFINES_DOT_H
 
