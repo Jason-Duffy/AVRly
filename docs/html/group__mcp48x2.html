@@ -99,6 +99,12 @@ $(document).ready(function(){initNavTree('group__mcp48x2.html',''); initResizabl
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="files" name="files"></a>
 Files</h2></td></tr>
+<tr class="memitem:atmega__spi_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="atmega__spi_8h.html">atmega_spi.h</a></td></tr>
+<tr class="memdesc:atmega__spi_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver for SPI communication between the ATmega328P and other SPI compatible devices. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:atmega__spi_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="atmega__spi_8h.html">atmega_spi.h</a></td></tr>
+<tr class="memdesc:atmega__spi_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver for SPI communication between the ATmega328P and other SPI compatible devices. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:modules_2data-converters_2mcp48x2__dac_2example_2main_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="modules_2data-converters_2mcp48x2__dac_2example_2main_8c.html">main.c</a></td></tr>
 <tr class="memdesc:modules_2data-converters_2mcp48x2__dac_2example_2main_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Example main routine demonstrating the mcp48x2 DAC driver. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -196,9 +202,8 @@ API Reference</h2>
 <div class="ttc" id="astructdac__config__t_html"><div class="ttname"><a href="structdac__config__t.html">dac_config_t</a></div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8h_source.html#l00061">mcp48x2_dac.h:62</a></div></div>
 </div><!-- fragment --><p >Then pass the address of the config object into the initialisation routine.</p>
 <div class="fragment"><div class="line"><a class="code hl_function" href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a>(&amp;dac_config);</div>
-<div class="ttc" id="amcp48x2__dac_8c_html_aaf5962070b11ed66e257763c365ad321"><div class="ttname"><a href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a></div><div class="ttdeci">void init_dac(dac_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00077">mcp48x2_dac.c:77</a></div></div>
-</div><!-- fragment --><p >Once inside</p>
-<h3><a class="anchor" id="autotoc_md74"></a>
+<div class="ttc" id="amcp48x2__dac_8c_html_aaf5962070b11ed66e257763c365ad321"><div class="ttname"><a href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a></div><div class="ttdeci">void init_dac(dac_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00086">mcp48x2_dac.c:86</a></div></div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md74"></a>
 Members</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -227,10 +232,10 @@ Setting the Output Voltage</h3>
 <p >The internal reference voltage (VREF) is 2.048V. When gain_low is set to true, the output range for that channel is from 0.0V to (1023/1024 * 2.048V), roughly a gain of 1. When gain_low is set to false, the output range for that channel is doubled, from 0.0V to (1023/1024 * 4.096V), or roughly 2(VREF).</p>
 <p >The resolution of the DAC dictates the increments it can be adjusted to. The MCP4802 has an 8 bit resolution, so the increments can be calculated as 2048mV/(2<sup>8</sup>) = 8mV, or 16mV when gain_low is set to false. For the MCP4812 it's 2mV or 4mV, and for the MCP4822 it's 500µV or 1mV.</p>
 <p >So to recap, if we want to set an output voltage of 4092mV, you'd have to set gain_low to false and level to 1023.</p>
-<p >Once the DAC is initialised, the output voltage can be set for each channel can be set using the function <a class="el" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7" title="Sends a new millivolts value to be output on DAC.">dac_set_voltage()</a>.</p>
+<p >Once the DAC is initialised, the output voltage can be set for each channel can be set using the function <a class="el" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7" title="Sends a new millivolts value to be output on DAC (Along with config settings).">dac_set_voltage()</a>.</p>
 <div class="fragment"><div class="line"><a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_A, 3000U);</div>
 <div class="line"><a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_B, 1500U);</div>
-<div class="ttc" id="amcp48x2__dac_8c_html_a8e5a30fe5a03338c88ef80b84f3098b7"><div class="ttname"><a href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a></div><div class="ttdeci">void dac_set_voltage(bool channel_a, uint16_t millivolts)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00126">mcp48x2_dac.c:126</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8c_html_a8e5a30fe5a03338c88ef80b84f3098b7"><div class="ttname"><a href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a></div><div class="ttdeci">void dac_set_voltage(bool channel_a, uint16_t millivolts)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC (Along with config settings).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00137">mcp48x2_dac.c:137</a></div></div>
 </div><!-- fragment --><p >The unit here is millivolts, unlike the <a class="el" href="structdac__config__t.html">dac_config_t</a> member variable level which must be calculated based on the resolution of the DAC.</p>
 <h3><a class="anchor" id="autotoc_md76"></a>
 Reconfiguring the DAC</h3>

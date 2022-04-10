@@ -222,7 +222,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 
 <p>Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART. </p>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00048">48</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00048">48</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   49</span>{</div>
 <div class="line"><span class="lineno">   50</span>  <span class="comment">// defined in setbaud.h</span></div>
 <div class="line"><span class="lineno">   51</span>  UBRR0H = UBRRH_VALUE;</div>
@@ -260,7 +260,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 
 <p>Utility function to transmit an entire string from RAM. </p>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00067">67</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00067">67</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   68</span>{</div>
 <div class="line"><span class="lineno">   69</span>  uint8_t i = 0;</div>
 <div class="line"><span class="lineno">   70</span>  <span class="keywordflow">while</span> (myString[i])</div>
@@ -301,7 +301,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 <p>Define a string variable, pass it to this function. </p>
 <p >The string will contain whatever you typed over serial. </p>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00081">81</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00081">81</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   82</span>{</div>
 <div class="line"><span class="lineno">   83</span>  <span class="keywordtype">char</span> response;</div>
 <div class="line"><span class="lineno">   84</span>  uint8_t count = 0;</div>
@@ -345,7 +345,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 
 <p>Prints a byte out as its 3-digit ascii equivalent. </p>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00106">106</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00106">106</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  107</span>{</div>
 <div class="line"><span class="lineno">  108</span>  <span class="comment">// Converts a byte to a string of decimal text, sends it</span></div>
 <div class="line"><span class="lineno">  109</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (<span class="keywordtype">byte</span> / 100));            <span class="comment">// Hundreds</span></div>
@@ -373,7 +373,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 
 <p>Prints a word (16-bits) out as its 5-digit ascii equivalent. </p>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00115">115</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00115">115</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  116</span>{</div>
 <div class="line"><span class="lineno">  117</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (word / 10000));       <span class="comment">// Ten-thousands</span></div>
 <div class="line"><span class="lineno">  118</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 1000) % 10)); <span class="comment">//  Thousands</span></div>
@@ -402,7 +402,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 
 <p>Prints a byte out in 1s and 0s. </p>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00125">125</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00125">125</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  126</span>{</div>
 <div class="line"><span class="lineno">  127</span>  uint8_t bit;</div>
 <div class="line"><span class="lineno">  128</span>  <span class="keywordflow">for</span> (bit = 7; bit &lt; 255; bit--)</div>
@@ -438,7 +438,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 
 <p>Convert nibble to hex character. </p>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00142">142</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00142">142</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  143</span>{</div>
 <div class="line"><span class="lineno">  144</span>  <span class="keywordflow">if</span> (nibble &lt; 10)</div>
 <div class="line"><span class="lineno">  145</span>  {</div>
@@ -470,15 +470,15 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 
 <p>Prints a byte out in hexadecimal. </p>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00155">155</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00155">155</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  156</span>{</div>
 <div class="line"><span class="lineno">  157</span>  uint8_t nibble;</div>
 <div class="line"><span class="lineno">  158</span>  nibble = (<span class="keywordtype">byte</span> &amp; 0b11110000) &gt;&gt; 4;</div>
-<div class="line"><span class="lineno">  159</span>  transmit_byte(<a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(nibble));</div>
+<div class="line"><span class="lineno">  159</span>  transmit_byte(<a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(nibble));</div>
 <div class="line"><span class="lineno">  160</span>  nibble = <span class="keywordtype">byte</span> &amp; 0b00001111;</div>
-<div class="line"><span class="lineno">  161</span>  transmit_byte(<a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(nibble));</div>
+<div class="line"><span class="lineno">  161</span>  transmit_byte(<a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(nibble));</div>
 <div class="line"><span class="lineno">  162</span>}</div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2usart_8c_html_a7abb0afe7126a9afb37d7cc16896adf1"><div class="ttname"><a href="debug-tools_2log-system_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a></div><div class="ttdeci">char nibble_to_hex_character(uint8_t nibble)</div><div class="ttdoc">Convert nibble to hex character.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2usart_8c_source.html#l00142">usart.c:142</a></div></div>
+<div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2usart_8c_html_a7abb0afe7126a9afb37d7cc16896adf1"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a></div><div class="ttdeci">char nibble_to_hex_character(uint8_t nibble)</div><div class="ttdoc">Convert nibble to hex character.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00142">usart.c:142</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -500,7 +500,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 
 <p>Takes in up to three ascii digits, converts them to a byte when press enter. </p>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00165">165</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00165">165</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  166</span>{</div>
 <div class="line"><span class="lineno">  167</span>  <span class="keywordtype">char</span> hundreds = <span class="charliteral">&#39;0&#39;</span>;</div>
 <div class="line"><span class="lineno">  168</span>  <span class="keywordtype">char</span> tens = <span class="charliteral">&#39;0&#39;</span>;</div>

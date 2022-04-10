@@ -117,6 +117,14 @@ Enumerations</h2></td></tr>
 , <b>VERBOSE_DEBUG</b>
 , <b>WARNING</b>
 , <b>ERROR</b>
+, <br />
+&#160;&#160;<b>NONE</b>
+, <b>INFO</b>
+, <b>DEBUG</b>
+, <b>VERBOSE_DEBUG</b>
+, <br />
+&#160;&#160;<b>WARNING</b>
+, <b>ERROR</b>
 <br />
  }</td></tr>
 <tr class="separator:a88925d8eccbc87ebb89cd1d8beef5ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -184,13 +192,13 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00046">46</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00046">46</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html">log_system.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   47</span>{</div>
-<div class="line"><span class="lineno">   48</span>  <a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a>();</div>
+<div class="line"><span class="lineno">   48</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a>();</div>
 <div class="line"><span class="lineno">   49</span>  log_global_on();</div>
 <div class="line"><span class="lineno">   50</span>  log_message(p_system_tag, INFO, <span class="stringliteral">&quot;Log system initialised&quot;</span>);</div>
 <div class="line"><span class="lineno">   51</span>};</div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2usart_8c_html_ad9b40dee04f1b7ced79b74fe3f6cb7fd"><div class="ttname"><a href="debug-tools_2log-system_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a></div><div class="ttdeci">void init_usart(void)</div><div class="ttdoc">Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2usart_8c_source.html#l00048">usart.c:48</a></div></div>
+<div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2usart_8c_html_ad9b40dee04f1b7ced79b74fe3f6cb7fd"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a></div><div class="ttdeci">void init_usart(void)</div><div class="ttdoc">Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00048">usart.c:48</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -226,12 +234,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00054">54</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00054">54</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html">log_system.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   55</span>{</div>
 <div class="line"><span class="lineno">   56</span>  print_tag_and_log_level(p_tag, level);</div>
-<div class="line"><span class="lineno">   57</span>  <a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(msg);</div>
+<div class="line"><span class="lineno">   57</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(msg);</div>
 <div class="line"><span class="lineno">   58</span>}</div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2usart_8c_html_a2cedcd300d876aac422cf9f9e241583a"><div class="ttname"><a href="debug-tools_2log-system_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a></div><div class="ttdeci">void print_string(const char myString[])</div><div class="ttdoc">Utility function to transmit an entire string from RAM.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2usart_8c_source.html#l00067">usart.c:67</a></div></div>
+<div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2usart_8c_html_a2cedcd300d876aac422cf9f9e241583a"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a></div><div class="ttdeci">void print_string(const char myString[])</div><div class="ttdoc">Utility function to transmit an entire string from RAM.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00067">usart.c:67</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -273,14 +281,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00061">61</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00061">61</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html">log_system.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   62</span>{</div>
 <div class="line"><span class="lineno">   63</span>  print_tag_and_log_level(p_tag, level);</div>
-<div class="line"><span class="lineno">   64</span>  <a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(msg);</div>
-<div class="line"><span class="lineno">   65</span>  <a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><span class="lineno">   66</span>  <a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#ae0af4da978c1af91fd2bed169b92dae3">print_byte</a>(val);</div>
+<div class="line"><span class="lineno">   64</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(msg);</div>
+<div class="line"><span class="lineno">   65</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><span class="lineno">   66</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#ae0af4da978c1af91fd2bed169b92dae3">print_byte</a>(val);</div>
 <div class="line"><span class="lineno">   67</span>}</div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2usart_8c_html_ae0af4da978c1af91fd2bed169b92dae3"><div class="ttname"><a href="debug-tools_2log-system_2example_2usart_8c.html#ae0af4da978c1af91fd2bed169b92dae3">print_byte</a></div><div class="ttdeci">void print_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out as its 3-digit ascii equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2usart_8c_source.html#l00106">usart.c:106</a></div></div>
+<div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2usart_8c_html_ae0af4da978c1af91fd2bed169b92dae3"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#ae0af4da978c1af91fd2bed169b92dae3">print_byte</a></div><div class="ttdeci">void print_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out as its 3-digit ascii equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00106">usart.c:106</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -322,14 +330,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00070">70</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>{</div>
-<div class="line"><span class="lineno">   72</span>  print_tag_and_log_level(p_tag, level);</div>
-<div class="line"><span class="lineno">   73</span>  <a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(msg);</div>
-<div class="line"><span class="lineno">   74</span>  <a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><span class="lineno">   75</span>  <a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a6ed8eefe33df0c479847f99bfbffbc2e">print_binary_byte</a>(val);</div>
-<div class="line"><span class="lineno">   76</span>}</div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2usart_8c_html_a6ed8eefe33df0c479847f99bfbffbc2e"><div class="ttname"><a href="debug-tools_2log-system_2example_2usart_8c.html#a6ed8eefe33df0c479847f99bfbffbc2e">print_binary_byte</a></div><div class="ttdeci">void print_binary_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out in 1s and 0s.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2usart_8c_source.html#l00125">usart.c:125</a></div></div>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00081">81</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   82</span>{</div>
+<div class="line"><span class="lineno">   83</span>  print_tag_and_log_level(p_tag, level);</div>
+<div class="line"><span class="lineno">   84</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(msg);</div>
+<div class="line"><span class="lineno">   85</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><span class="lineno">   86</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a6ed8eefe33df0c479847f99bfbffbc2e">print_binary_byte</a>(val);</div>
+<div class="line"><span class="lineno">   87</span>}</div>
+<div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2usart_8c_html_a6ed8eefe33df0c479847f99bfbffbc2e"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a6ed8eefe33df0c479847f99bfbffbc2e">print_binary_byte</a></div><div class="ttdeci">void print_binary_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out in 1s and 0s.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00125">usart.c:125</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -371,14 +379,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00079">79</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   80</span>{</div>
-<div class="line"><span class="lineno">   81</span>  print_tag_and_log_level(p_tag, level);</div>
-<div class="line"><span class="lineno">   82</span>  <a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(msg);</div>
-<div class="line"><span class="lineno">   83</span>  <a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><span class="lineno">   84</span>  <a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#ad2cb22c9efc792243fe27a60441547a4">print_hex_byte</a>(val);</div>
-<div class="line"><span class="lineno">   85</span>}</div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2usart_8c_html_ad2cb22c9efc792243fe27a60441547a4"><div class="ttname"><a href="debug-tools_2log-system_2example_2usart_8c.html#ad2cb22c9efc792243fe27a60441547a4">print_hex_byte</a></div><div class="ttdeci">void print_hex_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out in hexadecimal.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2usart_8c_source.html#l00155">usart.c:155</a></div></div>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00103">103</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  104</span>{</div>
+<div class="line"><span class="lineno">  105</span>  print_tag_and_log_level(p_tag, level);</div>
+<div class="line"><span class="lineno">  106</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(msg);</div>
+<div class="line"><span class="lineno">  107</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><span class="lineno">  108</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#ad2cb22c9efc792243fe27a60441547a4">print_hex_byte</a>(val);</div>
+<div class="line"><span class="lineno">  109</span>}</div>
+<div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2usart_8c_html_ad2cb22c9efc792243fe27a60441547a4"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#ad2cb22c9efc792243fe27a60441547a4">print_hex_byte</a></div><div class="ttdeci">void print_hex_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out in hexadecimal.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00155">usart.c:155</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -408,10 +416,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00088">88</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   89</span>{</div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>}</div>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00112">112</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  113</span>{</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -431,10 +439,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00094">94</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   95</span>{</div>
-<div class="line"><span class="lineno">   96</span>  log_system_enabled = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   97</span>}</div>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00118">118</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  119</span>{</div>
+<div class="line"><span class="lineno">  120</span>  log_system_enabled = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  121</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -454,10 +462,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00100">100</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  101</span>{</div>
-<div class="line"><span class="lineno">  102</span>  log_system_enabled = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  103</span>}</div>
+<p class="definition">Definition at line <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00124">124</a> of file <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  125</span>{</div>
+<div class="line"><span class="lineno">  126</span>  log_system_enabled = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  127</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

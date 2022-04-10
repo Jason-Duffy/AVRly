@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('modules_2data-converters_2mcp48x2__dac
 <p>Example main routine demonstrating the mcp48x2 DAC driver.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;util/delay.h&gt;</code><br />
-<code>#include &quot;mcp4812_dac.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="mcp48x2__dac_8h_source.html">mcp48x2_dac.h</a>&quot;</code><br />
 </div>
 <p><a href="modules_2data-converters_2mcp48x2__dac_2example_2main_8c_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -141,19 +141,26 @@ Variables</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">   50</span>{</div>
 <div class="line"><span class="lineno">   51</span>    <span class="comment">// Setup</span></div>
 <div class="line"><span class="lineno">   52</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a>(&amp;dac_config);</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_A, 3000U);</div>
-<div class="line"><span class="lineno">   55</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_B, 1500U);</div>
+<div class="line"><span class="lineno">   53</span>    </div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_A, 2046U);</div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_B, 2046U);</div>
 <div class="line"><span class="lineno">   56</span> </div>
 <div class="line"><span class="lineno">   57</span>    <span class="comment">// Loop forever</span></div>
 <div class="line"><span class="lineno">   58</span>    <span class="keywordflow">for</span>(;;)</div>
 <div class="line"><span class="lineno">   59</span>    {</div>
-<div class="line"><span class="lineno">   60</span>        <a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_A, 1000U);</div>
-<div class="line"><span class="lineno">   61</span>        <a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_B, 2000U);</div>
-<div class="line"><span class="lineno">   62</span>    }</div>
-<div class="line"><span class="lineno">   63</span>}</div>
-<div class="ttc" id="amcp48x2__dac_8c_html_a8e5a30fe5a03338c88ef80b84f3098b7"><div class="ttname"><a href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a></div><div class="ttdeci">void dac_set_voltage(bool channel_a, uint16_t millivolts)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00126">mcp48x2_dac.c:126</a></div></div>
-<div class="ttc" id="amcp48x2__dac_8c_html_aaf5962070b11ed66e257763c365ad321"><div class="ttname"><a href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a></div><div class="ttdeci">void init_dac(dac_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00077">mcp48x2_dac.c:77</a></div></div>
+<div class="line"><span class="lineno">   60</span>        <a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_A, 2046U);</div>
+<div class="line"><span class="lineno">   61</span>        <a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_B, 2046U);</div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>        _delay_ms(1000);</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>        <a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_A, 4092U);</div>
+<div class="line"><span class="lineno">   66</span>        <a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_B, 4092U);</div>
+<div class="line"><span class="lineno">   67</span> </div>
+<div class="line"><span class="lineno">   68</span>        _delay_ms(1000);</div>
+<div class="line"><span class="lineno">   69</span>    }</div>
+<div class="line"><span class="lineno">   70</span>}</div>
+<div class="ttc" id="amcp48x2__dac_8c_html_a8e5a30fe5a03338c88ef80b84f3098b7"><div class="ttname"><a href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a></div><div class="ttdeci">void dac_set_voltage(bool channel_a, uint16_t millivolts)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC (Along with config settings).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00137">mcp48x2_dac.c:137</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8c_html_aaf5962070b11ed66e257763c365ad321"><div class="ttname"><a href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a></div><div class="ttdeci">void init_dac(dac_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00086">mcp48x2_dac.c:86</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
