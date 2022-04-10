@@ -66,6 +66,17 @@ void log_message_with_dec_val(const char *p_tag, enum eLogLevel level, const cha
   print_byte(val);
 }
 
+
+// Sends a string, followed by an integer (5 ASCII digits)
+void log_message_with_16bit_dec_val(const char *p_tag, enum eLogLevel level, const char *msg, uint16_t val)
+{
+  print_tag_and_log_level(p_tag, level);
+  print_string(msg);
+  print_string(" ");
+  print_word(val);
+}
+
+
 // Sends a string, followed by a binary byte (in 1's and 0's)
 void log_message_with_bin_val(const char *p_tag, enum eLogLevel level, const char *msg, uint8_t val)
 {
