@@ -10,6 +10,10 @@ var NAVTREEINDEX0 =
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2pin__defines_8h.html#a5ebaa76de0dba97075bb5ddd49eb4bdd":[5,0,0,0,0,3,1],
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2pin__defines_8h_source.html":[5,0,0,0,0,3],
 "annotated.html":[4,0],
+"atmega__spi_8c.html":[5,0,0,2,1,0,0,0],
+"atmega__spi_8c.html#a5217b7d219487d49ba5f23b16fcf26b1":[5,0,0,2,1,0,0,0,0],
+"atmega__spi_8c.html#acd0061be20136ad912e5c590a35f0f87":[5,0,0,2,1,0,0,0,1],
+"atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428":[5,0,0,2,1,0,0,0,2],
 "atmega__spi_8c_source.html":[5,0,0,2,1,0,0,0],
 "atmega__spi_8h.html":[5,0,0,2,1,0,0,1],
 "atmega__spi_8h.html#a04dedad47b9e8c76480747b52ec76413":[5,0,0,2,1,0,0,1,5],
@@ -245,9 +249,5 @@ var NAVTREEINDEX0 =
 "group__ccs811.html":[3,5,0],
 "group__ccs811.html#md_content_modules_sensors_ccs811_sensor_ccs811":[3,5,0,10],
 "group__data__converters.html":[3,2],
-"group__debug__tools.html":[3,3],
-"group__digital__clock.html":[3,6,0,0],
-"group__displays.html":[3,4],
-"group__getting__started.html":[3,0],
-"group__hd44780__lcd.html":[3,4,0]
+"group__debug__tools.html":[3,3]
 };

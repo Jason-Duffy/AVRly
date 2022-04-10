@@ -7,7 +7,7 @@ var searchData=
   ['spi_5fdbl_5fclk_5fmode_5ft_4',['spi_dbl_clk_mode_t',['../atmega__spi_8h.html#a04dedad47b9e8c76480747b52ec76413',1,'atmega_spi.h']]],
   ['spi_5fphase_5fmode_5ft_5',['spi_phase_mode_t',['../atmega__spi_8h.html#a4e4524aaff15d8e69d04201291be1b44',1,'atmega_spi.h']]],
   ['spi_5fpolarity_5fmode_5ft_6',['spi_polarity_mode_t',['../atmega__spi_8h.html#a75ba6918728b038fd6c73ac864ea8e7b',1,'atmega_spi.h']]],
-  ['spi_5ftrade_5fbyte_7',['spi_trade_byte',['../atmega__spi_8h.html#acd0061be20136ad912e5c590a35f0f87',1,'atmega_spi.c']]],
-  ['spi_5ftrade_5fword_8',['spi_trade_word',['../atmega__spi_8h.html#ae48f6a6f69805dfd10b3ac13c37f8428',1,'atmega_spi.c']]],
+  ['spi_5ftrade_5fbyte_7',['spi_trade_byte',['../atmega__spi_8c.html#acd0061be20136ad912e5c590a35f0f87',1,'spi_trade_byte(uint8_t data):&#160;atmega_spi.c'],['../atmega__spi_8h.html#acd0061be20136ad912e5c590a35f0f87',1,'spi_trade_byte(uint8_t data):&#160;atmega_spi.c']]],
+  ['spi_5ftrade_5fword_8',['spi_trade_word',['../atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428',1,'spi_trade_word(uint16_t data):&#160;atmega_spi.c'],['../atmega__spi_8h.html#ae48f6a6f69805dfd10b3ac13c37f8428',1,'spi_trade_word(uint16_t data):&#160;atmega_spi.c']]],
   ['spi_5ftransfer_5fmode_5ft_9',['spi_transfer_mode_t',['../atmega__spi_8h.html#a396aee59d9a83d5205e2cafdd13ec7bc',1,'atmega_spi.h']]]
 ];

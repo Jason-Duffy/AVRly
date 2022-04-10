@@ -248,7 +248,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   90</span>    <span class="comment">// Delay to allow power ramp up in device.</span></div>
 <div class="line"><span class="lineno">   91</span>    _delay_ms(500);</div>
 <div class="line"><span class="lineno">   92</span> </div>
-<div class="line"><span class="lineno">   93</span>    <a class="code hl_function" href="atmega__spi_8h.html#a5217b7d219487d49ba5f23b16fcf26b1">init_spi</a>(lsb_first,</div>
+<div class="line"><span class="lineno">   93</span>    <a class="code hl_function" href="atmega__spi_8c.html#a5217b7d219487d49ba5f23b16fcf26b1">init_spi</a>(lsb_first,</div>
 <div class="line"><span class="lineno">   94</span>             controller,</div>
 <div class="line"><span class="lineno">   95</span>             rising_edge,</div>
 <div class="line"><span class="lineno">   96</span>             sample_leading_edge,</div>
@@ -286,7 +286,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  128</span>    <span class="comment">// Send new values to DAC</span></div>
 <div class="line"><span class="lineno">  129</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>();</div>
 <div class="line"><span class="lineno">  130</span>}</div>
-<div class="ttc" id="aatmega__spi_8h_html_a5217b7d219487d49ba5f23b16fcf26b1"><div class="ttname"><a href="atmega__spi_8h.html#a5217b7d219487d49ba5f23b16fcf26b1">init_spi</a></div><div class="ttdeci">void init_spi(spi_transfer_mode_t transfer_mode, spi_control_mode_t control_mode, spi_polarity_mode_t polarity_mode, spi_phase_mode_t phase_mode, spi_clk_rate_t clk_rate, spi_dbl_clk_mode_t dbl_clock)</div><div class="ttdoc">Initialisation routine to set up SPI comms.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__spi_8c_source.html#l00053">atmega_spi.c:53</a></div></div>
+<div class="ttc" id="aatmega__spi_8c_html_a5217b7d219487d49ba5f23b16fcf26b1"><div class="ttname"><a href="atmega__spi_8c.html#a5217b7d219487d49ba5f23b16fcf26b1">init_spi</a></div><div class="ttdeci">void init_spi(spi_transfer_mode_t transfer_mode, spi_control_mode_t control_mode, spi_polarity_mode_t polarity_mode, spi_phase_mode_t phase_mode, spi_clk_rate_t clk_rate, spi_dbl_clk_mode_t dbl_clock)</div><div class="ttdoc">Initialisation routine to set up SPI comms.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__spi_8c_source.html#l00053">atmega_spi.c:53</a></div></div>
 <div class="ttc" id="amcp48x2__dac_8c_html_ab7d4460badaeb5c1255a471604ee7823"><div class="ttname"><a href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a></div><div class="ttdeci">void dac_reconfigure(void)</div><div class="ttdoc">Applies new config settings.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00231">mcp48x2_dac.c:231</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -476,11 +476,11 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  251</span> </div>
 <div class="line"><span class="lineno">  252</span>    <span class="comment">// Send new data to DAC over SPI. </span></div>
 <div class="line"><span class="lineno">  253</span>    chip_select();</div>
-<div class="line"><span class="lineno">  254</span>    <a class="code hl_function" href="atmega__spi_8h.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a>(channel_a_data);</div>
+<div class="line"><span class="lineno">  254</span>    <a class="code hl_function" href="atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a>(channel_a_data);</div>
 <div class="line"><span class="lineno">  255</span>    chip_deselect();</div>
 <div class="line"><span class="lineno">  256</span> </div>
 <div class="line"><span class="lineno">  257</span>    chip_select();</div>
-<div class="line"><span class="lineno">  258</span>    <a class="code hl_function" href="atmega__spi_8h.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a>(channel_b_data);</div>
+<div class="line"><span class="lineno">  258</span>    <a class="code hl_function" href="atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a>(channel_b_data);</div>
 <div class="line"><span class="lineno">  259</span>    chip_deselect();</div>
 <div class="line"><span class="lineno">  260</span> </div>
 <div class="line"><span class="lineno">  261</span>    <span class="comment">// If sync_manually is set to false, pulse LDAC to update values. </span></div>
@@ -489,7 +489,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  264</span>        <a class="code hl_function" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a>();</div>
 <div class="line"><span class="lineno">  265</span>    }</div>
 <div class="line"><span class="lineno">  266</span>}</div>
-<div class="ttc" id="aatmega__spi_8h_html_ae48f6a6f69805dfd10b3ac13c37f8428"><div class="ttname"><a href="atmega__spi_8h.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a></div><div class="ttdeci">uint16_t spi_trade_word(uint16_t data)</div><div class="ttdoc">Sends out a 16bit word of data over spi (in two bytes) and returns the byte it receives.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__spi_8c_source.html#l00098">atmega_spi.c:98</a></div></div>
+<div class="ttc" id="aatmega__spi_8c_html_ae48f6a6f69805dfd10b3ac13c37f8428"><div class="ttname"><a href="atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a></div><div class="ttdeci">uint16_t spi_trade_word(uint16_t data)</div><div class="ttdoc">Sends out a 16bit word of data over spi (in two bytes) and returns the byte it receives.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__spi_8c_source.html#l00098">atmega_spi.c:98</a></div></div>
 <div class="ttc" id="amcp48x2__dac_8c_html_afd38e4b814863ec79d710ee2c3623adb"><div class="ttname"><a href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a></div><div class="ttdeci">void pulse_latch(void)</div><div class="ttdoc">Pulses LDAC pin low for a brief time (1uS).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00275">mcp48x2_dac.c:275</a></div></div>
 </div><!-- fragment -->
 </div>

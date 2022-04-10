@@ -1,6 +1,6 @@
 var dir_f0fb721cea2e057a74d5452615af3919 =
 [
-    [ "atmega_spi.c", "atmega__spi_8c_source.html", null ],
+    [ "atmega_spi.c", "atmega__spi_8c.html", "atmega__spi_8c" ],
     [ "atmega_spi.h", "atmega__spi_8h.html", "atmega__spi_8h" ],
     [ "log_system.c", "data-converters_2mcp48x2__dac_2example_2log__system_8c.html", null ],
     [ "log_system.h", "data-converters_2mcp48x2__dac_2example_2log__system_8h.html", null ],

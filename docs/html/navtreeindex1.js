@@ -1,5 +1,9 @@
 var NAVTREEINDEX1 =
 {
+"group__digital__clock.html":[3,6,0,0],
+"group__displays.html":[3,4],
+"group__getting__started.html":[3,0],
+"group__hd44780__lcd.html":[3,4,0],
 "group__hd44780__lcd.html#md_content_modules_displays_hd44780_lcd_hd44780_lcd":[3,4,0,4],
 "group__log__system.html":[3,3,0],
 "group__log__system.html#md_content_modules_debug_tools_log_system_log_system":[3,3,0,9],
