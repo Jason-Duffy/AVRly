@@ -44,10 +44,9 @@
  */
 typedef enum
 {
-    lsb_first;
-    msb_first;
+    lsb_first,
+    msb_first,
 }spi_transfer_mode_t;
-
 
 /**
  * Enumerated constants for selecting whether the host MCU is the controller or
@@ -55,10 +54,19 @@ typedef enum
  */
 typedef enum
 {
-    peripheral;
-    controller;   
+    peripheral,
+    controller,   
 }spi_control_mode_t;
 
+/**
+ * Enumerated constants for selecting the SPI polarity mode, rising or falling
+ * on leading clock edge.
+ */
+typedef enum
+{
+    rising_edge,
+    falling_edge,
+}spi_polarity_mode_t;
 
 /**
  * Enumerated constants for selecting the SPI phase mode, on leading clock edge.
@@ -66,10 +74,9 @@ typedef enum
  */
 typedef enum
 {
-    lead_sample_rising_edge;
-    lead_setup_rising_edge;
+    sample_leading_edge,
+    sample_trailing_edge,
 }spi_phase_mode_t;
-
 
 /**
  * Enumerated constants for selecting the SPI clock rate. cpu_clk_div_4 is
@@ -77,21 +84,20 @@ typedef enum
  */
 typedef enum
 {
-    cpu_clk_div_4;
-    cpu_clk_div_16;
-    cpu_clk_div_64;
-    cpu_clk_div_128;
+    cpu_clk_div_4,
+    cpu_clk_div_16,
+    cpu_clk_div_64,
+    cpu_clk_div_128,
 }spi_clk_rate_t;
-
 
 /**
  * Enumerated constants for selecting whether the SPI clock speed is doubled.
  */
 typedef enum
 {
-    single_speed;
-    double_speed;
-}spi_phase_mode_t;
+    single_speed,
+    double_speed,
+}spi_dbl_clk_mode_t;
 
 
 /**
@@ -107,6 +113,7 @@ typedef enum
  */
 void init_spi(spi_transfer_mode_t transfer_mode,
               spi_control_mode_t control_mode,
+              spi_polarity_mode_t polarity_mode,
               spi_phase_mode_t phase_mode,
               spi_clk_rate_t clk_rate,
               spi_dbl_clk_mode_t dbl_clock);
@@ -122,7 +129,8 @@ uint8_t spi_trade_byte(uint8_t data);
 
 
 /**
- * Sends out a 16bit word of data over spi (in two bytes) and returns the byte it receives. 
+ * Sends out a 16bit word of data over spi (in two bytes) and returns the byte
+ * it receives. 
  * @param uint16_t data: The byte of data to be sent from the host MCU to the
  * peripheral device.
  * @return The data received from the peripheral device is returned.

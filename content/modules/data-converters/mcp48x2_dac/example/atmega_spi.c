@@ -34,11 +34,10 @@
  */
 
 #include <avr/io.h>
+#include <avr/interrupt.h>
 
 #include "atmega_spi.h"
 #include "pin_defines.h"
-
-
 
 /**
  * Initialisation routine to set up SPI comms. Must be called before any other
@@ -53,6 +52,7 @@
  */
 void init_spi(spi_transfer_mode_t transfer_mode,
               spi_control_mode_t control_mode,
+              spi_polarity_mode_t polarity_mode,
               spi_phase_mode_t phase_mode,
               spi_clk_rate_t clk_rate,
               spi_dbl_clk_mode_t dbl_clock)
@@ -60,17 +60,22 @@ void init_spi(spi_transfer_mode_t transfer_mode,
     SPI_DDR |= (1 << SPI_MOSI); // Set MOSI as output.
     SPI_DDR |= (1 << SPI_SCK); // Set SCK as output.
     SPI_DDR &= ~(1 << SPI_MISO); // Set MISO as input. 
+    SPI_DDR &= ~(1 << SPI_SS); // Set SS as input.
     SPI_PORT |= (1 << SPI_MISO); // Set pullup on MISO.
+    SPI_PORT |= (1 << SPI_SS); // Set pullup on SS.
 
     cli(); // Clear interrupt enable flag.
     SPCR |= (transfer_mode << DORD); // Set data order.
     SPCR |= (control_mode << MSTR); // Controller/peripheral mode select.
+    SPCR |= (polarity_mode << CPOL); // Set polarity of SPI data. 
+    SPCR |= (phase_mode << CPHA); // Set phase of SPI data.
     SPCR |= (clk_rate); // Set speed
 
-    SPSR |= (dbl_clock << SPI2X) // Set double speed bit. 
+    SPSR |= (dbl_clock << SPI2X); // Set double speed bit. 
 
     SPCR |= (1 << SPE); // Enable SPI. 
-    sei(); // Set interrupt enable flag. 
+
+    sei(); // Set interrupt enable flag.
 }
 
 
@@ -87,7 +92,8 @@ uint8_t spi_trade_byte(uint8_t data)
 
 
 /**
- * Sends out a 16bit word of data over spi (in two bytes) and returns the byte it receives. 
+ * Sends out a 16bit word of data over spi (in two bytes) and returns the byte
+ * it receives. 
  */
 uint16_t spi_trade_word(uint16_t data)
 {
