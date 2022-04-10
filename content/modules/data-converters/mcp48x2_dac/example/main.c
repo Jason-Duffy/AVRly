@@ -32,16 +32,12 @@
 #include <util/delay.h>
 #include "mcp48x2_dac.h"
 
-#include "log_system.h"
-
-static const char *p_system_tag = "MAIN";
-
 dac_config_t dac_config =
 {
 	.model = mcp4812,
 	.sync_manually = false,
 
-	.channel_a.gain_low = true,
+	.channel_a.gain_low = false,
 	.channel_a.active = true,
 	.channel_a.level = 0,
 
@@ -53,10 +49,8 @@ dac_config_t dac_config =
 int main()
 {
 	// Setup
-	init_log_system();
-	log_message(p_system_tag, INFO, "Setup in progress");
 	init_dac(&dac_config);
-	log_message(p_system_tag, INFO, "About to enter loop");
+	
 	dac_set_voltage(DAC_CHANNEL_A, 2046U);
 	dac_set_voltage(DAC_CHANNEL_B, 2046U);
 
@@ -65,5 +59,12 @@ int main()
 	{
 		dac_set_voltage(DAC_CHANNEL_A, 2046U);
 		dac_set_voltage(DAC_CHANNEL_B, 2046U);
+
+		_delay_ms(1000);
+
+		dac_set_voltage(DAC_CHANNEL_A, 4092U);
+		dac_set_voltage(DAC_CHANNEL_B, 4092U);
+
+		_delay_ms(1000);
 	}
 }
