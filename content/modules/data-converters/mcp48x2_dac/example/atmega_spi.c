@@ -21,7 +21,7 @@
 ******************************************************************************/
 
 /**
- * @file atmega_spi.h
+ * @file atmega_spi.c
  * @ingroup mcp48x2
  * @author Jason Duffy
  * @date 9th April 2022
