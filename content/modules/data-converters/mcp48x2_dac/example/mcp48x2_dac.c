@@ -42,17 +42,20 @@
 #include "atmega_spi.h"
 #include "pin_defines.h"
 
+// Bit positions for configuration. 
 #define CHANNEL_BIT              15U
 #define GAIN_BIT                 13U
 #define SHUTDOWN_BIT             12U
+
+// Offset values for setting raw level value. 
 #define TWELVE_BIT_LEVEL_OFFSET  0U
 #define TEN_BIT_LEVEL_OFFSET     2U
 #define EIGHT_BIT_LEVEL_OFFSET   4U
 
+// Offset values for setting millivolts. 
 #define TWELVE_BIT_MV_OFFSET     0U
 #define TEN_BIT_MV_OFFSET        1U
 #define EIGHT_BIT_MV_OFFSET      3U
-
 
 /**
  * File scope copy of dac_config_t pointer to store address of config object.
@@ -76,7 +79,7 @@ void chip_select(void);
 void chip_deselect(void);
 
 
-/**
+/*
  * Initialisation routine (run once at startup).
  * This function is to be called before using any other DAC functions.
  * Instantiate the dac_config_t object first then pass it's address into and
@@ -85,11 +88,13 @@ void chip_deselect(void);
  */
 void init_dac(dac_config_t *p_config)
 {
+    // Copy config object pointer to a variable with file scope. 
     p_config_global = p_config;
 
     // Delay to allow power ramp up in device.
     _delay_ms(500);
 
+    // Initialise SPI comms. 
     init_spi(lsb_first,
              controller,
              rising_edge,
@@ -131,7 +136,7 @@ void init_dac(dac_config_t *p_config)
 
 
 /*
- * Sends a new millivolts value to be output on DAC. Use this function got the
+ * Sends a new millivolts value to be output on DAC. Use this function for the
  * MCP4802 and MCP4812 models.
  */
 void dac_set_voltage(bool channel_a, uint16_t millivolts)
@@ -223,7 +228,7 @@ void dac_set_voltage_12_bit(bool channel_a,
 }
 
 
-/**
+/*
  * Applies new config settings. This function takes updated config settings for
  * both channels of DAC, then re-sends data so that the new settings take
  * effect.
@@ -248,12 +253,14 @@ void dac_reconfigure(void)
 
     channel_b_data |=
                 (p_config_global->channel_b.level << level_resolution_shift);
+                
 
-    // Send new data to DAC over SPI. 
+    // Send data for channel A to DAC over SPI. 
     chip_select();
     spi_trade_word(channel_a_data);
     chip_deselect();
 
+    // Send data for channel B to DAC over SPI.
     chip_select();
     spi_trade_word(channel_b_data);
     chip_deselect();
@@ -284,7 +291,7 @@ void pulse_latch(void)
 // ------------------------------------------------------------------------- // 
 
 
-/*
+/**
  * Private helper function - pulls CS line (Chip Select) low in order to begin
  * SPI communication with DAC.
  */
@@ -293,7 +300,7 @@ void chip_select(void)
     DAC_CTRL_PORT &= ~(1 << DAC_CS);
 }
 
-/*
+/**
  * Private helper function - pulls CS line (Chip Select) high to signal the end
  * of SPI communication with DAC.
  */
