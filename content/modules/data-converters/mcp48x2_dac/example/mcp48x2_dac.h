@@ -44,6 +44,10 @@
 #define DAC_CHANNEL_A       true
 #define DAC_CHANNEL_B       false
 
+
+/**
+ * Enumerated constants to select the DAC model number. 
+ */
 typedef enum 
 {
     mcp4802,
@@ -51,6 +55,11 @@ typedef enum
     mcp4822
 } model_num_t;
 
+
+/**
+ * Struct for config values for each channel - this is only to be used as a
+ * nested struct within the dac_config_t struct. 
+ */
 typedef struct
 {
     bool gain_low;    // true = LOW (0 - 2048mV), false = HIGH (0 - 4096mV).
@@ -58,6 +67,11 @@ typedef struct
     uint16_t level;   // Value to be output on channel A.
 } dac_channel_t;
 
+
+/**
+ * Config struct for DAC. Instantiate this object and assign values to it's 
+ * members before passing it's address intp the init_dac() function. 
+ */
 typedef struct
 {
     model_num_t model; // mcp4802, mcp4812 or mcp4822.
@@ -73,7 +87,6 @@ typedef struct
  * Instantiate the dac_config_t object first then pass it's address into and
  * call init_lcd() before using any other lcd functions.
  * @param p_config is a pointer to the dac_config_t object.
- * @return Returns void.
  */
 void init_dac(dac_config_t *p_config);
 
