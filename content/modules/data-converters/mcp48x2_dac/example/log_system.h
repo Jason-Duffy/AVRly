@@ -61,7 +61,7 @@ void log_message_with_bin_val(const char *p_tag,
 
 // Sends a string, followed by a value in binary format
 void log_message_with_16bit_bin_val(const char *p_tag,
-                                    enum eLogLevel level
+                                    enum eLogLevel level,
                                     const char *msg,
                                     uint16_t val);
 
