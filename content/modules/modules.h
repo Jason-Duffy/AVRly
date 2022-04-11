@@ -73,4 +73,10 @@
  * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/avr-peripheral-features/timer-counter/digital-clock/example
  * 
  * Repository contents:
+ * 
+ * @defgroup spi SPI
+ * @ingroup avr_peripherals
+ * 
+ * @defgroup i2c I2C
+ * @ingroup avr_peripherals
  */
