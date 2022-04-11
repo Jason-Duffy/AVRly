@@ -30,7 +30,7 @@
  * @bug No known bugs. 
  * @details This file provides the basic SPI comms setup and initialisation
  * instructions. The following ports/pins must be defined in pin_defines.h:
- * SPI_DDR, SPI_PORT, SPI_MOSI SPI_MISO, SPI_SCK.
+ * SPI_DDR, SPI_PORT, SPI_MOSI SPI_MISO, SPI_SCK, SPI_SS.
  */
 
 #include <avr/io.h>
@@ -39,11 +39,12 @@
 #include "atmega_spi.h"
 #include "pin_defines.h"
 
-/**
+/*
  * Initialisation routine to set up SPI comms. Must be called before any other
  * functions in this file can be used.
  * @param transfer_mode lsb_first or msb_first.
  * @param control_mode controller or peripheral.
+ * @param polarity_mode rising_edge or falling_edge.
  * @param phase_mode lead_sample_rising_edge or lead_setup_rising_edge.
  * @param clk_rate Sets the speed of the SPI clock - divided down from F_CPU
  * speed.
@@ -78,7 +79,7 @@ void init_spi(spi_transfer_mode_t transfer_mode,
 }
 
 
-/**
+/*
  * Sends out a byte of data over SPI and returns the byte it receives. 
  */
 uint8_t spi_trade_byte(uint8_t data)
@@ -90,7 +91,7 @@ uint8_t spi_trade_byte(uint8_t data)
 }
 
 
-/**
+/*
  * Sends out a 16bit word of data over spi (in two bytes) and returns the byte
  * it receives. 
  */
