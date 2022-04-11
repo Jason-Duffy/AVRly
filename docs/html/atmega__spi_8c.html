@@ -122,7 +122,7 @@ Functions</h2></td></tr>
 <p >The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p >THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p><dl class="section author"><dt>Author</dt><dd>Jason Duffy </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>9th April 2022 </dd></dl>
-<p >This file provides the basic SPI comms setup and initialisation instructions. The following ports/pins must be defined in pin_defines.h: SPI_DDR, SPI_PORT, SPI_MOSI SPI_MISO, SPI_SCK. </p>
+<p >This file provides the basic SPI comms setup and initialisation instructions. The following ports/pins must be defined in pin_defines.h: SPI_DDR, SPI_PORT, SPI_MOSI SPI_MISO, SPI_SCK, SPI_SS. </p>
 
 <p class="definition">Definition in file <a class="el" href="atmega__spi_8c_source.html">atmega_spi.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
@@ -181,6 +181,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">transfer_mode</td><td>lsb_first or msb_first. </td></tr>
     <tr><td class="paramname">control_mode</td><td>controller or peripheral. </td></tr>
+    <tr><td class="paramname">polarity_mode</td><td>rising_edge or falling_edge. </td></tr>
     <tr><td class="paramname">phase_mode</td><td>lead_sample_rising_edge or lead_setup_rising_edge. </td></tr>
     <tr><td class="paramname">clk_rate</td><td>Sets the speed of the SPI clock - divided down from F_CPU speed. </td></tr>
     <tr><td class="paramname">dbl_clock</td><td>single_speed or double_speed. </td></tr>
@@ -188,28 +189,28 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="atmega__spi_8c_source.html#l00052">52</a> of file <a class="el" href="atmega__spi_8c_source.html">atmega_spi.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   58</span>{</div>
-<div class="line"><span class="lineno">   59</span>    SPI_DDR |= (1 &lt;&lt; SPI_MOSI); <span class="comment">// Set MOSI as output.</span></div>
-<div class="line"><span class="lineno">   60</span>    SPI_DDR |= (1 &lt;&lt; SPI_SCK); <span class="comment">// Set SCK as output.</span></div>
-<div class="line"><span class="lineno">   61</span>    SPI_DDR &amp;= ~(1 &lt;&lt; SPI_MISO); <span class="comment">// Set MISO as input. </span></div>
-<div class="line"><span class="lineno">   62</span>    SPI_DDR &amp;= ~(1 &lt;&lt; SPI_SS); <span class="comment">// Set SS as input.</span></div>
-<div class="line"><span class="lineno">   63</span>    SPI_PORT |= (1 &lt;&lt; SPI_MISO); <span class="comment">// Set pullup on MISO.</span></div>
-<div class="line"><span class="lineno">   64</span>    SPI_PORT |= (1 &lt;&lt; SPI_SS); <span class="comment">// Set pullup on SS.</span></div>
-<div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>    cli(); <span class="comment">// Clear interrupt enable flag.</span></div>
-<div class="line"><span class="lineno">   67</span>    SPCR |= (transfer_mode &lt;&lt; DORD); <span class="comment">// Set data order.</span></div>
-<div class="line"><span class="lineno">   68</span>    SPCR |= (control_mode &lt;&lt; MSTR); <span class="comment">// Controller/peripheral mode select.</span></div>
-<div class="line"><span class="lineno">   69</span>    SPCR |= (polarity_mode &lt;&lt; CPOL); <span class="comment">// Set polarity of SPI data. </span></div>
-<div class="line"><span class="lineno">   70</span>    SPCR |= (phase_mode &lt;&lt; CPHA); <span class="comment">// Set phase of SPI data.</span></div>
-<div class="line"><span class="lineno">   71</span>    SPCR |= (clk_rate); <span class="comment">// Set speed</span></div>
-<div class="line"><span class="lineno">   72</span> </div>
-<div class="line"><span class="lineno">   73</span>    SPSR |= (dbl_clock &lt;&lt; SPI2X); <span class="comment">// Set double speed bit. </span></div>
-<div class="line"><span class="lineno">   74</span> </div>
-<div class="line"><span class="lineno">   75</span>    SPCR |= (1 &lt;&lt; SPE); <span class="comment">// Enable SPI. </span></div>
-<div class="line"><span class="lineno">   76</span> </div>
-<div class="line"><span class="lineno">   77</span>    sei(); <span class="comment">// Set interrupt enable flag.</span></div>
-<div class="line"><span class="lineno">   78</span>}</div>
+<p class="definition">Definition at line <a class="el" href="atmega__spi_8c_source.html#l00053">53</a> of file <a class="el" href="atmega__spi_8c_source.html">atmega_spi.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>{</div>
+<div class="line"><span class="lineno">   60</span>    SPI_DDR |= (1 &lt;&lt; SPI_MOSI); <span class="comment">// Set MOSI as output.</span></div>
+<div class="line"><span class="lineno">   61</span>    SPI_DDR |= (1 &lt;&lt; SPI_SCK); <span class="comment">// Set SCK as output.</span></div>
+<div class="line"><span class="lineno">   62</span>    SPI_DDR &amp;= ~(1 &lt;&lt; SPI_MISO); <span class="comment">// Set MISO as input. </span></div>
+<div class="line"><span class="lineno">   63</span>    SPI_DDR &amp;= ~(1 &lt;&lt; SPI_SS); <span class="comment">// Set SS as input.</span></div>
+<div class="line"><span class="lineno">   64</span>    SPI_PORT |= (1 &lt;&lt; SPI_MISO); <span class="comment">// Set pullup on MISO.</span></div>
+<div class="line"><span class="lineno">   65</span>    SPI_PORT |= (1 &lt;&lt; SPI_SS); <span class="comment">// Set pullup on SS.</span></div>
+<div class="line"><span class="lineno">   66</span> </div>
+<div class="line"><span class="lineno">   67</span>    cli(); <span class="comment">// Clear interrupt enable flag.</span></div>
+<div class="line"><span class="lineno">   68</span>    SPCR |= (transfer_mode &lt;&lt; DORD); <span class="comment">// Set data order.</span></div>
+<div class="line"><span class="lineno">   69</span>    SPCR |= (control_mode &lt;&lt; MSTR); <span class="comment">// Controller/peripheral mode select.</span></div>
+<div class="line"><span class="lineno">   70</span>    SPCR |= (polarity_mode &lt;&lt; CPOL); <span class="comment">// Set polarity of SPI data. </span></div>
+<div class="line"><span class="lineno">   71</span>    SPCR |= (phase_mode &lt;&lt; CPHA); <span class="comment">// Set phase of SPI data.</span></div>
+<div class="line"><span class="lineno">   72</span>    SPCR |= (clk_rate); <span class="comment">// Set speed</span></div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>    SPSR |= (dbl_clock &lt;&lt; SPI2X); <span class="comment">// Set double speed bit. </span></div>
+<div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span>    SPCR |= (1 &lt;&lt; SPE); <span class="comment">// Enable SPI. </span></div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>    sei(); <span class="comment">// Set interrupt enable flag.</span></div>
+<div class="line"><span class="lineno">   79</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -238,13 +239,13 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The data received from the peripheral device is returned. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="atmega__spi_8c_source.html#l00084">84</a> of file <a class="el" href="atmega__spi_8c_source.html">atmega_spi.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   85</span>{</div>
-<div class="line"><span class="lineno">   86</span>    SPDR = data; <span class="comment">// Send out byte of data. </span></div>
-<div class="line"><span class="lineno">   87</span>    loop_until_bit_is_set(SPSR, SPIF); <span class="comment">// Wait for flag to be set. </span></div>
-<div class="line"><span class="lineno">   88</span>    data = SPDR; <span class="comment">// Store the data received. </span></div>
-<div class="line"><span class="lineno">   89</span>    <span class="keywordflow">return</span> data;</div>
-<div class="line"><span class="lineno">   90</span>}</div>
+<p class="definition">Definition at line <a class="el" href="atmega__spi_8c_source.html#l00085">85</a> of file <a class="el" href="atmega__spi_8c_source.html">atmega_spi.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   86</span>{</div>
+<div class="line"><span class="lineno">   87</span>    SPDR = data; <span class="comment">// Send out byte of data. </span></div>
+<div class="line"><span class="lineno">   88</span>    loop_until_bit_is_set(SPSR, SPIF); <span class="comment">// Wait for flag to be set. </span></div>
+<div class="line"><span class="lineno">   89</span>    data = SPDR; <span class="comment">// Store the data received. </span></div>
+<div class="line"><span class="lineno">   90</span>    <span class="keywordflow">return</span> data;</div>
+<div class="line"><span class="lineno">   91</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -273,30 +274,30 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The data received from the peripheral device is returned. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="atmega__spi_8c_source.html#l00097">97</a> of file <a class="el" href="atmega__spi_8c_source.html">atmega_spi.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   98</span>{</div>
-<div class="line"><span class="lineno">   99</span>    uint8_t msb = 0;</div>
-<div class="line"><span class="lineno">  100</span>    uint8_t lsb = 0;</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>    <span class="comment">// Split word to send into 2 bytes and send the first one out. </span></div>
-<div class="line"><span class="lineno">  103</span>    msb |= (data &gt;&gt; 8U);</div>
-<div class="line"><span class="lineno">  104</span>    lsb |= (data);</div>
-<div class="line"><span class="lineno">  105</span>    SPDR = msb; </div>
-<div class="line"><span class="lineno">  106</span>    loop_until_bit_is_set(SPSR, SPIF);</div>
-<div class="line"><span class="lineno">  107</span>    msb = SPDR; <span class="comment">// Store the byte received. </span></div>
-<div class="line"><span class="lineno">  108</span> </div>
-<div class="line"><span class="lineno">  109</span>    <span class="comment">// Send the second byte out. </span></div>
-<div class="line"><span class="lineno">  110</span>    SPDR = lsb;</div>
-<div class="line"><span class="lineno">  111</span>    loop_until_bit_is_set(SPSR, SPIF);</div>
-<div class="line"><span class="lineno">  112</span>    lsb = SPDR; <span class="comment">// Store the second byte received. </span></div>
-<div class="line"><span class="lineno">  113</span> </div>
-<div class="line"><span class="lineno">  114</span>    <span class="comment">// Combine the bytes received into 1 word. </span></div>
-<div class="line"><span class="lineno">  115</span>    uint16_t received_data = 0;</div>
-<div class="line"><span class="lineno">  116</span>    received_data = (msb &lt;&lt; 8U);</div>
-<div class="line"><span class="lineno">  117</span>    received_data |= (lsb);</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">return</span> received_data;</div>
-<div class="line"><span class="lineno">  120</span>}</div>
+<p class="definition">Definition at line <a class="el" href="atmega__spi_8c_source.html#l00098">98</a> of file <a class="el" href="atmega__spi_8c_source.html">atmega_spi.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   99</span>{</div>
+<div class="line"><span class="lineno">  100</span>    uint8_t msb = 0;</div>
+<div class="line"><span class="lineno">  101</span>    uint8_t lsb = 0;</div>
+<div class="line"><span class="lineno">  102</span> </div>
+<div class="line"><span class="lineno">  103</span>    <span class="comment">// Split word to send into 2 bytes and send the first one out. </span></div>
+<div class="line"><span class="lineno">  104</span>    msb |= (data &gt;&gt; 8U);</div>
+<div class="line"><span class="lineno">  105</span>    lsb |= (data);</div>
+<div class="line"><span class="lineno">  106</span>    SPDR = msb; </div>
+<div class="line"><span class="lineno">  107</span>    loop_until_bit_is_set(SPSR, SPIF);</div>
+<div class="line"><span class="lineno">  108</span>    msb = SPDR; <span class="comment">// Store the byte received. </span></div>
+<div class="line"><span class="lineno">  109</span> </div>
+<div class="line"><span class="lineno">  110</span>    <span class="comment">// Send the second byte out. </span></div>
+<div class="line"><span class="lineno">  111</span>    SPDR = lsb;</div>
+<div class="line"><span class="lineno">  112</span>    loop_until_bit_is_set(SPSR, SPIF);</div>
+<div class="line"><span class="lineno">  113</span>    lsb = SPDR; <span class="comment">// Store the second byte received. </span></div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>    <span class="comment">// Combine the bytes received into 1 word. </span></div>
+<div class="line"><span class="lineno">  116</span>    uint16_t received_data = 0;</div>
+<div class="line"><span class="lineno">  117</span>    received_data = (msb &lt;&lt; 8U);</div>
+<div class="line"><span class="lineno">  118</span>    received_data |= (lsb);</div>
+<div class="line"><span class="lineno">  119</span> </div>
+<div class="line"><span class="lineno">  120</span>    <span class="keywordflow">return</span> received_data;</div>
+<div class="line"><span class="lineno">  121</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

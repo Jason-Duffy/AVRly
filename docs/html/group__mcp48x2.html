@@ -185,8 +185,8 @@ MCP48x2 Hookup</div></div>
 <p >If you connect the output pins to a multimeter (keeping several meters is helpful for tasks like this), you can monitor the output voltage of each channel.</p>
 <h2><a class="anchor" id="autotoc_md73"></a>
 API Reference</h2>
-<p >Before initialising the DAC for use, you'll need to instantiate a <a class="el" href="structdac__config__t.html">dac_config_t</a> object, and set the configuration values you'd like.</p>
-<div class="fragment"><div class="line"><a class="code hl_struct" href="structdac__config__t.html">dac_config_t</a> dac_config =</div>
+<p >Before initialising the DAC for use, you'll need to instantiate a <a class="el" href="structdac__config__t.html" title="Config struct for DAC.">dac_config_t</a> object, and set the configuration values you'd like.</p>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="structdac__config__t.html">dac_config_t</a> <a class="code hl_variable" href="modules_2data-converters_2mcp48x2__dac_2example_2main_8c.html#a0dcd8da48fd3004647a133633f01acc4">dac_config</a> =</div>
 <div class="line">{</div>
 <div class="line">    .model = mcp4812,</div>
 <div class="line">    .sync_manually = <span class="keyword">false</span>,</div>
@@ -199,15 +199,16 @@ API Reference</h2>
 <div class="line">    .channel_b.active = <span class="keyword">true</span>,</div>
 <div class="line">    .channel_b.level = 0,</div>
 <div class="line">};</div>
-<div class="ttc" id="astructdac__config__t_html"><div class="ttname"><a href="structdac__config__t.html">dac_config_t</a></div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8h_source.html#l00061">mcp48x2_dac.h:62</a></div></div>
+<div class="ttc" id="amodules_2data-converters_2mcp48x2__dac_2example_2main_8c_html_a0dcd8da48fd3004647a133633f01acc4"><div class="ttname"><a href="modules_2data-converters_2mcp48x2__dac_2example_2main_8c.html#a0dcd8da48fd3004647a133633f01acc4">dac_config</a></div><div class="ttdeci">dac_config_t dac_config</div><div class="ttdoc">Instantiation of config object for DAC.</div><div class="ttdef"><b>Definition:</b> <a href="modules_2data-converters_2mcp48x2__dac_2example_2main_8c_source.html#l00048">main.c:48</a></div></div>
+<div class="ttc" id="astructdac__config__t_html"><div class="ttname"><a href="structdac__config__t.html">dac_config_t</a></div><div class="ttdoc">Config struct for DAC.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8h_source.html#l00075">mcp48x2_dac.h:76</a></div></div>
 </div><!-- fragment --><p >Then pass the address of the config object into the initialisation routine.</p>
-<div class="fragment"><div class="line"><a class="code hl_function" href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a>(&amp;dac_config);</div>
-<div class="ttc" id="amcp48x2__dac_8c_html_aaf5962070b11ed66e257763c365ad321"><div class="ttname"><a href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a></div><div class="ttdeci">void init_dac(dac_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00086">mcp48x2_dac.c:86</a></div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a>(&amp;<a class="code hl_variable" href="modules_2data-converters_2mcp48x2__dac_2example_2main_8c.html#a0dcd8da48fd3004647a133633f01acc4">dac_config</a>);</div>
+<div class="ttc" id="amcp48x2__dac_8c_html_aaf5962070b11ed66e257763c365ad321"><div class="ttname"><a href="mcp48x2__dac_8c.html#aaf5962070b11ed66e257763c365ad321">init_dac</a></div><div class="ttdeci">void init_dac(dac_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00089">mcp48x2_dac.c:89</a></div></div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md74"></a>
 Members</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone"><a class="el" href="structdac__config__t.html">dac_config_t</a> member   </th><th class="markdownTableHeadNone">Valid Selections    </th></tr>
+<th class="markdownTableHeadNone"><a class="el" href="structdac__config__t.html" title="Config struct for DAC.">dac_config_t</a> member   </th><th class="markdownTableHeadNone">Valid Selections    </th></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">model   </td><td class="markdownTableBodyNone">mcp4802, mcp4812 or mcp4822    </td></tr>
 <tr class="markdownTableRowEven">
@@ -235,11 +236,11 @@ Setting the Output Voltage</h3>
 <p >Once the DAC is initialised, the output voltage can be set for each channel can be set using the function <a class="el" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7" title="Sends a new millivolts value to be output on DAC (Along with config settings).">dac_set_voltage()</a>.</p>
 <div class="fragment"><div class="line"><a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_A, 3000U);</div>
 <div class="line"><a class="code hl_function" href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(DAC_CHANNEL_B, 1500U);</div>
-<div class="ttc" id="amcp48x2__dac_8c_html_a8e5a30fe5a03338c88ef80b84f3098b7"><div class="ttname"><a href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a></div><div class="ttdeci">void dac_set_voltage(bool channel_a, uint16_t millivolts)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC (Along with config settings).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00137">mcp48x2_dac.c:137</a></div></div>
-</div><!-- fragment --><p >The unit here is millivolts, unlike the <a class="el" href="structdac__config__t.html">dac_config_t</a> member variable level which must be calculated based on the resolution of the DAC.</p>
+<div class="ttc" id="amcp48x2__dac_8c_html_a8e5a30fe5a03338c88ef80b84f3098b7"><div class="ttname"><a href="mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a></div><div class="ttdeci">void dac_set_voltage(bool channel_a, uint16_t millivolts)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC (Along with config settings).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00142">mcp48x2_dac.c:142</a></div></div>
+</div><!-- fragment --><p >The unit here is millivolts, unlike the <a class="el" href="structdac__config__t.html" title="Config struct for DAC.">dac_config_t</a> member variable level which must be calculated based on the resolution of the DAC.</p>
 <h3><a class="anchor" id="autotoc_md76"></a>
 Reconfiguring the DAC</h3>
-<p >If after initialisation you'd like to change the settings of the DAC, you can change the values of the <a class="el" href="structdac__config__t.html">dac_config_t</a> member variables, then call <a class="el" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823" title="Applies new config settings.">dac_reconfigure()</a> to update the DAC with those new config settings. </p>
+<p >If after initialisation you'd like to change the settings of the DAC, you can change the values of the <a class="el" href="structdac__config__t.html" title="Config struct for DAC.">dac_config_t</a> member variables, then call <a class="el" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823" title="Applies new config settings.">dac_reconfigure()</a> to update the DAC with those new config settings. </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

@@ -241,13 +241,13 @@ var NAVTREEINDEX0 =
 "getting-started_2source_2pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a":[5,0,0,1,0,3,2],
 "getting-started_2source_2pin__defines_8h_source.html":[5,0,0,1,0,3],
 "globals.html":[5,1,0],
-"globals_defs.html":[5,1,3],
-"globals_enum.html":[5,1,2],
+"globals_defs.html":[5,1,4],
+"globals_enum.html":[5,1,3],
 "globals_func.html":[5,1,1],
+"globals_vars.html":[5,1,2],
 "group__anatomy.html":[3,1],
 "group__avr__peripherals.html":[3,6],
 "group__ccs811.html":[3,5,0],
 "group__ccs811.html#md_content_modules_sensors_ccs811_sensor_ccs811":[3,5,0,10],
-"group__data__converters.html":[3,2],
-"group__debug__tools.html":[3,3]
+"group__data__converters.html":[3,2]
 };
