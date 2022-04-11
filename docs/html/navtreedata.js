@@ -124,7 +124,7 @@ var NAVTREE =
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
@@ -137,7 +137,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html",
-"group__debug__tools.html"
+"displays_2hd44780__lcd_2example_2hd44780__lcd_8c.html#a0725f9cf954c41cdad7a759d7303702c",
+"structlcd__config__t.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

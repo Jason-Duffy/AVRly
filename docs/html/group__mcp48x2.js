@@ -1,7 +1,7 @@
 var group__mcp48x2 =
 [
-    [ "atmega_spi.c", "atmega__spi_8c.html", null ],
-    [ "atmega_spi.h", "atmega__spi_8h.html", null ],
+    [ "atmega_spi.c", "data-converters_2mcp48x2__dac_2example_2atmega__spi_8c.html", null ],
+    [ "atmega_spi.h", "data-converters_2mcp48x2__dac_2example_2atmega__spi_8h.html", null ],
     [ "main.c", "modules_2data-converters_2mcp48x2__dac_2example_2main_8c.html", null ],
     [ "mcp48x2_dac.c", "mcp48x2__dac_8c.html", null ],
     [ "mcp48x2_dac.h", "mcp48x2__dac_8h.html", null ],
