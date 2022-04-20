@@ -84,6 +84,7 @@ var NAVTREEINDEX1 =
 "group__mcp48x2.html#md_content_modules_data_converters_mcp48x2_dac_mcp48x2":[3,2,0,6],
 "group__sensors.html":[3,5],
 "group__spi.html":[3,6,1],
+"group__spi.html#md_content_modules_avr_peripheral_features_spi_spi":[3,6,1,3],
 "group__timer__counter.html":[3,6,0],
 "group__timer__counter.html#md_content_modules_avr_peripheral_features_timer_counter_timer_counter":[3,6,0,1],
 "i2c_8c.html":[5,0,0,2,4,0,0,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "sensors_2ccs811__sensor_2example_2usart_8h.html#ae0af4da978c1af91fd2bed169b92dae3":[5,0,0,2,4,0,0,9,3],
 "sensors_2ccs811__sensor_2example_2usart_8h_source.html":[5,0,0,2,4,0,0,9],
 "structccs811__config__t.html":[4,0,0],
-"structdac__channel__t.html":[4,0,1],
-"structdac__config__t.html":[4,0,2]
+"structdac__channel__t.html":[4,0,1]
 };

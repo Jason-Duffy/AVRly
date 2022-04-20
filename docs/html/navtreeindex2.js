@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structdac__config__t.html":[4,0,2],
 "structlcd__config__t.html":[4,0,3],
 "structlcd__config__t.html#a465f515eb846ceee1b4d8149bc929404":[4,0,3,4],
 "structlcd__config__t.html#a4ef3fbb7b0e5026a0f29bf9aebbb2dff":[4,0,3,5],
