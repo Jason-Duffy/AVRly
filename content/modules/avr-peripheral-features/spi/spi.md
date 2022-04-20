@@ -12,7 +12,7 @@ Throughout the guides on this site we will use the original acronyms MOSI (Maste
 
 Many manufacturers are now making these changes in their documentation, and I would encourage you to make the effort to do the same in your own software. The Open Source Hardware Association (OSHWA) have come up with [a resolution for the naming of these pins][OSHWA_Resolution_URL], summarised below. 
 
-For single-role hardware, the terms SDO and SDI (Serial Data Out/In) can be used, while for devices than can be either the controller or the peripheral, PICO and POCI (Peripheral In, Controller Out and vice versa) can be used.
+For single-role hardware, the terms SDO and SDI (Serial Data Out/In) can be used, while for devices that can be either the controller or the peripheral, PICO and POCI (Peripheral In, Controller Out and vice versa) can be used.
 
 The Pin Name SS (Slave Select) is also deprecated, to be replaced by CS (Chip Select), while SCK (Serial Clock) remains unchanged.  
 
