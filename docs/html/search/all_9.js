@@ -18,6 +18,6 @@ var searchData=
   ['led_5fport_15',['LED_PORT',['../getting-started_2source_2pin__defines_8h.html#a663daa01e565aee93c6f20c5845b90b4',1,'pin_defines.h']]],
   ['log_20system_16',['Log System',['../group__log__system.html',1,'']]],
   ['log_5fsystem_17',['log_system',['../group__log__system.html',1,'']]],
-  ['log_5fsystem_2ec_18',['log_system.c',['../data-converters_2mcp48x2__dac_2example_2log__system_8c.html',1,'(Global Namespace)'],['../debug-tools_2log-system_2example_2log__system_8c.html',1,'(Global Namespace)']]],
-  ['log_5fsystem_2eh_19',['log_system.h',['../debug-tools_2log-system_2example_2log__system_8h.html',1,'(Global Namespace)'],['../data-converters_2mcp48x2__dac_2example_2log__system_8h.html',1,'(Global Namespace)']]]
+  ['log_5fsystem_2ec_18',['log_system.c',['../debug-tools_2log-system_2example_2log__system_8c.html',1,'(Global Namespace)'],['../sensors_2ccs811__sensor_2example_2log__system_8c.html',1,'(Global Namespace)']]],
+  ['log_5fsystem_2eh_19',['log_system.h',['../sensors_2ccs811__sensor_2example_2log__system_8h.html',1,'(Global Namespace)'],['../debug-tools_2log-system_2example_2log__system_8h.html',1,'(Global Namespace)']]]
 ];

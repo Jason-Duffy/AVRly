@@ -137,7 +137,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html",
-"displays_2hd44780__lcd_2example_2hd44780__lcd_8c.html#a0725f9cf954c41cdad7a759d7303702c",
+"displays_2hd44780__lcd_2example_2hd44780__lcd_8c.html#a3bd49f560342eeabfd8737ccd0b12666",
 "structlcd__config__t.html#a465f515eb846ceee1b4d8149bc929404"
 ];
 
