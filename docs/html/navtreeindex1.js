@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"displays_2hd44780__lcd_2example_2hd44780__lcd_8c.html#a0725f9cf954c41cdad7a759d7303702c":[5,0,0,2,3,0,0,0,3],
+"displays_2hd44780__lcd_2example_2hd44780__lcd_8c.html#a1ebf1541a3a6e07e486ed27f4aa3ba29":[5,0,0,2,3,0,0,0,1],
 "displays_2hd44780__lcd_2example_2hd44780__lcd_8c.html#a3bd49f560342eeabfd8737ccd0b12666":[5,0,0,2,3,0,0,0,4],
 "displays_2hd44780__lcd_2example_2hd44780__lcd_8c.html#a56e4319c136d1d304485999289e57970":[5,0,0,2,3,0,0,0,12],
 "displays_2hd44780__lcd_2example_2hd44780__lcd_8c.html#a7850604dcf83e9e426e095c50b22fb87":[5,0,0,2,3,0,0,0,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX1 =
 "sensors_2ccs811__sensor_2example_2usart_8h.html#ae0af4da978c1af91fd2bed169b92dae3":[5,0,0,2,4,0,0,9,3],
 "sensors_2ccs811__sensor_2example_2usart_8h_source.html":[5,0,0,2,4,0,0,9],
 "structccs811__config__t.html":[4,0,0],
-"structdac__channel__t.html":[4,0,1],
-"structdac__config__t.html":[4,0,2],
-"structlcd__config__t.html":[4,0,3]
+"structdac__channel__t.html":[4,0,1]
 };
