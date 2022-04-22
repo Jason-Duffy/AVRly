@@ -69,7 +69,7 @@ var NAVTREEINDEX1 =
 "group__anatomy.html":[3,1],
 "group__avr__peripherals.html":[3,6],
 "group__ccs811.html":[3,5,0],
-"group__ccs811.html#md_content_modules_sensors_ccs811_sensor_ccs811":[3,5,0,10],
+"group__ccs811.html#md_content_modules_sensors_ccs811_sensor_ccs811":[3,5,0,8],
 "group__data__converters.html":[3,2],
 "group__debug__tools.html":[3,3],
 "group__digital__clock.html":[3,6,0,0],
@@ -221,9 +221,7 @@ var NAVTREEINDEX1 =
 "modules_2sensors_2ccs811__sensor_2example_2pin__defines_8h_source.html":[5,0,0,2,4,0,0,7],
 "modules_8h_source.html":[5,0,0,2,5],
 "pages.html":[],
-"sensors_2ccs811__sensor_2example_2log__system_8c.html":[5,0,0,2,4,0,0,4],
 "sensors_2ccs811__sensor_2example_2log__system_8c_source.html":[5,0,0,2,4,0,0,4],
-"sensors_2ccs811__sensor_2example_2log__system_8h.html":[5,0,0,2,4,0,0,5],
 "sensors_2ccs811__sensor_2example_2log__system_8h_source.html":[5,0,0,2,4,0,0,5],
 "sensors_2ccs811__sensor_2example_2usart_8c.html":[5,0,0,2,4,0,0,8],
 "sensors_2ccs811__sensor_2example_2usart_8c.html#a26f014257b6300f175bbae63395b6ab7":[5,0,0,2,4,0,0,8,4],
@@ -249,5 +247,7 @@ var NAVTREEINDEX1 =
 "sensors_2ccs811__sensor_2example_2usart_8h.html#ae0af4da978c1af91fd2bed169b92dae3":[5,0,0,2,4,0,0,9,3],
 "sensors_2ccs811__sensor_2example_2usart_8h_source.html":[5,0,0,2,4,0,0,9],
 "structccs811__config__t.html":[4,0,0],
-"structdac__channel__t.html":[4,0,1]
+"structdac__channel__t.html":[4,0,1],
+"structdac__config__t.html":[4,0,2],
+"structlcd__config__t.html":[4,0,3]
 };

@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('sensors_2ccs811__sensor_2example_2log_
   <div class="headertitle"><div class="title">log_system.c</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="sensors_2ccs811__sensor_2example_2log__system_8c.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/******************************************************************************</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/******************************************************************************</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> @copyright Copyright © 2022 by Jason Duffy.</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> </span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> Permission is hereby granted, free of charge, to any person obtaining a copy</span></div>
@@ -112,8 +112,8 @@ $(document).ready(function(){initNavTree('sensors_2ccs811__sensor_2example_2log_
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"> OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment"> SOFTWARE.</span></div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">******************************************************************************/</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"></span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/*</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * @file log_system.c</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @ingroup ccs811</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * @author Jason Duffy</span></div>
@@ -127,7 +127,7 @@ $(document).ready(function(){initNavTree('sensors_2ccs811__sensor_2example_2log_
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;<a class="code" href="sensors_2ccs811__sensor_2example_2usart_8h.html">usart.h</a>&quot;</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;<a class="code" href="sensors_2ccs811__sensor_2example_2log__system_8h.html">log_system.h</a>&quot;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;log_system.h&quot;</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">char</span> *p_system_tag = <span class="stringliteral">&quot;log_system&quot;</span>;</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
@@ -254,14 +254,13 @@ $(document).ready(function(){initNavTree('sensors_2ccs811__sensor_2example_2log_
 <div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2usart_8c_html_ad2cb22c9efc792243fe27a60441547a4"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#ad2cb22c9efc792243fe27a60441547a4">print_hex_byte</a></div><div class="ttdeci">void print_hex_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out in hexadecimal.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00155">usart.c:155</a></div></div>
 <div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2usart_8c_html_ad9b40dee04f1b7ced79b74fe3f6cb7fd"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a></div><div class="ttdeci">void init_usart(void)</div><div class="ttdoc">Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00048">usart.c:48</a></div></div>
 <div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2usart_8c_html_ae0af4da978c1af91fd2bed169b92dae3"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#ae0af4da978c1af91fd2bed169b92dae3">print_byte</a></div><div class="ttdeci">void print_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out as its 3-digit ascii equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00106">usart.c:106</a></div></div>
-<div class="ttc" id="asensors_2ccs811__sensor_2example_2log__system_8h_html"><div class="ttname"><a href="sensors_2ccs811__sensor_2example_2log__system_8h.html">log_system.h</a></div><div class="ttdoc">Driver file providing logging functionality over USART, to print debug messages and values to a temin...</div></div>
 <div class="ttc" id="asensors_2ccs811__sensor_2example_2usart_8h_html"><div class="ttname"><a href="sensors_2ccs811__sensor_2example_2usart_8h.html">usart.h</a></div><div class="ttdoc">Driver file providing core USART communication between the target MCU and your PC.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9c069a2336cfd446496c25258e848904.html">content</a></li><li class="navelem"><a class="el" href="dir_d21582d1a0e016fb5573a1a04428266d.html">modules</a></li><li class="navelem"><a class="el" href="dir_e0967beb1a8a8acc8ea5772396973d37.html">sensors</a></li><li class="navelem"><a class="el" href="dir_34353e79a8d8a0cfa31982bc42d25116.html">ccs811_sensor</a></li><li class="navelem"><a class="el" href="dir_dc7eddde3ac8cd9ccf3d18d373f0bee6.html">example</a></li><li class="navelem"><a class="el" href="sensors_2ccs811__sensor_2example_2log__system_8c.html">log_system.c</a></li>
+    <li class="navelem"><a class="el" href="dir_9c069a2336cfd446496c25258e848904.html">content</a></li><li class="navelem"><a class="el" href="dir_d21582d1a0e016fb5573a1a04428266d.html">modules</a></li><li class="navelem"><a class="el" href="dir_e0967beb1a8a8acc8ea5772396973d37.html">sensors</a></li><li class="navelem"><a class="el" href="dir_34353e79a8d8a0cfa31982bc42d25116.html">ccs811_sensor</a></li><li class="navelem"><a class="el" href="dir_dc7eddde3ac8cd9ccf3d18d373f0bee6.html">example</a></li><li class="navelem"><b>log_system.c</b></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>
