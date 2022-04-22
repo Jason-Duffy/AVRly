@@ -33,25 +33,58 @@
 #ifndef LOG_SYSTEM_DOT_H
 #define LOG_SYSTEM_DOT_H
 
-enum eLogLevel {NONE, INFO, DEBUG, VERBOSE_DEBUG, WARNING, ERROR};
+/**
+ * Enumerated constants for the type of message to be logged.
+ */
+typedef enum
+{
+    NONE,
+    INFO,
+    DEBUG,
+    VERBOSE_DEBUG,
+    WARNING,
+    ERROR
+} log_type_t;
 
-// Initialisation routine
+/**
+ * Initialisation routine - call this function once at startup before using
+ * other functions.
+ */
 void init_log_system(void);
 
-// Sends only a string message
-void log_message(const char *p_tag, enum eLogLevel level, const char *msg);
 
-// Sends a string, followed by a value in decimal format
-void log_message_with_dec_val(const char *p_tag, enum eLogLevel level, const char *msg, uint8_t val);
+/**
+ * Sends only the system tag, log type and message string.
+ * @param 
+ */
+void log_message(const char *p_tag,
+                 enum eLogLevel level,
+                 const char *msg);
+
+
+/**
+ * Sends a string, followed by a value in decimal format
+ */
+void log_message_with_dec_val(const char *p_tag,
+                              enum eLogLevel level,
+                              const char *msg,
+                              uint8_t val);
 
 // Sends a string, followed by a value in binary format
-void log_message_with_bin_val(const char *p_tag, enum eLogLevel level, const char *msg, uint8_t val);
+void log_message_with_bin_val(const char *p_tag,
+                              enum eLogLevel level,
+                              const char *msg,
+                              uint8_t val);
 
 // Sends a string, followed by a value in hexadecimal format
-void log_message_with_hex_val(const char *p_tag, enum eLogLevel level, const char *msg, uint8_t val);
+void log_message_with_hex_val(const char *p_tag,
+                              enum eLogLevel level,
+                              const char *msg, 
+                              uint8_t val);
 
 // Sets level of logging required
-void log_set_output_level(const char *p_tag, enum eLogLevel level);
+void log_set_output_level(const char *p_tag,
+                          enum eLogLevel level);
 
 // Turns logging system on globally
 void log_global_on(void);
