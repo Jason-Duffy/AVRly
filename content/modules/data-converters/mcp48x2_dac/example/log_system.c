@@ -22,6 +22,7 @@
 
 /**
  * @file log_system.c
+ * @ingroup mcp48x2
  * @author Jason Duffy
  * @date 1st March 2022
  * @brief Driver file providing logging functionality over USART, to print
