@@ -20,7 +20,7 @@
  SOFTWARE.
 ******************************************************************************/
 
-/**
+/*
  * @file log_system.c
  * @ingroup log_system
  * @author Jason Duffy
