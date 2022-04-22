@@ -16,7 +16,7 @@
 /**
  * @defgroup data_converters Data Converters
  * @brief A collection of guides and code documentation for data converters. 
- * @defgroup mcp48x2 MCP48x2 DAC Example
+ * @defgroup mcp48x2 MCP48x2 DAC
  * @brief Driver for the MCP48x2 family of DAC chips from Microchip.
  * @ingroup data_converters
  * @see The files can be downloaded from the repo at:
@@ -28,7 +28,7 @@
 /**
  * @defgroup debug_tools Debug Tools
  * @brief A collection of guides and code documentation for debugging tools.
- * @defgroup log_system Log System Example
+ * @defgroup log_system Log System
  * @brief Logging subsystem to print debug messages over USART to PC.
  * @ingroup debug_tools
  * @see The files can be downloaded from the repo at:
@@ -40,7 +40,7 @@
 /**
  * @defgroup displays Displays
  * @brief A collection of guides and code documentation for displays.
- * @defgroup hd44780_lcd HD44780 16x2 LCD Example
+ * @defgroup hd44780_lcd HD44780 16x2 LCD
  * @brief Driver for the HD44780 based 16x2 liquid crystal display.
  * @ingroup displays
  * @see The files can be downloaded from the repo at:
