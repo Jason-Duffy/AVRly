@@ -141,12 +141,18 @@ void log_global_off(void)
   log_system_enabled = false;
 }
 
+
+// ------------------------------------------------------------------------- //
+// ----------------------- Private helper functions ------------------------ //
+// ------------------------------------------------------------------------- //
+
+
 // Utility function to print labels over serial. 
 void print_tag_and_log_level(const char *p_tag, enum eLogLevel level)
 {
   if (level == NONE)
   {
-
+    break;
   }
   print_string("\n");
   print_string(p_tag);
