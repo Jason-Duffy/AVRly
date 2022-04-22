@@ -107,10 +107,13 @@ Functions</h2></td></tr>
 <tr class="memitem:af0da934ec9151dd5dea73c4d04700ee4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2log__system_8c.html#af0da934ec9151dd5dea73c4d04700ee4">print_tag_and_log_level</a> (const char *p_tag, enum eLogLevel level)</td></tr>
 <tr class="separator:af0da934ec9151dd5dea73c4d04700ee4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a66cb0502754421251d61e6c64b499398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2log__system_8c.html#a66cb0502754421251d61e6c64b499398">init_log_system</a> (void)</td></tr>
+<tr class="memdesc:a66cb0502754421251d61e6c64b499398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialisation routine - call this function once at startup before using other functions.  <a href="debug-tools_2log-system_2example_2log__system_8c.html#a66cb0502754421251d61e6c64b499398">More...</a><br /></td></tr>
 <tr class="separator:a66cb0502754421251d61e6c64b499398"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a952e185b0ef2879da57d9edb779bf7f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2log__system_8c.html#a952e185b0ef2879da57d9edb779bf7f8">log_message</a> (const char *p_tag, enum eLogLevel level, const char *msg)</td></tr>
+<tr class="memdesc:a952e185b0ef2879da57d9edb779bf7f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends only the system tag, log type and message string.  <a href="debug-tools_2log-system_2example_2log__system_8c.html#a952e185b0ef2879da57d9edb779bf7f8">More...</a><br /></td></tr>
 <tr class="separator:a952e185b0ef2879da57d9edb779bf7f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a62f4dc629b392e9ed51cc5c7cc62d328"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2log__system_8c.html#a62f4dc629b392e9ed51cc5c7cc62d328">log_message_with_dec_val</a> (const char *p_tag, enum eLogLevel level, const char *msg, uint8_t val)</td></tr>
+<tr class="memdesc:a62f4dc629b392e9ed51cc5c7cc62d328"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by a value in decimal format.  <a href="debug-tools_2log-system_2example_2log__system_8c.html#a62f4dc629b392e9ed51cc5c7cc62d328">More...</a><br /></td></tr>
 <tr class="separator:a62f4dc629b392e9ed51cc5c7cc62d328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b3d731ef4d42aab80fe62559c352b30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2log__system_8c.html#a3b3d731ef4d42aab80fe62559c352b30">log_message_with_bin_val</a> (const char *p_tag, enum eLogLevel level, const char *msg, uint8_t val)</td></tr>
 <tr class="separator:a3b3d731ef4d42aab80fe62559c352b30"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -219,12 +222,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialisation routine - call this function once at startup before using other functions. </p>
+
 <p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00046">46</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   47</span>{</div>
 <div class="line"><span class="lineno">   48</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a>();</div>
 <div class="line"><span class="lineno">   49</span>  log_global_on();</div>
-<div class="line"><span class="lineno">   50</span>  log_message(p_system_tag, INFO, <span class="stringliteral">&quot;Log system initialised&quot;</span>);</div>
+<div class="line"><span class="lineno">   50</span>  <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a952e185b0ef2879da57d9edb779bf7f8">log_message</a>(p_system_tag, INFO, <span class="stringliteral">&quot;Log system initialised&quot;</span>);</div>
 <div class="line"><span class="lineno">   51</span>};</div>
+<div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2log__system_8c_html_a952e185b0ef2879da57d9edb779bf7f8"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a952e185b0ef2879da57d9edb779bf7f8">log_message</a></div><div class="ttdeci">void log_message(const char *p_tag, enum eLogLevel level, const char *msg)</div><div class="ttdoc">Sends only the system tag, log type and message string.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00054">log_system.c:54</a></div></div>
 <div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2usart_8c_html_ad9b40dee04f1b7ced79b74fe3f6cb7fd"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a></div><div class="ttdeci">void init_usart(void)</div><div class="ttdoc">Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00048">usart.c:48</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -260,6 +266,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sends only the system tag, log type and message string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname"></td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00054">54</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   55</span>{</div>
@@ -306,6 +320,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sends a string, followed by a value in decimal format. </p>
 
 <p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00061">61</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   62</span>{</div>

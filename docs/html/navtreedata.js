@@ -137,8 +137,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html",
-"displays_2hd44780__lcd_2example_2hd44780__lcd_8c.html#a0725f9cf954c41cdad7a759d7303702c",
-"structdac__config__t.html"
+"dir_82162af595b508b151933e15b2293ca5.html",
+"sensors_2ccs811__sensor_2example_2usart_8c.html#a502d44d5f8098a5e1f767f98493bdd29"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

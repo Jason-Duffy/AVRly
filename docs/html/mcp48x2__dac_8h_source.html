@@ -185,44 +185,54 @@ $(document).ready(function(){initNavTree('mcp48x2__dac_8h_source.html',''); init
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"></span> </div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> * Sends a new millivolts value to be output on DAC (Along with config settings). </span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8h.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(<span class="keywordtype">bool</span> channel_a, uint16_t millivolts);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"></span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> * Sends a new millivolts value to be output on DAC (Along with config settings). </span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8h.html#a9f072c8589330fc4221de05b4d2cf8f7">dac_set_voltage_12_bit</a>(<span class="keywordtype">bool</span> channel_a,</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>                            uint16_t millivolts,</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                            <span class="keywordtype">bool</span> fractional);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"></span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"> * Applies new config settings. This function takes updated config settings for</span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"> * both channels of DAC, then re-sends data so that the new settings take</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"> * effect.</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> * Sends a new millivolts value to be output on DAC (Along with config</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment"> * settings). For 8 or 10 bit models only.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"> * @param channel_a: true = Channel A, false = Channel B.</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment"> * @param millivolts: mV value to be output by DAC. Ensure that this value</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> * doesn&#39;t exceed the maxixum for the DAC model and gain setting. </span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8h.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a>(<span class="keywordtype">bool</span> channel_a, uint16_t millivolts);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"></span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"> * Sends a new millivolts value to be output on DAC (Along with config</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> * settings). For 12 bit models only. </span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> * @param channel_a: true = Channel A, false = Channel B.</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> * @param millivolts: mV value to be output by DAC. Ensure that this value</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"> * doesn&#39;t exceed the maxixum for the DAC model and gain setting.</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"> * @param fractional: true = millivolts value has 0.5mV added to it. Only to be</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"> * used when gain_low is true. </span></div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8h.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"></span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"> * Pulses LDAC pin low for a brief time (1uS). When sync_manually is true, call</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> * this function to latch both config settings and new voltage value into both</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> * channels of DAC simultaneously. </span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8h.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">#endif </span><span class="comment">// MCP_FOUR_EIGHT_X_TWO_DOT_H</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8h.html#a9f072c8589330fc4221de05b4d2cf8f7">dac_set_voltage_12_bit</a>(<span class="keywordtype">bool</span> channel_a,</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>                            uint16_t millivolts,</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>                            <span class="keywordtype">bool</span> fractional);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"></span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> * Applies new config settings. This function takes updated config settings for</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment"> * both channels of DAC, then re-sends data so that the new settings take</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment"> * effect.</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8h.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">/*** end of file ***/</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment"></span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="comment"> * Pulses LDAC pin low for a brief time (1uS). When sync_manually is true, call</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span><span class="comment"> * this function to latch both config settings and new voltage value into both</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment"> * channels of DAC simultaneously. </span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="keywordtype">void</span> <a class="code hl_function" href="mcp48x2__dac_8h.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="preprocessor">#endif </span><span class="comment">// MCP_FOUR_EIGHT_X_TWO_DOT_H</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="comment">/*** end of file ***/</span></div>
 <div class="ttc" id="amcp48x2__dac_8h_html_a4baee670fe47b12488d09305e1f6d5ba"><div class="ttname"><a href="mcp48x2__dac_8h.html#a4baee670fe47b12488d09305e1f6d5ba">model_num_t</a></div><div class="ttdeci">model_num_t</div><div class="ttdoc">Enumerated constants to select the DAC model number.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8h_source.html#l00051">mcp48x2_dac.h:52</a></div></div>
-<div class="ttc" id="amcp48x2__dac_8h_html_a8e5a30fe5a03338c88ef80b84f3098b7"><div class="ttname"><a href="mcp48x2__dac_8h.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a></div><div class="ttdeci">void dac_set_voltage(bool channel_a, uint16_t millivolts)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC (Along with config settings).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00142">mcp48x2_dac.c:142</a></div></div>
-<div class="ttc" id="amcp48x2__dac_8h_html_a9f072c8589330fc4221de05b4d2cf8f7"><div class="ttname"><a href="mcp48x2__dac_8h.html#a9f072c8589330fc4221de05b4d2cf8f7">dac_set_voltage_12_bit</a></div><div class="ttdeci">void dac_set_voltage_12_bit(bool channel_a, uint16_t millivolts, bool fractional)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC (Along with config settings).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00185">mcp48x2_dac.c:185</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8h_html_a8e5a30fe5a03338c88ef80b84f3098b7"><div class="ttname"><a href="mcp48x2__dac_8h.html#a8e5a30fe5a03338c88ef80b84f3098b7">dac_set_voltage</a></div><div class="ttdeci">void dac_set_voltage(bool channel_a, uint16_t millivolts)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC (Along with config settings).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00145">mcp48x2_dac.c:145</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8h_html_a9f072c8589330fc4221de05b4d2cf8f7"><div class="ttname"><a href="mcp48x2__dac_8h.html#a9f072c8589330fc4221de05b4d2cf8f7">dac_set_voltage_12_bit</a></div><div class="ttdeci">void dac_set_voltage_12_bit(bool channel_a, uint16_t millivolts, bool fractional)</div><div class="ttdoc">Sends a new millivolts value to be output on DAC (Along with config settings).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00189">mcp48x2_dac.c:189</a></div></div>
 <div class="ttc" id="amcp48x2__dac_8h_html_aaf5962070b11ed66e257763c365ad321"><div class="ttname"><a href="mcp48x2__dac_8h.html#aaf5962070b11ed66e257763c365ad321">init_dac</a></div><div class="ttdeci">void init_dac(dac_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00089">mcp48x2_dac.c:89</a></div></div>
-<div class="ttc" id="amcp48x2__dac_8h_html_ab7d4460badaeb5c1255a471604ee7823"><div class="ttname"><a href="mcp48x2__dac_8h.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a></div><div class="ttdeci">void dac_reconfigure(void)</div><div class="ttdoc">Applies new config settings.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00236">mcp48x2_dac.c:236</a></div></div>
-<div class="ttc" id="amcp48x2__dac_8h_html_afd38e4b814863ec79d710ee2c3623adb"><div class="ttname"><a href="mcp48x2__dac_8h.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a></div><div class="ttdeci">void pulse_latch(void)</div><div class="ttdoc">Pulses LDAC pin low for a brief time (1uS).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00282">mcp48x2_dac.c:282</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8h_html_ab7d4460badaeb5c1255a471604ee7823"><div class="ttname"><a href="mcp48x2__dac_8h.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a></div><div class="ttdeci">void dac_reconfigure(void)</div><div class="ttdoc">Applies new config settings.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00240">mcp48x2_dac.c:240</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8h_html_afd38e4b814863ec79d710ee2c3623adb"><div class="ttname"><a href="mcp48x2__dac_8h.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a></div><div class="ttdeci">void pulse_latch(void)</div><div class="ttdoc">Pulses LDAC pin low for a brief time (1uS).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00286">mcp48x2_dac.c:286</a></div></div>
 <div class="ttc" id="astructdac__channel__t_html"><div class="ttname"><a href="structdac__channel__t.html">dac_channel_t</a></div><div class="ttdoc">Struct for config values for each channel - this is only to be used as a nested struct within the dac...</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8h_source.html#l00063">mcp48x2_dac.h:64</a></div></div>
 <div class="ttc" id="astructdac__config__t_html"><div class="ttname"><a href="structdac__config__t.html">dac_config_t</a></div><div class="ttdoc">Config struct for DAC.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8h_source.html#l00075">mcp48x2_dac.h:76</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

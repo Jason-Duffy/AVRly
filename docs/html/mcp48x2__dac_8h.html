@@ -288,7 +288,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  134</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>();</div>
 <div class="line"><span class="lineno">  135</span>}</div>
 <div class="ttc" id="aavr-peripheral-features_2spi_2atmega__spi_8c_html_a5217b7d219487d49ba5f23b16fcf26b1"><div class="ttname"><a href="avr-peripheral-features_2spi_2atmega__spi_8c.html#a5217b7d219487d49ba5f23b16fcf26b1">init_spi</a></div><div class="ttdeci">void init_spi(spi_transfer_mode_t transfer_mode, spi_control_mode_t control_mode, spi_polarity_mode_t polarity_mode, spi_phase_mode_t phase_mode, spi_clk_rate_t clk_rate, spi_dbl_clk_mode_t dbl_clock)</div><div class="ttdoc">Initialisation routine to set up SPI comms.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2spi_2atmega__spi_8c_source.html#l00053">atmega_spi.c:53</a></div></div>
-<div class="ttc" id="amcp48x2__dac_8c_html_ab7d4460badaeb5c1255a471604ee7823"><div class="ttname"><a href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a></div><div class="ttdeci">void dac_reconfigure(void)</div><div class="ttdoc">Applies new config settings.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00236">mcp48x2_dac.c:236</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8c_html_ab7d4460badaeb5c1255a471604ee7823"><div class="ttname"><a href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a></div><div class="ttdeci">void dac_reconfigure(void)</div><div class="ttdoc">Applies new config settings.</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00240">mcp48x2_dac.c:240</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -319,40 +319,47 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sends a new millivolts value to be output on DAC (Along with config settings). </p>
+<p >For 8 or 10 bit models only. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel_a</td><td>true = Channel A, false = Channel B. </td></tr>
+    <tr><td class="paramname">millivolts</td><td>mV value to be output by DAC. Ensure that this value doesn't exceed the maxixum for the DAC model and gain setting. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="mcp48x2__dac_8c_source.html#l00142">142</a> of file <a class="el" href="mcp48x2__dac_8c_source.html">mcp48x2_dac.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  143</span>{</div>
-<div class="line"><span class="lineno">  144</span>    <span class="comment">// Manipulate mv value to suit register size of chip and gain setting.</span></div>
-<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">if</span> (channel_a)</div>
-<div class="line"><span class="lineno">  146</span>    {</div>
-<div class="line"><span class="lineno">  147</span>        <span class="keywordflow">if</span> (p_config_global-&gt;channel_a.gain_low)</div>
-<div class="line"><span class="lineno">  148</span>        {   </div>
-<div class="line"><span class="lineno">  149</span>            p_config_global-&gt;channel_a.level =</div>
-<div class="line"><span class="lineno">  150</span>                                (millivolts &gt;&gt; mv_resolution_shift);</div>
-<div class="line"><span class="lineno">  151</span>        }</div>
-<div class="line"><span class="lineno">  152</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  153</span>        {</div>
-<div class="line"><span class="lineno">  154</span>            p_config_global-&gt;channel_a.level =</div>
-<div class="line"><span class="lineno">  155</span>                                (millivolts &gt;&gt; (mv_resolution_shift + 1));</div>
-<div class="line"><span class="lineno">  156</span>        }</div>
-<div class="line"><span class="lineno">  157</span>    }</div>
-<div class="line"><span class="lineno">  158</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  159</span>    {</div>
-<div class="line"><span class="lineno">  160</span>        <span class="keywordflow">if</span> (p_config_global-&gt;channel_b.gain_low)</div>
-<div class="line"><span class="lineno">  161</span>        {</div>
-<div class="line"><span class="lineno">  162</span>            p_config_global-&gt;channel_b.level =</div>
-<div class="line"><span class="lineno">  163</span>                                (millivolts &gt;&gt; mv_resolution_shift);</div>
-<div class="line"><span class="lineno">  164</span>        }</div>
-<div class="line"><span class="lineno">  165</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  166</span>        {</div>
-<div class="line"><span class="lineno">  167</span>            p_config_global-&gt;channel_b.level =</div>
-<div class="line"><span class="lineno">  168</span>                                (millivolts &gt;&gt; (mv_resolution_shift + 1));</div>
-<div class="line"><span class="lineno">  169</span>        }</div>
-<div class="line"><span class="lineno">  170</span>    }</div>
-<div class="line"><span class="lineno">  171</span> </div>
-<div class="line"><span class="lineno">  172</span>    <span class="comment">// Send new values to DAC</span></div>
-<div class="line"><span class="lineno">  173</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>();</div>
-<div class="line"><span class="lineno">  174</span>}</div>
+<p class="definition">Definition at line <a class="el" href="mcp48x2__dac_8c_source.html#l00145">145</a> of file <a class="el" href="mcp48x2__dac_8c_source.html">mcp48x2_dac.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  146</span>{</div>
+<div class="line"><span class="lineno">  147</span>    <span class="comment">// Manipulate mv value to suit register size of chip and gain setting.</span></div>
+<div class="line"><span class="lineno">  148</span>    <span class="keywordflow">if</span> (channel_a)</div>
+<div class="line"><span class="lineno">  149</span>    {</div>
+<div class="line"><span class="lineno">  150</span>        <span class="keywordflow">if</span> (p_config_global-&gt;channel_a.gain_low)</div>
+<div class="line"><span class="lineno">  151</span>        {   </div>
+<div class="line"><span class="lineno">  152</span>            p_config_global-&gt;channel_a.level =</div>
+<div class="line"><span class="lineno">  153</span>                                (millivolts &gt;&gt; mv_resolution_shift);</div>
+<div class="line"><span class="lineno">  154</span>        }</div>
+<div class="line"><span class="lineno">  155</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  156</span>        {</div>
+<div class="line"><span class="lineno">  157</span>            p_config_global-&gt;channel_a.level =</div>
+<div class="line"><span class="lineno">  158</span>                                (millivolts &gt;&gt; (mv_resolution_shift + 1));</div>
+<div class="line"><span class="lineno">  159</span>        }</div>
+<div class="line"><span class="lineno">  160</span>    }</div>
+<div class="line"><span class="lineno">  161</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  162</span>    {</div>
+<div class="line"><span class="lineno">  163</span>        <span class="keywordflow">if</span> (p_config_global-&gt;channel_b.gain_low)</div>
+<div class="line"><span class="lineno">  164</span>        {</div>
+<div class="line"><span class="lineno">  165</span>            p_config_global-&gt;channel_b.level =</div>
+<div class="line"><span class="lineno">  166</span>                                (millivolts &gt;&gt; mv_resolution_shift);</div>
+<div class="line"><span class="lineno">  167</span>        }</div>
+<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  169</span>        {</div>
+<div class="line"><span class="lineno">  170</span>            p_config_global-&gt;channel_b.level =</div>
+<div class="line"><span class="lineno">  171</span>                                (millivolts &gt;&gt; (mv_resolution_shift + 1));</div>
+<div class="line"><span class="lineno">  172</span>        }</div>
+<div class="line"><span class="lineno">  173</span>    }</div>
+<div class="line"><span class="lineno">  174</span> </div>
+<div class="line"><span class="lineno">  175</span>    <span class="comment">// Send new values to DAC</span></div>
+<div class="line"><span class="lineno">  176</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>();</div>
+<div class="line"><span class="lineno">  177</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -389,49 +396,57 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sends a new millivolts value to be output on DAC (Along with config settings). </p>
+<p >For 12 bit models only. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">channel_a</td><td>true = Channel A, false = Channel B. </td></tr>
+    <tr><td class="paramname">millivolts</td><td>mV value to be output by DAC. Ensure that this value doesn't exceed the maxixum for the DAC model and gain setting. </td></tr>
+    <tr><td class="paramname">fractional</td><td>true = millivolts value has 0.5mV added to it. Only to be used when gain_low is true. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="mcp48x2__dac_8c_source.html#l00185">185</a> of file <a class="el" href="mcp48x2__dac_8c_source.html">mcp48x2_dac.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  188</span>{</div>
-<div class="line"><span class="lineno">  189</span>    <span class="keywordflow">if</span> (channel_a)</div>
-<div class="line"><span class="lineno">  190</span>    {</div>
-<div class="line"><span class="lineno">  191</span>        <span class="keywordflow">if</span>(p_config_global-&gt;channel_a.gain_low)</div>
-<div class="line"><span class="lineno">  192</span>        {</div>
-<div class="line"><span class="lineno">  193</span>            p_config_global-&gt;channel_a.level =</div>
-<div class="line"><span class="lineno">  194</span>                                (millivolts &lt;&lt; (TWELVE_BIT_MV_OFFSET + 1));</div>
-<div class="line"><span class="lineno">  195</span>            <span class="comment">// Add the 0.5mV value if required. </span></div>
-<div class="line"><span class="lineno">  196</span>            <span class="keywordflow">if</span> (fractional == <span class="keyword">true</span>)</div>
-<div class="line"><span class="lineno">  197</span>            {</div>
-<div class="line"><span class="lineno">  198</span>                p_config_global-&gt;channel_a.level += 1;</div>
-<div class="line"><span class="lineno">  199</span>            }</div>
-<div class="line"><span class="lineno">  200</span>        }</div>
-<div class="line"><span class="lineno">  201</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  202</span>        {</div>
-<div class="line"><span class="lineno">  203</span>            p_config_global-&gt;channel_a.level =</div>
-<div class="line"><span class="lineno">  204</span>                                (millivolts &lt;&lt; TWELVE_BIT_MV_OFFSET);</div>
-<div class="line"><span class="lineno">  205</span>        }</div>
-<div class="line"><span class="lineno">  206</span>    }</div>
-<div class="line"><span class="lineno">  207</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  208</span>    {</div>
-<div class="line"><span class="lineno">  209</span>        <span class="keywordflow">if</span>(p_config_global-&gt;channel_b.gain_low)</div>
-<div class="line"><span class="lineno">  210</span>        {</div>
-<div class="line"><span class="lineno">  211</span>            p_config_global-&gt;channel_b.level =</div>
-<div class="line"><span class="lineno">  212</span>                                (millivolts &lt;&lt; (TWELVE_BIT_MV_OFFSET + 1));</div>
-<div class="line"><span class="lineno">  213</span>            <span class="comment">// Add the 0.5mV value if required. </span></div>
-<div class="line"><span class="lineno">  214</span>            <span class="keywordflow">if</span> (fractional == <span class="keyword">true</span>)</div>
-<div class="line"><span class="lineno">  215</span>            {</div>
-<div class="line"><span class="lineno">  216</span>                p_config_global-&gt;channel_b.level += 1;</div>
-<div class="line"><span class="lineno">  217</span>            }</div>
-<div class="line"><span class="lineno">  218</span>        }</div>
-<div class="line"><span class="lineno">  219</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  220</span>        {</div>
-<div class="line"><span class="lineno">  221</span>            p_config_global-&gt;channel_b.level =</div>
-<div class="line"><span class="lineno">  222</span>                                (millivolts &lt;&lt; TWELVE_BIT_MV_OFFSET);</div>
-<div class="line"><span class="lineno">  223</span>        }</div>
-<div class="line"><span class="lineno">  224</span>    }</div>
-<div class="line"><span class="lineno">  225</span> </div>
-<div class="line"><span class="lineno">  226</span>    <span class="comment">// Send new values to DAC</span></div>
-<div class="line"><span class="lineno">  227</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>();</div>
-<div class="line"><span class="lineno">  228</span>}</div>
+<p class="definition">Definition at line <a class="el" href="mcp48x2__dac_8c_source.html#l00189">189</a> of file <a class="el" href="mcp48x2__dac_8c_source.html">mcp48x2_dac.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  192</span>{</div>
+<div class="line"><span class="lineno">  193</span>    <span class="keywordflow">if</span> (channel_a)</div>
+<div class="line"><span class="lineno">  194</span>    {</div>
+<div class="line"><span class="lineno">  195</span>        <span class="keywordflow">if</span>(p_config_global-&gt;channel_a.gain_low)</div>
+<div class="line"><span class="lineno">  196</span>        {</div>
+<div class="line"><span class="lineno">  197</span>            p_config_global-&gt;channel_a.level =</div>
+<div class="line"><span class="lineno">  198</span>                                (millivolts &lt;&lt; (TWELVE_BIT_MV_OFFSET + 1));</div>
+<div class="line"><span class="lineno">  199</span>            <span class="comment">// Add the 0.5mV value if required. </span></div>
+<div class="line"><span class="lineno">  200</span>            <span class="keywordflow">if</span> (fractional == <span class="keyword">true</span>)</div>
+<div class="line"><span class="lineno">  201</span>            {</div>
+<div class="line"><span class="lineno">  202</span>                p_config_global-&gt;channel_a.level += 1;</div>
+<div class="line"><span class="lineno">  203</span>            }</div>
+<div class="line"><span class="lineno">  204</span>        }</div>
+<div class="line"><span class="lineno">  205</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  206</span>        {</div>
+<div class="line"><span class="lineno">  207</span>            p_config_global-&gt;channel_a.level =</div>
+<div class="line"><span class="lineno">  208</span>                                (millivolts &lt;&lt; TWELVE_BIT_MV_OFFSET);</div>
+<div class="line"><span class="lineno">  209</span>        }</div>
+<div class="line"><span class="lineno">  210</span>    }</div>
+<div class="line"><span class="lineno">  211</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  212</span>    {</div>
+<div class="line"><span class="lineno">  213</span>        <span class="keywordflow">if</span>(p_config_global-&gt;channel_b.gain_low)</div>
+<div class="line"><span class="lineno">  214</span>        {</div>
+<div class="line"><span class="lineno">  215</span>            p_config_global-&gt;channel_b.level =</div>
+<div class="line"><span class="lineno">  216</span>                                (millivolts &lt;&lt; (TWELVE_BIT_MV_OFFSET + 1));</div>
+<div class="line"><span class="lineno">  217</span>            <span class="comment">// Add the 0.5mV value if required. </span></div>
+<div class="line"><span class="lineno">  218</span>            <span class="keywordflow">if</span> (fractional == <span class="keyword">true</span>)</div>
+<div class="line"><span class="lineno">  219</span>            {</div>
+<div class="line"><span class="lineno">  220</span>                p_config_global-&gt;channel_b.level += 1;</div>
+<div class="line"><span class="lineno">  221</span>            }</div>
+<div class="line"><span class="lineno">  222</span>        }</div>
+<div class="line"><span class="lineno">  223</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  224</span>        {</div>
+<div class="line"><span class="lineno">  225</span>            p_config_global-&gt;channel_b.level =</div>
+<div class="line"><span class="lineno">  226</span>                                (millivolts &lt;&lt; TWELVE_BIT_MV_OFFSET);</div>
+<div class="line"><span class="lineno">  227</span>        }</div>
+<div class="line"><span class="lineno">  228</span>    }</div>
+<div class="line"><span class="lineno">  229</span> </div>
+<div class="line"><span class="lineno">  230</span>    <span class="comment">// Send new values to DAC</span></div>
+<div class="line"><span class="lineno">  231</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823">dac_reconfigure</a>();</div>
+<div class="line"><span class="lineno">  232</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -454,48 +469,48 @@ Functions</h2></td></tr>
 <p>Applies new config settings. </p>
 <p >This function takes updated config settings for both channels of DAC, then re-sends data so that the new settings take effect. </p>
 
-<p class="definition">Definition at line <a class="el" href="mcp48x2__dac_8c_source.html#l00236">236</a> of file <a class="el" href="mcp48x2__dac_8c_source.html">mcp48x2_dac.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  237</span>{</div>
-<div class="line"><span class="lineno">  238</span>    uint16_t channel_a_data = 0;</div>
-<div class="line"><span class="lineno">  239</span>    uint16_t channel_b_data = 0;</div>
-<div class="line"><span class="lineno">  240</span> </div>
-<div class="line"><span class="lineno">  241</span>    <span class="comment">// Set up config bits in 16bit word to be sent. </span></div>
-<div class="line"><span class="lineno">  242</span>    channel_a_data &amp;= ~(1 &lt;&lt; CHANNEL_BIT); <span class="comment">// Clear channel bit (Channel A).</span></div>
-<div class="line"><span class="lineno">  243</span>    channel_a_data |= (p_config_global-&gt;channel_a.gain_low &lt;&lt; GAIN_BIT);</div>
-<div class="line"><span class="lineno">  244</span>    channel_a_data |= (p_config_global-&gt;channel_a.active &lt;&lt; SHUTDOWN_BIT);</div>
-<div class="line"><span class="lineno">  245</span> </div>
-<div class="line"><span class="lineno">  246</span>    channel_b_data |= (1 &lt;&lt; CHANNEL_BIT); <span class="comment">// Set channel bit (Channel B).</span></div>
-<div class="line"><span class="lineno">  247</span>    channel_b_data |= (p_config_global-&gt;channel_b.gain_low &lt;&lt; GAIN_BIT);</div>
-<div class="line"><span class="lineno">  248</span>    channel_b_data |= (p_config_global-&gt;channel_b.active &lt;&lt; SHUTDOWN_BIT);</div>
+<p class="definition">Definition at line <a class="el" href="mcp48x2__dac_8c_source.html#l00240">240</a> of file <a class="el" href="mcp48x2__dac_8c_source.html">mcp48x2_dac.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  241</span>{</div>
+<div class="line"><span class="lineno">  242</span>    uint16_t channel_a_data = 0;</div>
+<div class="line"><span class="lineno">  243</span>    uint16_t channel_b_data = 0;</div>
+<div class="line"><span class="lineno">  244</span> </div>
+<div class="line"><span class="lineno">  245</span>    <span class="comment">// Set up config bits in 16bit word to be sent. </span></div>
+<div class="line"><span class="lineno">  246</span>    channel_a_data &amp;= ~(1 &lt;&lt; CHANNEL_BIT); <span class="comment">// Clear channel bit (Channel A).</span></div>
+<div class="line"><span class="lineno">  247</span>    channel_a_data |= (p_config_global-&gt;channel_a.gain_low &lt;&lt; GAIN_BIT);</div>
+<div class="line"><span class="lineno">  248</span>    channel_a_data |= (p_config_global-&gt;channel_a.active &lt;&lt; SHUTDOWN_BIT);</div>
 <div class="line"><span class="lineno">  249</span> </div>
-<div class="line"><span class="lineno">  250</span>    <span class="comment">// Shift level into correct place for chip and OR it into our 16bit word.</span></div>
-<div class="line"><span class="lineno">  251</span>    channel_a_data |=</div>
-<div class="line"><span class="lineno">  252</span>                (p_config_global-&gt;channel_a.level &lt;&lt; level_resolution_shift);</div>
+<div class="line"><span class="lineno">  250</span>    channel_b_data |= (1 &lt;&lt; CHANNEL_BIT); <span class="comment">// Set channel bit (Channel B).</span></div>
+<div class="line"><span class="lineno">  251</span>    channel_b_data |= (p_config_global-&gt;channel_b.gain_low &lt;&lt; GAIN_BIT);</div>
+<div class="line"><span class="lineno">  252</span>    channel_b_data |= (p_config_global-&gt;channel_b.active &lt;&lt; SHUTDOWN_BIT);</div>
 <div class="line"><span class="lineno">  253</span> </div>
-<div class="line"><span class="lineno">  254</span>    channel_b_data |=</div>
-<div class="line"><span class="lineno">  255</span>                (p_config_global-&gt;channel_b.level &lt;&lt; level_resolution_shift);</div>
-<div class="line"><span class="lineno">  256</span>                </div>
+<div class="line"><span class="lineno">  254</span>    <span class="comment">// Shift level into correct place for chip and OR it into our 16bit word.</span></div>
+<div class="line"><span class="lineno">  255</span>    channel_a_data |=</div>
+<div class="line"><span class="lineno">  256</span>                (p_config_global-&gt;channel_a.level &lt;&lt; level_resolution_shift);</div>
 <div class="line"><span class="lineno">  257</span> </div>
-<div class="line"><span class="lineno">  258</span>    <span class="comment">// Send data for channel A to DAC over SPI. </span></div>
-<div class="line"><span class="lineno">  259</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#a19f76a44569088d532ecaa6ea938be14">chip_select</a>();</div>
-<div class="line"><span class="lineno">  260</span>    <a class="code hl_function" href="avr-peripheral-features_2spi_2atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a>(channel_a_data);</div>
-<div class="line"><span class="lineno">  261</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#abcfcb3f6bdd45f73f27edc2ea06c1d99">chip_deselect</a>();</div>
-<div class="line"><span class="lineno">  262</span> </div>
-<div class="line"><span class="lineno">  263</span>    <span class="comment">// Send data for channel B to DAC over SPI.</span></div>
-<div class="line"><span class="lineno">  264</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#a19f76a44569088d532ecaa6ea938be14">chip_select</a>();</div>
-<div class="line"><span class="lineno">  265</span>    <a class="code hl_function" href="avr-peripheral-features_2spi_2atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a>(channel_b_data);</div>
-<div class="line"><span class="lineno">  266</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#abcfcb3f6bdd45f73f27edc2ea06c1d99">chip_deselect</a>();</div>
-<div class="line"><span class="lineno">  267</span> </div>
-<div class="line"><span class="lineno">  268</span>    <span class="comment">// If sync_manually is set to false, pulse LDAC to update values. </span></div>
-<div class="line"><span class="lineno">  269</span>    <span class="keywordflow">if</span> (!p_config_global-&gt;sync_manually)</div>
-<div class="line"><span class="lineno">  270</span>    {</div>
-<div class="line"><span class="lineno">  271</span>        <a class="code hl_function" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a>();</div>
-<div class="line"><span class="lineno">  272</span>    }</div>
-<div class="line"><span class="lineno">  273</span>}</div>
+<div class="line"><span class="lineno">  258</span>    channel_b_data |=</div>
+<div class="line"><span class="lineno">  259</span>                (p_config_global-&gt;channel_b.level &lt;&lt; level_resolution_shift);</div>
+<div class="line"><span class="lineno">  260</span>                </div>
+<div class="line"><span class="lineno">  261</span> </div>
+<div class="line"><span class="lineno">  262</span>    <span class="comment">// Send data for channel A to DAC over SPI. </span></div>
+<div class="line"><span class="lineno">  263</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#a19f76a44569088d532ecaa6ea938be14">chip_select</a>();</div>
+<div class="line"><span class="lineno">  264</span>    <a class="code hl_function" href="avr-peripheral-features_2spi_2atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a>(channel_a_data);</div>
+<div class="line"><span class="lineno">  265</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#abcfcb3f6bdd45f73f27edc2ea06c1d99">chip_deselect</a>();</div>
+<div class="line"><span class="lineno">  266</span> </div>
+<div class="line"><span class="lineno">  267</span>    <span class="comment">// Send data for channel B to DAC over SPI.</span></div>
+<div class="line"><span class="lineno">  268</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#a19f76a44569088d532ecaa6ea938be14">chip_select</a>();</div>
+<div class="line"><span class="lineno">  269</span>    <a class="code hl_function" href="avr-peripheral-features_2spi_2atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a>(channel_b_data);</div>
+<div class="line"><span class="lineno">  270</span>    <a class="code hl_function" href="mcp48x2__dac_8c.html#abcfcb3f6bdd45f73f27edc2ea06c1d99">chip_deselect</a>();</div>
+<div class="line"><span class="lineno">  271</span> </div>
+<div class="line"><span class="lineno">  272</span>    <span class="comment">// If sync_manually is set to false, pulse LDAC to update values. </span></div>
+<div class="line"><span class="lineno">  273</span>    <span class="keywordflow">if</span> (!p_config_global-&gt;sync_manually)</div>
+<div class="line"><span class="lineno">  274</span>    {</div>
+<div class="line"><span class="lineno">  275</span>        <a class="code hl_function" href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a>();</div>
+<div class="line"><span class="lineno">  276</span>    }</div>
+<div class="line"><span class="lineno">  277</span>}</div>
 <div class="ttc" id="aavr-peripheral-features_2spi_2atmega__spi_8c_html_ae48f6a6f69805dfd10b3ac13c37f8428"><div class="ttname"><a href="avr-peripheral-features_2spi_2atmega__spi_8c.html#ae48f6a6f69805dfd10b3ac13c37f8428">spi_trade_word</a></div><div class="ttdeci">uint16_t spi_trade_word(uint16_t data)</div><div class="ttdoc">Sends out a 16bit word of data over spi (in two bytes) and returns the byte it receives.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2spi_2atmega__spi_8c_source.html#l00098">atmega_spi.c:98</a></div></div>
-<div class="ttc" id="amcp48x2__dac_8c_html_a19f76a44569088d532ecaa6ea938be14"><div class="ttname"><a href="mcp48x2__dac_8c.html#a19f76a44569088d532ecaa6ea938be14">chip_select</a></div><div class="ttdeci">void chip_select(void)</div><div class="ttdoc">Private helper function - pulls CS line (Chip Select) low in order to begin SPI communication with DA...</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00298">mcp48x2_dac.c:298</a></div></div>
-<div class="ttc" id="amcp48x2__dac_8c_html_abcfcb3f6bdd45f73f27edc2ea06c1d99"><div class="ttname"><a href="mcp48x2__dac_8c.html#abcfcb3f6bdd45f73f27edc2ea06c1d99">chip_deselect</a></div><div class="ttdeci">void chip_deselect(void)</div><div class="ttdoc">Private helper function - pulls CS line (Chip Select) high to signal the end of SPI communication wit...</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00307">mcp48x2_dac.c:307</a></div></div>
-<div class="ttc" id="amcp48x2__dac_8c_html_afd38e4b814863ec79d710ee2c3623adb"><div class="ttname"><a href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a></div><div class="ttdeci">void pulse_latch(void)</div><div class="ttdoc">Pulses LDAC pin low for a brief time (1uS).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00282">mcp48x2_dac.c:282</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8c_html_a19f76a44569088d532ecaa6ea938be14"><div class="ttname"><a href="mcp48x2__dac_8c.html#a19f76a44569088d532ecaa6ea938be14">chip_select</a></div><div class="ttdeci">void chip_select(void)</div><div class="ttdoc">Private helper function - pulls CS line (Chip Select) low in order to begin SPI communication with DA...</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00302">mcp48x2_dac.c:302</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8c_html_abcfcb3f6bdd45f73f27edc2ea06c1d99"><div class="ttname"><a href="mcp48x2__dac_8c.html#abcfcb3f6bdd45f73f27edc2ea06c1d99">chip_deselect</a></div><div class="ttdeci">void chip_deselect(void)</div><div class="ttdoc">Private helper function - pulls CS line (Chip Select) high to signal the end of SPI communication wit...</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00311">mcp48x2_dac.c:311</a></div></div>
+<div class="ttc" id="amcp48x2__dac_8c_html_afd38e4b814863ec79d710ee2c3623adb"><div class="ttname"><a href="mcp48x2__dac_8c.html#afd38e4b814863ec79d710ee2c3623adb">pulse_latch</a></div><div class="ttdeci">void pulse_latch(void)</div><div class="ttdoc">Pulses LDAC pin low for a brief time (1uS).</div><div class="ttdef"><b>Definition:</b> <a href="mcp48x2__dac_8c_source.html#l00286">mcp48x2_dac.c:286</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -518,12 +533,12 @@ Functions</h2></td></tr>
 <p>Pulses LDAC pin low for a brief time (1uS). </p>
 <p >When sync_manually is true, call this function to latch both config settings and new voltage value into both channels of DAC simultaneously. </p>
 
-<p class="definition">Definition at line <a class="el" href="mcp48x2__dac_8c_source.html#l00282">282</a> of file <a class="el" href="mcp48x2__dac_8c_source.html">mcp48x2_dac.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  283</span>{</div>
-<div class="line"><span class="lineno">  284</span>    DAC_CTRL_PORT &amp;= ~(1 &lt;&lt; LDAC);</div>
-<div class="line"><span class="lineno">  285</span>    _delay_us(1);</div>
-<div class="line"><span class="lineno">  286</span>    DAC_CTRL_PORT |= (1 &lt;&lt; LDAC);</div>
-<div class="line"><span class="lineno">  287</span>}</div>
+<p class="definition">Definition at line <a class="el" href="mcp48x2__dac_8c_source.html#l00286">286</a> of file <a class="el" href="mcp48x2__dac_8c_source.html">mcp48x2_dac.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  287</span>{</div>
+<div class="line"><span class="lineno">  288</span>    DAC_CTRL_PORT &amp;= ~(1 &lt;&lt; LDAC);</div>
+<div class="line"><span class="lineno">  289</span>    _delay_us(1);</div>
+<div class="line"><span class="lineno">  290</span>    DAC_CTRL_PORT |= (1 &lt;&lt; LDAC);</div>
+<div class="line"><span class="lineno">  291</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
