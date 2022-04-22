@@ -81,7 +81,7 @@ var NAVTREEINDEX1 =
 "group__log__system.html":[3,3,0],
 "group__log__system.html#md_content_modules_debug_tools_log_system_log_system":[3,3,0,9],
 "group__mcp48x2.html":[3,2,0],
-"group__mcp48x2.html#md_content_modules_data_converters_mcp48x2_dac_mcp48x2":[3,2,0,6],
+"group__mcp48x2.html#md_content_modules_data_converters_mcp48x2_dac_README":[3,2,0,6],
 "group__sensors.html":[3,5],
 "group__spi.html":[3,6,1],
 "group__spi.html#md_content_modules_avr_peripheral_features_spi_spi":[3,6,1,3],
