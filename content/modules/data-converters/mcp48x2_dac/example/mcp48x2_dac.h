@@ -92,13 +92,23 @@ void init_dac(dac_config_t *p_config);
 
 
 /**
- * Sends a new millivolts value to be output on DAC (Along with config settings). 
+ * Sends a new millivolts value to be output on DAC (Along with config
+ * settings). For 8 or 10 bit models only.
+ * @param channel_a: true = Channel A, false = Channel B.
+ * @param millivolts: mV value to be output by DAC. Ensure that this value
+ * doesn't exceed the maxixum for the DAC model and gain setting. 
  */
 void dac_set_voltage(bool channel_a, uint16_t millivolts);
 
 
 /**
- * Sends a new millivolts value to be output on DAC (Along with config settings). 
+ * Sends a new millivolts value to be output on DAC (Along with config
+ * settings). For 12 bit models only. 
+ * @param channel_a: true = Channel A, false = Channel B.
+ * @param millivolts: mV value to be output by DAC. Ensure that this value
+ * doesn't exceed the maxixum for the DAC model and gain setting.
+ * @param fractional: true = millivolts value has 0.5mV added to it. Only to be
+ * used when gain_low is true. 
  */
 void dac_set_voltage_12_bit(bool channel_a,
                             uint16_t millivolts,

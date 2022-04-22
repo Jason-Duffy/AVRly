@@ -84,7 +84,7 @@ void chip_deselect(void);
  * This function is to be called before using any other DAC functions.
  * Instantiate the dac_config_t object first then pass it's address into and
  * call init_lcd() before using any other lcd functions.
- * @param *p_config is a pointer to the dac_config_t object.
+ * @param p_config is a pointer to the dac_config_t object.
  */
 void init_dac(dac_config_t *p_config)
 {
@@ -136,8 +136,11 @@ void init_dac(dac_config_t *p_config)
 
 
 /*
- * Sends a new millivolts value to be output on DAC. Use this function for the
- * MCP4802 and MCP4812 models.
+ * Sends a new millivolts value to be output on DAC (Along with config
+ * settings). For 8 or 10 bit models only.
+ * @param channel_a: true = Channel A, false = Channel B.
+ * @param millivolts: mV value to be output by DAC. Ensure that this value
+ * doesn't exceed the maxixum for the DAC model and gain setting. 
  */
 void dac_set_voltage(bool channel_a, uint16_t millivolts)
 {
@@ -175,12 +178,13 @@ void dac_set_voltage(bool channel_a, uint16_t millivolts)
 
 
 /*
- * Sends a new millivolts value to be output on DAC. Use this function for the
- * MCP4822 model with 12bit resolution - for the other chip models use
- * dac_set_voltage(). If gain_low = true, the resolution is down to 0.5mV,
- * however we want to avoid using floating point numbers, so just pass in the
- * integer millivolt value as the second parameter, then add a boolean
- * true/false for the third parameter. True = 0.5mV, false = 0mV. 
+ * Sends a new millivolts value to be output on DAC (Along with config
+ * settings). For 12 bit models only. 
+ * @param channel_a: true = Channel A, false = Channel B.
+ * @param millivolts: mV value to be output by DAC. Ensure that this value
+ * doesn't exceed the maxixum for the DAC model and gain setting.
+ * @param fractional: true = millivolts value has 0.5mV added to it. Only to be
+ * used when gain_low is true. 
  */
 void dac_set_voltage_12_bit(bool channel_a,
                             uint16_t millivolts,
