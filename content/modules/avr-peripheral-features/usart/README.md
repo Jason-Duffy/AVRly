@@ -12,8 +12,18 @@ In this example, we will be using a [USB to serial converter][USB_SERIAL_CONVERT
 
 ![USB to Serial Adapter Schematic](./images/USB_serial_adapter_schem.png)
 
+If you are using the AVRly dev kit, then the side of the adapter PCB the components are mounted on should be facing towards the MCU. 
+
+Connect the adapter to the PC using a USB cable, open up CoolTerm, go to Options > Serial Port Options > Port and select the one beginning with "usbserial". Set the baud rate to 9600, then press OK. 
+
+![Initial CoolTerm Setup Options](./images/CoolTerm_Options_1.png)
+
 
 ## Data Transmission
+
+In USART communication, data is sent in "frames" with a start and stop bit, withoptional parity check bits. The start bit (active low) signals to the receiver that a new data frame is being sent, then the data bits are sent (8 in this case), then parity check bits (not used in this case) and a stop bit (active high).
+
+![Frame Formats](./images/USART_frame_formats.png)
 
 
 ## API Reference
