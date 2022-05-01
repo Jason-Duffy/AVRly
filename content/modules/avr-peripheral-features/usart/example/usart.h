@@ -61,7 +61,7 @@ void init_usart(void);
  * @param my_string is the string constant youd like to print, and should be
  * enclosed in "" quotation marks. 
  */
-void print_string(const char my_string[]);
+void usart_print_string(const char my_string[]);
 
 
 /**
@@ -71,49 +71,60 @@ void print_string(const char my_string[]);
  * you'd like to store the received message in. 
  * @param max_length is the maximum number of characters expected.
  */
-void read_string(char my_string[], uint8_t max_length);
+void usart_read_string(char my_string[], uint8_t max_length);
 
 
 /**
  * Prints a byte out as its 3-digit ascii equivalent.
  * @param byte is the 8 bits of data to be sent, must be unsigned. 
  */
-void print_byte(uint8_t byte);
+void usart_print_byte(uint8_t byte);
+
+
+/**
+ * Prints a byte out as its 1-digit ascii equivalent.
+ * @param byte is the 8 bits of data to be sent, must be unsigned, with a
+ * value of 0-9;
+ */
+void usart_print_decimal_digit(uint8_t byte);
+
+
+void usart_print_char(char byte);
 
 
 /**
  * Prints a word (16-bits) out as its 5-digit ascii equivalent.
  * @param word is the 16 bits of data to be sent, must be unsigned.
  */
-void print_word(uint16_t word);
+void usart_print_word(uint16_t word);
 
 
 /**
  * Prints a byte out in 1s and 0s.
  * @param byte is the 8 bits of data to be sent, must be unsigned.
  */
-void print_binary_byte(uint8_t byte);
+void usart_print_binary_byte(uint8_t byte);
 
 
 /**
  * Convert a nibble to a hex character.
  * @param nibble is the 4 bits of data to be sent, must be unsigned. 
  */
-char nibble_to_hex_character(uint8_t nibble);
+char usart_nibble_to_hex_character(uint8_t nibble);
 
 
 /**
  * Prints a byte out in hexadecimal format.
  * @param byte is the 8 bits of data to be sent, must be unsigned. 
  */
-void print_hex_byte(uint8_t byte);
+void usart_print_hex_byte(uint8_t byte);
 
 
 /**
  * Takes in up to three ascii digits, converts them to a byte when press enter.
  * @returns an unsigned 8 bit integer is returned - this is the data received. 
  */ 
-uint8_t get_number(void);
+uint8_t usart_get_number(void);
 
 
 #endif // USART_DOT_H
