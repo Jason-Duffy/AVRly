@@ -14,6 +14,7 @@ var searchData=
   ['ccs811_5fupdate_5fenv_5fdata_11',['ccs811_update_env_data',['../ccs811_8c.html#a0a35b06187cfd628634e4d86faefa3c6',1,'ccs811_update_env_data(uint8_t humidity, uint8_t temp):&#160;ccs811.c'],['../ccs811_8h.html#a0a35b06187cfd628634e4d86faefa3c6',1,'ccs811_update_env_data(uint8_t humidity, uint8_t temp):&#160;ccs811.c']]],
   ['chip_5fdeselect_12',['chip_deselect',['../mcp48x2__dac_8c.html#abcfcb3f6bdd45f73f27edc2ea06c1d99',1,'mcp48x2_dac.c']]],
   ['chip_5fselect_13',['chip_select',['../mcp48x2__dac_8c.html#a19f76a44569088d532ecaa6ea938be14',1,'mcp48x2_dac.c']]],
-  ['contributor_27s_20guide_14',['Contributor&apos;s Guide',['../md_content_contributors_guide__contributors_guide.html',1,'']]],
-  ['cursor_5fenable_15',['cursor_enable',['../structlcd__config__t.html#a4ef3fbb7b0e5026a0f29bf9aebbb2dff',1,'lcd_config_t']]]
+  ['communication_20protocols_14',['Communication Protocols',['../group__comms__protocols.html',1,'']]],
+  ['contributor_27s_20guide_15',['Contributor&apos;s Guide',['../md_content_contributors_guide__contributors_guide.html',1,'']]],
+  ['cursor_5fenable_16',['cursor_enable',['../structlcd__config__t.html#a4ef3fbb7b0e5026a0f29bf9aebbb2dff',1,'lcd_config_t']]]
 ];
