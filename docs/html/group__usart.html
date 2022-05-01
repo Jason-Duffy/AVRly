@@ -126,15 +126,41 @@ USB to Serial Adapter Schematic</div></div>
 <img src="CoolTerm_Options_1.png" alt=""/>
 <div class="caption">
 Initial CoolTerm Setup Options</div></div>
-   <h2><a class="anchor" id="autotoc_md78"></a>
+   <p >Press the Connect button, and the new connection status should be displayed on the bottom left of the screen. If it's connected, you're ready to start communication! If not, check your connections and repeat the steps above.</p>
+<h2><a class="anchor" id="autotoc_md78"></a>
 Data Transmission</h2>
-<p >In USART communication, data is sent in "frames" with a start and stop bit, withoptional parity check bits. The start bit (active low) signals to the receiver that a new data frame is being sent, then the data bits are sent (8 in this case), then parity check bits (not used in this case) and a stop bit (active high).</p>
+<p >In USART communication, data is sent in "frames" with a start and stop bit, and optional parity check bits. The start bit (active low) signals to the receiver that a new data frame is being sent, then the data bits are sent (8 in this case), then parity check bits (not used in this case) and a stop bit (active high).</p>
 <div class="image">
 <img src="USART_frame_formats.png" alt=""/>
 <div class="caption">
 Frame Formats</div></div>
    <h2><a class="anchor" id="autotoc_md79"></a>
 API Reference</h2>
+<p >On entry to the main routine of the application, we'll call the initialisation function for the USART driver, <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd" title="Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART ...">init_usart()</a> - this function configures the hardware for use. It also requires the symbols BAUD and F_CPU to be defined, which is done in the Makefile.</p>
+<div class="fragment"><div class="line"><span class="comment">/**</span></div>
+<div class="line"><span class="comment"> * Main routine for the example application. </span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Setup and initialisation routines.</span></div>
+<div class="line">    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a>();</div>
+<div class="line">    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(<span class="stringliteral">&quot;USART Initialised\n\n\n&quot;</span>);</div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_a4e71ccb6ac34e077f20648dd9720bf72"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a></div><div class="ttdeci">void usart_print_string(const char myString[])</div><div class="ttdoc">Utility function to transmit a string.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00074">usart.c:74</a></div></div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_ad9b40dee04f1b7ced79b74fe3f6cb7fd"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a></div><div class="ttdeci">void init_usart(void)</div><div class="ttdoc">Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART ...</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00050">usart.c:50</a></div></div>
+<div class="ttc" id="agetting-started_2source_2main_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main routine to be executed on the MCU.</div><div class="ttdef"><b>Definition:</b> <a href="getting-started_2source_2main_8c_source.html#l00045">main.c:45</a></div></div>
+</div><!-- fragment --><p >From then on, we can call any function declared in the usart.h header file - the documentation can be found <a href="https://jason-duffy.github.io/AVRly/html/avr-peripheral-features_2usart_2example_2usart_8h.html" target="_blank">here</a>.</p>
+<h2><a class="anchor" id="autotoc_md80"></a>
+Example Application</h2>
+<p >Once you have the MCU and adapter connected up and the CoolTerm settings configured, you're ready to flash the example application to the chip. Ensure the Makefile is configured properly for your development environment, and flash the chip.</p>
+<p >Once it reboots, you should start receiving messages on CoolTerm. Follow the prompts, and you should have a screen looking something like this.</p>
+<div class="image">
+<img src="CoolTerm_USART_Demo_Output.png" alt=""/>
+<div class="caption">
+CoolTerm Example Output</div></div>
+   <h2><a class="anchor" id="autotoc_md81"></a>
+Usage</h2>
+<p >USART communication has many uses in embedded systems, but I use it the most for logging output to aid in debugging my firmware. See the <a href="https://jason-duffy.github.io/AVRly/html/group__log__system.html" target="_blank">Log System Module</a> for more.</p>
+<p >It's worth noting that these data packets take a considerable amount of time to send, and also use blocking waits, so be careful where you use them! </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

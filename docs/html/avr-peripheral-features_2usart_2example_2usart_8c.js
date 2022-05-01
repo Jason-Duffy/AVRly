@@ -1,12 +1,13 @@
 var avr_peripheral_features_2usart_2example_2usart_8c =
 [
     [ "init_usart", "avr-peripheral-features_2usart_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd", null ],
-    [ "print_string", "avr-peripheral-features_2usart_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a", null ],
-    [ "read_string", "avr-peripheral-features_2usart_2example_2usart_8c.html#a81d7e2cba8d3899338c39b31dd059ff0", null ],
-    [ "print_byte", "avr-peripheral-features_2usart_2example_2usart_8c.html#ae0af4da978c1af91fd2bed169b92dae3", null ],
-    [ "print_word", "avr-peripheral-features_2usart_2example_2usart_8c.html#a26f014257b6300f175bbae63395b6ab7", null ],
-    [ "print_binary_byte", "avr-peripheral-features_2usart_2example_2usart_8c.html#a6ed8eefe33df0c479847f99bfbffbc2e", null ],
-    [ "nibble_to_hex_character", "avr-peripheral-features_2usart_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1", null ],
-    [ "print_hex_byte", "avr-peripheral-features_2usart_2example_2usart_8c.html#ad2cb22c9efc792243fe27a60441547a4", null ],
-    [ "get_number", "avr-peripheral-features_2usart_2example_2usart_8c.html#a502d44d5f8098a5e1f767f98493bdd29", null ]
+    [ "usart_print_string", "avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72", null ],
+    [ "usart_read_string", "avr-peripheral-features_2usart_2example_2usart_8c.html#a795182ad49c01be34b7249e2569882ea", null ],
+    [ "usart_print_byte", "avr-peripheral-features_2usart_2example_2usart_8c.html#a5c70d80f37cd301690591675569ce4ae", null ],
+    [ "usart_print_decimal_digit", "avr-peripheral-features_2usart_2example_2usart_8c.html#a3e5b450d43afa8c30e9fb39f4ec378b0", null ],
+    [ "usart_print_word", "avr-peripheral-features_2usart_2example_2usart_8c.html#a919c64b35a3b4d9df21feee567929eca", null ],
+    [ "usart_print_binary_byte", "avr-peripheral-features_2usart_2example_2usart_8c.html#a83e4bcba2b98324cdefc6d5c28de1f23", null ],
+    [ "usart_nibble_to_hex_character", "avr-peripheral-features_2usart_2example_2usart_8c.html#ab545e69352c76f74ae95a10a61fea120", null ],
+    [ "usart_print_hex_byte", "avr-peripheral-features_2usart_2example_2usart_8c.html#adcbd3b64411247da3820b94893de5187", null ],
+    [ "usart_get_number", "avr-peripheral-features_2usart_2example_2usart_8c.html#ab61056929c37c62040cb6a4cde1e4895", null ]
 ];

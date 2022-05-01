@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['two_5fline_5fdisplay_0',['two_line_display',['../structlcd__config__t.html#a9ccb959ea17cf7b7f13818e4d606b3af',1,'lcd_config_t']]]
+  ['receive_5fbuffer_0',['receive_buffer',['../modules_2avr-peripheral-features_2usart_2example_2main_8c.html#ad4b78e5d15a442ca0441cd810177581d',1,'main.c']]]
 ];

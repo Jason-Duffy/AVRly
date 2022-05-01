@@ -1,5 +1,7 @@
 var NAVTREEINDEX1 =
 {
+"debug-tools_2log-system_2example_2usart_8h.html#ad2cb22c9efc792243fe27a60441547a4":[5,0,0,2,2,0,0,4,8],
+"debug-tools_2log-system_2example_2usart_8h.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd":[5,0,0,2,2,0,0,4,0],
 "debug-tools_2log-system_2example_2usart_8h.html#ae0af4da978c1af91fd2bed169b92dae3":[5,0,0,2,2,0,0,4,3],
 "debug-tools_2log-system_2example_2usart_8h_source.html":[5,0,0,2,2,0,0,4],
 "digital__clock_8c.html":[5,0,0,2,0,1,0,0,0],
@@ -89,8 +91,8 @@ var NAVTREEINDEX1 =
 "getting-started_2source_2pin__defines_8h.html#a663daa01e565aee93c6f20c5845b90b4":[5,0,0,1,0,3,0],
 "getting-started_2source_2pin__defines_8h.html#a843b341668408e5656cf19cf3389bb5a":[5,0,0,1,0,3,2],
 "getting-started_2source_2pin__defines_8h_source.html":[5,0,0,1,0,3],
-"globals.html":[5,1,0],
 "globals.html":[5,1,0,0],
+"globals.html":[5,1,0],
 "globals_c.html":[5,1,0,1],
 "globals_d.html":[5,1,0,2],
 "globals_defs.html":[5,1,4],
@@ -107,6 +109,7 @@ var NAVTREEINDEX1 =
 "globals_func_p.html":[5,1,1,8],
 "globals_func_r.html":[5,1,1,9],
 "globals_func_s.html":[5,1,1,10],
+"globals_func_u.html":[5,1,1,11],
 "globals_g.html":[5,1,0,3],
 "globals_i.html":[5,1,0,4],
 "globals_l.html":[5,1,0,5],
@@ -116,6 +119,7 @@ var NAVTREEINDEX1 =
 "globals_p.html":[5,1,0,9],
 "globals_r.html":[5,1,0,10],
 "globals_s.html":[5,1,0,11],
+"globals_u.html":[5,1,0,12],
 "globals_vars.html":[5,1,2],
 "group__anatomy.html":[3,1],
 "group__avr__peripherals.html":[3,6],
@@ -245,9 +249,5 @@ var NAVTREEINDEX1 =
 "md_content_getting_started__getting_started.html#autotoc_md49":[0,6,2],
 "md_content_getting_started__getting_started.html#autotoc_md5":[0,0,1,1],
 "md_content_getting_started__getting_started.html#autotoc_md50":[0,6,3],
-"md_content_getting_started__getting_started.html#autotoc_md6":[0,0,1,1,0],
-"md_content_getting_started__getting_started.html#autotoc_md7":[0,0,1,1,1],
-"md_content_getting_started__getting_started.html#autotoc_md8":[0,0,1,2],
-"md_content_getting_started__getting_started.html#autotoc_md9":[0,0,2],
-"modules.html":[3]
+"md_content_getting_started__getting_started.html#autotoc_md6":[0,0,1,1,0]
 };
