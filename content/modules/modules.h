@@ -77,4 +77,7 @@
  * 
  * @defgroup i2c I2C
  * @ingroup avr_peripherals
+ * 
+ * @defgroup usart USART
+ * @ingroup avr_peripherals
  */
