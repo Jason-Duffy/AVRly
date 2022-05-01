@@ -54,34 +54,34 @@ void init_log_system(void)
 void log_message(const char *p_tag, enum eLogLevel level, const char *msg)
 {
   print_tag_and_log_level(p_tag, level);
-  print_string(msg);
+  usart_print_string(msg);
 }
 
 // Sends a string, followed by an integer (3 ASCII digits)
 void log_message_with_dec_val(const char *p_tag, enum eLogLevel level, const char *msg, uint8_t val)
 {
   print_tag_and_log_level(p_tag, level);
-  print_string(msg);
-  print_string(" ");
-  print_byte(val);
+  usart_print_string(msg);
+  usart_print_string(" ");
+  usart_print_byte(val);
 }
 
 // Sends a string, followed by a binary byte (in 1's and 0's)
 void log_message_with_bin_val(const char *p_tag, enum eLogLevel level, const char *msg, uint8_t val)
 {
   print_tag_and_log_level(p_tag, level);
-  print_string(msg);
-  print_string(" ");
-  print_binary_byte(val);
+  usart_print_string(msg);
+  usart_print_string(" ");
+  usart_print_binary_byte(val);
 }
 
 // Sends a string, followed by an integer
 void log_message_with_hex_val(const char *p_tag, enum eLogLevel level, const char *msg, uint8_t val)
 {
   print_tag_and_log_level(p_tag, level);
-  print_string(msg);
-  print_string(" ");
-  print_hex_byte(val);
+  usart_print_string(msg);
+  usart_print_string(" ");
+  usart_print_hex_byte(val);
 }
 
 // Sets level of logging required
@@ -109,38 +109,38 @@ void print_tag_and_log_level(const char *p_tag, enum eLogLevel level)
   {
 
   }
-  print_string("\n");
-  print_string(p_tag);
+  usart_print_string("\n");
+  usart_print_string(p_tag);
 
   if (level == INFO)
   {
-    print_string(", INFO: ");
+    usart_print_string(", INFO: ");
   }
 
   else if (level == DEBUG)
   {
-    print_string(", DEBUG: ");
+    usart_print_string(", DEBUG: ");
   }
 
   else if (level == VERBOSE_DEBUG)
   {
-    print_string(", VERBOSE_DEBUG: ");
+    usart_print_string(", VERBOSE_DEBUG: ");
   }
 
   else if (level == WARNING)
   {
-    print_string(", WARNING: ");
+    usart_print_string(", WARNING: ");
   }
 
   else if (level == ERROR)
   {
-    print_string(", ERROR: ");
+    usart_print_string(", ERROR: ");
   }
 
   // TODO: Throw exception here to be caught at compile time
   else
   {
-    print_string(", INVALID_LOG_LEVEL: ");
+    usart_print_string(", INVALID_LOG_LEVEL: ");
   }
 }
 
