@@ -27,7 +27,9 @@
  * @date 15th March 2022
  * @brief Driver file providing core USART communication between the target MCU
  * and your PC. This file was adapted from Elliot Williams' Github repo
- * hexagon5un.
+ * hexagon5un (link in the see also section below).
+ * NOTE: This driver does involve blocking waits, this may be improved on in a
+ * later version. 
  * @bug No known bugs. 
  * @see https://github.com/hexagon5un/AVR-Programming
  */
@@ -93,29 +95,23 @@ void print_word(uint16_t word);
 void print_binary_byte(uint8_t byte);
 
 
-// !!
-// TODO: find implementation for this and define difference to function below
-// !!
-/**
- * Convert nibble to hex.
- */
-char nibble_to_hex(uint8_t nibble);
-
-
 /**
  * Convert a nibble to a hex character.
+ * @param nibble is the 4 bits of data to be sent, must be unsigned. 
  */
 char nibble_to_hex_character(uint8_t nibble);
 
 
 /**
  * Prints a byte out in hexadecimal format.
+ * @param byte is the 8 bits of data to be sent, must be unsigned. 
  */
 void print_hex_byte(uint8_t byte);
 
 
 /**
  * Takes in up to three ascii digits, converts them to a byte when press enter.
+ * @returns an unsigned 8 bit integer is returned - this is the data received. 
  */ 
 uint8_t get_number(void);
 

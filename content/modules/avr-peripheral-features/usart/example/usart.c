@@ -27,7 +27,7 @@
  * @date 15th March 2022
  * @brief Driver file providing core USART communication between the target MCU
  * and your PC. This file was adapted from Elliot Williams' Github repo
- * hexagon5un.
+ * hexagon5un. (link in the see also section below).
  * @bug No known bugs. 
  * @see https://github.com/hexagon5un/AVR-Programming
  */
@@ -38,13 +38,14 @@
 
 #include "usart.h"
 
+// Forward declarations for private helper functions. 
 static void transmit_byte(uint8_t data);
 static uint8_t receive_byte(void);
 
 
 /*
  * Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier,
- * configures the hardware USART.
+ * configures the hardware USART ready for use.
  */
 void init_usart(void)
 {
@@ -64,7 +65,12 @@ void init_usart(void)
   UCSR0C = (1 << UCSZ01) | (1 << UCSZ00);
 }
 
-// Utility function to transmit an entire string from RAM.
+
+/*
+ * Utility function to transmit a string.
+ * @param my_string is the string constant youd like to print, and should be
+ * enclosed in "" quotation marks. 
+ */
 void print_string(const char myString[])
 {
   uint8_t i = 0;
@@ -75,9 +81,13 @@ void print_string(const char myString[])
   }
 }
 
+
 /*
- * Define a string variable, pass it to this function. The string will contain
+ * Define a string variable, pass it to this function. The string will contain.
  * whatever you typed over serial.
+ * @param my_string is a pointer to the first element in the character array
+ * you'd like to store the received message in.
+ * @param max_length is the maximum number of characters expected.
  */
 void read_string(char myString[], uint8_t maxLength)
 {
@@ -103,7 +113,11 @@ void read_string(char myString[], uint8_t maxLength)
   myString[count] = 0; // terminal NULL character */
 }
 
-// Prints a byte out as its 3-digit ascii equivalent.
+
+/*
+ * Prints a byte out as its 3-digit ascii equivalent.
+ * @param byte is the 8 bits of data to be sent, must be unsigned. 
+ */
 void print_byte(uint8_t byte)
 {
   // Converts a byte to a string of decimal text, sends it
@@ -112,7 +126,11 @@ void print_byte(uint8_t byte)
   transmit_byte('0' + (byte % 10));			// Ones
 }
 
-// Prints a word (16-bits) out as its 5-digit ascii equivalent.
+
+/*
+ * Prints a word (16-bits) out as its 5-digit ascii equivalent.
+ * @param word is the 16 bits of data to be sent, must be unsigned.
+ */
 void print_word(uint16_t word)
 {
   transmit_byte('0' + (word / 10000));       // Ten-thousands
@@ -122,7 +140,11 @@ void print_word(uint16_t word)
   transmit_byte('0' + (word % 10));          //  Ones
 }
 
-// Prints a byte out in 1s and 0s.
+
+/*
+ * Prints a byte out in 1s and 0s.
+ * @param byte is the 8 bits of data to be sent, must be unsigned.
+ */
 void print_binary_byte(uint8_t byte)
 {
   uint8_t bit;
@@ -139,7 +161,11 @@ void print_binary_byte(uint8_t byte)
   }
 }
 
-// Converts a nibble to a hexadecimal character
+
+/*
+ * Convert a nibble to a hex character.
+ * @param nibble is the 4 bits of data to be sent, must be unsigned. 
+ */
 char nibble_to_hex_character(uint8_t nibble)
 {
   if (nibble < 10)
@@ -152,7 +178,11 @@ char nibble_to_hex_character(uint8_t nibble)
   }
 }
 
-// Prints a byte as its hexadecimal equivalent
+
+/*
+ * Prints a byte out in hexadecimal format.
+ * @param byte is the 8 bits of data to be sent, must be unsigned. 
+ */
 void print_hex_byte(uint8_t byte)
 {
   uint8_t nibble;
@@ -162,7 +192,11 @@ void print_hex_byte(uint8_t byte)
   transmit_byte(nibble_to_hex_character(nibble));
 }
 
- // Gets a numerical 0-255 from the serial port, converts string to number.
+
+/*
+ * Takes in up to three ascii digits, converts them to a byte when press enter.
+ * @returns an unsigned 8 bit integer is returned - this is the data received. 
+ */ 
 uint8_t get_number(void)
 {
   char hundreds = '0';
@@ -183,8 +217,12 @@ uint8_t get_number(void)
   return (100 * (hundreds - '0') + 10 * (tens - '0') + ones - '0');
 }
 
-// TODO: Replace these with non-blocking waits
-//Blocking transmit and receive functions.
+
+// ------------------------------------------------------------------------- //
+// ----------------------- Private Helper Functions ------------------------ //
+// ------------------------------------------------------------------------- //
+
+// Blocking data transmit function. 
 static void transmit_byte(uint8_t data)
 {
   // Wait for empty transmit buffer
@@ -193,6 +231,7 @@ static void transmit_byte(uint8_t data)
   UDR0 = data;
 }
 
+// Blocking data receive function. 
 static uint8_t receive_byte(void)
 {
   // Wait for incoming data
