@@ -84,4 +84,6 @@ int main()
 		// Wait a short time. 
 		_delay_ms(DELAY_TIME_1);
 	}
+	
+	return 0;
 }
