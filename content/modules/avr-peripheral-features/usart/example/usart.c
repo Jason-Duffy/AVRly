@@ -138,6 +138,10 @@ void usart_print_decimal_digit(uint8_t byte)
 }
 
 
+/*
+ * Prints a byte out as its 1-character ascii equivalent.
+ * @param byte is the character to be sent.
+ */
 void usart_print_char(char byte)
 {
   transmit_byte(byte);
