@@ -115,7 +115,12 @@ Introduction</h2>
 <p >You may also see the term UART around (Universal Asynchronous Receiver/Transmitter) which refers to a system which only has the option of an agreed baud rate. The system featured in AVR microcontrollers is USART, however we will be using it in it's asynchronous mode here.</p>
 <h2><a class="anchor" id="autotoc_md77"></a>
 Interface</h2>
-<h2><a class="anchor" id="autotoc_md78"></a>
+<p >In this example, we will be using a <a href="https://www.amazon.co.uk/Ccylez-Converter-Adapter-FT232RL-Android-default/dp/B08DV1SXMQ/ref=sr_1_4?crid=8ZN3WET67TSU&amp;keywords=usb+serial+converter+module&amp;qid=1647296288&amp;sprefix=usb+serial+converter+modul%2Caps%2C72&amp;sr=8-4" target="_blank">USB to serial converter</a> to communicate between a PC and the AVR MCU. The connections should be made as shown in the schematic below. Note that the RX and TX (Receive and Transmit) pins are crossed over - RX on the host MCU is connected to TX on the adapter and vice versa.</p>
+<div class="image">
+<img src="USB_serial_adapter_schem.png" alt=""/>
+<div class="caption">
+USB to Serial Adapter Schematic</div></div>
+   <h2><a class="anchor" id="autotoc_md78"></a>
 Data Transmission</h2>
 <h2><a class="anchor" id="autotoc_md79"></a>
 API Reference</h2>
