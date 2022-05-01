@@ -112,7 +112,6 @@ var NAVTREE =
         [ "Submitting a Pull Request", "md_content_contributors_guide__contributors_guide.html#autotoc_md69", null ]
       ] ]
     ] ],
-    [ "README", "md_content_modules_avr_peripheral_features_usart__r_e_a_d_m_e.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
