@@ -1,4 +1,4 @@
-@ingroup uart
+@ingroup usart
 
 ## Introduction
 
@@ -6,5 +6,11 @@ USART is a form of serial communication protocol, and stands for Universal Synch
 
 You may also see the term UART around (Universal Asynchronous Receiver/Transmitter) which refers to a system which only has the option of an agreed baud rate. The system featured in AVR microcontrollers is USART, however we will be using it in it's asynchronous mode here.
 
-## Pinout
+## Interface
+
+
+## Data Transmission
+
+
+## API Reference
 
