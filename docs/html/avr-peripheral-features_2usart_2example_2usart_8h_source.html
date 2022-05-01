@@ -120,112 +120,107 @@ $(document).ready(function(){initNavTree('avr-peripheral-features_2usart_2exampl
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @date 15th March 2022</span></div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * @brief Driver file providing core USART communication between the target MCU</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * and your PC. This file was adapted from Elliot Williams&#39; Github repo</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * hexagon5un.</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * @bug No known bugs. </span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * @see https://github.com/hexagon5un/AVR-Programming</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#ifndef BAUD          </span><span class="comment">// If not defined in Makefile</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#define BAUD  9600    </span><span class="comment">// Set a safe default baud rate</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#ifndef USART_DOT_H</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#define USART_DOT_H</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * hexagon5un (link in the see also section below).</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * NOTE: This driver does involve blocking waits, this may be improved on in a</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * later version. </span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * @bug No known bugs. </span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> * @see https://github.com/hexagon5un/AVR-Programming</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#ifndef BAUD          </span><span class="comment">// If not defined in Makefile</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#define BAUD  9600    </span><span class="comment">// Set a safe default baud rate</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">#ifndef USART_DOT_H</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">#define USART_DOT_H</span></div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment">// These are defined for convenience</span></div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#define   USART_HAS_DATA   bit_is_set(UCSR0A, RXC0)</span></div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#define   USART_READY      bit_is_set(UCSR0A, UDRE0)</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"></span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"> * Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier,</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"> * configures the hardware USART ready for use.</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"></span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"> * Utility function to transmit a string.</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"> * @param my_string is the string constant youd like to print, and should be</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * enclosed in &quot;&quot; quotation marks. </span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a8aacc9cce51a46d358cf63c04fdf5025">print_string</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> my_string[]);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"></span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"> * Define a string variable, pass it to this function. The string will contain.</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> * whatever you typed over serial.</span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> * @param my_string is a pointer to the first element in the character array</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> * you&#39;d like to store the received message in. </span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> * @param max_length is the maximum number of characters expected.</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a8bfe88c8429285d5e835e38b184530d3">read_string</a>(<span class="keywordtype">char</span> my_string[], uint8_t max_length);</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"></span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"> * Prints a byte out as its 3-digit ascii equivalent.</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"> * @param byte is the 8 bits of data to be sent, must be unsigned. </span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#ae0af4da978c1af91fd2bed169b92dae3">print_byte</a>(uint8_t <span class="keywordtype">byte</span>);</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"></span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"> * Prints a word (16-bits) out as its 5-digit ascii equivalent.</span></div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"> * @param word is the 16 bits of data to be sent, must be unsigned.</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a26f014257b6300f175bbae63395b6ab7">print_word</a>(uint16_t word);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"></span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> * Prints a byte out in 1s and 0s.</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"> * @param byte is the 8 bits of data to be sent, must be unsigned.</span></div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a6ed8eefe33df0c479847f99bfbffbc2e">print_binary_byte</a>(uint8_t <span class="keywordtype">byte</span>);</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">// !!</span></div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">// TODO: find implementation for this and define difference to function below</span></div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">// !!</span><span class="comment"></span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> * Convert nibble to hex.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">// These are defined for convenience</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#define   USART_HAS_DATA   bit_is_set(UCSR0A, RXC0)</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#define   USART_READY      bit_is_set(UCSR0A, UDRE0)</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"></span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"> * Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier,</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> * configures the hardware USART ready for use.</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"></span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * Utility function to transmit a string.</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> * @param my_string is the string constant youd like to print, and should be</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> * enclosed in &quot;&quot; quotation marks. </span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a8aacc9cce51a46d358cf63c04fdf5025">print_string</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> my_string[]);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"></span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> * Define a string variable, pass it to this function. The string will contain.</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment"> * whatever you typed over serial.</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"> * @param my_string is a pointer to the first element in the character array</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"> * you&#39;d like to store the received message in. </span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"> * @param max_length is the maximum number of characters expected.</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a8bfe88c8429285d5e835e38b184530d3">read_string</a>(<span class="keywordtype">char</span> my_string[], uint8_t max_length);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment"></span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> * Prints a byte out as its 3-digit ascii equivalent.</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"> * @param byte is the 8 bits of data to be sent, must be unsigned. </span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#ae0af4da978c1af91fd2bed169b92dae3">print_byte</a>(uint8_t <span class="keywordtype">byte</span>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment"></span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> * Prints a word (16-bits) out as its 5-digit ascii equivalent.</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"> * @param word is the 16 bits of data to be sent, must be unsigned.</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a26f014257b6300f175bbae63395b6ab7">print_word</a>(uint16_t word);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"></span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> * Prints a byte out in 1s and 0s.</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"> * @param byte is the 8 bits of data to be sent, must be unsigned.</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a6ed8eefe33df0c479847f99bfbffbc2e">print_binary_byte</a>(uint8_t <span class="keywordtype">byte</span>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"></span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment"> * Convert a nibble to a hex character.</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"> * @param nibble is the 4 bits of data to be sent, must be unsigned. </span></div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="avr-peripheral-features_2usart_2example_2usart_8h.html#aba561aaa44414dbdd564dfc40390051d">  102</a></span><span class="keywordtype">char</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#aba561aaa44414dbdd564dfc40390051d">nibble_to_hex</a>(uint8_t nibble);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keywordtype">char</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(uint8_t nibble);</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment"></span> </div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> * Convert a nibble to a hex character.</span></div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keywordtype">char</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(uint8_t nibble);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"></span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment"> * Prints a byte out in hexadecimal format.</span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#ad2cb22c9efc792243fe27a60441547a4">print_hex_byte</a>(uint8_t <span class="keywordtype">byte</span>);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment"></span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> * Takes in up to three ascii digits, converts them to a byte when press enter.</span></div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"> */</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>uint8_t <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a502d44d5f8098a5e1f767f98493bdd29">get_number</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="preprocessor">#endif </span><span class="comment">// USART_DOT_H</span></div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span><span class="comment">/*** end of file ***/</span></div>
-<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_a26f014257b6300f175bbae63395b6ab7"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a26f014257b6300f175bbae63395b6ab7">print_word</a></div><div class="ttdeci">void print_word(uint16_t word)</div><div class="ttdoc">Prints a word (16-bits) out as its 5-digit ascii equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00116">usart.c:116</a></div></div>
-<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_a502d44d5f8098a5e1f767f98493bdd29"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a502d44d5f8098a5e1f767f98493bdd29">get_number</a></div><div class="ttdeci">uint8_t get_number(void)</div><div class="ttdoc">Takes in up to three ascii digits, converts them to a byte when press enter.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00166">usart.c:166</a></div></div>
-<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_a6ed8eefe33df0c479847f99bfbffbc2e"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a6ed8eefe33df0c479847f99bfbffbc2e">print_binary_byte</a></div><div class="ttdeci">void print_binary_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out in 1s and 0s.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00126">usart.c:126</a></div></div>
-<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_a7abb0afe7126a9afb37d7cc16896adf1"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a></div><div class="ttdeci">char nibble_to_hex_character(uint8_t nibble)</div><div class="ttdoc">Convert a nibble to a hex character.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00143">usart.c:143</a></div></div>
-<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_a8aacc9cce51a46d358cf63c04fdf5025"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a8aacc9cce51a46d358cf63c04fdf5025">print_string</a></div><div class="ttdeci">void print_string(const char my_string[])</div><div class="ttdoc">Utility function to transmit a string.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00068">usart.c:68</a></div></div>
-<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_a8bfe88c8429285d5e835e38b184530d3"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a8bfe88c8429285d5e835e38b184530d3">read_string</a></div><div class="ttdeci">void read_string(char my_string[], uint8_t max_length)</div><div class="ttdoc">Define a string variable, pass it to this function.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00082">usart.c:82</a></div></div>
-<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_aba561aaa44414dbdd564dfc40390051d"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#aba561aaa44414dbdd564dfc40390051d">nibble_to_hex</a></div><div class="ttdeci">char nibble_to_hex(uint8_t nibble)</div><div class="ttdoc">Convert nibble to hex.</div></div>
-<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_ad2cb22c9efc792243fe27a60441547a4"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#ad2cb22c9efc792243fe27a60441547a4">print_hex_byte</a></div><div class="ttdeci">void print_hex_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out in hexadecimal format.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00156">usart.c:156</a></div></div>
-<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_ad9b40dee04f1b7ced79b74fe3f6cb7fd"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a></div><div class="ttdeci">void init_usart(void)</div><div class="ttdoc">Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART ...</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00049">usart.c:49</a></div></div>
-<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_ae0af4da978c1af91fd2bed169b92dae3"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#ae0af4da978c1af91fd2bed169b92dae3">print_byte</a></div><div class="ttdeci">void print_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out as its 3-digit ascii equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00107">usart.c:107</a></div></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment"> * Prints a byte out in hexadecimal format.</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"> * @param byte is the 8 bits of data to be sent, must be unsigned. </span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keywordtype">void</span> <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#ad2cb22c9efc792243fe27a60441547a4">print_hex_byte</a>(uint8_t <span class="keywordtype">byte</span>);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment"></span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment"> * Takes in up to three ascii digits, converts them to a byte when press enter.</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment"> * @returns an unsigned 8 bit integer is returned - this is the data received. </span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment"> */</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>uint8_t <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a502d44d5f8098a5e1f767f98493bdd29">get_number</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="preprocessor">#endif </span><span class="comment">// USART_DOT_H</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">/*** end of file ***/</span></div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_a26f014257b6300f175bbae63395b6ab7"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a26f014257b6300f175bbae63395b6ab7">print_word</a></div><div class="ttdeci">void print_word(uint16_t word)</div><div class="ttdoc">Prints a word (16-bits) out as its 5-digit ascii equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00134">usart.c:134</a></div></div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_a502d44d5f8098a5e1f767f98493bdd29"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a502d44d5f8098a5e1f767f98493bdd29">get_number</a></div><div class="ttdeci">uint8_t get_number(void)</div><div class="ttdoc">Takes in up to three ascii digits, converts them to a byte when press enter.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00200">usart.c:200</a></div></div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_a6ed8eefe33df0c479847f99bfbffbc2e"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a6ed8eefe33df0c479847f99bfbffbc2e">print_binary_byte</a></div><div class="ttdeci">void print_binary_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out in 1s and 0s.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00148">usart.c:148</a></div></div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_a7abb0afe7126a9afb37d7cc16896adf1"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a></div><div class="ttdeci">char nibble_to_hex_character(uint8_t nibble)</div><div class="ttdoc">Convert a nibble to a hex character.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00169">usart.c:169</a></div></div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_a8aacc9cce51a46d358cf63c04fdf5025"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a8aacc9cce51a46d358cf63c04fdf5025">print_string</a></div><div class="ttdeci">void print_string(const char my_string[])</div><div class="ttdoc">Utility function to transmit a string.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00074">usart.c:74</a></div></div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_a8bfe88c8429285d5e835e38b184530d3"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a8bfe88c8429285d5e835e38b184530d3">read_string</a></div><div class="ttdeci">void read_string(char my_string[], uint8_t max_length)</div><div class="ttdoc">Define a string variable, pass it to this function.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00092">usart.c:92</a></div></div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_ad2cb22c9efc792243fe27a60441547a4"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#ad2cb22c9efc792243fe27a60441547a4">print_hex_byte</a></div><div class="ttdeci">void print_hex_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out in hexadecimal format.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00186">usart.c:186</a></div></div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_ad9b40dee04f1b7ced79b74fe3f6cb7fd"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a></div><div class="ttdeci">void init_usart(void)</div><div class="ttdoc">Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART ...</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00050">usart.c:50</a></div></div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8h_html_ae0af4da978c1af91fd2bed169b92dae3"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8h.html#ae0af4da978c1af91fd2bed169b92dae3">print_byte</a></div><div class="ttdeci">void print_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out as its 3-digit ascii equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00121">usart.c:121</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

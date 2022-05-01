@@ -112,6 +112,7 @@ var NAVTREE =
         [ "Submitting a Pull Request", "md_content_contributors_guide__contributors_guide.html#autotoc_md69", null ]
       ] ]
     ] ],
+    [ "README", "md_content_modules_avr_peripheral_features_usart__r_e_a_d_m_e.html", null ],
     [ "Modules", "modules.html", "modules" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -137,8 +138,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "anatomy-of-embedded-firmware_2layout-and-documentation-examples_2main_8c.html",
-"debug-tools_2log-system_2example_2usart_8h.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd",
-"modules.html"
+"debug-tools_2log-system_2example_2usart_8h.html#ae0af4da978c1af91fd2bed169b92dae3",
+"modules_2avr-peripheral-features_2spi_2pin__defines_8h.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

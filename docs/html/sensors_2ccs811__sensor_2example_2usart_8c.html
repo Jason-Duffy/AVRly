@@ -408,7 +408,13 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Convert a nibble to a hex character. </p>
-<p >Convert nibble to hex character. </p>
+<p >Convert nibble to hex character.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nibble</td><td>is the 4 bits of data to be sent, must be unsigned. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="sensors_2ccs811__sensor_2example_2usart_8c_source.html#l00141">141</a> of file <a class="el" href="sensors_2ccs811__sensor_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  142</span>{</div>
@@ -441,7 +447,13 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Prints a byte out in hexadecimal format. </p>
-<p >Prints a byte out in hexadecimal. </p>
+<p >Prints a byte out in hexadecimal.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte</td><td>is the 8 bits of data to be sent, must be unsigned. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="sensors_2ccs811__sensor_2example_2usart_8c_source.html#l00154">154</a> of file <a class="el" href="sensors_2ccs811__sensor_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  155</span>{</div>
@@ -451,7 +463,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  159</span>  nibble = <span class="keywordtype">byte</span> &amp; 0b00001111;</div>
 <div class="line"><span class="lineno">  160</span>  transmit_byte(<a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(nibble));</div>
 <div class="line"><span class="lineno">  161</span>}</div>
-<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_a7abb0afe7126a9afb37d7cc16896adf1"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a></div><div class="ttdeci">char nibble_to_hex_character(uint8_t nibble)</div><div class="ttdoc">Convert a nibble to a hex character.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00143">usart.c:143</a></div></div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_a7abb0afe7126a9afb37d7cc16896adf1"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a></div><div class="ttdeci">char nibble_to_hex_character(uint8_t nibble)</div><div class="ttdoc">Convert a nibble to a hex character.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00169">usart.c:169</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -472,6 +484,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Takes in up to three ascii digits, converts them to a byte when press enter. </p>
+<dl class="section return"><dt>Returns</dt><dd>an unsigned 8 bit integer is returned - this is the data received. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="sensors_2ccs811__sensor_2example_2usart_8c_source.html#l00164">164</a> of file <a class="el" href="sensors_2ccs811__sensor_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  165</span>{</div>
