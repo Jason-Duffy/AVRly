@@ -72,12 +72,14 @@
  * 
  * Repository contents:
  * 
- * @defgroup spi SPI
+ * @defgroup comms_protocols Communication Protocols
  * @ingroup avr_peripherals
+ * @defgroup spi SPI
+ * @ingroup comms_protocols
  * 
  * @defgroup i2c I2C
- * @ingroup avr_peripherals
+ * @ingroup comms_protocols
  * 
  * @defgroup usart USART
- * @ingroup avr_peripherals
+ * @ingroup comms_protocols
  */
