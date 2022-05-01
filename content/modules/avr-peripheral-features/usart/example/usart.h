@@ -29,8 +29,7 @@
  * and your PC. This file was adapted from Elliot Williams' Github repo
  * hexagon5un.
  * @bug No known bugs. 
- * @see
- * github.com/hexagon5un/AVR-Programming/tree/master/AVR-Programming-Library
+ * @see https://github.com/hexagon5un/AVR-Programming
  */
 
 
