@@ -35,15 +35,16 @@
 #include "usart.h"
 #include "log_system.h"
 
-#define ARRAY_SIZE    20
-#define INVALID_TYPE  9
-
 
 /**
- * File/System tag with file level scope. This is used for the log system to
- * report which file the message came from. 
+ * Instantiation of log system config object, pass it's address into logging
+ * functions. 
  */
-static const char *p_system_tag = "log_system";
+log_system_config_t log_system_log =
+{
+  .p_system_tag = "Log_System",
+  .file_log_level = INFO,
+};
 
 
 /**
@@ -58,16 +59,13 @@ static bool log_system_enabled = false;
  * Maximum level available by default. Call log_set_global_max_output_level()
  * to change this value.  
  */
-static log_type_t global_max_output_level = ERROR;
-
-
-char *p_tag_array[20];
-log_type_t log_type_array[20];
+static log_type_t global_max_output_level = VERBOSE_DEBUG;
 
 
 // Forward declaration - private helper functions. 
 void print_tag_and_log_level(const char *p_tag, log_type_t level);
-log_type_t get_file_max_level_from_tag(void);
+bool log_message_preference_check(log_system_config_t *p_config,
+                                  log_type_t level);
 
 
 /*
@@ -78,15 +76,8 @@ log_type_t get_file_max_level_from_tag(void);
 void init_log_system(void)
 {
   init_usart();
-
-  // Initialise array with highest debug output level as default. 
-  for (uint8_t index = 0; index < ARRAY_SIZE; ++index)
-  {
-    log_type_array[index] = VERBOSE_DEBUG;
-  }
-
   log_global_on();
-  log_message(p_system_tag, INFO, "Log system initialised");
+  log_message(&log_system_log, INFO, "Log system initialised");
 };
 
 
@@ -98,16 +89,16 @@ void init_log_system(void)
  * available options.
  * @param msg is the message to be logged, enclose it in "" quotation marks.
  */
-void log_message(const char *p_tag, log_type_t level, const char *msg)
+void log_message(log_system_config_t *p_config,
+                 log_type_t level,
+                 const char *msg)
 {
-  if (log_system_enabled)
+  // If all test expressions evaluate true, log message.
+  if (log_message_preference_check(p_config, level))
   {
-    if (level <= global_max_output_level)
-    {
-      print_tag_and_log_level(p_tag, level);
-      usart_print_string(msg);
-    }
-  }
+    print_tag_and_log_level(p_config->p_system_tag, level);
+    usart_print_string(msg);
+   }
 }
 
 
@@ -120,17 +111,18 @@ void log_message(const char *p_tag, log_type_t level, const char *msg)
  * @param msg is the message to be logged, enclose it in "" quotation marks.
  * @param val is the numerical value to be logged - Acceptable values 0 - 255.
  */
-void log_message_with_dec_val(const char *p_tag,
+void log_message_with_dec_val(log_system_config_t *p_config,
                                  log_type_t level,
                                  const char *msg,
                                  uint8_t val)
 {
-  if (log_system_enabled)
+  // If all test expressions evaluate true, log message.
+  if (log_message_preference_check(p_config, level))
   {
-    print_tag_and_log_level(p_tag, level);
+    print_tag_and_log_level(p_config->p_system_tag, level);
     usart_print_string(msg);
     usart_print_string(" ");
-    usart_print_byte(val);
+    usart_print_byte(val); 
   }
 }
 
@@ -144,14 +136,15 @@ void log_message_with_dec_val(const char *p_tag,
  * @param msg is the message to be logged, enclose it in "" quotation marks.
  * @param val is the numerical value to be logged - Acceptable values 0 - 255.
  */
-void log_message_with_bin_val(const char *p_tag,
+void log_message_with_bin_val(log_system_config_t *p_config,
                               log_type_t level,
                               const char *msg,
                               uint8_t val)
 {
-  if (log_system_enabled)
+  // If all test expressions evaluate true, log message.
+  if (log_message_preference_check(p_config, level))
   {
-    print_tag_and_log_level(p_tag, level);
+    print_tag_and_log_level(p_config->p_system_tag, level);
     usart_print_string(msg);
     usart_print_string(" ");
     usart_print_binary_byte(val);
@@ -168,14 +161,15 @@ void log_message_with_bin_val(const char *p_tag,
  * @param msg is the message to be logged, enclose it in "" quotation marks.
  * @param val is the numerical value to be logged - Acceptable values 0 - 255.
  */
-void log_message_with_hex_val(const char *p_tag,
+void log_message_with_hex_val(log_system_config_t *p_config,
                               log_type_t level,
                               const char *msg,
                               uint8_t val)
 {
-  if (log_system_enabled)
+  // If all test expressions evaluate true, log message.
+  if (log_message_preference_check(p_config, level))
   {
-    print_tag_and_log_level(p_tag, level);
+    print_tag_and_log_level(p_config->p_system_tag, level);
     usart_print_string(msg);
     usart_print_string(" ");
     usart_print_hex_byte(val);
@@ -190,15 +184,15 @@ void log_message_with_hex_val(const char *p_tag,
  * @param level is the maximum level required - see log_type_t for available
  * options.
  */
-void log_set_file_max_output_level(const char *p_tag, log_type_t level)
+void log_set_file_max_output_level(log_system_config_t *p_config,
+                                   log_type_t level)
 {
-
+  p_config->file_log_level = level;
 }
 
 
 /*
- * Sets maximum output level of logging required, has global effect (will
- * override file level settings).
+ * Sets maximum output level of logging required, has global effect.
  * @param level is the maximum level required - see log_type_t for available
  * options.
  */
@@ -242,7 +236,17 @@ void print_tag_and_log_level(const char *p_tag, log_type_t level)
   usart_print_string("\n");
   usart_print_string(p_tag);
 
-  if (level == INFO)
+  if (level == ERROR)
+  {
+    usart_print_string(", ERROR: ");
+  }
+
+  else if (level == WARNING)
+  {
+    usart_print_string(", WARNING: ");
+  }
+
+  else if (level == INFO)
   {
     usart_print_string(", INFO: ");
   }
@@ -257,47 +261,34 @@ void print_tag_and_log_level(const char *p_tag, log_type_t level)
     usart_print_string(", VERBOSE_DEBUG: ");
   }
 
-  else if (level == WARNING)
-  {
-    usart_print_string(", WARNING: ");
-  }
-
-  else if (level == ERROR)
-  {
-    usart_print_string(", ERROR: ");
-  }
-
   else
   {
     usart_print_string(", INVALID_LOG_LEVEL: ");
   }
 }
 
-log_type_t get_file_max_level_from_tag(const char *p_tag)
+
+/**
+ * Utility function to test if the log message level meets the preferences set.
+ */
+bool log_message_preference_check(log_system_config_t *p_config,
+                                  log_type_t level)
 {
-  char *p_compare;
-  uint8_t index = 0;
-
-  /*
-   * Search the array til a match is found, use that index to return the
-   * corresponding value in the log type array. 
-   */
-  while ((p_compare != p_tag) && (index < ARRAY_SIZE))
+  // Test if log_system is enabled globally, if not then do nothing. 
+  if (log_system_enabled)
   {
-    p_compare = p_tag_array[index];
-
-    if (p_compare == p_tag)
+    // Test if the level of this log message meets global log preferences. 
+    if (level <= global_max_output_level)
     {
-      return log_type_array[index];
+      // Test if the level of this log message meets file level preferences.
+      if (level <= p_config->file_log_level)
+      {
+        return true;
+      }
     }
-    ++index;
   }
-  
-  // If no match is found, return an error code.
-  if ((p_compare != p_tag) && (index > ARRAY_SIZE))
-  {
-    return INVALID_TYPE;
-  }
+  // If any of the above conditionals evaluate to false, return false. 
+  return false;
 }
 
 /*** end of file ***/

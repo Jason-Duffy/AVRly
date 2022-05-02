@@ -48,7 +48,12 @@ typedef enum
 
 
 /**
- * Config object, to be instantiated in each file the log system is to be used.
+ * Config object, to be instantiated in each file the log system is to be used,
+ * then pass it's address into the functions with names beginning with "log".
+ * p_system_tag is a string, and is used for the logsystem to report which file
+ * or subsystem the message came from, e.g. "Main".
+ * file_log_level is the maximum level you'd like logging output for a
+ * particular file.
  */
 typedef struct
 {
@@ -73,7 +78,7 @@ void init_log_system(void);
  * available options.
  * @param msg is the message to be logged, enclose it in "" quotation marks.
  */
-void log_message(const char *p_tag,
+void log_message(log_system_config_t *p_config,
                  log_type_t level,
                  const char *msg);
 
@@ -87,7 +92,7 @@ void log_message(const char *p_tag,
  * @param msg is the message to be logged, enclose it in "" quotation marks.
  * @param val is the numerical value to be logged - Acceptable values 0 - 255.
  */
-void log_message_with_dec_val(const char *p_tag,
+void log_message_with_dec_val(log_system_config_t *p_config,
                               log_type_t level,
                               const char *msg,
                               uint8_t val);
@@ -102,7 +107,7 @@ void log_message_with_dec_val(const char *p_tag,
  * @param msg is the message to be logged, enclose it in "" quotation marks.
  * @param val is the numerical value to be logged - Acceptable values 0 - 255.
  */
-void log_message_with_bin_val(const char *p_tag,
+void log_message_with_bin_val(log_system_config_t *p_config,
                               log_type_t level,
                               const char *msg,
                               uint8_t val);
@@ -117,7 +122,7 @@ void log_message_with_bin_val(const char *p_tag,
  * @param msg is the message to be logged, enclose it in "" quotation marks.
  * @param val is the numerical value to be logged - Acceptable values 0 - 255.
  */
-void log_message_with_hex_val(const char *p_tag,
+void log_message_with_hex_val(log_system_config_t *p_config,
                               log_type_t level,
                               const char *msg, 
                               uint8_t val);
@@ -130,12 +135,12 @@ void log_message_with_hex_val(const char *p_tag,
  * @param level is the maximum level required - see log_type_t for available
  * options.
  */
-void log_set_file_max_output_level(const char *p_tag, log_type_t level);
+void log_set_file_max_output_level(log_system_config_t *p_config,
+                                   log_type_t level);
 
 
 /**
- * Sets maximum output level of logging required, has global effect (will
- * override file level settings).
+ * Sets maximum output level of logging required, has global effect.
  * @param level is the maximum level required - see log_type_t for available
  * options.
  */
