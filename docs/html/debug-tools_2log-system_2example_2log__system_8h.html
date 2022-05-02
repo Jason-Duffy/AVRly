@@ -217,7 +217,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   51</span>};</div>
 <div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_ad9b40dee04f1b7ced79b74fe3f6cb7fd"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a></div><div class="ttdeci">void init_usart(void)</div><div class="ttdoc">Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART ...</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00050">usart.c:50</a></div></div>
 <div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2log__system_8c_html_a60348d23a36d3af3ca02cd1bbc265e28"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a60348d23a36d3af3ca02cd1bbc265e28">log_global_on</a></div><div class="ttdeci">void log_global_on(void)</div><div class="ttdoc">Turns logging system on globally.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00133">log_system.c:133</a></div></div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_ad7afdd402c9427c8864e997c78e545f3"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#ad7afdd402c9427c8864e997c78e545f3">log_message</a></div><div class="ttdeci">void log_message(log_system_config_t *p_config, log_type_t level, const char *msg)</div><div class="ttdoc">Sends only the system tag, log level and message string.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00092">log_system.c:92</a></div></div>
+<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_ad7afdd402c9427c8864e997c78e545f3"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#ad7afdd402c9427c8864e997c78e545f3">log_message</a></div><div class="ttdeci">void log_message(log_system_config_t *p_config, log_type_t level, const char *msg)</div><div class="ttdoc">Sends only the system tag, log level and message string.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00093">log_system.c:93</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -256,25 +256,25 @@ Functions</h2></td></tr>
 <p>Sends only the system tag, log level and message string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p_tag</td><td>is the calling file's tag - declare and define as a const char at the top of the file and pass in a pointer to it. </td></tr>
+    <tr><td class="paramname">p_config</td><td>is a pointer to the log_system config object. Instantiate the config object at the head of each file where logging is required and pass it's address into this function. </td></tr>
     <tr><td class="paramname">level</td><td>is the level status of the log message - see log_type_t for available options. </td></tr>
     <tr><td class="paramname">msg</td><td>is the message to be logged, enclose it in "" quotation marks. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00092">92</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   95</span>{</div>
-<div class="line"><span class="lineno">   96</span>  <span class="comment">// If all test expressions evaluate true, log message.</span></div>
-<div class="line"><span class="lineno">   97</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a>(p_config, level))</div>
-<div class="line"><span class="lineno">   98</span>  {</div>
-<div class="line"><span class="lineno">   99</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a>(p_config-&gt;p_system_tag, level);</div>
-<div class="line"><span class="lineno">  100</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(msg);</div>
-<div class="line"><span class="lineno">  101</span>   }</div>
-<div class="line"><span class="lineno">  102</span>}</div>
+<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00093">93</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   96</span>{</div>
+<div class="line"><span class="lineno">   97</span>  <span class="comment">// If all test expressions evaluate true, log message.</span></div>
+<div class="line"><span class="lineno">   98</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a>(p_config, level))</div>
+<div class="line"><span class="lineno">   99</span>  {</div>
+<div class="line"><span class="lineno">  100</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a>(p_config-&gt;p_system_tag, level);</div>
+<div class="line"><span class="lineno">  101</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(msg);</div>
+<div class="line"><span class="lineno">  102</span>   }</div>
+<div class="line"><span class="lineno">  103</span>}</div>
 <div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_a4e71ccb6ac34e077f20648dd9720bf72"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a></div><div class="ttdeci">void usart_print_string(const char myString[])</div><div class="ttdoc">Utility function to transmit a string.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00074">usart.c:74</a></div></div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_a26cf498efe653997646791d6412b4e71"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a></div><div class="ttdeci">bool log_message_preference_check(log_system_config_t *p_config, log_type_t level)</div><div class="ttdoc">Utility function to test if the log message level meets the preferences set.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00274">log_system.c:274</a></div></div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_a4b579b76b549b8374b3fec74ac846813"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a></div><div class="ttdeci">void print_tag_and_log_level(const char *p_tag, log_type_t level)</div><div class="ttdoc">Utility function to print labels over serial.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00230">log_system.c:230</a></div></div>
+<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_a26cf498efe653997646791d6412b4e71"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a></div><div class="ttdeci">bool log_message_preference_check(log_system_config_t *p_config, log_type_t level)</div><div class="ttdoc">Utility function to test if the log message level meets the preferences set.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00279">log_system.c:279</a></div></div>
+<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_a4b579b76b549b8374b3fec74ac846813"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a></div><div class="ttdeci">void print_tag_and_log_level(const char *p_tag, log_type_t level)</div><div class="ttdoc">Utility function to print labels over serial.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00235">log_system.c:235</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -319,7 +319,7 @@ Functions</h2></td></tr>
 <p>Sends a string, followed by an 8 bit value in decimal format. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p_tag</td><td>is the calling file's tag - declare and define as a const char at the top of the file and pass in a pointer to it. </td></tr>
+    <tr><td class="paramname">p_config</td><td>is a pointer to the log_system config object. Instantiate the config object at the head of each file where logging is required and pass it's address into this function. </td></tr>
     <tr><td class="paramname">level</td><td>is the level status of the log message - see log_type_t for available options. </td></tr>
     <tr><td class="paramname">msg</td><td>is the message to be logged, enclose it in "" quotation marks. </td></tr>
     <tr><td class="paramname">val</td><td>is the numerical value to be logged - Acceptable values 0 - 255. </td></tr>
@@ -327,17 +327,17 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00114">114</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  118</span>{</div>
-<div class="line"><span class="lineno">  119</span>  <span class="comment">// If all test expressions evaluate true, log message.</span></div>
-<div class="line"><span class="lineno">  120</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a>(p_config, level))</div>
-<div class="line"><span class="lineno">  121</span>  {</div>
-<div class="line"><span class="lineno">  122</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a>(p_config-&gt;p_system_tag, level);</div>
-<div class="line"><span class="lineno">  123</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(msg);</div>
-<div class="line"><span class="lineno">  124</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><span class="lineno">  125</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a5c70d80f37cd301690591675569ce4ae">usart_print_byte</a>(val); </div>
-<div class="line"><span class="lineno">  126</span>  }</div>
-<div class="line"><span class="lineno">  127</span>}</div>
+<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00116">116</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  120</span>{</div>
+<div class="line"><span class="lineno">  121</span>  <span class="comment">// If all test expressions evaluate true, log message.</span></div>
+<div class="line"><span class="lineno">  122</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a>(p_config, level))</div>
+<div class="line"><span class="lineno">  123</span>  {</div>
+<div class="line"><span class="lineno">  124</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a>(p_config-&gt;p_system_tag, level);</div>
+<div class="line"><span class="lineno">  125</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(msg);</div>
+<div class="line"><span class="lineno">  126</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><span class="lineno">  127</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a5c70d80f37cd301690591675569ce4ae">usart_print_byte</a>(val); </div>
+<div class="line"><span class="lineno">  128</span>  }</div>
+<div class="line"><span class="lineno">  129</span>}</div>
 <div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_a5c70d80f37cd301690591675569ce4ae"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#a5c70d80f37cd301690591675569ce4ae">usart_print_byte</a></div><div class="ttdeci">void usart_print_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out as its 3-digit ascii equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00121">usart.c:121</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -383,7 +383,7 @@ Functions</h2></td></tr>
 <p>Sends a string, followed by an 8 bit value in binary format. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p_tag</td><td>is the calling file's tag - declare and define as a const char at the top of the file and pass in a pointer to it. </td></tr>
+    <tr><td class="paramname">p_config</td><td>is a pointer to the log_system config object. Instantiate the config object at the head of each file where logging is required and pass it's address into this function. </td></tr>
     <tr><td class="paramname">level</td><td>is the level status of the log message - see log_type_t for available options. </td></tr>
     <tr><td class="paramname">msg</td><td>is the message to be logged, enclose it in "" quotation marks. </td></tr>
     <tr><td class="paramname">val</td><td>is the numerical value to be logged - Acceptable values 0 - 255. </td></tr>
@@ -391,17 +391,17 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00139">139</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  143</span>{</div>
-<div class="line"><span class="lineno">  144</span>  <span class="comment">// If all test expressions evaluate true, log message.</span></div>
-<div class="line"><span class="lineno">  145</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a>(p_config, level))</div>
-<div class="line"><span class="lineno">  146</span>  {</div>
-<div class="line"><span class="lineno">  147</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a>(p_config-&gt;p_system_tag, level);</div>
-<div class="line"><span class="lineno">  148</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(msg);</div>
-<div class="line"><span class="lineno">  149</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><span class="lineno">  150</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a83e4bcba2b98324cdefc6d5c28de1f23">usart_print_binary_byte</a>(val);</div>
-<div class="line"><span class="lineno">  151</span>  }</div>
-<div class="line"><span class="lineno">  152</span>}</div>
+<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00142">142</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  146</span>{</div>
+<div class="line"><span class="lineno">  147</span>  <span class="comment">// If all test expressions evaluate true, log message.</span></div>
+<div class="line"><span class="lineno">  148</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a>(p_config, level))</div>
+<div class="line"><span class="lineno">  149</span>  {</div>
+<div class="line"><span class="lineno">  150</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a>(p_config-&gt;p_system_tag, level);</div>
+<div class="line"><span class="lineno">  151</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(msg);</div>
+<div class="line"><span class="lineno">  152</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><span class="lineno">  153</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a83e4bcba2b98324cdefc6d5c28de1f23">usart_print_binary_byte</a>(val);</div>
+<div class="line"><span class="lineno">  154</span>  }</div>
+<div class="line"><span class="lineno">  155</span>}</div>
 <div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_a83e4bcba2b98324cdefc6d5c28de1f23"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#a83e4bcba2b98324cdefc6d5c28de1f23">usart_print_binary_byte</a></div><div class="ttdeci">void usart_print_binary_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out in 1s and 0s.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00169">usart.c:169</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -447,7 +447,7 @@ Functions</h2></td></tr>
 <p>Sends a string, followed by an 8 bit value in hexadecimal format. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p_tag</td><td>is the calling file's tag - declare and define as a const char at the top of the file and pass in a pointer to it. </td></tr>
+    <tr><td class="paramname">p_config</td><td>is a pointer to the log_system config object. Instantiate the config object at the head of each file where logging is required and pass it's address into this function. </td></tr>
     <tr><td class="paramname">level</td><td>is the level status of the log message - see log_type_t for available options. </td></tr>
     <tr><td class="paramname">msg</td><td>is the message to be logged, enclose it in "" quotation marks. </td></tr>
     <tr><td class="paramname">val</td><td>is the numerical value to be logged - Acceptable values 0 - 255. </td></tr>
@@ -455,17 +455,17 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00164">164</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  168</span>{</div>
-<div class="line"><span class="lineno">  169</span>  <span class="comment">// If all test expressions evaluate true, log message.</span></div>
-<div class="line"><span class="lineno">  170</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a>(p_config, level))</div>
-<div class="line"><span class="lineno">  171</span>  {</div>
-<div class="line"><span class="lineno">  172</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a>(p_config-&gt;p_system_tag, level);</div>
-<div class="line"><span class="lineno">  173</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(msg);</div>
-<div class="line"><span class="lineno">  174</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
-<div class="line"><span class="lineno">  175</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#adcbd3b64411247da3820b94893de5187">usart_print_hex_byte</a>(val);</div>
-<div class="line"><span class="lineno">  176</span>  }</div>
-<div class="line"><span class="lineno">  177</span>}</div>
+<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00168">168</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  172</span>{</div>
+<div class="line"><span class="lineno">  173</span>  <span class="comment">// If all test expressions evaluate true, log message.</span></div>
+<div class="line"><span class="lineno">  174</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a>(p_config, level))</div>
+<div class="line"><span class="lineno">  175</span>  {</div>
+<div class="line"><span class="lineno">  176</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a>(p_config-&gt;p_system_tag, level);</div>
+<div class="line"><span class="lineno">  177</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(msg);</div>
+<div class="line"><span class="lineno">  178</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><span class="lineno">  179</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#adcbd3b64411247da3820b94893de5187">usart_print_hex_byte</a>(val);</div>
+<div class="line"><span class="lineno">  180</span>  }</div>
+<div class="line"><span class="lineno">  181</span>}</div>
 <div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_adcbd3b64411247da3820b94893de5187"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#adcbd3b64411247da3820b94893de5187">usart_print_hex_byte</a></div><div class="ttdeci">void usart_print_hex_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out in hexadecimal format.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00207">usart.c:207</a></div></div>
 </div><!-- fragment -->
 </div>
@@ -499,16 +499,16 @@ Functions</h2></td></tr>
 <p>Sets maximum output level of logging required, to be used at file scope. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">p_tag</td><td>is the calling file's tag - declare and define as a const char at the top of the file and pass in a pointer to it. </td></tr>
+    <tr><td class="paramname">p_config</td><td>is a pointer to the log_system config object. Instantiate the config object at the head of each file where logging is required and pass it's address into this function. </td></tr>
     <tr><td class="paramname">level</td><td>is the maximum level required - see log_type_t for available options. </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00187">187</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  189</span>{</div>
-<div class="line"><span class="lineno">  190</span>  p_config-&gt;file_log_level = level;</div>
-<div class="line"><span class="lineno">  191</span>}</div>
+<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00192">192</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  194</span>{</div>
+<div class="line"><span class="lineno">  195</span>  p_config-&gt;file_log_level = level;</div>
+<div class="line"><span class="lineno">  196</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -536,10 +536,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00199">199</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  200</span>{</div>
-<div class="line"><span class="lineno">  201</span>  global_max_output_level = level;</div>
-<div class="line"><span class="lineno">  202</span>}</div>
+<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00204">204</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  205</span>{</div>
+<div class="line"><span class="lineno">  206</span>  global_max_output_level = level;</div>
+<div class="line"><span class="lineno">  207</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
