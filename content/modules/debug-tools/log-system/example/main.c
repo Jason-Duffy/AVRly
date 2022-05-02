@@ -38,6 +38,9 @@ int main()
 {
     // Setup
     init_log_system();
+    //log_global_off();
+
+    log_set_global_max_output_level(INFO);
 
     // Loop forever
     while(1)
