@@ -1,5 +1,5 @@
 # Anatomy of Embedded Firmware
-The style and layout guidelines shown here are based on my personal preference; of cource you are free to develop your code in whichever way you choose - this is just a guide for users who are unsure how to correctly structure their projects, or for developers contributing to this site. 
+The style and layout guidelines shown here are based on my personal preference; of course you are free to develop your code in whichever way you choose - this is just a guide for users who are unsure how to correctly structure their projects, or for developers contributing to this site. 
 
 ## A Word on Doxygen
 Throughout this repository, the code has been documented using [Doxygen](https://www.doxygen.nl/index.html). It's an easy way to generate documentation which stays closely coupled with the code so it's not too difficult to keep the two in line. The html for this site was also generated using Doxygen. It relies on special comments like this:
@@ -22,7 +22,7 @@ are ignored by Doxygen.
 
 Comment lines starting with an @ symbol are special Doxygen commands.
 
-Ordinarily it's best to only use Doxygen documentation for the public function declarations in the header file rather than the source file definitions, as we are documenting the API. If you were documenting source code for other developers you might want to document the source code instead, but never both. If you provide a **brief** for both, then the one from the **declaration** will be used, the other will be ignored. If you provide a **detailed description** for both, the one for the **definition** is used and the other ignored.
+Ordinarily it's best to only use Doxygen documentation for the public function declarations in the header file rather than the source file definitions, as we are usually documenting the API. If you were documenting source code for other developers you might want to document the implementation instead, but never both. If you provide a **brief** for both, then the one from the **declaration** will be used, the other will be ignored. If you provide a **detailed description** for both, the one for the **definition** is used and the other ignored.
 
 
 ## Formatting

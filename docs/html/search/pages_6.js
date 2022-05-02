@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timer_2dcounter_0',['timer-counter',['../group__timer__counter.html',1,'']]]
+  ['spi_0',['spi',['../group__spi.html',1,'']]]
 ];

@@ -91,11 +91,11 @@ $(document).ready(function(){initNavTree('debug-tools_2log-system_2example_2usar
   <div class="summary">
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">usart.h File Reference<div class="ingroups"><a class="el" href="group__debug__tools.html">Debug Tools</a> &raquo; <a class="el" href="group__log__system.html">Log System Example</a></div></div></div>
+  <div class="headertitle"><div class="title">usart.h File Reference<div class="ingroups"><a class="el" href="group__debug__tools.html">Debug Tools</a> &raquo; <a class="el" href="group__log__system.html">Log System</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>Driver file providing core USART communication between the target MCU and your PC.  
+<p>Driver file providing core USART communication between the target MCU and your PC. This file was adapted from Elliot Williams' Github repo hexagon5un (link in the see also section below). NOTE: This driver does involve blocking waits, this may be improved on in a later version.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 </div>
@@ -113,45 +113,47 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad9b40dee04f1b7ced79b74fe3f6cb7fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a> (void)</td></tr>
-<tr class="memdesc:ad9b40dee04f1b7ced79b74fe3f6cb7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART.  <a href="debug-tools_2log-system_2example_2usart_8h.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">More...</a><br /></td></tr>
+<tr class="memdesc:ad9b40dee04f1b7ced79b74fe3f6cb7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART ready for use.  <a href="debug-tools_2log-system_2example_2usart_8h.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">More...</a><br /></td></tr>
 <tr class="separator:ad9b40dee04f1b7ced79b74fe3f6cb7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2cedcd300d876aac422cf9f9e241583a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a> (const char myString[])</td></tr>
-<tr class="memdesc:a2cedcd300d876aac422cf9f9e241583a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function to transmit an entire string from RAM.  <a href="debug-tools_2log-system_2example_2usart_8h.html#a2cedcd300d876aac422cf9f9e241583a">More...</a><br /></td></tr>
-<tr class="separator:a2cedcd300d876aac422cf9f9e241583a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81d7e2cba8d3899338c39b31dd059ff0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#a81d7e2cba8d3899338c39b31dd059ff0">read_string</a> (char myString[], uint8_t maxLength)</td></tr>
-<tr class="memdesc:a81d7e2cba8d3899338c39b31dd059ff0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a string variable, pass it to this function.  <a href="debug-tools_2log-system_2example_2usart_8h.html#a81d7e2cba8d3899338c39b31dd059ff0">More...</a><br /></td></tr>
-<tr class="separator:a81d7e2cba8d3899338c39b31dd059ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0af4da978c1af91fd2bed169b92dae3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#ae0af4da978c1af91fd2bed169b92dae3">print_byte</a> (uint8_t byte)</td></tr>
-<tr class="memdesc:ae0af4da978c1af91fd2bed169b92dae3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a byte out as its 3-digit ascii equivalent.  <a href="debug-tools_2log-system_2example_2usart_8h.html#ae0af4da978c1af91fd2bed169b92dae3">More...</a><br /></td></tr>
-<tr class="separator:ae0af4da978c1af91fd2bed169b92dae3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26f014257b6300f175bbae63395b6ab7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#a26f014257b6300f175bbae63395b6ab7">print_word</a> (uint16_t word)</td></tr>
-<tr class="memdesc:a26f014257b6300f175bbae63395b6ab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a word (16-bits) out as its 5-digit ascii equivalent.  <a href="debug-tools_2log-system_2example_2usart_8h.html#a26f014257b6300f175bbae63395b6ab7">More...</a><br /></td></tr>
-<tr class="separator:a26f014257b6300f175bbae63395b6ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ed8eefe33df0c479847f99bfbffbc2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#a6ed8eefe33df0c479847f99bfbffbc2e">print_binary_byte</a> (uint8_t byte)</td></tr>
-<tr class="memdesc:a6ed8eefe33df0c479847f99bfbffbc2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a byte out in 1s and 0s.  <a href="debug-tools_2log-system_2example_2usart_8h.html#a6ed8eefe33df0c479847f99bfbffbc2e">More...</a><br /></td></tr>
-<tr class="separator:a6ed8eefe33df0c479847f99bfbffbc2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba561aaa44414dbdd564dfc40390051d"><td class="memItemLeft" align="right" valign="top"><a id="aba561aaa44414dbdd564dfc40390051d" name="aba561aaa44414dbdd564dfc40390051d"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (uint8_t nibble)</td></tr>
-<tr class="memdesc:aba561aaa44414dbdd564dfc40390051d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert nibble to hex. <br /></td></tr>
-<tr class="separator:aba561aaa44414dbdd564dfc40390051d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7abb0afe7126a9afb37d7cc16896adf1"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a> (uint8_t nibble)</td></tr>
-<tr class="memdesc:a7abb0afe7126a9afb37d7cc16896adf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert nibble to hex character.  <a href="debug-tools_2log-system_2example_2usart_8h.html#a7abb0afe7126a9afb37d7cc16896adf1">More...</a><br /></td></tr>
-<tr class="separator:a7abb0afe7126a9afb37d7cc16896adf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2cb22c9efc792243fe27a60441547a4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#ad2cb22c9efc792243fe27a60441547a4">print_hex_byte</a> (uint8_t byte)</td></tr>
-<tr class="memdesc:ad2cb22c9efc792243fe27a60441547a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a byte out in hexadecimal.  <a href="debug-tools_2log-system_2example_2usart_8h.html#ad2cb22c9efc792243fe27a60441547a4">More...</a><br /></td></tr>
-<tr class="separator:ad2cb22c9efc792243fe27a60441547a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a502d44d5f8098a5e1f767f98493bdd29"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#a502d44d5f8098a5e1f767f98493bdd29">get_number</a> (void)</td></tr>
-<tr class="memdesc:a502d44d5f8098a5e1f767f98493bdd29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes in up to three ascii digits, converts them to a byte when press enter.  <a href="debug-tools_2log-system_2example_2usart_8h.html#a502d44d5f8098a5e1f767f98493bdd29">More...</a><br /></td></tr>
-<tr class="separator:a502d44d5f8098a5e1f767f98493bdd29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77e5aee1f62fe64a241da863093bb397"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#a77e5aee1f62fe64a241da863093bb397">usart_print_string</a> (const char my_string[])</td></tr>
+<tr class="memdesc:a77e5aee1f62fe64a241da863093bb397"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function to transmit a string.  <a href="debug-tools_2log-system_2example_2usart_8h.html#a77e5aee1f62fe64a241da863093bb397">More...</a><br /></td></tr>
+<tr class="separator:a77e5aee1f62fe64a241da863093bb397"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a997ac7b5f8aed390568d7797ff768689"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#a997ac7b5f8aed390568d7797ff768689">usart_read_string</a> (char my_string[], uint8_t max_length)</td></tr>
+<tr class="memdesc:a997ac7b5f8aed390568d7797ff768689"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define a string variable, pass it to this function.  <a href="debug-tools_2log-system_2example_2usart_8h.html#a997ac7b5f8aed390568d7797ff768689">More...</a><br /></td></tr>
+<tr class="separator:a997ac7b5f8aed390568d7797ff768689"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c70d80f37cd301690591675569ce4ae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#a5c70d80f37cd301690591675569ce4ae">usart_print_byte</a> (uint8_t byte)</td></tr>
+<tr class="memdesc:a5c70d80f37cd301690591675569ce4ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a byte out as its 3-digit ascii equivalent.  <a href="debug-tools_2log-system_2example_2usart_8h.html#a5c70d80f37cd301690591675569ce4ae">More...</a><br /></td></tr>
+<tr class="separator:a5c70d80f37cd301690591675569ce4ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e5b450d43afa8c30e9fb39f4ec378b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#a3e5b450d43afa8c30e9fb39f4ec378b0">usart_print_decimal_digit</a> (uint8_t byte)</td></tr>
+<tr class="memdesc:a3e5b450d43afa8c30e9fb39f4ec378b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a byte out as its 1-digit ascii equivalent.  <a href="debug-tools_2log-system_2example_2usart_8h.html#a3e5b450d43afa8c30e9fb39f4ec378b0">More...</a><br /></td></tr>
+<tr class="separator:a3e5b450d43afa8c30e9fb39f4ec378b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0b883024b0a7b7b2944610df5bb3dbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#ac0b883024b0a7b7b2944610df5bb3dbf">usart_print_char</a> (char byte)</td></tr>
+<tr class="memdesc:ac0b883024b0a7b7b2944610df5bb3dbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a byte out as its 1-character ascii equivalent.  <a href="debug-tools_2log-system_2example_2usart_8h.html#ac0b883024b0a7b7b2944610df5bb3dbf">More...</a><br /></td></tr>
+<tr class="separator:ac0b883024b0a7b7b2944610df5bb3dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a919c64b35a3b4d9df21feee567929eca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#a919c64b35a3b4d9df21feee567929eca">usart_print_word</a> (uint16_t word)</td></tr>
+<tr class="memdesc:a919c64b35a3b4d9df21feee567929eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a word (16-bits) out as its 5-digit ascii equivalent.  <a href="debug-tools_2log-system_2example_2usart_8h.html#a919c64b35a3b4d9df21feee567929eca">More...</a><br /></td></tr>
+<tr class="separator:a919c64b35a3b4d9df21feee567929eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83e4bcba2b98324cdefc6d5c28de1f23"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#a83e4bcba2b98324cdefc6d5c28de1f23">usart_print_binary_byte</a> (uint8_t byte)</td></tr>
+<tr class="memdesc:a83e4bcba2b98324cdefc6d5c28de1f23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a byte out in 1s and 0s.  <a href="debug-tools_2log-system_2example_2usart_8h.html#a83e4bcba2b98324cdefc6d5c28de1f23">More...</a><br /></td></tr>
+<tr class="separator:a83e4bcba2b98324cdefc6d5c28de1f23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab545e69352c76f74ae95a10a61fea120"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#ab545e69352c76f74ae95a10a61fea120">usart_nibble_to_hex_character</a> (uint8_t nibble)</td></tr>
+<tr class="memdesc:ab545e69352c76f74ae95a10a61fea120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert a nibble to a hex character.  <a href="debug-tools_2log-system_2example_2usart_8h.html#ab545e69352c76f74ae95a10a61fea120">More...</a><br /></td></tr>
+<tr class="separator:ab545e69352c76f74ae95a10a61fea120"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcbd3b64411247da3820b94893de5187"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#adcbd3b64411247da3820b94893de5187">usart_print_hex_byte</a> (uint8_t byte)</td></tr>
+<tr class="memdesc:adcbd3b64411247da3820b94893de5187"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a byte out in hexadecimal format.  <a href="debug-tools_2log-system_2example_2usart_8h.html#adcbd3b64411247da3820b94893de5187">More...</a><br /></td></tr>
+<tr class="separator:adcbd3b64411247da3820b94893de5187"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab61056929c37c62040cb6a4cde1e4895"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html#ab61056929c37c62040cb6a4cde1e4895">usart_get_number</a> (void)</td></tr>
+<tr class="memdesc:ab61056929c37c62040cb6a4cde1e4895"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes in up to three ascii digits, converts them to a byte when press enter.  <a href="debug-tools_2log-system_2example_2usart_8h.html#ab61056929c37c62040cb6a4cde1e4895">More...</a><br /></td></tr>
+<tr class="separator:ab61056929c37c62040cb6a4cde1e4895"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >Driver file providing core USART communication between the target MCU and your PC. </p>
+<div class="textblock"><p >Driver file providing core USART communication between the target MCU and your PC. This file was adapted from Elliot Williams' Github repo hexagon5un (link in the see also section below). NOTE: This driver does involve blocking waits, this may be improved on in a later version. </p>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright © 2022 by Jason Duffy.</dd></dl>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p >The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p >THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p><dl class="section author"><dt>Author</dt><dd>Jason Duffy </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>15th March 2022 </dd></dl>
-<dl class="section see"><dt>See also</dt><dd></dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a href="https://github.com/hexagon5un/AVR-Programming">https://github.com/hexagon5un/AVR-Programming</a> </dd></dl>
 
 <p class="definition">Definition in file <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html">usart.h</a>.</p>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -167,7 +169,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html#l00036">36</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html">usart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html#l00039">39</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html">usart.h</a>.</p>
 
 </div>
 </div>
@@ -183,7 +185,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html#l00045">45</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html">usart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html#l00048">48</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html">usart.h</a>.</p>
 
 </div>
 </div>
@@ -199,7 +201,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html#l00046">46</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html">usart.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html#l00049">49</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8h_source.html">usart.h</a>.</p>
 
 </div>
 </div>
@@ -220,75 +222,82 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
       </table>
 </div><div class="memdoc">
 
-<p>Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART. </p>
+<p>Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART ready for use. </p>
+<p >Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART. </p>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00048">48</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   49</span>{</div>
-<div class="line"><span class="lineno">   50</span>  <span class="comment">// defined in setbaud.h</span></div>
-<div class="line"><span class="lineno">   51</span>  UBRR0H = UBRRH_VALUE;</div>
-<div class="line"><span class="lineno">   52</span>  UBRR0L = UBRRL_VALUE;</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span><span class="preprocessor">#if USE_2X</span></div>
-<div class="line"><span class="lineno">   55</span>  UCSR0A |= (1 &lt;&lt; U2X0);</div>
-<div class="line"><span class="lineno">   56</span><span class="preprocessor">#else</span></div>
-<div class="line"><span class="lineno">   57</span>  UCSR0A &amp;= ~(1 &lt;&lt; U2X0);</div>
-<div class="line"><span class="lineno">   58</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">   59</span>  </div>
-<div class="line"><span class="lineno">   60</span>  <span class="comment">// Enable USART transmitter/receiver</span></div>
-<div class="line"><span class="lineno">   61</span>  UCSR0B = (1 &lt;&lt; TXEN0) | (1 &lt;&lt; RXEN0);</div>
-<div class="line"><span class="lineno">   62</span>  <span class="comment">// 8 data bits, 1 stop bit</span></div>
-<div class="line"><span class="lineno">   63</span>  UCSR0C = (1 &lt;&lt; UCSZ01) | (1 &lt;&lt; UCSZ00);</div>
-<div class="line"><span class="lineno">   64</span>}</div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00050">50</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>{</div>
+<div class="line"><span class="lineno">   52</span>  <span class="comment">// defined in setbaud.h</span></div>
+<div class="line"><span class="lineno">   53</span>  UBRR0H = UBRRH_VALUE;</div>
+<div class="line"><span class="lineno">   54</span>  UBRR0L = UBRRL_VALUE;</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span><span class="preprocessor">#if USE_2X</span></div>
+<div class="line"><span class="lineno">   57</span>  UCSR0A |= (1 &lt;&lt; U2X0);</div>
+<div class="line"><span class="lineno">   58</span><span class="preprocessor">#else</span></div>
+<div class="line"><span class="lineno">   59</span>  UCSR0A &amp;= ~(1 &lt;&lt; U2X0);</div>
+<div class="line"><span class="lineno">   60</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">   61</span>  </div>
+<div class="line"><span class="lineno">   62</span>  <span class="comment">// Enable USART transmitter/receiver</span></div>
+<div class="line"><span class="lineno">   63</span>  UCSR0B = (1 &lt;&lt; TXEN0) | (1 &lt;&lt; RXEN0);</div>
+<div class="line"><span class="lineno">   64</span>  <span class="comment">// 8 data bits, 1 stop bit</span></div>
+<div class="line"><span class="lineno">   65</span>  UCSR0C = (1 &lt;&lt; UCSZ01) | (1 &lt;&lt; UCSZ00);</div>
+<div class="line"><span class="lineno">   66</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a2cedcd300d876aac422cf9f9e241583a" name="a2cedcd300d876aac422cf9f9e241583a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2cedcd300d876aac422cf9f9e241583a">&#9670;&nbsp;</a></span>print_string()</h2>
+<a id="a77e5aee1f62fe64a241da863093bb397" name="a77e5aee1f62fe64a241da863093bb397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77e5aee1f62fe64a241da863093bb397">&#9670;&nbsp;</a></span>usart_print_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void print_string </td>
+          <td class="memname">void usart_print_string </td>
           <td>(</td>
           <td class="paramtype">const char&#160;</td>
-          <td class="paramname"><em>myString</em>[]</td><td>)</td>
+          <td class="paramname"><em>my_string</em>[]</td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Utility function to transmit an entire string from RAM. </p>
+<p>Utility function to transmit a string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">my_string</td><td>is the string constant youd like to print, and should be enclosed in "" quotation marks. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00067">67</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   68</span>{</div>
-<div class="line"><span class="lineno">   69</span>  uint8_t i = 0;</div>
-<div class="line"><span class="lineno">   70</span>  <span class="keywordflow">while</span> (myString[i])</div>
-<div class="line"><span class="lineno">   71</span>  {</div>
-<div class="line"><span class="lineno">   72</span>    transmit_byte(myString[i]);</div>
-<div class="line"><span class="lineno">   73</span>    i++;</div>
-<div class="line"><span class="lineno">   74</span>  }</div>
-<div class="line"><span class="lineno">   75</span>}</div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00074">74</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   75</span>{</div>
+<div class="line"><span class="lineno">   76</span>  uint8_t i = 0;</div>
+<div class="line"><span class="lineno">   77</span>  <span class="keywordflow">while</span> (myString[i])</div>
+<div class="line"><span class="lineno">   78</span>  {</div>
+<div class="line"><span class="lineno">   79</span>    transmit_byte(myString[i]);</div>
+<div class="line"><span class="lineno">   80</span>    i++;</div>
+<div class="line"><span class="lineno">   81</span>  }</div>
+<div class="line"><span class="lineno">   82</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a81d7e2cba8d3899338c39b31dd059ff0" name="a81d7e2cba8d3899338c39b31dd059ff0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81d7e2cba8d3899338c39b31dd059ff0">&#9670;&nbsp;</a></span>read_string()</h2>
+<a id="a997ac7b5f8aed390568d7797ff768689" name="a997ac7b5f8aed390568d7797ff768689"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a997ac7b5f8aed390568d7797ff768689">&#9670;&nbsp;</a></span>usart_read_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void read_string </td>
+          <td class="memname">void usart_read_string </td>
           <td>(</td>
           <td class="paramtype">char&#160;</td>
-          <td class="paramname"><em>myString</em>[], </td>
+          <td class="paramname"><em>my_string</em>[], </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>maxLength</em>&#160;</td>
+          <td class="paramname"><em>max_length</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -299,42 +308,48 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 </div><div class="memdoc">
 
 <p>Define a string variable, pass it to this function. </p>
-<p >The string will contain whatever you typed over serial. </p>
+<p >The string will contain. whatever you typed over serial. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">my_string</td><td>is a pointer to the first element in the character array you'd like to store the received message in. </td></tr>
+    <tr><td class="paramname">max_length</td><td>is the maximum number of characters expected. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00081">81</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   82</span>{</div>
-<div class="line"><span class="lineno">   83</span>  <span class="keywordtype">char</span> response;</div>
-<div class="line"><span class="lineno">   84</span>  uint8_t count = 0;</div>
-<div class="line"><span class="lineno">   85</span> </div>
-<div class="line"><span class="lineno">   86</span>  <span class="keywordflow">while</span> (count &lt; (maxLength - 1))</div>
-<div class="line"><span class="lineno">   87</span>  {                  </div>
-<div class="line"><span class="lineno">   88</span>    response = receive_byte();</div>
-<div class="line"><span class="lineno">   89</span>    transmit_byte(response); <span class="comment">// echo</span></div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>    <span class="keywordflow">if</span> (response == <span class="charliteral">&#39;\r&#39;</span>) <span class="comment">// enter marks the end</span></div>
-<div class="line"><span class="lineno">   92</span>    {</div>
-<div class="line"><span class="lineno">   93</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">   94</span>    }</div>
-<div class="line"><span class="lineno">   95</span> </div>
-<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   97</span>    {</div>
-<div class="line"><span class="lineno">   98</span>      myString[count] = response; <span class="comment">// add in a letter</span></div>
-<div class="line"><span class="lineno">   99</span>      ++count;</div>
-<div class="line"><span class="lineno">  100</span>    }</div>
-<div class="line"><span class="lineno">  101</span>  }</div>
-<div class="line"><span class="lineno">  102</span>  myString[count] = 0; <span class="comment">// terminal NULL character */</span></div>
-<div class="line"><span class="lineno">  103</span>}</div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00092">92</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   93</span>{</div>
+<div class="line"><span class="lineno">   94</span>  <span class="keywordtype">char</span> response;</div>
+<div class="line"><span class="lineno">   95</span>  uint8_t count = 0;</div>
+<div class="line"><span class="lineno">   96</span> </div>
+<div class="line"><span class="lineno">   97</span>  <span class="keywordflow">while</span> (count &lt; (maxLength - 1))</div>
+<div class="line"><span class="lineno">   98</span>  {                  </div>
+<div class="line"><span class="lineno">   99</span>    response = receive_byte();</div>
+<div class="line"><span class="lineno">  100</span>    transmit_byte(response); <span class="comment">// echo</span></div>
+<div class="line"><span class="lineno">  101</span> </div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">if</span> (response == <span class="charliteral">&#39;\r&#39;</span>) <span class="comment">// enter marks the end</span></div>
+<div class="line"><span class="lineno">  103</span>    {</div>
+<div class="line"><span class="lineno">  104</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  105</span>    }</div>
+<div class="line"><span class="lineno">  106</span> </div>
+<div class="line"><span class="lineno">  107</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  108</span>    {</div>
+<div class="line"><span class="lineno">  109</span>      myString[count] = response; <span class="comment">// add in a letter</span></div>
+<div class="line"><span class="lineno">  110</span>      ++count;</div>
+<div class="line"><span class="lineno">  111</span>    }</div>
+<div class="line"><span class="lineno">  112</span>  }</div>
+<div class="line"><span class="lineno">  113</span>  myString[count] = 0; <span class="comment">// terminal NULL character */</span></div>
+<div class="line"><span class="lineno">  114</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ae0af4da978c1af91fd2bed169b92dae3" name="ae0af4da978c1af91fd2bed169b92dae3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae0af4da978c1af91fd2bed169b92dae3">&#9670;&nbsp;</a></span>print_byte()</h2>
+<a id="a5c70d80f37cd301690591675569ce4ae" name="a5c70d80f37cd301690591675569ce4ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c70d80f37cd301690591675569ce4ae">&#9670;&nbsp;</a></span>usart_print_byte()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void print_byte </td>
+          <td class="memname">void usart_print_byte </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>byte</em></td><td>)</td>
@@ -344,25 +359,93 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 </div><div class="memdoc">
 
 <p>Prints a byte out as its 3-digit ascii equivalent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte</td><td>is the 8 bits of data to be sent, must be unsigned. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00106">106</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  107</span>{</div>
-<div class="line"><span class="lineno">  108</span>  <span class="comment">// Converts a byte to a string of decimal text, sends it</span></div>
-<div class="line"><span class="lineno">  109</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (<span class="keywordtype">byte</span> / 100));            <span class="comment">// Hundreds</span></div>
-<div class="line"><span class="lineno">  110</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((<span class="keywordtype">byte</span> / 10) % 10));   <span class="comment">// Tens</span></div>
-<div class="line"><span class="lineno">  111</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (<span class="keywordtype">byte</span> % 10));         <span class="comment">// Ones</span></div>
-<div class="line"><span class="lineno">  112</span>}</div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00121">121</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  122</span>{</div>
+<div class="line"><span class="lineno">  123</span>  <span class="comment">// Converts a byte to a string of decimal text, sends it</span></div>
+<div class="line"><span class="lineno">  124</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (<span class="keywordtype">byte</span> / 100));            <span class="comment">// Hundreds</span></div>
+<div class="line"><span class="lineno">  125</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((<span class="keywordtype">byte</span> / 10) % 10));   <span class="comment">// Tens</span></div>
+<div class="line"><span class="lineno">  126</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (<span class="keywordtype">byte</span> % 10));         <span class="comment">// Ones</span></div>
+<div class="line"><span class="lineno">  127</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a26f014257b6300f175bbae63395b6ab7" name="a26f014257b6300f175bbae63395b6ab7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26f014257b6300f175bbae63395b6ab7">&#9670;&nbsp;</a></span>print_word()</h2>
+<a id="a3e5b450d43afa8c30e9fb39f4ec378b0" name="a3e5b450d43afa8c30e9fb39f4ec378b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e5b450d43afa8c30e9fb39f4ec378b0">&#9670;&nbsp;</a></span>usart_print_decimal_digit()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void print_word </td>
+          <td class="memname">void usart_print_decimal_digit </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>byte</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints a byte out as its 1-digit ascii equivalent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte</td><td>is the 8 bits of data to be sent, must be unsigned, with a value of 0-9; </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00135">135</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  136</span>{</div>
+<div class="line"><span class="lineno">  137</span>  transmit_byte(<span class="keywordtype">byte</span>);</div>
+<div class="line"><span class="lineno">  138</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ac0b883024b0a7b7b2944610df5bb3dbf" name="ac0b883024b0a7b7b2944610df5bb3dbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0b883024b0a7b7b2944610df5bb3dbf">&#9670;&nbsp;</a></span>usart_print_char()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usart_print_char </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>byte</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Prints a byte out as its 1-character ascii equivalent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte</td><td>is the character to be sent. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00145">145</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  146</span>{</div>
+<div class="line"><span class="lineno">  147</span>  transmit_byte(<span class="keywordtype">byte</span>);</div>
+<div class="line"><span class="lineno">  148</span>}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a919c64b35a3b4d9df21feee567929eca" name="a919c64b35a3b4d9df21feee567929eca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a919c64b35a3b4d9df21feee567929eca">&#9670;&nbsp;</a></span>usart_print_word()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void usart_print_word </td>
           <td>(</td>
           <td class="paramtype">uint16_t&#160;</td>
           <td class="paramname"><em>word</em></td><td>)</td>
@@ -372,26 +455,32 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 </div><div class="memdoc">
 
 <p>Prints a word (16-bits) out as its 5-digit ascii equivalent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">word</td><td>is the 16 bits of data to be sent, must be unsigned. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00115">115</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  116</span>{</div>
-<div class="line"><span class="lineno">  117</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (word / 10000));       <span class="comment">// Ten-thousands</span></div>
-<div class="line"><span class="lineno">  118</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 1000) % 10)); <span class="comment">//  Thousands</span></div>
-<div class="line"><span class="lineno">  119</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 100) % 10));  <span class="comment">//  Hundreds</span></div>
-<div class="line"><span class="lineno">  120</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 10) % 10));   <span class="comment">//  Tens</span></div>
-<div class="line"><span class="lineno">  121</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (word % 10));          <span class="comment">//  Ones</span></div>
-<div class="line"><span class="lineno">  122</span>}</div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00155">155</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  156</span>{</div>
+<div class="line"><span class="lineno">  157</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (word / 10000));       <span class="comment">// Ten-thousands</span></div>
+<div class="line"><span class="lineno">  158</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 1000) % 10)); <span class="comment">//  Thousands</span></div>
+<div class="line"><span class="lineno">  159</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 100) % 10));  <span class="comment">//  Hundreds</span></div>
+<div class="line"><span class="lineno">  160</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 10) % 10));   <span class="comment">//  Tens</span></div>
+<div class="line"><span class="lineno">  161</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (word % 10));          <span class="comment">//  Ones</span></div>
+<div class="line"><span class="lineno">  162</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a6ed8eefe33df0c479847f99bfbffbc2e" name="a6ed8eefe33df0c479847f99bfbffbc2e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ed8eefe33df0c479847f99bfbffbc2e">&#9670;&nbsp;</a></span>print_binary_byte()</h2>
+<a id="a83e4bcba2b98324cdefc6d5c28de1f23" name="a83e4bcba2b98324cdefc6d5c28de1f23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83e4bcba2b98324cdefc6d5c28de1f23">&#9670;&nbsp;</a></span>usart_print_binary_byte()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void print_binary_byte </td>
+          <td class="memname">void usart_print_binary_byte </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>byte</em></td><td>)</td>
@@ -401,33 +490,39 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 </div><div class="memdoc">
 
 <p>Prints a byte out in 1s and 0s. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte</td><td>is the 8 bits of data to be sent, must be unsigned. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00125">125</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  126</span>{</div>
-<div class="line"><span class="lineno">  127</span>  uint8_t bit;</div>
-<div class="line"><span class="lineno">  128</span>  <span class="keywordflow">for</span> (bit = 7; bit &lt; 255; bit--)</div>
-<div class="line"><span class="lineno">  129</span>  {</div>
-<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">if</span> (bit_is_set(<span class="keywordtype">byte</span>, bit))</div>
-<div class="line"><span class="lineno">  131</span>    {</div>
-<div class="line"><span class="lineno">  132</span>      transmit_byte(<span class="charliteral">&#39;1&#39;</span>);</div>
-<div class="line"><span class="lineno">  133</span>    }</div>
-<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  135</span>    {</div>
-<div class="line"><span class="lineno">  136</span>      transmit_byte(<span class="charliteral">&#39;0&#39;</span>);</div>
-<div class="line"><span class="lineno">  137</span>    }</div>
-<div class="line"><span class="lineno">  138</span>  }</div>
-<div class="line"><span class="lineno">  139</span>}</div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00169">169</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  170</span>{</div>
+<div class="line"><span class="lineno">  171</span>  uint8_t bit;</div>
+<div class="line"><span class="lineno">  172</span>  <span class="keywordflow">for</span> (bit = 7; bit &lt; 255; bit--)</div>
+<div class="line"><span class="lineno">  173</span>  {</div>
+<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">if</span> (bit_is_set(<span class="keywordtype">byte</span>, bit))</div>
+<div class="line"><span class="lineno">  175</span>    {</div>
+<div class="line"><span class="lineno">  176</span>      transmit_byte(<span class="charliteral">&#39;1&#39;</span>);</div>
+<div class="line"><span class="lineno">  177</span>    }</div>
+<div class="line"><span class="lineno">  178</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  179</span>    {</div>
+<div class="line"><span class="lineno">  180</span>      transmit_byte(<span class="charliteral">&#39;0&#39;</span>);</div>
+<div class="line"><span class="lineno">  181</span>    }</div>
+<div class="line"><span class="lineno">  182</span>  }</div>
+<div class="line"><span class="lineno">  183</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a7abb0afe7126a9afb37d7cc16896adf1" name="a7abb0afe7126a9afb37d7cc16896adf1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7abb0afe7126a9afb37d7cc16896adf1">&#9670;&nbsp;</a></span>nibble_to_hex_character()</h2>
+<a id="ab545e69352c76f74ae95a10a61fea120" name="ab545e69352c76f74ae95a10a61fea120"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab545e69352c76f74ae95a10a61fea120">&#9670;&nbsp;</a></span>usart_nibble_to_hex_character()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char nibble_to_hex_character </td>
+          <td class="memname">char usart_nibble_to_hex_character </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>nibble</em></td><td>)</td>
@@ -436,30 +531,36 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
       </table>
 </div><div class="memdoc">
 
-<p>Convert nibble to hex character. </p>
+<p>Convert a nibble to a hex character. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nibble</td><td>is the 4 bits of data to be sent, must be unsigned. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00142">142</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  143</span>{</div>
-<div class="line"><span class="lineno">  144</span>  <span class="keywordflow">if</span> (nibble &lt; 10)</div>
-<div class="line"><span class="lineno">  145</span>  {</div>
-<div class="line"><span class="lineno">  146</span>    <span class="keywordflow">return</span> (<span class="charliteral">&#39;0&#39;</span> + nibble);</div>
-<div class="line"><span class="lineno">  147</span>  }</div>
-<div class="line"><span class="lineno">  148</span>  <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  149</span>  {</div>
-<div class="line"><span class="lineno">  150</span>    <span class="keywordflow">return</span> (<span class="charliteral">&#39;A&#39;</span> + nibble - 10);</div>
-<div class="line"><span class="lineno">  151</span>  }</div>
-<div class="line"><span class="lineno">  152</span>}</div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00190">190</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  191</span>{</div>
+<div class="line"><span class="lineno">  192</span>  <span class="keywordflow">if</span> (nibble &lt; 10)</div>
+<div class="line"><span class="lineno">  193</span>  {</div>
+<div class="line"><span class="lineno">  194</span>    <span class="keywordflow">return</span> (<span class="charliteral">&#39;0&#39;</span> + nibble);</div>
+<div class="line"><span class="lineno">  195</span>  }</div>
+<div class="line"><span class="lineno">  196</span>  <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  197</span>  {</div>
+<div class="line"><span class="lineno">  198</span>    <span class="keywordflow">return</span> (<span class="charliteral">&#39;A&#39;</span> + nibble - 10);</div>
+<div class="line"><span class="lineno">  199</span>  }</div>
+<div class="line"><span class="lineno">  200</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ad2cb22c9efc792243fe27a60441547a4" name="ad2cb22c9efc792243fe27a60441547a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2cb22c9efc792243fe27a60441547a4">&#9670;&nbsp;</a></span>print_hex_byte()</h2>
+<a id="adcbd3b64411247da3820b94893de5187" name="adcbd3b64411247da3820b94893de5187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcbd3b64411247da3820b94893de5187">&#9670;&nbsp;</a></span>usart_print_hex_byte()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void print_hex_byte </td>
+          <td class="memname">void usart_print_hex_byte </td>
           <td>(</td>
           <td class="paramtype">uint8_t&#160;</td>
           <td class="paramname"><em>byte</em></td><td>)</td>
@@ -468,28 +569,34 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
       </table>
 </div><div class="memdoc">
 
-<p>Prints a byte out in hexadecimal. </p>
+<p>Prints a byte out in hexadecimal format. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte</td><td>is the 8 bits of data to be sent, must be unsigned. </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00155">155</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  156</span>{</div>
-<div class="line"><span class="lineno">  157</span>  uint8_t nibble;</div>
-<div class="line"><span class="lineno">  158</span>  nibble = (<span class="keywordtype">byte</span> &amp; 0b11110000) &gt;&gt; 4;</div>
-<div class="line"><span class="lineno">  159</span>  transmit_byte(<a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(nibble));</div>
-<div class="line"><span class="lineno">  160</span>  nibble = <span class="keywordtype">byte</span> &amp; 0b00001111;</div>
-<div class="line"><span class="lineno">  161</span>  transmit_byte(<a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(nibble));</div>
-<div class="line"><span class="lineno">  162</span>}</div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2usart_8c_html_a7abb0afe7126a9afb37d7cc16896adf1"><div class="ttname"><a href="debug-tools_2log-system_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a></div><div class="ttdeci">char nibble_to_hex_character(uint8_t nibble)</div><div class="ttdoc">Convert nibble to hex character.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2usart_8c_source.html#l00142">usart.c:142</a></div></div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00207">207</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  208</span>{</div>
+<div class="line"><span class="lineno">  209</span>  uint8_t nibble;</div>
+<div class="line"><span class="lineno">  210</span>  nibble = (<span class="keywordtype">byte</span> &amp; 0b11110000) &gt;&gt; 4;</div>
+<div class="line"><span class="lineno">  211</span>  transmit_byte(<a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#ab545e69352c76f74ae95a10a61fea120">usart_nibble_to_hex_character</a>(nibble));</div>
+<div class="line"><span class="lineno">  212</span>  nibble = <span class="keywordtype">byte</span> &amp; 0b00001111;</div>
+<div class="line"><span class="lineno">  213</span>  transmit_byte(<a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#ab545e69352c76f74ae95a10a61fea120">usart_nibble_to_hex_character</a>(nibble));</div>
+<div class="line"><span class="lineno">  214</span>}</div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_ab545e69352c76f74ae95a10a61fea120"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#ab545e69352c76f74ae95a10a61fea120">usart_nibble_to_hex_character</a></div><div class="ttdeci">char usart_nibble_to_hex_character(uint8_t nibble)</div><div class="ttdoc">Convert a nibble to a hex character.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00190">usart.c:190</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a502d44d5f8098a5e1f767f98493bdd29" name="a502d44d5f8098a5e1f767f98493bdd29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a502d44d5f8098a5e1f767f98493bdd29">&#9670;&nbsp;</a></span>get_number()</h2>
+<a id="ab61056929c37c62040cb6a4cde1e4895" name="ab61056929c37c62040cb6a4cde1e4895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab61056929c37c62040cb6a4cde1e4895">&#9670;&nbsp;</a></span>usart_get_number()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t get_number </td>
+          <td class="memname">uint8_t usart_get_number </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -499,26 +606,27 @@ char&#160;</td><td class="memItemRight" valign="bottom"><b>nibble_to_hex</b> (ui
 </div><div class="memdoc">
 
 <p>Takes in up to three ascii digits, converts them to a byte when press enter. </p>
+<dl class="section return"><dt>Returns</dt><dd>an unsigned 8 bit integer is returned - this is the data received. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html#l00165">165</a> of file <a class="el" href="debug-tools_2log-system_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  166</span>{</div>
-<div class="line"><span class="lineno">  167</span>  <span class="keywordtype">char</span> hundreds = <span class="charliteral">&#39;0&#39;</span>;</div>
-<div class="line"><span class="lineno">  168</span>  <span class="keywordtype">char</span> tens = <span class="charliteral">&#39;0&#39;</span>;</div>
-<div class="line"><span class="lineno">  169</span>  <span class="keywordtype">char</span> ones = <span class="charliteral">&#39;0&#39;</span>;</div>
-<div class="line"><span class="lineno">  170</span>  <span class="keywordtype">char</span> thisChar = <span class="charliteral">&#39;0&#39;</span>;</div>
-<div class="line"><span class="lineno">  171</span>  <span class="keywordflow">do</span></div>
-<div class="line"><span class="lineno">  172</span>  {</div>
-<div class="line"><span class="lineno">  173</span>    hundreds = tens;</div>
-<div class="line"><span class="lineno">  174</span>    tens = ones;</div>
-<div class="line"><span class="lineno">  175</span>    ones = thisChar;</div>
-<div class="line"><span class="lineno">  176</span>    thisChar = receive_byte(); <span class="comment">// get a new character</span></div>
-<div class="line"><span class="lineno">  177</span>    transmit_byte(thisChar);   <span class="comment">// echo</span></div>
-<div class="line"><span class="lineno">  178</span>  }</div>
-<div class="line"><span class="lineno">  179</span>  <span class="keywordflow">while</span> (thisChar != <span class="charliteral">&#39;\r&#39;</span>); <span class="comment">// until type return</span></div>
-<div class="line"><span class="lineno">  180</span> </div>
-<div class="line"><span class="lineno">  181</span>  <span class="comment">// TODO: Bracketise this further</span></div>
-<div class="line"><span class="lineno">  182</span>  <span class="keywordflow">return</span> (100 * (hundreds - <span class="charliteral">&#39;0&#39;</span>) + 10 * (tens - <span class="charliteral">&#39;0&#39;</span>) + ones - <span class="charliteral">&#39;0&#39;</span>);</div>
-<div class="line"><span class="lineno">  183</span>}</div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00221">221</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  222</span>{</div>
+<div class="line"><span class="lineno">  223</span>  <span class="keywordtype">char</span> hundreds = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><span class="lineno">  224</span>  <span class="keywordtype">char</span> tens = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><span class="lineno">  225</span>  <span class="keywordtype">char</span> ones = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><span class="lineno">  226</span>  <span class="keywordtype">char</span> thisChar = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><span class="lineno">  227</span>  <span class="keywordflow">do</span></div>
+<div class="line"><span class="lineno">  228</span>  {</div>
+<div class="line"><span class="lineno">  229</span>    hundreds = tens;</div>
+<div class="line"><span class="lineno">  230</span>    tens = ones;</div>
+<div class="line"><span class="lineno">  231</span>    ones = thisChar;</div>
+<div class="line"><span class="lineno">  232</span>    thisChar = receive_byte(); <span class="comment">// get a new character</span></div>
+<div class="line"><span class="lineno">  233</span>    transmit_byte(thisChar);   <span class="comment">// echo</span></div>
+<div class="line"><span class="lineno">  234</span>  }</div>
+<div class="line"><span class="lineno">  235</span>  <span class="keywordflow">while</span> (thisChar != <span class="charliteral">&#39;\r&#39;</span>); <span class="comment">// until type return</span></div>
+<div class="line"><span class="lineno">  236</span> </div>
+<div class="line"><span class="lineno">  237</span>  <span class="comment">// TODO: Bracketise this further</span></div>
+<div class="line"><span class="lineno">  238</span>  <span class="keywordflow">return</span> (100 * (hundreds - <span class="charliteral">&#39;0&#39;</span>) + 10 * (tens - <span class="charliteral">&#39;0&#39;</span>) + ones - <span class="charliteral">&#39;0&#39;</span>);</div>
+<div class="line"><span class="lineno">  239</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

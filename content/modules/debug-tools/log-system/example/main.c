@@ -32,18 +32,63 @@
 #include <util/delay.h>
 #include "log_system.h"
 
-static const char *p_system_tag = "Main";
+#define DELAY_TIME      1000
+#define INCREMENT_VAL   1
 
+
+/**
+ * Instantiation of log_system config object. 
+ */
+log_system_config_t main_log =
+{
+  .p_system_tag = "Main",
+  .file_log_level = DEBUG,
+};
+
+/**
+ * Example variable to be output to log_system.
+ */
+uint8_t example_variable = 59;
+
+
+/**
+ * Main routine for example application. 
+ */ 
 int main()
 {
     // Setup
     init_log_system();
+    log_message(&main_log, INFO, "Hello, World!");
+    _delay_ms(DELAY_TIME);
 
     // Loop forever
     while(1)
     {
-        log_message(p_system_tag, INFO, "Hello, World!");
-        _delay_ms(1000);
+        /*
+         * This message is NOT printed, as the level is above that specified in
+         * main_log.file_log_level
+         */
+        log_message(&main_log, VERBOSE_DEBUG, "Verbose Debug Message.");
+        _delay_ms(DELAY_TIME);
+
+        // This message IS printed. 
+        log_message_with_bin_val(&main_log, DEBUG,
+                    "The binary format value of example_variable is: ",
+                    example_variable);
+
+        // As is this one. 
+        log_message_with_dec_val(&main_log, DEBUG,
+                    "The decimal format value of example_binary_variable is: ",
+                    example_variable);
+
+        // And this one. 
+        log_message_with_hex_val(&main_log, DEBUG,
+                    "The decimal format value of example_binary_variable is: ",
+                    example_variable);
+
+        // Edit variable value. 
+        example_variable += INCREMENT_VAL;
+        _delay_ms(DELAY_TIME);
     }
 
     return 0;

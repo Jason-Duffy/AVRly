@@ -30,8 +30,21 @@
  */
 
 #include <util/delay.h>
-#include "mcp4812_dac.h"
+#include "mcp48x2_dac.h"
 
+// Edit these values to modify the demo behaviour. 
+#define DELAY_TIME_1			1000
+
+#define CHANNEL_A_VOLTAGE_1		1000
+#define CHANNEL_B_VOLTAGE_1		2000
+
+#define CHANNEL_A_VOLTAGE_2		3300
+#define CHANNEL_B_VOLTAGE_2		1650
+
+
+/**
+ * Instantiation of config object for DAC. 
+ */
 dac_config_t dac_config =
 {
 	.model = mcp4812,
@@ -46,18 +59,31 @@ dac_config_t dac_config =
 	.channel_b.level = 0,
 };
 
+/**
+ * Main routine of application. 
+ */
 int main()
 {
-	// Setup
+	// Initialisation of DAC is called here. 
 	init_dac(&dac_config);
 
-	dac_set_voltage(DAC_CHANNEL_A, 3000U);
-	dac_set_voltage(DAC_CHANNEL_B, 1500U);
+	// Loop forever.
+	while (1)
+	{	
+		// Set initial voltage levels. 
+		dac_set_voltage(DAC_CHANNEL_A, CHANNEL_A_VOLTAGE_1);
+		dac_set_voltage(DAC_CHANNEL_B, CHANNEL_B_VOLTAGE_1);
 
-	// Loop forever
-	for(;;)
-	{
-		dac_set_voltage(DAC_CHANNEL_A, 1000U);
-		dac_set_voltage(DAC_CHANNEL_B, 2000U);
+		// Wait a short time. 
+		_delay_ms(DELAY_TIME_1);
+
+		// Set secondary voltage levels. 
+		dac_set_voltage(DAC_CHANNEL_A, CHANNEL_A_VOLTAGE_2);
+		dac_set_voltage(DAC_CHANNEL_B, CHANNEL_B_VOLTAGE_2);
+
+		// Wait a short time. 
+		_delay_ms(DELAY_TIME_1);
 	}
+	
+	return 0;
 }

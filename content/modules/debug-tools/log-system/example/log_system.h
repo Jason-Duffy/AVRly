@@ -33,32 +33,138 @@
 #ifndef LOG_SYSTEM_DOT_H
 #define LOG_SYSTEM_DOT_H
 
-enum eLogLevel {NONE, INFO, DEBUG, VERBOSE_DEBUG, WARNING, ERROR};
+/**
+ * Enumerated constants for the type of message to be logged.
+ */
+typedef enum
+{
+    NONE,
+    ERROR,
+    WARNING,
+    INFO,
+    DEBUG,
+    VERBOSE_DEBUG
+} log_type_t;
 
-// Initialisation routine
+
+/**
+ * Config object, to be instantiated in each file the log system is to be used,
+ * then pass it's address into the functions with names beginning with "log".
+ * p_system_tag is a string, and is used for the logsystem to report which file
+ * or subsystem the message came from, e.g. "Main".
+ * file_log_level is the maximum level you'd like logging output for a
+ * particular file.
+ */
+typedef struct
+{
+    const char *p_system_tag;
+    log_type_t file_log_level;
+}log_system_config_t;
+
+
+/**
+ * Initialisation routine - call this function once at startup before using
+ * other functions. Log system will then be turned on by default - call
+ * log_global_off() if you do not wish it to be.
+ */
 void init_log_system(void);
 
-// Sends only a string message
-void log_message(const char *p_tag, enum eLogLevel level, const char *msg);
 
-// Sends a string, followed by a value in decimal format
-void log_message_with_dec_val(const char *p_tag, enum eLogLevel level, const char *msg, uint8_t val);
+/**
+ * Sends only the system tag, log level and message string.
+ * @param p_config is a pointer to the log_system config object. Instantiate
+ * the config object at the head of each file where logging is required and
+ * pass it's address into this function.
+ * @param level is the level status of the log message - see log_type_t for
+ * available options.
+ * @param msg is the message to be logged, enclose it in "" quotation marks.
+ */
+void log_message(log_system_config_t *p_config,
+                 log_type_t level,
+                 const char *msg);
 
-// Sends a string, followed by a value in binary format
-void log_message_with_bin_val(const char *p_tag, enum eLogLevel level, const char *msg, uint8_t val);
 
-// Sends a string, followed by a value in hexadecimal format
-void log_message_with_hex_val(const char *p_tag, enum eLogLevel level, const char *msg, uint8_t val);
+/**
+ * Sends a string, followed by an 8 bit value in decimal format.
+ * @param p_config is a pointer to the log_system config object. Instantiate
+ * the config object at the head of each file where logging is required and
+ * pass it's address into this function.
+ * @param level is the level status of the log message - see log_type_t for
+ * available options.
+ * @param msg is the message to be logged, enclose it in "" quotation marks.
+ * @param val is the numerical value to be logged - Acceptable values 0 - 255.
+ */
+void log_message_with_dec_val(log_system_config_t *p_config,
+                              log_type_t level,
+                              const char *msg,
+                              uint8_t val);
 
-// Sets level of logging required
-void log_set_output_level(const char *p_tag, enum eLogLevel level);
 
-// Turns logging system on globally
+/**
+ * Sends a string, followed by an 8 bit value in binary format.
+ * @param p_config is a pointer to the log_system config object. Instantiate
+ * the config object at the head of each file where logging is required and
+ * pass it's address into this function.
+ * @param level is the level status of the log message - see log_type_t for
+ * available options.
+ * @param msg is the message to be logged, enclose it in "" quotation marks.
+ * @param val is the numerical value to be logged - Acceptable values 0 - 255.
+ */
+void log_message_with_bin_val(log_system_config_t *p_config,
+                              log_type_t level,
+                              const char *msg,
+                              uint8_t val);
+
+
+/**
+ * Sends a string, followed by an 8 bit value in hexadecimal format.
+ * @param p_config is a pointer to the log_system config object. Instantiate
+ * the config object at the head of each file where logging is required and
+ * pass it's address into this function. 
+ * @param level is the level status of the log message - see log_type_t for
+ * available options.
+ * @param msg is the message to be logged, enclose it in "" quotation marks.
+ * @param val is the numerical value to be logged - Acceptable values 0 - 255.
+ */
+void log_message_with_hex_val(log_system_config_t *p_config,
+                              log_type_t level,
+                              const char *msg, 
+                              uint8_t val);
+
+
+/**
+ * Sets maximum output level of logging required, to be used at file scope.
+ * @param p_config is a pointer to the log_system config object. Instantiate
+ * the config object at the head of each file where logging is required and
+ * pass it's address into this function.
+ * @param level is the maximum level required - see log_type_t for available
+ * options.
+ */
+void log_set_file_max_output_level(log_system_config_t *p_config,
+                                   log_type_t level);
+
+
+/**
+ * Sets maximum output level of logging required, has global effect.
+ * @param level is the maximum level required - see log_type_t for available
+ * options.
+ */
+void log_set_global_max_output_level(log_type_t level);
+
+
+/**
+ * Turns logging system on globally.
+ */
 void log_global_on(void);
 
-// Turns logging system off globally
+
+/**
+ * Turns logging system off globally.
+ */
 void log_global_off(void);
 
+
 #endif // LOG_SYSTEM_DOT_H
+
 
 /*** end of file ***/

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mcp48x2_0',['mcp48x2',['../group__mcp48x2.html',1,'']]]
+  ['readme_0',['README',['../group__spi.html',1,'(Global Namespace)'],['../group__timer__counter.html',1,'(Global Namespace)'],['../group__usart.html',1,'(Global Namespace)'],['../group__mcp48x2.html',1,'(Global Namespace)']]]
 ];

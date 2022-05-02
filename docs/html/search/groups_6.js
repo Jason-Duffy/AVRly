@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mcp48x2_20dac_20example_0',['MCP48x2 DAC Example',['../group__mcp48x2.html',1,'']]]
+  ['log_20system_0',['Log System',['../group__log__system.html',1,'']]]
 ];

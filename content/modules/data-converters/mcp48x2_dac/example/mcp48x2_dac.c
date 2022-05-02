@@ -20,7 +20,6 @@
  SOFTWARE.
 ******************************************************************************/
 
-
 /**
  * @file mcp48x2_dac.c
  * @ingroup mcp48x2
@@ -40,101 +39,200 @@
 #include <avr/interrupt.h>
 
 #include "mcp48x2_dac.h"
+#include "atmega_spi.h"
 #include "pin_defines.h"
 
-#define CHANNEL_BIT         15U
-#define GAIN_BIT            13U
-#define SHUTDOWN_BIT        12U
-#define TWELVE_BIT_OFFSET   0U
-#define TEN_BIT_OFFSET      2U
-#define EIGHT_BIT_OFFSET    4U
+// Bit positions for configuration. 
+#define CHANNEL_BIT              15U
+#define GAIN_BIT                 13U
+#define SHUTDOWN_BIT             12U
+
+// Offset values for setting raw level value. 
+#define TWELVE_BIT_LEVEL_OFFSET  0U
+#define TEN_BIT_LEVEL_OFFSET     2U
+#define EIGHT_BIT_LEVEL_OFFSET   4U
+
+// Offset values for setting millivolts. 
+#define TWELVE_BIT_MV_OFFSET     0U
+#define TEN_BIT_MV_OFFSET        1U
+#define EIGHT_BIT_MV_OFFSET      3U
 
 /**
  * File scope copy of dac_config_t pointer to store address of config object.
  */
 static dac_config_t *p_config_global;
 
+/**
+ * File scope variable to store the bitshift value to account for resolution
+ * differences between chip models. 
+ */
+static uint8_t mv_resolution_shift = 0;
+
+/**
+ * File scope variable to store the bitshift value to account for resolution
+ * differences between chip models. 
+ */
+static uint8_t level_resolution_shift = 0;
+
 // Forward declarations of private helper functions.
-void spi_trade_byte(uint16_t data);
-void pulse_latch(void);
 void chip_select(void);
 void chip_deselect(void);
 
 
-/**
+/*
  * Initialisation routine (run once at startup).
  * This function is to be called before using any other DAC functions.
  * Instantiate the dac_config_t object first then pass it's address into and
  * call init_lcd() before using any other lcd functions.
  * @param p_config is a pointer to the dac_config_t object.
- * @return Returns void.
  */
 void init_dac(dac_config_t *p_config)
 {
+    // Copy config object pointer to a variable with file scope. 
     p_config_global = p_config;
-/**
- * Don't need to set phase & polarity as the default works with MCP4812 (0,0)
- * or (1,1).
- */
-  SPCR |= (1 << SPR0); // div 16, safer for breadboards
-  SPCR |= (1 << MSTR); // clockmaster
-  SPCR |= (1 << SPE); // enable
 
-  DAC_CTRL_DDR |= (1 << DAC_CS); // Set chip select as output.
-  DAC_CTRL_PORT |= (1 << DAC_CS); // Set CS line high (not selected).
-  DAC_CTRL_DDR |= (1 << LDAC); // Set LDAC line (latch) as output.
-  DAC_CTRL_PORT |= (1 << LDAC); // Set LDAC high.
-  SPI_DDR |= (1 << SPI_MOSI); // Set MOSI as output.
-  SPI_PORT |= (1 << SPI_MISO); // Set pullup on MISO.
-  SPI_DDR |= (1 << SPI_SCK); // Set SCK as output.
+    // Delay to allow power ramp up in device.
+    _delay_ms(500);
 
-  sei(); // Set interrupt enable flag
+    // Initialise SPI comms. 
+    init_spi(lsb_first,
+             controller,
+             rising_edge,
+             sample_leading_edge,
+             cpu_clk_div_16,
+             single_speed);
+ 
+    DAC_CTRL_DDR |= (1 << DAC_CS); // Set chip select as output.
+    DAC_CTRL_PORT |= (1 << DAC_CS); // Set CS line high (not selected).
+    DAC_CTRL_DDR |= (1 << LDAC); // Set LDAC line (latch) as output.
+    DAC_CTRL_PORT |= (1 << LDAC); // Set LDAC high.
 
-  if (!p_config_global->sync_manually)
-  {
-    DAC_CTRL_PORT &= ~(1 << LDAC);
-  }
-  dac_reconfigure(); // Apply config settings.
+    // Save the value to bitshift millivolts value by. 
+    if (p_config_global->model == mcp4802)
+    {
+      mv_resolution_shift = EIGHT_BIT_MV_OFFSET;
+      level_resolution_shift = EIGHT_BIT_LEVEL_OFFSET;
+    }
+    else if (p_config_global->model == mcp4812)
+    {
+      mv_resolution_shift = TEN_BIT_MV_OFFSET;
+      level_resolution_shift = TEN_BIT_LEVEL_OFFSET;
+    }
+    else
+    {
+      mv_resolution_shift = TWELVE_BIT_MV_OFFSET;
+      level_resolution_shift = TWELVE_BIT_LEVEL_OFFSET;
+    }  
+
+    // Establish latching settings
+    if (!p_config_global->sync_manually)
+    {
+      DAC_CTRL_PORT &= ~(1 << LDAC);
+    }
+
+    // Send new values to DAC
+    dac_reconfigure();
 }
 
 
-/**
- * Sends a new millivolts value to be output on DAC. 
+/*
+ * Sends a new millivolts value to be output on DAC (Along with config
+ * settings). For 8 or 10 bit models only.
+ * @param channel_a: true = Channel A, false = Channel B.
+ * @param millivolts: mV value to be output by DAC. Ensure that this value
+ * doesn't exceed the maxixum for the DAC model and gain setting. 
  */
 void dac_set_voltage(bool channel_a, uint16_t millivolts)
 {
+    // Manipulate mv value to suit register size of chip and gain setting.
     if (channel_a)
     {
         if (p_config_global->channel_a.gain_low)
         {   
-            // Divide mV by 2 bitwise style (faster).
-            p_config_global->channel_a.level = (millivolts >> 1);
+            p_config_global->channel_a.level =
+                                (millivolts >> mv_resolution_shift);
         }
         else
         {
-            // Divide mV by 4 bitwise style (faster).
-            p_config_global->channel_a.level = (millivolts >> 2);
+            p_config_global->channel_a.level =
+                                (millivolts >> (mv_resolution_shift + 1));
         }
     }
     else
     {
         if (p_config_global->channel_b.gain_low)
         {
-            // Divide mV by 2 bitwise style (faster).
-            p_config_global->channel_b.level = (millivolts >> 1);
+            p_config_global->channel_b.level =
+                                (millivolts >> mv_resolution_shift);
         }
         else
         {
-            // Divide mV by 4 bitwise style (faster).
-            p_config_global->channel_b.level = (millivolts >> 2);
+            p_config_global->channel_b.level =
+                                (millivolts >> (mv_resolution_shift + 1));
         }
     }
+
     // Send new values to DAC
     dac_reconfigure();
 }
 
 
-/**
+/*
+ * Sends a new millivolts value to be output on DAC (Along with config
+ * settings). For 12 bit models only. 
+ * @param channel_a: true = Channel A, false = Channel B.
+ * @param millivolts: mV value to be output by DAC. Ensure that this value
+ * doesn't exceed the maxixum for the DAC model and gain setting.
+ * @param fractional: true = millivolts value has 0.5mV added to it. Only to be
+ * used when gain_low is true. 
+ */
+void dac_set_voltage_12_bit(bool channel_a,
+                            uint16_t millivolts,
+                            bool fractional)
+{
+    if (channel_a)
+    {
+        if(p_config_global->channel_a.gain_low)
+        {
+            p_config_global->channel_a.level =
+                                (millivolts << (TWELVE_BIT_MV_OFFSET + 1));
+            // Add the 0.5mV value if required. 
+            if (fractional == true)
+            {
+                p_config_global->channel_a.level += 1;
+            }
+        }
+        else
+        {
+            p_config_global->channel_a.level =
+                                (millivolts << TWELVE_BIT_MV_OFFSET);
+        }
+    }
+    else
+    {
+        if(p_config_global->channel_b.gain_low)
+        {
+            p_config_global->channel_b.level =
+                                (millivolts << (TWELVE_BIT_MV_OFFSET + 1));
+            // Add the 0.5mV value if required. 
+            if (fractional == true)
+            {
+                p_config_global->channel_b.level += 1;
+            }
+        }
+        else
+        {
+            p_config_global->channel_b.level =
+                                (millivolts << TWELVE_BIT_MV_OFFSET);
+        }
+    }
+
+    // Send new values to DAC
+    dac_reconfigure();
+}
+
+
+/*
  * Applies new config settings. This function takes updated config settings for
  * both channels of DAC, then re-sends data so that the new settings take
  * effect.
@@ -144,6 +242,7 @@ void dac_reconfigure(void)
     uint16_t channel_a_data = 0;
     uint16_t channel_b_data = 0;
 
+    // Set up config bits in 16bit word to be sent. 
     channel_a_data &= ~(1 << CHANNEL_BIT); // Clear channel bit (Channel A).
     channel_a_data |= (p_config_global->channel_a.gain_low << GAIN_BIT);
     channel_a_data |= (p_config_global->channel_a.active << SHUTDOWN_BIT);
@@ -152,25 +251,25 @@ void dac_reconfigure(void)
     channel_b_data |= (p_config_global->channel_b.gain_low << GAIN_BIT);
     channel_b_data |= (p_config_global->channel_b.active << SHUTDOWN_BIT);
 
-    if (p_config_global->model == mcp4802)
-    {
-        channel_a_data |= (p_config_global->channel_a.level << EIGHT_BIT_OFFSET);
-        channel_b_data |= (p_config_global->channel_b.level << EIGHT_BIT_OFFSET);
-    }
-    else if (p_config_global->model == mcp4812)
-    {
-        channel_a_data |= (p_config_global->channel_a.level << TEN_BIT_OFFSET);
-        channel_b_data |= (p_config_global->channel_b.level << TEN_BIT_OFFSET);
-    }
-    else
-    {
-        channel_a_data |= (p_config_global->channel_a.level << TWELVE_BIT_OFFSET);
-        channel_b_data |= (p_config_global->channel_b.level << TWELVE_BIT_OFFSET);
-    }
+    // Shift level into correct place for chip and OR it into our 16bit word.
+    channel_a_data |=
+                (p_config_global->channel_a.level << level_resolution_shift);
 
-    spi_trade_byte(channel_a_data);
-    spi_trade_byte(channel_b_data);
+    channel_b_data |=
+                (p_config_global->channel_b.level << level_resolution_shift);
+                
 
+    // Send data for channel A to DAC over SPI. 
+    chip_select();
+    spi_trade_word(channel_a_data);
+    chip_deselect();
+
+    // Send data for channel B to DAC over SPI.
+    chip_select();
+    spi_trade_word(channel_b_data);
+    chip_deselect();
+
+    // If sync_manually is set to false, pulse LDAC to update values. 
     if (!p_config_global->sync_manually)
     {
         pulse_latch();
@@ -178,24 +277,12 @@ void dac_reconfigure(void)
 }
 
 
-//TODO: Make this interrupt based with SPIE bit in SPCR register (Pg198)
-void spi_trade_byte(uint16_t data)
-{
-    uint8_t msb = 0;
-    uint8_t lsb = 0;
-
-    chip_select();
-
-    msb |= (data >> 8U);
-    lsb |= (data);
-    SPDR = msb; 
-    loop_until_bit_is_set(SPSR, SPIF);
-    SPDR = lsb;
-    loop_until_bit_is_set(SPSR, SPIF);
-    
-    chip_deselect();
-}
-
+/*
+ * Pulses LDAC pin pow for 1 microsecond. If sync_manually = true, call this
+ * function to latch the new voltage values into the output registers. If
+ * sync_manually = false, this function is called automatically by
+ * dac_reconfigure() or dac_set_voltage().
+ */
 void pulse_latch(void)
 {
     DAC_CTRL_PORT &= ~(1 << LDAC);
@@ -203,14 +290,28 @@ void pulse_latch(void)
     DAC_CTRL_PORT |= (1 << LDAC);
 }
 
+// ------------------------------------------------------------------------- //
+// ------------------------ Private Helper Functions ----------------------- //
+// ------------------------------------------------------------------------- // 
+
+
+/**
+ * Private helper function - pulls CS line (Chip Select) low in order to begin
+ * SPI communication with DAC.
+ */
 void chip_select(void)
 {
     DAC_CTRL_PORT &= ~(1 << DAC_CS);
 }
 
-
+/**
+ * Private helper function - pulls CS line (Chip Select) high to signal the end
+ * of SPI communication with DAC.
+ */
 void chip_deselect(void)
 {
     DAC_CTRL_PORT |= (1 << DAC_CS);
 }
+
+
 /*** end of file ***/

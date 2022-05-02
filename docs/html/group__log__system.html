@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.3"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AVRly - AVR Development Resources: Log System Example</title>
+<title>AVRly - AVR Development Resources: Log System</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('group__log__system.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a>  </div>
-  <div class="headertitle"><div class="title">Log System Example<div class="ingroups"><a class="el" href="group__debug__tools.html">Debug Tools</a></div></div></div>
+  <div class="headertitle"><div class="title">Log System<div class="ingroups"><a class="el" href="group__debug__tools.html">Debug Tools</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -109,19 +109,26 @@ Files</h2></td></tr>
 <tr class="memdesc:modules_2debug-tools_2log-system_2example_2main_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Main routine for log_system example application. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:debug-tools_2log-system_2example_2usart_8c"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8c.html">usart.c</a></td></tr>
-<tr class="memdesc:debug-tools_2log-system_2example_2usart_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver file providing core USART communication between the target MCU and your PC. <br /></td></tr>
+<tr class="memdesc:debug-tools_2log-system_2example_2usart_8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver file providing core USART communication between the target MCU and your PC. This file was adapted from Elliot Williams' Github repo hexagon5un. (link in the see also section below). <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:debug-tools_2log-system_2example_2usart_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="debug-tools_2log-system_2example_2usart_8h.html">usart.h</a></td></tr>
-<tr class="memdesc:debug-tools_2log-system_2example_2usart_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver file providing core USART communication between the target MCU and your PC. <br /></td></tr>
+<tr class="memdesc:debug-tools_2log-system_2example_2usart_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Driver file providing core USART communication between the target MCU and your PC. This file was adapted from Elliot Williams' Github repo hexagon5un (link in the see also section below). NOTE: This driver does involve blocking waits, this may be improved on in a later version. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p >Logging subsystem to print debug messages over USART to PC. </p>
-<dl class="section see"><dt>See also</dt><dd>The files can be downloaded from the repo at: <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/debug-tools/log-system/example">https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/debug-tools/log-system/example</a></dd></dl>
-<p>Repository contents: </p>
+<dl class="section see"><dt>See also</dt><dd>The files can be downloaded from the repo at: <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/debug-tools/log-system/example">https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/debug-tools/log-system/example</a> </dd></dl>
 
 
-<h3><a id="md_content_modules_debug_tools_log_system_log_system" name="md_content_modules_debug_tools_log_system_log_system"></a>log_system</h3><div class="textblock">Log System Markdown File. </div></div><!-- contents -->
+<h3><a id="md_content_modules_debug_tools_log_system_README" name="md_content_modules_debug_tools_log_system_README"></a>README</h3><div class="textblock"><h2><a class="anchor" id="autotoc_md89"></a>
+Introduction</h2>
+<p >In some cases, taking the time to build yourself a well defined and crafted tool can save you an immense amount time in the future. In my opinion, a logging subsystem is one of those cases. It can help to root out tricky bugs by telling you when each function is being entered and exited, and the state of variables along the way.</p>
+<p >This tool implements the USART driver, and is a good example of the <a href="https://en.wikipedia.org/wiki/Facade_pattern" target="_blank">facade pattern</a> in practice. Note how neither the user nor the log_system module need to know anything about how the message is sent over USART in order to send the messages. If you <b>would</b> like to know how the USART driver works, see the module <a href="https://jason-duffy.github.io/AVRly/html/group__usart.html" target="_blank">here</a>.</p>
+<h2><a class="anchor" id="autotoc_md90"></a>
+Interface</h2>
+<h2><a class="anchor" id="autotoc_md91"></a>
+Example Application</h2>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

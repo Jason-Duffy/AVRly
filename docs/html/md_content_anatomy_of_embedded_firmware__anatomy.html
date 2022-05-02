@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('md_content_anatomy_of_embedded_firmwar
   <div class="headertitle"><div class="title">Anatomy of Embedded Firmware </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p >The style and layout guidelines shown here are based on my personal preference; of cource you are free to develop your code in whichever way you choose - this is just a guide for users who are unsure how to correctly structure their projects, or for developers contributing to this site.</p>
+<div class="textblock"><p >The style and layout guidelines shown here are based on my personal preference; of course you are free to develop your code in whichever way you choose - this is just a guide for users who are unsure how to correctly structure their projects, or for developers contributing to this site.</p>
 <h1><a class="anchor" id="autotoc_md52"></a>
 A Word on Doxygen</h1>
 <p >Throughout this repository, the code has been documented using <a href="https://www.doxygen.nl/index.html" target="_blank">Doxygen</a>. It's an easy way to generate documentation which stays closely coupled with the code so it's not too difficult to keep the two in line. The html for this site was also generated using Doxygen. It relies on special comments like this: </p><div class="fragment"><div class="line"><span class="comment">/**</span></div>
@@ -103,7 +103,7 @@ A Word on Doxygen</h1>
 <div class="line"><span class="comment"> */</span></div>
 </div><!-- fragment --><p> are ignored by Doxygen.</p>
 <p >Comment lines starting with an @ symbol are special Doxygen commands.</p>
-<p >Ordinarily it's best to only use Doxygen documentation for the public function declarations in the header file rather than the source file definitions, as we are documenting the API. If you were documenting source code for other developers you might want to document the source code instead, but never both. If you provide a <b>brief</b> for both, then the one from the <b>declaration</b> will be used, the other will be ignored. If you provide a <b>detailed description</b> for both, the one for the <b>definition</b> is used and the other ignored.</p>
+<p >Ordinarily it's best to only use Doxygen documentation for the public function declarations in the header file rather than the source file definitions, as we are usually documenting the API. If you were documenting source code for other developers you might want to document the implementation instead, but never both. If you provide a <b>brief</b> for both, then the one from the <b>declaration</b> will be used, the other will be ignored. If you provide a <b>detailed description</b> for both, the one for the <b>definition</b> is used and the other ignored.</p>
 <h1><a class="anchor" id="autotoc_md53"></a>
 Formatting</h1>
 <p >Leave a comfortable amount of whitespace between logical sections of code, to make things easy on the eye. Header, source, and Makefiles should all be limited to 80 characters wide.</p>

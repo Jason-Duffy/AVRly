@@ -144,7 +144,7 @@ Variables</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="modules_2sensors_2ccs811__sensor_2example_2main_8c_source.html#l00051">51</a> of file <a class="el" href="modules_2sensors_2ccs811__sensor_2example_2main_8c_source.html">main.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   52</span>{</div>
 <div class="line"><span class="lineno">   53</span>    <span class="comment">// Setup</span></div>
-<div class="line"><span class="lineno">   54</span>    init_log_system();</div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a66cb0502754421251d61e6c64b499398">init_log_system</a>();</div>
 <div class="line"><span class="lineno">   55</span>    uint8_t error = <a class="code hl_function" href="ccs811_8c.html#ad1f99971115a62fc25a230fbf88861e6">init_ccs811</a>(&amp;ccs811_config);</div>
 <div class="line"><span class="lineno">   56</span>    log_message_with_dec_val(p_system_tag, ERROR,</div>
 <div class="line"><span class="lineno">   57</span>                            <span class="stringliteral">&quot;CCS81 init return code: &quot;</span>, error);</div>
@@ -165,6 +165,7 @@ Variables</h2></td></tr>
 <div class="ttc" id="accs811_8c_html_a751333bcfd68dc798c02763140e53231"><div class="ttname"><a href="ccs811_8c.html#a751333bcfd68dc798c02763140e53231">ccs811_get_eco2_level</a></div><div class="ttdeci">uint16_t ccs811_get_eco2_level(void)</div><div class="ttdoc">Read eCO2 (equivalent carbon dioxide) level from sensor.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00182">ccs811.c:182</a></div></div>
 <div class="ttc" id="accs811_8c_html_ad1f99971115a62fc25a230fbf88861e6"><div class="ttname"><a href="ccs811_8c.html#ad1f99971115a62fc25a230fbf88861e6">init_ccs811</a></div><div class="ttdeci">uint8_t init_ccs811(ccs811_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00133">ccs811.c:133</a></div></div>
 <div class="ttc" id="accs811_8c_html_adc2cbe8a9c4478d1c2e618526aa07e0f"><div class="ttname"><a href="ccs811_8c.html#adc2cbe8a9c4478d1c2e618526aa07e0f">ccs811_data_ready_check</a></div><div class="ttdeci">bool ccs811_data_ready_check(void)</div><div class="ttdoc">Read the status register and check if the data ready flag is set.</div><div class="ttdef"><b>Definition:</b> <a href="ccs811_8c_source.html#l00200">ccs811.c:200</a></div></div>
+<div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2log__system_8c_html_a66cb0502754421251d61e6c64b499398"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a66cb0502754421251d61e6c64b499398">init_log_system</a></div><div class="ttdeci">void init_log_system(void)</div><div class="ttdoc">Initialisation routine - call this function once at startup before using other functions.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00046">log_system.c:46</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -105,7 +105,7 @@ $(document).ready(function(){initNavTree('sensors_2ccs811__sensor_2example_2usar
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ad9b40dee04f1b7ced79b74fe3f6cb7fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2ccs811__sensor_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">init_usart</a> (void)</td></tr>
-<tr class="memdesc:ad9b40dee04f1b7ced79b74fe3f6cb7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART.  <a href="sensors_2ccs811__sensor_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">More...</a><br /></td></tr>
+<tr class="memdesc:ad9b40dee04f1b7ced79b74fe3f6cb7fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART ready for use.  <a href="sensors_2ccs811__sensor_2example_2usart_8c.html#ad9b40dee04f1b7ced79b74fe3f6cb7fd">More...</a><br /></td></tr>
 <tr class="separator:ad9b40dee04f1b7ced79b74fe3f6cb7fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cedcd300d876aac422cf9f9e241583a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2ccs811__sensor_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">print_string</a> (const char myString[])</td></tr>
 <tr class="memdesc:a2cedcd300d876aac422cf9f9e241583a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Utility function to transmit an entire string from RAM.  <a href="sensors_2ccs811__sensor_2example_2usart_8c.html#a2cedcd300d876aac422cf9f9e241583a">More...</a><br /></td></tr>
@@ -159,7 +159,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART. </p>
+<p>Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART ready for use. </p>
+<p >Takes the defined BAUD and F_CPU, calculates the bit-clock multiplier, configures the hardware USART. </p>
 
 <p class="definition">Definition at line <a class="el" href="sensors_2ccs811__sensor_2example_2usart_8c_source.html#l00047">47</a> of file <a class="el" href="sensors_2ccs811__sensor_2example_2usart_8c_source.html">usart.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   48</span>{</div>
@@ -413,11 +414,11 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  155</span>{</div>
 <div class="line"><span class="lineno">  156</span>  uint8_t nibble;</div>
 <div class="line"><span class="lineno">  157</span>  nibble = (<span class="keywordtype">byte</span> &amp; 0b11110000) &gt;&gt; 4;</div>
-<div class="line"><span class="lineno">  158</span>  transmit_byte(<a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(nibble));</div>
+<div class="line"><span class="lineno">  158</span>  transmit_byte(<a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(nibble));</div>
 <div class="line"><span class="lineno">  159</span>  nibble = <span class="keywordtype">byte</span> &amp; 0b00001111;</div>
-<div class="line"><span class="lineno">  160</span>  transmit_byte(<a class="code hl_function" href="debug-tools_2log-system_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(nibble));</div>
+<div class="line"><span class="lineno">  160</span>  transmit_byte(<a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a>(nibble));</div>
 <div class="line"><span class="lineno">  161</span>}</div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2usart_8c_html_a7abb0afe7126a9afb37d7cc16896adf1"><div class="ttname"><a href="debug-tools_2log-system_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a></div><div class="ttdeci">char nibble_to_hex_character(uint8_t nibble)</div><div class="ttdoc">Convert nibble to hex character.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2usart_8c_source.html#l00142">usart.c:142</a></div></div>
+<div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2usart_8c_html_a7abb0afe7126a9afb37d7cc16896adf1"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2usart_8c.html#a7abb0afe7126a9afb37d7cc16896adf1">nibble_to_hex_character</a></div><div class="ttdeci">char nibble_to_hex_character(uint8_t nibble)</div><div class="ttdoc">Convert nibble to hex character.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2usart_8c_source.html#l00142">usart.c:142</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
