@@ -46,6 +46,17 @@ typedef enum
     VERBOSE_DEBUG
 } log_type_t;
 
+
+/**
+ * Config object, to be instantiated in each file the log system is to be used.
+ */
+typedef struct
+{
+    const char *p_system_tag;
+    log_type_t file_log_level;
+}log_system_config_t;
+
+
 /**
  * Initialisation routine - call this function once at startup before using
  * other functions. Log system will then be turned on by default - call

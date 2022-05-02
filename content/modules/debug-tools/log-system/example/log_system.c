@@ -35,6 +35,9 @@
 #include "usart.h"
 #include "log_system.h"
 
+#define ARRAY_SIZE    20
+#define INVALID_TYPE  9
+
 
 /**
  * File/System tag with file level scope. This is used for the log system to
@@ -58,19 +61,13 @@ static bool log_system_enabled = false;
 static log_type_t global_max_output_level = ERROR;
 
 
-/**
- * Struct to store the max level of logging preferred for each file.
- */
-typedef struct
-{
-  uint8_t index;
-  char *p_tag_array[20];
-  log_type_t log_type_array[20];
-}file_output_level_t;
+char *p_tag_array[20];
+log_type_t log_type_array[20];
 
 
-// Forward declaration - private helper function. 
+// Forward declaration - private helper functions. 
 void print_tag_and_log_level(const char *p_tag, log_type_t level);
+log_type_t get_file_max_level_from_tag(void);
 
 
 /*
@@ -81,7 +78,13 @@ void print_tag_and_log_level(const char *p_tag, log_type_t level);
 void init_log_system(void)
 {
   init_usart();
-  file_output_level_t file_output_level;
+
+  // Initialise array with highest debug output level as default. 
+  for (uint8_t index = 0; index < ARRAY_SIZE; ++index)
+  {
+    log_type_array[index] = VERBOSE_DEBUG;
+  }
+
   log_global_on();
   log_message(p_system_tag, INFO, "Log system initialised");
 };
@@ -189,7 +192,7 @@ void log_message_with_hex_val(const char *p_tag,
  */
 void log_set_file_max_output_level(const char *p_tag, log_type_t level)
 {
-  // TODO: Provide implementation.
+
 }
 
 
@@ -270,5 +273,31 @@ void print_tag_and_log_level(const char *p_tag, log_type_t level)
   }
 }
 
+log_type_t get_file_max_level_from_tag(const char *p_tag)
+{
+  char *p_compare;
+  uint8_t index = 0;
+
+  /*
+   * Search the array til a match is found, use that index to return the
+   * corresponding value in the log type array. 
+   */
+  while ((p_compare != p_tag) && (index < ARRAY_SIZE))
+  {
+    p_compare = p_tag_array[index];
+
+    if (p_compare == p_tag)
+    {
+      return log_type_array[index];
+    }
+    ++index;
+  }
+  
+  // If no match is found, return an error code.
+  if ((p_compare != p_tag) && (index > ARRAY_SIZE))
+  {
+    return INVALID_TYPE;
+  }
+}
 
 /*** end of file ***/
