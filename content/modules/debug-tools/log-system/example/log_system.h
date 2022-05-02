@@ -72,8 +72,9 @@ void init_log_system(void);
 
 /**
  * Sends only the system tag, log level and message string.
- * @param p_tag is the calling file's tag - declare and define as a const char
- * at the top of the file and pass in a pointer to it. 
+ * @param p_config is a pointer to the log_system config object. Instantiate
+ * the config object at the head of each file where logging is required and
+ * pass it's address into this function.
  * @param level is the level status of the log message - see log_type_t for
  * available options.
  * @param msg is the message to be logged, enclose it in "" quotation marks.
@@ -85,8 +86,9 @@ void log_message(log_system_config_t *p_config,
 
 /**
  * Sends a string, followed by an 8 bit value in decimal format.
- * @param p_tag is the calling file's tag - declare and define as a const char
- * at the top of the file and pass in a pointer to it. 
+ * @param p_config is a pointer to the log_system config object. Instantiate
+ * the config object at the head of each file where logging is required and
+ * pass it's address into this function.
  * @param level is the level status of the log message - see log_type_t for
  * available options.
  * @param msg is the message to be logged, enclose it in "" quotation marks.
@@ -100,8 +102,9 @@ void log_message_with_dec_val(log_system_config_t *p_config,
 
 /**
  * Sends a string, followed by an 8 bit value in binary format.
- * @param p_tag is the calling file's tag - declare and define as a const char
- * at the top of the file and pass in a pointer to it. 
+ * @param p_config is a pointer to the log_system config object. Instantiate
+ * the config object at the head of each file where logging is required and
+ * pass it's address into this function.
  * @param level is the level status of the log message - see log_type_t for
  * available options.
  * @param msg is the message to be logged, enclose it in "" quotation marks.
@@ -115,8 +118,9 @@ void log_message_with_bin_val(log_system_config_t *p_config,
 
 /**
  * Sends a string, followed by an 8 bit value in hexadecimal format.
- * @param p_tag is the calling file's tag - declare and define as a const char
- * at the top of the file and pass in a pointer to it. 
+ * @param p_config is a pointer to the log_system config object. Instantiate
+ * the config object at the head of each file where logging is required and
+ * pass it's address into this function. 
  * @param level is the level status of the log message - see log_type_t for
  * available options.
  * @param msg is the message to be logged, enclose it in "" quotation marks.
@@ -130,8 +134,9 @@ void log_message_with_hex_val(log_system_config_t *p_config,
 
 /**
  * Sets maximum output level of logging required, to be used at file scope.
- * @param p_tag is the calling file's tag - declare and define as a const char
- * at the top of the file and pass in a pointer to it.
+ * @param p_config is a pointer to the log_system config object. Instantiate
+ * the config object at the head of each file where logging is required and
+ * pass it's address into this function.
  * @param level is the maximum level required - see log_type_t for available
  * options.
  */
