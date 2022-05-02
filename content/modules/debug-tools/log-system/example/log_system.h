@@ -39,59 +39,111 @@
 typedef enum
 {
     NONE,
+    ERROR,
+    WARNING,
     INFO,
     DEBUG,
-    VERBOSE_DEBUG,
-    WARNING,
-    ERROR
+    VERBOSE_DEBUG
 } log_type_t;
 
 /**
  * Initialisation routine - call this function once at startup before using
- * other functions.
+ * other functions. Log system will then be turned on by default - call
+ * log_global_off() if you do not wish it to be.
  */
 void init_log_system(void);
 
 
 /**
- * Sends only the system tag, log type and message string.
- * @param 
+ * Sends only the system tag, log level and message string.
+ * @param p_tag is the calling file's tag - declare and define as a const char
+ * at the top of the file and pass in a pointer to it. 
+ * @param level is the level status of the log message - see log_type_t for
+ * available options.
+ * @param msg is the message to be logged, enclose it in "" quotation marks.
  */
 void log_message(const char *p_tag,
-                 enum eLogLevel level,
+                 log_type_t level,
                  const char *msg);
 
 
 /**
- * Sends a string, followed by a value in decimal format
+ * Sends a string, followed by an 8 bit value in decimal format.
+ * @param p_tag is the calling file's tag - declare and define as a const char
+ * at the top of the file and pass in a pointer to it. 
+ * @param level is the level status of the log message - see log_type_t for
+ * available options.
+ * @param msg is the message to be logged, enclose it in "" quotation marks.
+ * @param val is the numerical value to be logged - Acceptable values 0 - 255.
  */
 void log_message_with_dec_val(const char *p_tag,
-                              enum eLogLevel level,
+                              log_type_t level,
                               const char *msg,
                               uint8_t val);
 
-// Sends a string, followed by a value in binary format
+
+/**
+ * Sends a string, followed by an 8 bit value in binary format.
+ * @param p_tag is the calling file's tag - declare and define as a const char
+ * at the top of the file and pass in a pointer to it. 
+ * @param level is the level status of the log message - see log_type_t for
+ * available options.
+ * @param msg is the message to be logged, enclose it in "" quotation marks.
+ * @param val is the numerical value to be logged - Acceptable values 0 - 255.
+ */
 void log_message_with_bin_val(const char *p_tag,
-                              enum eLogLevel level,
+                              log_type_t level,
                               const char *msg,
                               uint8_t val);
 
-// Sends a string, followed by a value in hexadecimal format
+
+/**
+ * Sends a string, followed by an 8 bit value in hexadecimal format.
+ * @param p_tag is the calling file's tag - declare and define as a const char
+ * at the top of the file and pass in a pointer to it. 
+ * @param level is the level status of the log message - see log_type_t for
+ * available options.
+ * @param msg is the message to be logged, enclose it in "" quotation marks.
+ * @param val is the numerical value to be logged - Acceptable values 0 - 255.
+ */
 void log_message_with_hex_val(const char *p_tag,
-                              enum eLogLevel level,
+                              log_type_t level,
                               const char *msg, 
                               uint8_t val);
 
-// Sets level of logging required
-void log_set_output_level(const char *p_tag,
-                          enum eLogLevel level);
 
-// Turns logging system on globally
+/**
+ * Sets maximum output level of logging required, to be used at file scope.
+ * @param p_tag is the calling file's tag - declare and define as a const char
+ * at the top of the file and pass in a pointer to it.
+ * @param level is the maximum level required - see log_type_t for available
+ * options.
+ */
+void log_set_file_max_output_level(const char *p_tag, log_type_t level);
+
+
+/**
+ * Sets maximum output level of logging required, has global effect (will
+ * override file level settings).
+ * @param level is the maximum level required - see log_type_t for available
+ * options.
+ */
+void log_set_global_max_output_level(log_type_t level);
+
+
+/**
+ * Turns logging system on globally.
+ */
 void log_global_on(void);
 
-// Turns logging system off globally
+
+/**
+ * Turns logging system off globally.
+ */
 void log_global_off(void);
 
+
 #endif // LOG_SYSTEM_DOT_H
+
 
 /*** end of file ***/
