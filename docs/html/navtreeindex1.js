@@ -156,7 +156,7 @@ var NAVTREEINDEX1 =
 "group__hd44780__lcd.html#md_content_modules_displays_hd44780_lcd_hd44780_lcd":[3,4,0,4],
 "group__i2c.html":[3,6,1,1],
 "group__log__system.html":[3,3,0],
-"group__log__system.html#md_content_modules_debug_tools_log_system_log_system":[3,3,0,5],
+"group__log__system.html#md_content_modules_debug_tools_log_system_README":[3,3,0,5],
 "group__mcp48x2.html":[3,2,0],
 "group__mcp48x2.html#md_content_modules_data_converters_mcp48x2_dac_README":[3,2,0,10],
 "group__sensors.html":[3,5],
