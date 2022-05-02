@@ -128,6 +128,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a3e5b450d43afa8c30e9fb39f4ec378b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a byte out as its 1-digit ascii equivalent.  <a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a3e5b450d43afa8c30e9fb39f4ec378b0">More...</a><br /></td></tr>
 <tr class="separator:a3e5b450d43afa8c30e9fb39f4ec378b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0b883024b0a7b7b2944610df5bb3dbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="avr-peripheral-features_2usart_2example_2usart_8h.html#ac0b883024b0a7b7b2944610df5bb3dbf">usart_print_char</a> (char byte)</td></tr>
+<tr class="memdesc:ac0b883024b0a7b7b2944610df5bb3dbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a byte out as its 1-character ascii equivalent.  <a href="avr-peripheral-features_2usart_2example_2usart_8h.html#ac0b883024b0a7b7b2944610df5bb3dbf">More...</a><br /></td></tr>
 <tr class="separator:ac0b883024b0a7b7b2944610df5bb3dbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a919c64b35a3b4d9df21feee567929eca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="avr-peripheral-features_2usart_2example_2usart_8h.html#a919c64b35a3b4d9df21feee567929eca">usart_print_word</a> (uint16_t word)</td></tr>
 <tr class="memdesc:a919c64b35a3b4d9df21feee567929eca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a word (16-bits) out as its 5-digit ascii equivalent.  <a href="avr-peripheral-features_2usart_2example_2usart_8h.html#a919c64b35a3b4d9df21feee567929eca">More...</a><br /></td></tr>
@@ -421,10 +422,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00141">141</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  142</span>{</div>
-<div class="line"><span class="lineno">  143</span>  transmit_byte(<span class="keywordtype">byte</span>);</div>
-<div class="line"><span class="lineno">  144</span>}</div>
+<p>Prints a byte out as its 1-character ascii equivalent. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">byte</td><td>is the character to be sent. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00145">145</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  146</span>{</div>
+<div class="line"><span class="lineno">  147</span>  transmit_byte(<span class="keywordtype">byte</span>);</div>
+<div class="line"><span class="lineno">  148</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -452,14 +461,14 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00151">151</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  152</span>{</div>
-<div class="line"><span class="lineno">  153</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (word / 10000));       <span class="comment">// Ten-thousands</span></div>
-<div class="line"><span class="lineno">  154</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 1000) % 10)); <span class="comment">//  Thousands</span></div>
-<div class="line"><span class="lineno">  155</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 100) % 10));  <span class="comment">//  Hundreds</span></div>
-<div class="line"><span class="lineno">  156</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 10) % 10));   <span class="comment">//  Tens</span></div>
-<div class="line"><span class="lineno">  157</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (word % 10));          <span class="comment">//  Ones</span></div>
-<div class="line"><span class="lineno">  158</span>}</div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00155">155</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  156</span>{</div>
+<div class="line"><span class="lineno">  157</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (word / 10000));       <span class="comment">// Ten-thousands</span></div>
+<div class="line"><span class="lineno">  158</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 1000) % 10)); <span class="comment">//  Thousands</span></div>
+<div class="line"><span class="lineno">  159</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 100) % 10));  <span class="comment">//  Hundreds</span></div>
+<div class="line"><span class="lineno">  160</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + ((word / 10) % 10));   <span class="comment">//  Tens</span></div>
+<div class="line"><span class="lineno">  161</span>  transmit_byte(<span class="charliteral">&#39;0&#39;</span> + (word % 10));          <span class="comment">//  Ones</span></div>
+<div class="line"><span class="lineno">  162</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -487,21 +496,21 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00165">165</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  166</span>{</div>
-<div class="line"><span class="lineno">  167</span>  uint8_t bit;</div>
-<div class="line"><span class="lineno">  168</span>  <span class="keywordflow">for</span> (bit = 7; bit &lt; 255; bit--)</div>
-<div class="line"><span class="lineno">  169</span>  {</div>
-<div class="line"><span class="lineno">  170</span>    <span class="keywordflow">if</span> (bit_is_set(<span class="keywordtype">byte</span>, bit))</div>
-<div class="line"><span class="lineno">  171</span>    {</div>
-<div class="line"><span class="lineno">  172</span>      transmit_byte(<span class="charliteral">&#39;1&#39;</span>);</div>
-<div class="line"><span class="lineno">  173</span>    }</div>
-<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">else</span></div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00169">169</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  170</span>{</div>
+<div class="line"><span class="lineno">  171</span>  uint8_t bit;</div>
+<div class="line"><span class="lineno">  172</span>  <span class="keywordflow">for</span> (bit = 7; bit &lt; 255; bit--)</div>
+<div class="line"><span class="lineno">  173</span>  {</div>
+<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">if</span> (bit_is_set(<span class="keywordtype">byte</span>, bit))</div>
 <div class="line"><span class="lineno">  175</span>    {</div>
-<div class="line"><span class="lineno">  176</span>      transmit_byte(<span class="charliteral">&#39;0&#39;</span>);</div>
+<div class="line"><span class="lineno">  176</span>      transmit_byte(<span class="charliteral">&#39;1&#39;</span>);</div>
 <div class="line"><span class="lineno">  177</span>    }</div>
-<div class="line"><span class="lineno">  178</span>  }</div>
-<div class="line"><span class="lineno">  179</span>}</div>
+<div class="line"><span class="lineno">  178</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  179</span>    {</div>
+<div class="line"><span class="lineno">  180</span>      transmit_byte(<span class="charliteral">&#39;0&#39;</span>);</div>
+<div class="line"><span class="lineno">  181</span>    }</div>
+<div class="line"><span class="lineno">  182</span>  }</div>
+<div class="line"><span class="lineno">  183</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -529,17 +538,17 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00186">186</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  187</span>{</div>
-<div class="line"><span class="lineno">  188</span>  <span class="keywordflow">if</span> (nibble &lt; 10)</div>
-<div class="line"><span class="lineno">  189</span>  {</div>
-<div class="line"><span class="lineno">  190</span>    <span class="keywordflow">return</span> (<span class="charliteral">&#39;0&#39;</span> + nibble);</div>
-<div class="line"><span class="lineno">  191</span>  }</div>
-<div class="line"><span class="lineno">  192</span>  <span class="keywordflow">else</span></div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00190">190</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  191</span>{</div>
+<div class="line"><span class="lineno">  192</span>  <span class="keywordflow">if</span> (nibble &lt; 10)</div>
 <div class="line"><span class="lineno">  193</span>  {</div>
-<div class="line"><span class="lineno">  194</span>    <span class="keywordflow">return</span> (<span class="charliteral">&#39;A&#39;</span> + nibble - 10);</div>
+<div class="line"><span class="lineno">  194</span>    <span class="keywordflow">return</span> (<span class="charliteral">&#39;0&#39;</span> + nibble);</div>
 <div class="line"><span class="lineno">  195</span>  }</div>
-<div class="line"><span class="lineno">  196</span>}</div>
+<div class="line"><span class="lineno">  196</span>  <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  197</span>  {</div>
+<div class="line"><span class="lineno">  198</span>    <span class="keywordflow">return</span> (<span class="charliteral">&#39;A&#39;</span> + nibble - 10);</div>
+<div class="line"><span class="lineno">  199</span>  }</div>
+<div class="line"><span class="lineno">  200</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -567,15 +576,15 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00203">203</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  204</span>{</div>
-<div class="line"><span class="lineno">  205</span>  uint8_t nibble;</div>
-<div class="line"><span class="lineno">  206</span>  nibble = (<span class="keywordtype">byte</span> &amp; 0b11110000) &gt;&gt; 4;</div>
-<div class="line"><span class="lineno">  207</span>  transmit_byte(<a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#ab545e69352c76f74ae95a10a61fea120">usart_nibble_to_hex_character</a>(nibble));</div>
-<div class="line"><span class="lineno">  208</span>  nibble = <span class="keywordtype">byte</span> &amp; 0b00001111;</div>
-<div class="line"><span class="lineno">  209</span>  transmit_byte(<a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#ab545e69352c76f74ae95a10a61fea120">usart_nibble_to_hex_character</a>(nibble));</div>
-<div class="line"><span class="lineno">  210</span>}</div>
-<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_ab545e69352c76f74ae95a10a61fea120"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#ab545e69352c76f74ae95a10a61fea120">usart_nibble_to_hex_character</a></div><div class="ttdeci">char usart_nibble_to_hex_character(uint8_t nibble)</div><div class="ttdoc">Convert a nibble to a hex character.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00186">usart.c:186</a></div></div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00207">207</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  208</span>{</div>
+<div class="line"><span class="lineno">  209</span>  uint8_t nibble;</div>
+<div class="line"><span class="lineno">  210</span>  nibble = (<span class="keywordtype">byte</span> &amp; 0b11110000) &gt;&gt; 4;</div>
+<div class="line"><span class="lineno">  211</span>  transmit_byte(<a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#ab545e69352c76f74ae95a10a61fea120">usart_nibble_to_hex_character</a>(nibble));</div>
+<div class="line"><span class="lineno">  212</span>  nibble = <span class="keywordtype">byte</span> &amp; 0b00001111;</div>
+<div class="line"><span class="lineno">  213</span>  transmit_byte(<a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#ab545e69352c76f74ae95a10a61fea120">usart_nibble_to_hex_character</a>(nibble));</div>
+<div class="line"><span class="lineno">  214</span>}</div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_ab545e69352c76f74ae95a10a61fea120"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#ab545e69352c76f74ae95a10a61fea120">usart_nibble_to_hex_character</a></div><div class="ttdeci">char usart_nibble_to_hex_character(uint8_t nibble)</div><div class="ttdoc">Convert a nibble to a hex character.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00190">usart.c:190</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -598,25 +607,25 @@ Functions</h2></td></tr>
 <p>Takes in up to three ascii digits, converts them to a byte when press enter. </p>
 <dl class="section return"><dt>Returns</dt><dd>an unsigned 8 bit integer is returned - this is the data received. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00217">217</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  218</span>{</div>
-<div class="line"><span class="lineno">  219</span>  <span class="keywordtype">char</span> hundreds = <span class="charliteral">&#39;0&#39;</span>;</div>
-<div class="line"><span class="lineno">  220</span>  <span class="keywordtype">char</span> tens = <span class="charliteral">&#39;0&#39;</span>;</div>
-<div class="line"><span class="lineno">  221</span>  <span class="keywordtype">char</span> ones = <span class="charliteral">&#39;0&#39;</span>;</div>
-<div class="line"><span class="lineno">  222</span>  <span class="keywordtype">char</span> thisChar = <span class="charliteral">&#39;0&#39;</span>;</div>
-<div class="line"><span class="lineno">  223</span>  <span class="keywordflow">do</span></div>
-<div class="line"><span class="lineno">  224</span>  {</div>
-<div class="line"><span class="lineno">  225</span>    hundreds = tens;</div>
-<div class="line"><span class="lineno">  226</span>    tens = ones;</div>
-<div class="line"><span class="lineno">  227</span>    ones = thisChar;</div>
-<div class="line"><span class="lineno">  228</span>    thisChar = receive_byte(); <span class="comment">// get a new character</span></div>
-<div class="line"><span class="lineno">  229</span>    transmit_byte(thisChar);   <span class="comment">// echo</span></div>
-<div class="line"><span class="lineno">  230</span>  }</div>
-<div class="line"><span class="lineno">  231</span>  <span class="keywordflow">while</span> (thisChar != <span class="charliteral">&#39;\r&#39;</span>); <span class="comment">// until type return</span></div>
-<div class="line"><span class="lineno">  232</span> </div>
-<div class="line"><span class="lineno">  233</span>  <span class="comment">// TODO: Bracketise this further</span></div>
-<div class="line"><span class="lineno">  234</span>  <span class="keywordflow">return</span> (100 * (hundreds - <span class="charliteral">&#39;0&#39;</span>) + 10 * (tens - <span class="charliteral">&#39;0&#39;</span>) + ones - <span class="charliteral">&#39;0&#39;</span>);</div>
-<div class="line"><span class="lineno">  235</span>}</div>
+<p class="definition">Definition at line <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00221">221</a> of file <a class="el" href="avr-peripheral-features_2usart_2example_2usart_8c_source.html">usart.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  222</span>{</div>
+<div class="line"><span class="lineno">  223</span>  <span class="keywordtype">char</span> hundreds = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><span class="lineno">  224</span>  <span class="keywordtype">char</span> tens = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><span class="lineno">  225</span>  <span class="keywordtype">char</span> ones = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><span class="lineno">  226</span>  <span class="keywordtype">char</span> thisChar = <span class="charliteral">&#39;0&#39;</span>;</div>
+<div class="line"><span class="lineno">  227</span>  <span class="keywordflow">do</span></div>
+<div class="line"><span class="lineno">  228</span>  {</div>
+<div class="line"><span class="lineno">  229</span>    hundreds = tens;</div>
+<div class="line"><span class="lineno">  230</span>    tens = ones;</div>
+<div class="line"><span class="lineno">  231</span>    ones = thisChar;</div>
+<div class="line"><span class="lineno">  232</span>    thisChar = receive_byte(); <span class="comment">// get a new character</span></div>
+<div class="line"><span class="lineno">  233</span>    transmit_byte(thisChar);   <span class="comment">// echo</span></div>
+<div class="line"><span class="lineno">  234</span>  }</div>
+<div class="line"><span class="lineno">  235</span>  <span class="keywordflow">while</span> (thisChar != <span class="charliteral">&#39;\r&#39;</span>); <span class="comment">// until type return</span></div>
+<div class="line"><span class="lineno">  236</span> </div>
+<div class="line"><span class="lineno">  237</span>  <span class="comment">// TODO: Bracketise this further</span></div>
+<div class="line"><span class="lineno">  238</span>  <span class="keywordflow">return</span> (100 * (hundreds - <span class="charliteral">&#39;0&#39;</span>) + 10 * (tens - <span class="charliteral">&#39;0&#39;</span>) + ones - <span class="charliteral">&#39;0&#39;</span>);</div>
+<div class="line"><span class="lineno">  239</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

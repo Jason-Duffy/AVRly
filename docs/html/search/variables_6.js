@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['receive_5fbuffer_0',['receive_buffer',['../modules_2avr-peripheral-features_2usart_2example_2main_8c.html#ad4b78e5d15a442ca0441cd810177581d',1,'main.c']]]
+  ['log_5fsystem_5flog_0',['log_system_log',['../debug-tools_2log-system_2example_2log__system_8c.html#ac20c3c4368fd3982a6957d8049896b52',1,'log_system.c']]]
 ];
