@@ -126,6 +126,23 @@ Introduction</h2>
 <p >This tool implements the USART driver, and is a good example of the <a href="https://en.wikipedia.org/wiki/Facade_pattern" target="_blank">facade pattern</a> in practice. Note how neither the user nor the log_system module need to know anything about how the message is sent over USART in order to send the messages. If you <b>would</b> like to know how the USART driver works, see the module <a href="https://jason-duffy.github.io/AVRly/html/group__usart.html" target="_blank">here</a>.</p>
 <h2><a class="anchor" id="autotoc_md90"></a>
 Interface</h2>
+<p >In this example, we will be using a [USB to serial converter][USB_SERIAL_CONVERTER_URL] to communicate between a PC and the AVR MCU. The connections should be made as shown in the schematic below. Note that the RX and TX (Receive and Transmit) pins are crossed over - RX on the host MCU is connected to TX on the adapter and vice versa.</p>
+<div class="image">
+<img src="USB_serial_adapter_schem.png" alt=""/>
+<div class="caption">
+USB to Serial Adapter Schematic</div></div>
+   <p >If you are using the AVRly dev kit, then the side of the adapter PCB the components are mounted on should be facing towards the MCU.</p>
+<p >Connect the adapter to the PC using a USB cable, open up CoolTerm, go to Options &gt; Serial Port Options &gt; Port and select the one beginning with "usbserial", then set the baud rate to 9600.</p>
+<div class="image">
+<img src="CoolTerm_Options_1.png" alt=""/>
+<div class="caption">
+Initial CoolTerm Setup Options</div></div>
+   <p >Next, go to "Receive" on the left side of the options menu. Check "Add timestamps to received data" and select "Time + Milliseconds" as the type, then check "Wait for line ending", then press OK.</p>
+<div class="image">
+<img src="CoolTerm_receive_settings.png" alt=""/>
+<div class="caption">
+Secondary CoolTerm Setup Options</div></div>
+   <p >Press the Connect button, and the new connection status should be displayed on the bottom left of the screen. If it's connected, you're ready to start communication! If not, check your connections and repeat the steps above.</p>
 <h2><a class="anchor" id="autotoc_md91"></a>
 Example Application</h2>
 <p >In each file you want to be able to send log messages from, you'll need to #include log_system.h, and instantiate a config object, as shown below.</p>
@@ -143,7 +160,7 @@ Example Application</h2>
 <div class="ttc" id="amodules_2debug-tools_2log-system_2example_2main_8c_html_aa128c6f24c0415caf71f2624c49be464"><div class="ttname"><a href="modules_2debug-tools_2log-system_2example_2main_8c.html#aa128c6f24c0415caf71f2624c49be464">main_log</a></div><div class="ttdeci">log_system_config_t main_log</div><div class="ttdoc">Instantiation of log_system config object.</div><div class="ttdef"><b>Definition:</b> <a href="modules_2debug-tools_2log-system_2example_2main_8c_source.html#l00042">main.c:42</a></div></div>
 <div class="ttc" id="astructlog__system__config__t_html"><div class="ttname"><a href="structlog__system__config__t.html">log_system_config_t</a></div><div class="ttdoc">Config object, to be instantiated in each file the log system is to be used, then pass it's address i...</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8h_source.html#l00058">log_system.h:59</a></div></div>
 </div><!-- fragment --><p >p_system_tag is nametag for the file or module, stored as a string. Give it a unique name, and this will be printed to the terminal program so you know where the message came from.</p>
-<p >file_log_level is used to set the maximum desired logging output level for that particular file. Acceptable values listed from lowest level to highest are shown in the enumeration log_type_t.</p>
+<p >file_log_level is used to set the maximum desired logging output level for that particular file. Acceptable values listed from lowest level to highest are shown in the enumeration log_type_t included with log_system.h</p>
 <div class="fragment"><div class="line"><span class="comment">/**</span></div>
 <div class="line"><span class="comment"> * Enumerated constants for the type of message to be logged.</span></div>
 <div class="line"><span class="comment"> */</span></div>
@@ -179,7 +196,7 @@ Example Application</h2>
 <div class="caption">
 Log System Example CoolTerm Output</div></div>
    <p >Insert logging function calls like this throughout your projects, and try to categorise them by output level. That way you can decide the level of detail required in your logs using the file_log_level variable for each file, and/or the <a class="el" href="debug-tools_2log-system_2example_2log__system_8c.html#a5e4303f4a037966d08b43a50444127ec" title="Sets maximum output level of logging required, has global effect.">log_set_global_max_output_level()</a> function. Once your application is ready to go, it can be useful to leave the log commands in the code, just use <a class="el" href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#ac584bce9d414acb531ee2650ab68bdfe" title="Turns logging system off globally.">log_global_off()</a> to turn off logging. That way if you (or another developer) find a bug later on, you can easily resume logging to find it.</p>
-<p >Bear in mind however, that these log messages take quite some time to send, and your devices processor will hang while waiting for each USART frame to be sent, so don't use it in time critical sections of code, and absolutely don't use them inside an ISR. Instead, set a flag in the time sensitive section of code and then log that the flag has been set once the critical section has been left. You may even encounter bugs which disappear when logging it turned on, and reappear when it's turned off! That would potentially indicate a timing issue in your application.</p>
+<p >Bear in mind however, that these log messages take quite some time to send, and your devices processor will hang while waiting for each USART frame to be sent, so don't use it in time critical sections of code, and absolutely don't use them inside an ISR. Instead, set a flag in the time sensitive section of code and then log that the flag has been set once the critical section has been left. You may even encounter bugs which disappear when logging is turned on, and reappear when it's turned off! That would potentially indicate a timing issue in your application.</p>
 <p >For detailed debugging of timing issues in embedded software, an oscilloscope is invaluable. Set one or more GPIO pins to toggle on/off when certain sections of code (such as ISR's) are entered and exited, then hook those GPIO's up to your scope to capture a timing diagram. You can also determine from this exactly how long sections of code take to execute! </p>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
