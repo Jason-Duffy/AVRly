@@ -118,7 +118,26 @@ Files</h2></td></tr>
 <p>Repository contents: </p>
 
 
-<h3><a id="md_content_modules_displays_hd44780_lcd_hd44780_lcd" name="md_content_modules_displays_hd44780_lcd_hd44780_lcd"></a>hd44780_lcd</h3><div class="textblock">HD44780_LCD Markdown File </div></div><!-- contents -->
+<h3><a id="md_content_modules_displays_hd44780_lcd_README" name="md_content_modules_displays_hd44780_lcd_README"></a>README</h3><div class="textblock"><h2><a class="anchor" id="autotoc_md92"></a>
+Introduction</h2>
+<p >The Hitachi HD44780 LCD (Liquid Crystal Display) controller is an extremely popular IC (Integrated Circuit) in use since the 1980's. It can drive upto two lines of 8 characters each, and can be addressed using either an 8 bit of 4 bit parallel data bus, plus some control pins. This driver and example application was written from the datasheet, which can be found <a href="https://pdf1.alldatasheet.com/datasheet-pdf/view/63673/HITACHI/HD44780.html" target="_blank">here</a>.</p>
+<p >This example is for a 16x2 LCD module, with the HD44780 LCD controller IC on board.</p>
+<h2><a class="anchor" id="autotoc_md93"></a>
+Interface</h2>
+<p >For this example, we will use the controller in 4 bit mode, it uses fewer precious GPIO's, but takes twice as long for each character or instruction to be written to the display. The connections required are shown below.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Pin   </th><th class="markdownTableHeadNone">Function    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">RS   </td><td class="markdownTableBodyNone">Register Select    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">RW   </td><td class="markdownTableBodyNone">Read/Write Select    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">E   </td><td class="markdownTableBodyNone">Enable (Latch)   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md94"></a>
+Example Application</h2>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
