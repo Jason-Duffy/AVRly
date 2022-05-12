@@ -91,7 +91,7 @@ int main()
 	init_lcd(&lcd_config);
 ```
 
-Now the configuration and initialisation has been taken care of, we are free to use the rest of the functions in the API. If we want to change our configuration settings at any point, we can simply change the member variables of the config object, then call lcd_reconfigure().
+Now the configuration and initialisation has been taken care of, we are free to use the rest of the functions in the API. If we want to change our configuration settings at any point, we can simply change the member variables of the config object, then call lcd_reconfigure(). The full, documented list of functions available in the API can be found in the [file reference][hd44780.h_file_ref_URL].
 
 ```C
 lcd_config.blink_enable = true;
@@ -104,3 +104,5 @@ If you take a look at the example main routine, you'll notice the code to do thi
 
 
 [HD44780_Datasheet_URL]: https://pdf1.alldatasheet.com/datasheet-pdf/view/63673/HITACHI/HD44780.html
+
+[hd44780.h_file_ref_URL]: https://jason-duffy.github.io/AVRly/html/displays_2hd44780__lcd_2example_2hd44780__lcd_8h.html
