@@ -27,13 +27,17 @@ For this example, we will use the controller in 4 bit mode, it uses fewer precio
 | D5       | Data Pin 5          |
 | D6       | Data Pin 6          |
 | D7       | Data Pin 7          |
-| A        | Backlight+ (Annode) |
-| K        | Backlight- (Cathode)|
+| A/LED+   | Backlight+ (Annode) |
+| K/LED-   | Backlight- (Cathode)|
 
 
-The connections are to be made as shown in the schematic below. 
+The connections are to be made as shown in the schematic below. Note the variable voltage control on pins VO and LED+; if you don't have trim pots to hand, you can just make 2 simple voltage dividers for the contrast and backlight adjustment using fixed value resistors. 
 
 ![16x2 LCD Hookup Schematic](./images/16x2_hookup_schem.png)
+
+This can easily be built on a breadboard as shown below with the AVRly Dev Kit. 
+
+![16x2 LCD Breadboard Example](./images/16x2_breadboard_example.jpg)
 
 
 ## Example Application
