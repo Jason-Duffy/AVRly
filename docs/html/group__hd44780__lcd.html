@@ -173,7 +173,26 @@ Interface</h2>
    <h2><a class="anchor" id="autotoc_md94"></a>
 How it Works</h2>
 <p >The HD44780 is essentially just another microcontroller. When it's configured in 8 bit mode, an ASCII character is sent to our host MCU's GPIO port, such that all 8 bits of the ASCII character are output at the same time, or in parallel. The character "A" for instance is 01000001 in binary, or 65 in decimal, so our port will now look like this:</p>
-<p >PD7 = 0 PD6 = 1 PD5 = 0 PD4 = 0 PD3 = 0 PD2 = 0 PD1 = 0 PD0 = 1</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Pin   </th><th class="markdownTableHeadNone">Voltage Level   </th><th class="markdownTableHeadNone">Logic Level    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">PD7   </td><td class="markdownTableBodyNone">0V   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">PD6   </td><td class="markdownTableBodyNone">5V   </td><td class="markdownTableBodyNone">1    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">PD5   </td><td class="markdownTableBodyNone">0V   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">PD4   </td><td class="markdownTableBodyNone">0V   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">PD3   </td><td class="markdownTableBodyNone">0V   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">PD2   </td><td class="markdownTableBodyNone">0V   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">PD1   </td><td class="markdownTableBodyNone">0V   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">PD0   </td><td class="markdownTableBodyNone">5V   </td><td class="markdownTableBodyNone">1   </td></tr>
+</table>
 <p >The level of the RS (Register Select) pin determines whether we are writing an instruction (such as shift cursor to the left) or data (such as an ASCII character). So to send a character, we must first set RS high, then set up the data on the port, then we can pulse the E (enable) pin which acts as a latch, confirming the data on the port as valid. The enable pin is held low for a short time, then pulled high again, and the next character or instruction can be sent. There is however, a delay while the device computes and outputs the character or instruction, so a short delay is used to allow for this. There is the option to poll a busy flag to see when the instruction has been completed, but I found that it introduced fragility to the system so opted to leave it out.</p>
 <p >In 4 bit mode, we have to send out the data 1 nibble (4 bits) at a time, starting with the most significant bits (MSB), and we also habe to pulse the enable pin after each nibble. This means it takes around twice as long for each character or instruction to be sent, but we are able to free up 4 GPIO pins which might come in handy later.</p>
 <h2><a class="anchor" id="autotoc_md95"></a>
