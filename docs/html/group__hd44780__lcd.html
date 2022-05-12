@@ -114,8 +114,7 @@ Files</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p >Driver for the HD44780 based 16x2 liquid crystal display. </p>
-<dl class="section see"><dt>See also</dt><dd>The files can be downloaded from the repo at: <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd/example">https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd/example</a></dd></dl>
-<p>Repository contents: </p>
+<dl class="section see"><dt>See also</dt><dd>The files can be downloaded from the repo at: <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd/example">https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd/example</a> </dd></dl>
 
 
 <h3><a id="md_content_modules_displays_hd44780_lcd_README" name="md_content_modules_displays_hd44780_lcd_README"></a>README</h3><div class="textblock"><h2><a class="anchor" id="autotoc_md92"></a>
@@ -124,7 +123,7 @@ Introduction</h2>
 <p >This example is for a 16x2 LCD module, with the HD44780 LCD controller IC on board.</p>
 <h2><a class="anchor" id="autotoc_md93"></a>
 Interface</h2>
-<p >For this example, we will use the controller in 4 bit mode, it uses fewer precious GPIO's, but takes twice as long for each character or instruction to be written to the display. The connections required are shown below.</p>
+<p >For this example, we will use the controller in 4 bit mode, it uses fewer precious GPIO's, but takes twice as long for each character or instruction to be written to the display. The pins and their uses are shown below, note that pins D0 - D3 can be left unconnected in 4 bit mode. As we are not using the display in read mode, we can just tie the RW pin to ground, freeing up a GPIO pin on the host MCU.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Pin   </th><th class="markdownTableHeadNone">Function    </th></tr>
@@ -133,13 +132,21 @@ Interface</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">VDD   </td><td class="markdownTableBodyNone">+5V Connection    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">VE   </td><td class="markdownTableBodyNone">Contrast Adjust    </td></tr>
+<td class="markdownTableBodyNone">VO   </td><td class="markdownTableBodyNone">Contrast Adjust    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">RS   </td><td class="markdownTableBodyNone">Register Select    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">RW   </td><td class="markdownTableBodyNone">Read/Write Select    </td></tr>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">E   </td><td class="markdownTableBodyNone">Enable (Latch)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">D0   </td><td class="markdownTableBodyNone">Data Pin 0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">D1   </td><td class="markdownTableBodyNone">Data Pin 1    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">D2   </td><td class="markdownTableBodyNone">Data Pin 2    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">D3   </td><td class="markdownTableBodyNone">Data Pin 3    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">D4   </td><td class="markdownTableBodyNone">Data Pin 4    </td></tr>
 <tr class="markdownTableRowEven">
@@ -153,7 +160,12 @@ Interface</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">K   </td><td class="markdownTableBodyNone">Backlight- (Cathode)   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md94"></a>
+<p >The connections are to be made as shown in the schematic below.</p>
+<div class="image">
+<img src="16x2_hookup_schem.png" alt=""/>
+<div class="caption">
+16x2 LCD Hookup Schematic</div></div>
+   <h2><a class="anchor" id="autotoc_md94"></a>
 Example Application</h2>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
