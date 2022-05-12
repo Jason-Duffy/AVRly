@@ -11,11 +11,20 @@ This example is for a 16x2 LCD module, with the HD44780 LCD controller IC on boa
 
 For this example, we will use the controller in 4 bit mode, it uses fewer precious GPIO's, but takes twice as long for each character or instruction to be written to the display. The connections required are shown below. 
 
-| Pin      | Function          |
-| -------- | -------------     |
-| RS       | Register Select   |
-| RW       | Read/Write Select |
-| E        | Enable (Latch)    |
+| Pin      | Function            |
+| -------- | -------------       |
+| VSS	   | Ground Connection   |
+| VDD      | +5V Connection      |
+| VE       | Contrast Adjust     |
+| RS       | Register Select     |
+| RW       | Read/Write Select   |
+| E        | Enable (Latch)      |
+| D4       | Data Pin 4          |
+| D5       | Data Pin 5          |
+| D6       | Data Pin 6          |
+| D7       | Data Pin 7          |
+| A        | Backlight+ (Annode) |
+| K        | Backlight- (Cathode)|
 
 
 
