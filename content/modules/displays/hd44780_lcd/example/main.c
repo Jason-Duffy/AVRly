@@ -44,11 +44,11 @@ lcd_config_t lcd_config =
 {
 	.eight_bit_mode = false,  	// true = 8 bit mode, false = 4 bit mode
 	.two_line_display = true,   // true = 2 lines, false = 1 line
-  .five_by_ten_font = false,  // true = 5x10 dots, false = 5x8 dots
-  .increment_counter = true,  // true = increment, false = decrement
-  .display_shift = false,  		// true = display shift, false = cursor shift.
-  .cursor_enable = false,  		// true = enabled, false = disabled
-  .blink_enable = false,   		// true = enabled, false = disabled
+  	.five_by_ten_font = false,  // true = 5x10 dots, false = 5x8 dots
+  	.increment_counter = true,  // true = increment, false = decrement
+  	.display_shift = false,  	// true = display shift, false = cursor shift
+  	.cursor_enable = false,  	// true = enabled, false = disabled
+  	.blink_enable = false,   	// true = enabled, false = disabled
 };
 
 uint8_t test_number = 34;
