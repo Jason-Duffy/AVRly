@@ -44,14 +44,18 @@ This can easily be built on a breadboard as shown below with the AVRly Dev Kit.
 
 The HD44780 is essentially just another microcontroller. When it's configured in 8 bit mode, an ASCII character is sent to our host MCU's GPIO port, such that all 8 bits of the ASCII character are output at the same time, or in parallel. The character "A" for instance is 01000001 in binary, or 65 in decimal, so our port will now look like this:
 
-PD7 = 0
-PD6 = 1
-PD5 = 0
-PD4 = 0
-PD3 = 0
-PD2 = 0
-PD1 = 0
-PD0 = 1
+
+| Pin  | Voltage Level | Logic Level |
+| ---- | ------------- | ----------- |
+| PD7  | 0V            | 0           |
+| PD6  | 5V            | 1           |
+| PD5  | 0V            | 0           |
+| PD4  | 0V            | 0           |
+| PD3  | 0V            | 0           |
+| PD2  | 0V            | 0           |
+| PD1  | 0V            | 0           |
+| PD0  | 5V            | 1           |
+
 
 The level of the RS (Register Select) pin determines whether we are writing an instruction (such as shift cursor to the left) or data (such as an ASCII character). So to send a character, we must first set RS high, then set up the data on the port, then we can pulse the E (enable) pin which acts as a latch, confirming the data on the port as valid. The enable pin is held low for a short time, then pulled high again, and the next character or instruction can be sent. There is however, a delay while the device computes and outputs the character or instruction, so a short delay is used to allow for this. There is the option to poll a busy flag to see when the instruction has been completed, but I found that it introduced fragility to the system so opted to leave it out. 
 
