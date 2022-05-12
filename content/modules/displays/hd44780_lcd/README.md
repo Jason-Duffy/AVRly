@@ -42,6 +42,47 @@ This can easily be built on a breadboard as shown below with the AVRly Dev Kit.
 
 ## Example Application
 
+In main.c (or whichever file you'd like to access this API) #include the header file for the HD44780 driver.
+
+```C
+#include "hd44780_lcd.h"
+```
+
+Next, we instantiate the config object and assign the desired configuration options. Note that if two line display is selected, then the font size MUST be 5x8. 
+
+```C
+// Lcd configuration object
+lcd_config_t lcd_config =
+{
+	.eight_bit_mode = false,  	// true = 8 bit mode, false = 4 bit mode
+	.two_line_display = true,   // true = 2 lines, false = 1 line
+  	.five_by_ten_font = false,  // true = 5x10 dots, false = 5x8 dots
+  	.increment_counter = true,  // true = increment, false = decrement
+  	.display_shift = false,  	// true = display shift, false = cursor shift
+  	.cursor_enable = false,  	// true = enabled, false = disabled
+  	.blink_enable = false,   	// true = enabled, false = disabled
+};
+```
+
+After entering the main routine, the address of the lcd_config object is passed as a parameter into the init_lcd() function, and a copy is stored at file scope level in the driver. 
+
+```C
+int main()
+{
+	// Setup
+	init_lcd(&lcd_config);
+```
+
+Now the configuration and initialisation has been taken care of, we are free to use the rest of the functions in the API. If we want to change our configuration settings at any point, we can simply change the member variables of the config object, then call lcd_reconfigure().
+
+```C
+lcd_config.blink_enable = true;
+lcd_reconfigure();
+lcd_set_cursor(0,1);
+lcd_print_string("with blink:     ");
+```
+
+If you take a look at the example main routine, you'll notice the code to do this is quite long and cluttered. Usually we would seek to avoid such low-level detail in main.c, so if you use this driver in your project it's advisable to add another abstraction layer, such as "display.h" and "display.c". The config and initialisation can be moved into an init_display() function, and the details of printing to the screen can be wrapped in functions such as display_draw_welcome_screen() etc. This makes for a much tidier and easier to read main.c file, and provides better architectural boundaries in your projects. 
 
 
 [HD44780_Datasheet_URL]: https://pdf1.alldatasheet.com/datasheet-pdf/view/63673/HITACHI/HD44780.html
