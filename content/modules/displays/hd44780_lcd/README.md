@@ -40,6 +40,24 @@ This can easily be built on a breadboard as shown below with the AVRly Dev Kit.
 ![16x2 LCD Breadboard Example](./images/16x2_breadboard_example.jpg)
 
 
+## How it Works
+
+The HD44780 is essentially just another microcontroller. When it's configured in 8 bit mode, an ASCII character is sent to our host MCU's GPIO port, such that all 8 bits of the ASCII character are output at the same time, or in parallel. The character "A" for instance is 01000001 in binary, or 65 in decimal, so our port will now look like this:
+
+PD7 = 0
+PD6 = 1
+PD5 = 0
+PD4 = 0
+PD3 = 0
+PD2 = 0
+PD1 = 0
+PD0 = 1
+
+The level of the RS (Register Select) pin determines whether we are writing an instruction (such as shift cursor to the left) or data (such as an ASCII character). So to send a character, we must first set RS high, then set up the data on the port, then we can pulse the E (enable) pin which acts as a latch, confirming the data on the port as valid. The enable pin is held low for a short time, then pulled high again, and the next character or instruction can be sent. There is however, a delay while the device computes and outputs the character or instruction, so a short delay is used to allow for this. There is the option to poll a busy flag to see when the instruction has been completed, but I found that it introduced fragility to the system so opted to leave it out. 
+
+In 4 bit mode, we have to send out the data 1 nibble (4 bits) at a time, starting with the most significant bits (MSB), and we also habe to pulse the enable pin after each nibble. This means it takes around twice as long for each character or instruction to be sent, but we are able to free up 4 GPIO pins which might come in handy later.
+
+
 ## Example Application
 
 In main.c (or whichever file you'd like to access this API) #include the header file for the HD44780 driver.
