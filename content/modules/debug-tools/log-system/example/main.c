@@ -78,12 +78,12 @@ int main()
 
         // As is this one. 
         log_message_with_dec_val(&main_log, DEBUG,
-                    "The decimal format value of example_binary_variable is: ",
+                    "The decimal format value of example_variable is: ",
                     example_variable);
 
         // And this one. 
         log_message_with_hex_val(&main_log, DEBUG,
-                    "The decimal format value of example_binary_variable is: ",
+                    "The hexadecimal format value of example_variable is: ",
                     example_variable);
 
         // Edit variable value. 

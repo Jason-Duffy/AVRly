@@ -114,11 +114,123 @@ Files</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p >Driver for the HD44780 based 16x2 liquid crystal display. </p>
-<dl class="section see"><dt>See also</dt><dd>The files can be downloaded from the repo at: <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd/example">https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd/example</a></dd></dl>
-<p>Repository contents: </p>
+<dl class="section see"><dt>See also</dt><dd>The files can be downloaded from the repo at: <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd/example">https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd/example</a> </dd></dl>
 
 
-<h3><a id="md_content_modules_displays_hd44780_lcd_hd44780_lcd" name="md_content_modules_displays_hd44780_lcd_hd44780_lcd"></a>hd44780_lcd</h3><div class="textblock">HD44780_LCD Markdown File </div></div><!-- contents -->
+<h3><a id="md_content_modules_displays_hd44780_lcd_README" name="md_content_modules_displays_hd44780_lcd_README"></a>README</h3><div class="textblock"><h2><a class="anchor" id="autotoc_md92"></a>
+Introduction</h2>
+<p >The Hitachi HD44780 LCD (Liquid Crystal Display) controller is an extremely popular IC (Integrated Circuit) in use since the 1980's. It can drive upto two lines of 8 characters each, and can be addressed using either an 8 bit of 4 bit parallel data bus, plus some control pins. This driver and example application was written from the datasheet, which can be found <a href="https://pdf1.alldatasheet.com/datasheet-pdf/view/63673/HITACHI/HD44780.html" target="_blank">here</a>.</p>
+<p >This example is for a 16x2 LCD module, with the HD44780 LCD controller IC on board.</p>
+<h2><a class="anchor" id="autotoc_md93"></a>
+Interface</h2>
+<p >For this example, we will use the controller in 4 bit mode, it uses fewer precious GPIO's, but takes twice as long for each character or instruction to be written to the display. The pins and their uses are shown below, note that pins D0 - D3 can be left unconnected in 4 bit mode. As we are not using the display in read mode, we can just tie the RW pin to ground, freeing up a GPIO pin on the host MCU.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Pin   </th><th class="markdownTableHeadNone">Function    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">VSS   </td><td class="markdownTableBodyNone">Ground Connection    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">VDD   </td><td class="markdownTableBodyNone">+5V Connection    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">VO   </td><td class="markdownTableBodyNone">Contrast Adjust    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">RS   </td><td class="markdownTableBodyNone">Register Select    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">RW   </td><td class="markdownTableBodyNone">Read/Write Select    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">E   </td><td class="markdownTableBodyNone">Enable (Latch)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">D0   </td><td class="markdownTableBodyNone">Data Pin 0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">D1   </td><td class="markdownTableBodyNone">Data Pin 1    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">D2   </td><td class="markdownTableBodyNone">Data Pin 2    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">D3   </td><td class="markdownTableBodyNone">Data Pin 3    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">D4   </td><td class="markdownTableBodyNone">Data Pin 4    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">D5   </td><td class="markdownTableBodyNone">Data Pin 5    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">D6   </td><td class="markdownTableBodyNone">Data Pin 6    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">D7   </td><td class="markdownTableBodyNone">Data Pin 7    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">A/LED+   </td><td class="markdownTableBodyNone">Backlight+ (Annode)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">K/LED-   </td><td class="markdownTableBodyNone">Backlight- (Cathode)   </td></tr>
+</table>
+<p >The connections are to be made as shown in the schematic below. Note the variable voltage control on pins VO and LED+; if you don't have trim pots to hand, you can just make 2 simple voltage dividers for the contrast and backlight adjustment using fixed value resistors.</p>
+<div class="image">
+<img src="16x2_hookup_schem.png" alt=""/>
+<div class="caption">
+16x2 LCD Hookup Schematic</div></div>
+   <p >This can easily be built on a breadboard as shown below with the AVRly Dev Kit.</p>
+<div class="image">
+<img src="16x2_breadboard_example.jpg" alt=""/>
+<div class="caption">
+16x2 LCD Breadboard Example</div></div>
+   <h2><a class="anchor" id="autotoc_md94"></a>
+How it Works</h2>
+<p >The HD44780 is essentially just another microcontroller. When it's configured in 8 bit mode, an ASCII character is sent to our host MCU's GPIO port, such that all 8 bits of the ASCII character are output at the same time, or in parallel. The character "A" for instance is 01000001 in binary, or 65 in decimal, so our port will now look like this:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Pin   </th><th class="markdownTableHeadNone">Voltage Level   </th><th class="markdownTableHeadNone">Logic Level    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">PD7   </td><td class="markdownTableBodyNone">0V   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">PD6   </td><td class="markdownTableBodyNone">5V   </td><td class="markdownTableBodyNone">1    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">PD5   </td><td class="markdownTableBodyNone">0V   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">PD4   </td><td class="markdownTableBodyNone">0V   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">PD3   </td><td class="markdownTableBodyNone">0V   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">PD2   </td><td class="markdownTableBodyNone">0V   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">PD1   </td><td class="markdownTableBodyNone">0V   </td><td class="markdownTableBodyNone">0    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">PD0   </td><td class="markdownTableBodyNone">5V   </td><td class="markdownTableBodyNone">1   </td></tr>
+</table>
+<p >The level of the RS (Register Select) pin determines whether we are writing an instruction (such as shift cursor to the left) or data (such as an ASCII character). So to send a character, we must first set RS high, then set up the data on the port, then we can pulse the E (enable) pin which acts as a latch, confirming the data on the port as valid. The enable pin is held low for a short time, then pulled high again, and the next character or instruction can be sent. There is however, a delay while the device computes and outputs the character or instruction, so a short delay is used to allow for this. There is the option to poll a busy flag to see when the instruction has been completed, but I found that it introduced fragility to the system so opted to leave it out.</p>
+<p >In 4 bit mode, we have to send out the data 1 nibble (4 bits) at a time, starting with the most significant bits (MSB), and we also habe to pulse the enable pin after each nibble. This means it takes around twice as long for each character or instruction to be sent, but we are able to free up 4 GPIO pins which might come in handy later.</p>
+<h2><a class="anchor" id="autotoc_md95"></a>
+Example Application</h2>
+<p >In main.c (or whichever file you'd like to access this API) #include the header file for the HD44780 driver.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;hd44780_lcd.h&quot;</span></div>
+</div><!-- fragment --><p >Next, we instantiate the config object and assign the desired configuration options. Note that if two line display is selected, then the font size MUST be 5x8.</p>
+<div class="fragment"><div class="line"><span class="comment">// Lcd configuration object</span></div>
+<div class="line"><a class="code hl_struct" href="structlcd__config__t.html">lcd_config_t</a> lcd_config =</div>
+<div class="line">{</div>
+<div class="line">    .<a class="code hl_variable" href="structlcd__config__t.html#a5e17470a97fd281d6b7157ccb619b323">eight_bit_mode</a> = <span class="keyword">false</span>,    <span class="comment">// true = 8 bit mode, false = 4 bit mode</span></div>
+<div class="line">    .two_line_display = <span class="keyword">true</span>,   <span class="comment">// true = 2 lines, false = 1 line</span></div>
+<div class="line">    .five_by_ten_font = <span class="keyword">false</span>,  <span class="comment">// true = 5x10 dots, false = 5x8 dots</span></div>
+<div class="line">    .increment_counter = <span class="keyword">true</span>,  <span class="comment">// true = increment, false = decrement</span></div>
+<div class="line">    .display_shift = <span class="keyword">false</span>,     <span class="comment">// true = display shift, false = cursor shift</span></div>
+<div class="line">    .cursor_enable = <span class="keyword">false</span>,     <span class="comment">// true = enabled, false = disabled</span></div>
+<div class="line">    .blink_enable = <span class="keyword">false</span>,      <span class="comment">// true = enabled, false = disabled</span></div>
+<div class="line">};</div>
+<div class="ttc" id="astructlcd__config__t_html"><div class="ttname"><a href="structlcd__config__t.html">lcd_config_t</a></div><div class="ttdoc">Configuration struct, to be instantiated and values assigned before passing it's address into and cal...</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8h_source.html#l00056">hd44780_lcd.h:57</a></div></div>
+<div class="ttc" id="astructlcd__config__t_html_a5e17470a97fd281d6b7157ccb619b323"><div class="ttname"><a href="structlcd__config__t.html#a5e17470a97fd281d6b7157ccb619b323">lcd_config_t::eight_bit_mode</a></div><div class="ttdeci">bool eight_bit_mode</div><div class="ttdoc">true = 8 bit mode, false = 4 bit mode.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8h_source.html#l00058">hd44780_lcd.h:58</a></div></div>
+</div><!-- fragment --><p >After entering the main routine, the address of the lcd_config object is passed as a parameter into the <a class="el" href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c.html#a7850604dcf83e9e426e095c50b22fb87" title="Initialisation routine (run once at startup).">init_lcd()</a> function, and a copy is stored at file scope level in the driver.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
+<div class="line">{</div>
+<div class="line">    <span class="comment">// Setup</span></div>
+<div class="line">    <a class="code hl_function" href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c.html#a7850604dcf83e9e426e095c50b22fb87">init_lcd</a>(&amp;lcd_config);</div>
+<div class="ttc" id="aavr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c_html_a7850604dcf83e9e426e095c50b22fb87"><div class="ttname"><a href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c.html#a7850604dcf83e9e426e095c50b22fb87">init_lcd</a></div><div class="ttdeci">void init_lcd(lcd_config_t *p_config)</div><div class="ttdoc">Initialisation routine (run once at startup).</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c_source.html#l00105">hd44780_lcd.c:105</a></div></div>
+<div class="ttc" id="agetting-started_2source_2main_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main routine to be executed on the MCU.</div><div class="ttdef"><b>Definition:</b> <a href="getting-started_2source_2main_8c_source.html#l00045">main.c:45</a></div></div>
+</div><!-- fragment --><p >Now the configuration and initialisation has been taken care of, we are free to use the rest of the functions in the API. If we want to change our configuration settings at any point, we can simply change the member variables of the config object, then call <a class="el" href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c.html#ac7dbbe2ed912e671a22a92d93b0eb511" title="Edits config settings on the display (lcd_config_t members must be changed first).">lcd_reconfigure()</a>. The full, documented list of functions available in the API can be found in the <a href="https://jason-duffy.github.io/AVRly/html/displays_2hd44780__lcd_2example_2hd44780__lcd_8h.html" target="_blank">file reference</a>.</p>
+<div class="fragment"><div class="line">lcd_config.<a class="code hl_variable" href="structlcd__config__t.html#a901f76a048a9fc7a55bc7f87002a2772">blink_enable</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a class="code hl_function" href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c.html#ac7dbbe2ed912e671a22a92d93b0eb511">lcd_reconfigure</a>();</div>
+<div class="line"><a class="code hl_function" href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c.html#af6cb9c42cacad130800205a0c1a19086">lcd_set_cursor</a>(0,1);</div>
+<div class="line"><a class="code hl_function" href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c.html#a0725f9cf954c41cdad7a759d7303702c">lcd_print_string</a>(<span class="stringliteral">&quot;with blink:     &quot;</span>);</div>
+<div class="ttc" id="aavr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c_html_a0725f9cf954c41cdad7a759d7303702c"><div class="ttname"><a href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c.html#a0725f9cf954c41cdad7a759d7303702c">lcd_print_string</a></div><div class="ttdeci">void lcd_print_string(const char *str)</div><div class="ttdoc">Prints a string of characters to the display.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c_source.html#l00205">hd44780_lcd.c:205</a></div></div>
+<div class="ttc" id="aavr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c_html_ac7dbbe2ed912e671a22a92d93b0eb511"><div class="ttname"><a href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c.html#ac7dbbe2ed912e671a22a92d93b0eb511">lcd_reconfigure</a></div><div class="ttdeci">void lcd_reconfigure(void)</div><div class="ttdoc">Edits config settings on the display (lcd_config_t members must be changed first).</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c_source.html#l00292">hd44780_lcd.c:292</a></div></div>
+<div class="ttc" id="aavr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c_html_af6cb9c42cacad130800205a0c1a19086"><div class="ttname"><a href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c.html#af6cb9c42cacad130800205a0c1a19086">lcd_set_cursor</a></div><div class="ttdeci">void lcd_set_cursor(uint8_t column, uint8_t row)</div><div class="ttdoc">Sets cursor location using x and y coordinates.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8c_source.html#l00247">hd44780_lcd.c:247</a></div></div>
+<div class="ttc" id="astructlcd__config__t_html_a901f76a048a9fc7a55bc7f87002a2772"><div class="ttname"><a href="structlcd__config__t.html#a901f76a048a9fc7a55bc7f87002a2772">lcd_config_t::blink_enable</a></div><div class="ttdeci">bool blink_enable</div><div class="ttdoc">true = enabled, false = disabled.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2timer-counter_2digital-clock_2example_2hd44780__lcd_8h_source.html#l00064">hd44780_lcd.h:64</a></div></div>
+</div><!-- fragment --><p >If you take a look at the example main routine, you'll notice the code to do this is quite long and cluttered. Usually we would seek to avoid such low-level detail in main.c, so if you use this driver in your project it's advisable to add another abstraction layer, such as "display.h" and "display.c". The config and initialisation can be moved into an init_display() function, and the details of printing to the screen can be wrapped in functions such as display_draw_welcome_screen() etc. This makes for a much tidier and easier to read main.c file, and provides better architectural boundaries in your projects. </p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

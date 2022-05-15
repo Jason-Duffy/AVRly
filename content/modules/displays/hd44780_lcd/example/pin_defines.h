@@ -51,20 +51,20 @@
 #define PIN_DEFINES_DOT_H
 
 // LCD ports, pins & data direction registers
-#define LCD_DATA_PORT          PORTB
-#define LCD_DATA_DDR           DDRB
-#define LCD_DATA_PIN           PINB
-#define LCD_CTRL_PORT          PORTA
-#define LCD_CTRL_DDR           DDRA
+#define LCD_DATA_PORT          PORTD
+#define LCD_DATA_DDR           DDRD
+#define LCD_DATA_PIN           PIND
+#define LCD_CTRL_PORT          PORTD
+#define LCD_CTRL_DDR           DDRD
 
 // LCD pinout
-#define LCD_RS                 PA0
-#define LCD_EN                 PA2
+#define LCD_RS                 PD0
+#define LCD_EN                 PD2
 
-#define LCD_D7                 PB7
-#define LCD_D6                 PB6
-#define LCD_D5                 PB5
-#define LCD_D4                 PB4
+#define LCD_D7                 PD7
+#define LCD_D6                 PD6
+#define LCD_D5                 PD5
+#define LCD_D4                 PD4
 
 
 #endif //PIN_DEFINES_DOT_H
