@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('i2c_8c.html',''); initResizable(); });
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">i2c.c File Reference<div class="ingroups"><a class="el" href="group__sensors.html">Sensors</a> &raquo; <a class="el" href="group__ccs811.html">CCS811 Gas Sensor</a></div></div></div>
+  <div class="headertitle"><div class="title">i2c.c File Reference<div class="ingroups"><a class="el" href="group__avr__peripherals.html">AVR Peripheral Features</a> &raquo; <a class="el" href="group__comms__protocols.html">Communication Protocols</a> &raquo; <a class="el" href="group__i2c.html">I2C</a> &#124; <a class="el" href="group__sensors.html">Sensors</a> &raquo; <a class="el" href="group__ccs811.html">CCS811 Gas Sensor</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -127,6 +127,13 @@ Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >I2C communications driver for AVR MCU's. </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright © 2022 by Jason Duffy.</dd></dl>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p >The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p >THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p><dl class="section author"><dt>Author</dt><dd>Jason Duffy </dd></dl>
+<dl class="section date"><dt>Date</dt><dd>5th March 2022 </dd></dl>
+<p >This file provides basic I2C protocol comms functionality. Please note: Blocking waits are used whilst the host waits for hardware to set bits in registers.</p>
+<p >The symbol F_CPU must be defined for the bus timing calculations - usually defined in Makefile.</p>
 <dl class="section copyright"><dt>Copyright</dt><dd>Copyright © 2022 by Jason Duffy.</dd></dl>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p >The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
@@ -258,6 +265,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Loads data, sends it out, waiting for completion. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td>is the byte of data to be sent. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00068">68</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   69</span>{</div>
@@ -285,6 +298,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Read in from slave, sending ACK when done (sets TWEA). </p>
+<dl class="section return"><dt>Returns</dt><dd>The data received from the peripheral device. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00076">76</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   77</span>{</div>
@@ -312,6 +326,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Read in from slave, sending NOACK when done (no TWEA). </p>
+<dl class="section return"><dt>Returns</dt><dd>The data received from the peripheral device. </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00083">83</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   84</span>{</div>
