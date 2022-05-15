@@ -985,19 +985,19 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  287</span>{</div>
 <div class="line"><span class="lineno">  288</span>    uint8_t byte;</div>
 <div class="line"><span class="lineno">  289</span> </div>
-<div class="line"><span class="lineno">  290</span>    <a class="code hl_function" href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  291</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_W);</div>
-<div class="line"><span class="lineno">  292</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(reg);</div>
-<div class="line"><span class="lineno">  293</span>    <a class="code hl_function" href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  294</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_R);</div>
-<div class="line"><span class="lineno">  295</span>    <span class="keywordtype">byte</span> = <a class="code hl_function" href="i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
-<div class="line"><span class="lineno">  296</span>    <a class="code hl_function" href="i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
+<div class="line"><span class="lineno">  290</span>    <a class="code hl_function" href="atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  291</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_W);</div>
+<div class="line"><span class="lineno">  292</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(reg);</div>
+<div class="line"><span class="lineno">  293</span>    <a class="code hl_function" href="atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  294</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_R);</div>
+<div class="line"><span class="lineno">  295</span>    <span class="keywordtype">byte</span> = <a class="code hl_function" href="atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
+<div class="line"><span class="lineno">  296</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
 <div class="line"><span class="lineno">  297</span>    <span class="keywordflow">return</span> byte;</div>
 <div class="line"><span class="lineno">  298</span>}</div>
-<div class="ttc" id="ai2c_8c_html_a9e32e9e2acac27300dc4b9463e5d1bed"><div class="ttname"><a href="i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a></div><div class="ttdeci">uint8_t i2c_read_no_ack(void)</div><div class="ttdoc">Read in from slave, sending NOACK when done (no TWEA).</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00083">i2c.c:83</a></div></div>
-<div class="ttc" id="ai2c_8c_html_ad35d4e4f52ca74b503d5e5e1e0a3f5f3"><div class="ttname"><a href="i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a></div><div class="ttdeci">void i2c_stop(void)</div><div class="ttdoc">Sends a stop condition (sets TWSTO).</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00063">i2c.c:63</a></div></div>
-<div class="ttc" id="ai2c_8c_html_ade9ea3e8cd58c50b470141c55d20d057"><div class="ttname"><a href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a></div><div class="ttdeci">void i2c_send(uint8_t data)</div><div class="ttdoc">Loads data, sends it out, waiting for completion.</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00068">i2c.c:68</a></div></div>
-<div class="ttc" id="ai2c_8c_html_af104fa2713ad2cfe4f993bdd2ec22c46"><div class="ttname"><a href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a></div><div class="ttdeci">void i2c_start(void)</div><div class="ttdoc">Sends a start condition (sets TWSTA).</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00057">i2c.c:57</a></div></div>
+<div class="ttc" id="aatmega__i2c_8c_html_a9e32e9e2acac27300dc4b9463e5d1bed"><div class="ttname"><a href="atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a></div><div class="ttdeci">uint8_t i2c_read_no_ack(void)</div><div class="ttdoc">Read in from slave, sending NOACK when done (no TWEA).</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00115">atmega_i2c.c:115</a></div></div>
+<div class="ttc" id="aatmega__i2c_8c_html_ad35d4e4f52ca74b503d5e5e1e0a3f5f3"><div class="ttname"><a href="atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a></div><div class="ttdeci">void i2c_stop(void)</div><div class="ttdoc">Sends a stop condition (sets TWSTO).</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00080">atmega_i2c.c:80</a></div></div>
+<div class="ttc" id="aatmega__i2c_8c_html_ade9ea3e8cd58c50b470141c55d20d057"><div class="ttname"><a href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a></div><div class="ttdeci">void i2c_send(uint8_t data)</div><div class="ttdoc">Loads data, sends it out, waiting for completion.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00090">atmega_i2c.c:90</a></div></div>
+<div class="ttc" id="aatmega__i2c_8c_html_af104fa2713ad2cfe4f993bdd2ec22c46"><div class="ttname"><a href="atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a></div><div class="ttdeci">void i2c_start(void)</div><div class="ttdoc">Sends a start condition (sets TWSTA).</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00070">atmega_i2c.c:70</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1029,19 +1029,19 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ccs811_8c_source.html#l00300">300</a> of file <a class="el" href="ccs811_8c_source.html">ccs811.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  301</span>{</div>
-<div class="line"><span class="lineno">  302</span>    <a class="code hl_function" href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  303</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_W);</div>
-<div class="line"><span class="lineno">  304</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(reg);</div>
-<div class="line"><span class="lineno">  305</span>    <a class="code hl_function" href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  306</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_R);</div>
+<div class="line"><span class="lineno">  302</span>    <a class="code hl_function" href="atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  303</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_W);</div>
+<div class="line"><span class="lineno">  304</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(reg);</div>
+<div class="line"><span class="lineno">  305</span>    <a class="code hl_function" href="atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  306</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_R);</div>
 <div class="line"><span class="lineno">  307</span> </div>
 <div class="line"><span class="lineno">  308</span>    <span class="keywordflow">for</span> (uint8_t i = 0; i &lt; length; ++i)</div>
 <div class="line"><span class="lineno">  309</span>    {</div>
-<div class="line"><span class="lineno">  310</span>        read_buffer[i] = <a class="code hl_function" href="i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
+<div class="line"><span class="lineno">  310</span>        read_buffer[i] = <a class="code hl_function" href="atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
 <div class="line"><span class="lineno">  311</span>    }</div>
-<div class="line"><span class="lineno">  312</span>    <a class="code hl_function" href="i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
+<div class="line"><span class="lineno">  312</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
 <div class="line"><span class="lineno">  313</span>}</div>
-<div class="ttc" id="ai2c_8c_html_aa7f5f94b089b26f76a4f9cc95e89a3db"><div class="ttname"><a href="i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a></div><div class="ttdeci">uint8_t i2c_read_ack(void)</div><div class="ttdoc">Read in from slave, sending ACK when done (sets TWEA).</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00076">i2c.c:76</a></div></div>
+<div class="ttc" id="aatmega__i2c_8c_html_aa7f5f94b089b26f76a4f9cc95e89a3db"><div class="ttname"><a href="atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a></div><div class="ttdeci">uint8_t i2c_read_ack(void)</div><div class="ttdoc">Read in from slave, sending ACK when done (sets TWEA).</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00102">atmega_i2c.c:102</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1066,14 +1066,14 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  317</span>    uint16_t msb;</div>
 <div class="line"><span class="lineno">  318</span>    uint16_t byte;</div>
 <div class="line"><span class="lineno">  319</span> </div>
-<div class="line"><span class="lineno">  320</span>    <a class="code hl_function" href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  321</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_W);</div>
-<div class="line"><span class="lineno">  322</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(reg);</div>
-<div class="line"><span class="lineno">  323</span>    <a class="code hl_function" href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  324</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_R);</div>
+<div class="line"><span class="lineno">  320</span>    <a class="code hl_function" href="atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  321</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_W);</div>
+<div class="line"><span class="lineno">  322</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(reg);</div>
+<div class="line"><span class="lineno">  323</span>    <a class="code hl_function" href="atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  324</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_R);</div>
 <div class="line"><span class="lineno">  325</span> </div>
-<div class="line"><span class="lineno">  326</span>    msb = <a class="code hl_function" href="i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
-<div class="line"><span class="lineno">  327</span>    <span class="keywordtype">byte</span> = <a class="code hl_function" href="i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
+<div class="line"><span class="lineno">  326</span>    msb = <a class="code hl_function" href="atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
+<div class="line"><span class="lineno">  327</span>    <span class="keywordtype">byte</span> = <a class="code hl_function" href="atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
 <div class="line"><span class="lineno">  328</span>    <span class="keywordtype">byte</span> |= (msb &lt;&lt; 8);</div>
 <div class="line"><span class="lineno">  329</span> </div>
 <div class="line"><span class="lineno">  330</span>    <span class="keywordflow">return</span> byte;</div>
@@ -1109,11 +1109,11 @@ Functions</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="ccs811_8c_source.html#l00277">277</a> of file <a class="el" href="ccs811_8c_source.html">ccs811.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  278</span>{</div>
-<div class="line"><span class="lineno">  279</span>    <a class="code hl_function" href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  280</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_W);</div>
-<div class="line"><span class="lineno">  281</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(reg);</div>
-<div class="line"><span class="lineno">  282</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(<span class="keywordtype">byte</span>);</div>
-<div class="line"><span class="lineno">  283</span>    <a class="code hl_function" href="i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
+<div class="line"><span class="lineno">  279</span>    <a class="code hl_function" href="atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  280</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_W);</div>
+<div class="line"><span class="lineno">  281</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(reg);</div>
+<div class="line"><span class="lineno">  282</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(<span class="keywordtype">byte</span>);</div>
+<div class="line"><span class="lineno">  283</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
 <div class="line"><span class="lineno">  284</span>}</div>
 </div><!-- fragment -->
 </div>
@@ -1171,16 +1171,16 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  134</span>{</div>
 <div class="line"><span class="lineno">  135</span>    p_config_global = p_config; <span class="comment">// Make a copy of pointer with file scope. </span></div>
 <div class="line"><span class="lineno">  136</span>    uint8_t ret = 0; <span class="comment">// For return value</span></div>
-<div class="line"><span class="lineno">  137</span>    <a class="code hl_function" href="i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a>(BUS_SPEED_100KHZ);</div>
+<div class="line"><span class="lineno">  137</span>    <a class="code hl_function" href="atmega__i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a>(BUS_SPEED_100KHZ);</div>
 <div class="line"><span class="lineno">  138</span>    <span class="keywordflow">if</span> (ccs811_read_byte(HW_ID_REG) == CCS811_ID)</div>
 <div class="line"><span class="lineno">  139</span>    {</div>
 <div class="line"><span class="lineno">  140</span>        uint8_t status = ccs811_get_status();</div>
 <div class="line"><span class="lineno">  141</span>        <span class="keywordflow">if</span> (bit_is_set(status, APP_VALID_BIT))</div>
 <div class="line"><span class="lineno">  142</span>        {</div>
-<div class="line"><span class="lineno">  143</span>            <a class="code hl_function" href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  144</span>            <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_W);</div>
-<div class="line"><span class="lineno">  145</span>            <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(APP_START);</div>
-<div class="line"><span class="lineno">  146</span>            <a class="code hl_function" href="i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
+<div class="line"><span class="lineno">  143</span>            <a class="code hl_function" href="atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  144</span>            <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_W);</div>
+<div class="line"><span class="lineno">  145</span>            <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(APP_START);</div>
+<div class="line"><span class="lineno">  146</span>            <a class="code hl_function" href="atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
 <div class="line"><span class="lineno">  147</span>            _delay_ms(100);</div>
 <div class="line"><span class="lineno">  148</span> </div>
 <div class="line"><span class="lineno">  149</span>            uint8_t <span class="keywordtype">byte</span> = 0;</div>
@@ -1214,7 +1214,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  177</span>    }</div>
 <div class="line"><span class="lineno">  178</span>    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><span class="lineno">  179</span>}</div>
-<div class="ttc" id="ai2c_8c_html_a17b39f3b4bea70fbb4ca2b377991c788"><div class="ttname"><a href="i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a></div><div class="ttdeci">void init_i2c(uint32_t bus_speed)</div><div class="ttdoc">SCL frequency = F_CPU / (16 + (2 * TWBR) * PRESCALER)</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00045">i2c.c:45</a></div></div>
+<div class="ttc" id="aatmega__i2c_8c_html_a17b39f3b4bea70fbb4ca2b377991c788"><div class="ttname"><a href="atmega__i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a></div><div class="ttdeci">void init_i2c(uint32_t bus_speed)</div><div class="ttdoc">Sets pullups and initializes i2c clock to desired bus speed.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00049">atmega_i2c.c:49</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1373,14 +1373,14 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  217</span>{</div>
 <div class="line"><span class="lineno">  218</span>    uint8_t lsb = 0;</div>
 <div class="line"><span class="lineno">  219</span> </div>
-<div class="line"><span class="lineno">  220</span>    <a class="code hl_function" href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  221</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_W);</div>
-<div class="line"><span class="lineno">  222</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(ENV_DATA_REG);</div>
-<div class="line"><span class="lineno">  223</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(humidity &lt;&lt; 1);</div>
-<div class="line"><span class="lineno">  224</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(lsb);</div>
-<div class="line"><span class="lineno">  225</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(((temp + 25) &lt;&lt; 1));</div>
-<div class="line"><span class="lineno">  226</span>    <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(lsb);</div>
-<div class="line"><span class="lineno">  227</span>    <a class="code hl_function" href="i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
+<div class="line"><span class="lineno">  220</span>    <a class="code hl_function" href="atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  221</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(CCS811_ADDRESS_W);</div>
+<div class="line"><span class="lineno">  222</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(ENV_DATA_REG);</div>
+<div class="line"><span class="lineno">  223</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(humidity &lt;&lt; 1);</div>
+<div class="line"><span class="lineno">  224</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(lsb);</div>
+<div class="line"><span class="lineno">  225</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(((temp + 25) &lt;&lt; 1));</div>
+<div class="line"><span class="lineno">  226</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(lsb);</div>
+<div class="line"><span class="lineno">  227</span>    <a class="code hl_function" href="atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
 <div class="line"><span class="lineno">  228</span>}</div>
 </div><!-- fragment -->
 </div>
