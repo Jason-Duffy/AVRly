@@ -42,50 +42,79 @@
 #include "i2c.h"
 
 
-/**
- * SCL frequency = F_CPU / (16 + (2 * TWBR) * PRESCALER)
+/*
+ * Sets pullups and initializes i2c clock to desired bus speed.
+ * @param bus_speed is the desired i2c clock frequency.
  */
 void init_i2c(uint32_t bus_speed)
 {
   uint32_t base_frequency = (F_CPU / bus_speed);
   TWBR = (uint8_t)((base_frequency - 16) / (2 * 1)); // Prescaler of 1
-  TWCR |= (1 << TWEN); // Enable
+  TWCR |= (1 << TWEN); // Enable I2C.
 }
 
+
+/*
+ * Loops until the i2c message is complete, as the  hardware sets the TWINT
+ * flag.
+ */
 void i2c_wait_for_complete(void)
 {
   loop_until_bit_is_set(TWCR, TWINT);
 }
 
+
+/*
+ * Sends a start condition (sets TWSTA).
+ */
 void i2c_start(void)
 {
-  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWSTA));
+  TWCR = (1 << TWINT) | (1 << TWEN) | (1 << TWSTA);
   i2c_wait_for_complete();
 }
 
+
+/*
+ * Sends a stop condition (sets TWSTO).
+ */
 void i2c_stop(void)
 {
-  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWSTO));
+  TWCR = (1 << TWINT) | (1 << TWEN) | (1 <<TWSTO);
 }
 
+
+/*
+ * Loads data, sends it out, waiting for completion.
+ * @param data is the byte of data to be sent. 
+ */
 void i2c_send(uint8_t data)
 {
   TWDR = data;
-  TWCR = (_BV(TWINT) | _BV(TWEN));                  /* init and enable */
+  TWCR = (1 << TWINT) | (1 << TWEN); // init and enable.
   i2c_wait_for_complete();
 }
 
 
+/*
+ * Read in from slave, sending ACK when done (sets TWEA).
+ * @returns The data received from the peripheral device. 
+ */
 uint8_t i2c_read_ack(void)
 {
-  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWEA));
+  TWCR = (1 << TWINT) | (1 << TWEN) | (1 << TWEA);
   i2c_wait_for_complete();
   return (TWDR);
 }
 
+
+/**
+ * Read in from slave, sending NOACK when done (no TWEA).
+ * @returns The data received from the peripheral device. 
+ */
+
 uint8_t i2c_read_no_ack(void)
 {
-  TWCR = (_BV(TWINT) | _BV(TWEN));
+  TWCR = (1 << TWINT) | (1 << TWEN);
   i2c_wait_for_complete();
   return (TWDR);
 }
