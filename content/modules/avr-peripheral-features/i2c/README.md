@@ -29,3 +29,4 @@ The stop condition is performed by pulling the SDA line from low to high while t
 
 
 ## API Reference
+
