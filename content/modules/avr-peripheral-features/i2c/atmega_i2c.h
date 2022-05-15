@@ -36,22 +36,23 @@
  * defined in Makefile. 
  */
 
-// Functions for i2c communication
-#ifndef I_TWO_C_DOT_H
-#define I_TWO_C_DOT_H
+
+#ifndef ATMEGA_I_TWO_C_DOT_H
+#define ATMEGA_I_TWO_C_DOT_H
 
 #include <avr/io.h>
 
 
 /**
- * Sets pullups and initializes bus speed to desired bus speed.
+ * Sets pullups and initializes i2c clock to desired bus speed.
  * @param bus_speed is the desired i2c clock frequency.
  */
 void init_i2c(uint32_t bus_speed);
 
 
 /**
- * Waits until the hardware sets the TWINT flag.
+ * Loops until the i2c message is complete, as the  hardware sets the TWINT
+ * flag.
  */
 void i2c_wait_for_complete(void);
 
@@ -89,7 +90,7 @@ uint8_t i2c_read_ack(void);
 uint8_t i2c_read_no_ack(void);
 
 
-#endif // I_TWO_C_DOT_H
+#endif // ATMEGA_I_TWO_C_DOT_H
 
 
 /*** end of file ***/
