@@ -117,11 +117,11 @@ Files</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd>The files can be downloaded from the repo at: <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd/example">https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/displays/hd44780_lcd/example</a> </dd></dl>
 
 
-<h3><a id="md_content_modules_displays_hd44780_lcd_README" name="md_content_modules_displays_hd44780_lcd_README"></a>README</h3><div class="textblock"><h2><a class="anchor" id="autotoc_md92"></a>
+<h3><a id="md_content_modules_displays_hd44780_lcd_README" name="md_content_modules_displays_hd44780_lcd_README"></a>README</h3><div class="textblock"><h2><a class="anchor" id="autotoc_md95"></a>
 Introduction</h2>
 <p >The Hitachi HD44780 LCD (Liquid Crystal Display) controller is an extremely popular IC (Integrated Circuit) in use since the 1980's. It can drive upto two lines of 8 characters each, and can be addressed using either an 8 bit of 4 bit parallel data bus, plus some control pins. This driver and example application was written from the datasheet, which can be found <a href="https://pdf1.alldatasheet.com/datasheet-pdf/view/63673/HITACHI/HD44780.html" target="_blank">here</a>.</p>
 <p >This example is for a 16x2 LCD module, with the HD44780 LCD controller IC on board.</p>
-<h2><a class="anchor" id="autotoc_md93"></a>
+<h2><a class="anchor" id="autotoc_md96"></a>
 Interface</h2>
 <p >For this example, we will use the controller in 4 bit mode, it uses fewer precious GPIO's, but takes twice as long for each character or instruction to be written to the display. The pins and their uses are shown below, note that pins D0 - D3 can be left unconnected in 4 bit mode. As we are not using the display in read mode, we can just tie the RW pin to ground, freeing up a GPIO pin on the host MCU.</p>
 <table class="markdownTable">
@@ -170,7 +170,7 @@ Interface</h2>
 <img src="16x2_breadboard_example.jpg" alt=""/>
 <div class="caption">
 16x2 LCD Breadboard Example</div></div>
-   <h2><a class="anchor" id="autotoc_md94"></a>
+   <h2><a class="anchor" id="autotoc_md97"></a>
 How it Works</h2>
 <p >The HD44780 is essentially just another microcontroller. When it's configured in 8 bit mode, an ASCII character is sent to our host MCU's GPIO port, such that all 8 bits of the ASCII character are output at the same time, or in parallel. The character "A" for instance is 01000001 in binary, or 65 in decimal, so our port will now look like this:</p>
 <table class="markdownTable">
@@ -195,7 +195,7 @@ How it Works</h2>
 </table>
 <p >The level of the RS (Register Select) pin determines whether we are writing an instruction (such as shift cursor to the left) or data (such as an ASCII character). So to send a character, we must first set RS high, then set up the data on the port, then we can pulse the E (enable) pin which acts as a latch, confirming the data on the port as valid. The enable pin is held low for a short time, then pulled high again, and the next character or instruction can be sent. There is however, a delay while the device computes and outputs the character or instruction, so a short delay is used to allow for this. There is the option to poll a busy flag to see when the instruction has been completed, but I found that it introduced fragility to the system so opted to leave it out.</p>
 <p >In 4 bit mode, we have to send out the data 1 nibble (4 bits) at a time, starting with the most significant bits (MSB), and we also habe to pulse the enable pin after each nibble. This means it takes around twice as long for each character or instruction to be sent, but we are able to free up 4 GPIO pins which might come in handy later.</p>
-<h2><a class="anchor" id="autotoc_md95"></a>
+<h2><a class="anchor" id="autotoc_md98"></a>
 Example Application</h2>
 <p >In main.c (or whichever file you'd like to access this API) #include the header file for the HD44780 driver.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;hd44780_lcd.h&quot;</span></div>

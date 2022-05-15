@@ -120,11 +120,11 @@ Files</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd>The files can be downloaded from the repo at: <a href="https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/debug-tools/log-system/example">https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/debug-tools/log-system/example</a> </dd></dl>
 
 
-<h3><a id="md_content_modules_debug_tools_log_system_README" name="md_content_modules_debug_tools_log_system_README"></a>README</h3><div class="textblock"><h2><a class="anchor" id="autotoc_md89"></a>
+<h3><a id="md_content_modules_debug_tools_log_system_README" name="md_content_modules_debug_tools_log_system_README"></a>README</h3><div class="textblock"><h2><a class="anchor" id="autotoc_md92"></a>
 Introduction</h2>
 <p >In some cases, taking the time to build yourself a well defined and crafted tool can save you an immense amount time in the future. In my opinion, a logging subsystem is one of those cases. It can help to root out tricky bugs by telling you when each function is being entered and exited, and the state of variables along the way.</p>
 <p >This tool implements the USART driver, and is a good example of the <a href="https://en.wikipedia.org/wiki/Facade_pattern" target="_blank">facade pattern</a> in practice. Note how neither the user nor the log_system module need to know anything about how the message is sent over USART in order to send the messages. If you <b>would</b> like to know how the USART driver works, see the module <a href="https://jason-duffy.github.io/AVRly/html/group__usart.html" target="_blank">here</a>.</p>
-<h2><a class="anchor" id="autotoc_md90"></a>
+<h2><a class="anchor" id="autotoc_md93"></a>
 Interface</h2>
 <p >In this example, we will be using a [USB to serial converter][USB_SERIAL_CONVERTER_URL] to communicate between a PC and the AVR MCU. The connections should be made as shown in the schematic below. Note that the RX and TX (Receive and Transmit) pins are crossed over - RX on the host MCU is connected to TX on the adapter and vice versa.</p>
 <div class="image">
@@ -143,7 +143,7 @@ Initial CoolTerm Setup Options</div></div>
 <div class="caption">
 Secondary CoolTerm Setup Options</div></div>
    <p >Press the Connect button, and the new connection status should be displayed on the bottom left of the screen. If it's connected, you're ready to start communication! If not, check your connections and repeat the steps above.</p>
-<h2><a class="anchor" id="autotoc_md91"></a>
+<h2><a class="anchor" id="autotoc_md94"></a>
 Example Application</h2>
 <p >In each file you want to be able to send log messages from, you'll need to #include log_system.h, and instantiate a config object, as shown below.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;log_system.h&quot;</span></div>
