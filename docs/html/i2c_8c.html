@@ -107,7 +107,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:a17b39f3b4bea70fbb4ca2b377991c788"><td class="mdescLeft">&#160;</td><td class="mdescRight">SCL frequency = F_CPU / (16 + (2 * TWBR) * PRESCALER)  <a href="i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788">More...</a><br /></td></tr>
 <tr class="separator:a17b39f3b4bea70fbb4ca2b377991c788"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61854d6833c0a31f296b84cdcf057a03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a> (void)</td></tr>
-<tr class="memdesc:a61854d6833c0a31f296b84cdcf057a03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Waits until the hardware sets the TWINT flag.  <a href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">More...</a><br /></td></tr>
+<tr class="memdesc:a61854d6833c0a31f296b84cdcf057a03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loops until the i2c message is complete, as the hardware sets the TWINT flag.  <a href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">More...</a><br /></td></tr>
 <tr class="separator:a61854d6833c0a31f296b84cdcf057a03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af104fa2713ad2cfe4f993bdd2ec22c46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a> (void)</td></tr>
 <tr class="memdesc:af104fa2713ad2cfe4f993bdd2ec22c46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a start condition (sets TWSTA).  <a href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">More...</a><br /></td></tr>
@@ -160,7 +160,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>SCL frequency = F_CPU / (16 + (2 * TWBR) * PRESCALER) </p>
-<p >Sets pullups and initializes bus speed to desired bus speed. </p>
+<p >Sets pullups and initializes bus speed to desired bus speed.</p>
+<p >Sets pullups and initializes i2c clock to desired bus speed. </p>
 
 <p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00045">45</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   46</span>{</div>
@@ -187,7 +188,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Waits until the hardware sets the TWINT flag. </p>
+<p>Loops until the i2c message is complete, as the hardware sets the TWINT flag. </p>
+<p >Waits until the hardware sets the TWINT flag. </p>
 
 <p class="definition">Definition at line <a class="el" href="i2c_8c_source.html#l00052">52</a> of file <a class="el" href="i2c_8c_source.html">i2c.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   53</span>{</div>
@@ -219,7 +221,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   59</span>  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWSTA));</div>
 <div class="line"><span class="lineno">   60</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
 <div class="line"><span class="lineno">   61</span>}</div>
-<div class="ttc" id="ai2c_8c_html_a61854d6833c0a31f296b84cdcf057a03"><div class="ttname"><a href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a></div><div class="ttdeci">void i2c_wait_for_complete(void)</div><div class="ttdoc">Waits until the hardware sets the TWINT flag.</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00052">i2c.c:52</a></div></div>
+<div class="ttc" id="ai2c_8c_html_a61854d6833c0a31f296b84cdcf057a03"><div class="ttname"><a href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a></div><div class="ttdeci">void i2c_wait_for_complete(void)</div><div class="ttdoc">Loops until the i2c message is complete, as the hardware sets the TWINT flag.</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00052">i2c.c:52</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

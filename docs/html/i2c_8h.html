@@ -159,14 +159,22 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Sets pullups and initializes bus speed to desired bus speed. </p>
-<p >Sets pullups and initializes bus speed to desired bus speed. </p>
+<p >Sets pullups and initializes bus speed to desired bus speed.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bus_speed</td><td>is the desired i2c clock frequency.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Sets pullups and initializes bus speed to desired bus speed.</p>
+<p >Sets pullups and initializes i2c clock to desired bus speed. </p>
 
-<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00048">48</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   49</span>{</div>
-<div class="line"><span class="lineno">   50</span>  uint32_t base_frequency = (F_CPU / bus_speed);</div>
-<div class="line"><span class="lineno">   51</span>  TWBR = (uint8_t)((base_frequency - 16) / (2 * 1)); <span class="comment">// Prescaler of 1</span></div>
-<div class="line"><span class="lineno">   52</span>  TWCR |= (1 &lt;&lt; TWEN); <span class="comment">// Enable</span></div>
-<div class="line"><span class="lineno">   53</span>}</div>
+<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00049">49</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>{</div>
+<div class="line"><span class="lineno">   51</span>  uint32_t base_frequency = (F_CPU / bus_speed);</div>
+<div class="line"><span class="lineno">   52</span>  TWBR = (uint8_t)((base_frequency - 16) / (2 * 1)); <span class="comment">// Prescaler of 1</span></div>
+<div class="line"><span class="lineno">   53</span>  TWCR |= (1 &lt;&lt; TWEN); <span class="comment">// Enable I2C.</span></div>
+<div class="line"><span class="lineno">   54</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -187,11 +195,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Waits until the hardware sets the TWINT flag. </p>
+<p >Waits until the hardware sets the TWINT flag. </p>
 
-<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00055">55</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>{</div>
-<div class="line"><span class="lineno">   57</span>  loop_until_bit_is_set(TWCR, TWINT);</div>
-<div class="line"><span class="lineno">   58</span>}</div>
+<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00061">61</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>{</div>
+<div class="line"><span class="lineno">   63</span>  loop_until_bit_is_set(TWCR, TWINT);</div>
+<div class="line"><span class="lineno">   64</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -213,12 +222,12 @@ Functions</h2></td></tr>
 
 <p>Sends a start condition (sets TWSTA). </p>
 
-<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00060">60</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   61</span>{</div>
-<div class="line"><span class="lineno">   62</span>  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWSTA));</div>
-<div class="line"><span class="lineno">   63</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
-<div class="line"><span class="lineno">   64</span>}</div>
-<div class="ttc" id="ai2c_8c_html_a61854d6833c0a31f296b84cdcf057a03"><div class="ttname"><a href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a></div><div class="ttdeci">void i2c_wait_for_complete(void)</div><div class="ttdoc">Waits until the hardware sets the TWINT flag.</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00052">i2c.c:52</a></div></div>
+<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00070">70</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   71</span>{</div>
+<div class="line"><span class="lineno">   72</span>  TWCR = (1 &lt;&lt; TWINT) | (1 &lt;&lt; TWEN) | (1 &lt;&lt; TWSTA);</div>
+<div class="line"><span class="lineno">   73</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
+<div class="line"><span class="lineno">   74</span>}</div>
+<div class="ttc" id="ai2c_8c_html_a61854d6833c0a31f296b84cdcf057a03"><div class="ttname"><a href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a></div><div class="ttdeci">void i2c_wait_for_complete(void)</div><div class="ttdoc">Loops until the i2c message is complete, as the hardware sets the TWINT flag.</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00052">i2c.c:52</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -240,10 +249,10 @@ Functions</h2></td></tr>
 
 <p>Sends a stop condition (sets TWSTO). </p>
 
-<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00066">66</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   67</span>{</div>
-<div class="line"><span class="lineno">   68</span>  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWSTO));</div>
-<div class="line"><span class="lineno">   69</span>}</div>
+<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00080">80</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   81</span>{</div>
+<div class="line"><span class="lineno">   82</span>  TWCR = (1 &lt;&lt; TWINT) | (1 &lt;&lt; TWEN) | (1 &lt;&lt;TWSTO);</div>
+<div class="line"><span class="lineno">   83</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -271,12 +280,12 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00071">71</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   72</span>{</div>
-<div class="line"><span class="lineno">   73</span>  TWDR = data;</div>
-<div class="line"><span class="lineno">   74</span>  TWCR = (_BV(TWINT) | _BV(TWEN));                  <span class="comment">/* init and enable */</span></div>
-<div class="line"><span class="lineno">   75</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
-<div class="line"><span class="lineno">   76</span>}</div>
+<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00090">90</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>{</div>
+<div class="line"><span class="lineno">   92</span>  TWDR = data;</div>
+<div class="line"><span class="lineno">   93</span>  TWCR = (1 &lt;&lt; TWINT) | (1 &lt;&lt; TWEN); <span class="comment">// init and enable.</span></div>
+<div class="line"><span class="lineno">   94</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
+<div class="line"><span class="lineno">   95</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -299,12 +308,12 @@ Functions</h2></td></tr>
 <p>Read in from slave, sending ACK when done (sets TWEA). </p>
 <dl class="section return"><dt>Returns</dt><dd>The data received from the peripheral device. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00079">79</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   80</span>{</div>
-<div class="line"><span class="lineno">   81</span>  TWCR = (_BV(TWINT) | _BV(TWEN) | _BV(TWEA));</div>
-<div class="line"><span class="lineno">   82</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
-<div class="line"><span class="lineno">   83</span>  <span class="keywordflow">return</span> (TWDR);</div>
-<div class="line"><span class="lineno">   84</span>}</div>
+<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00102">102</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  103</span>{</div>
+<div class="line"><span class="lineno">  104</span>  TWCR = (1 &lt;&lt; TWINT) | (1 &lt;&lt; TWEN) | (1 &lt;&lt; TWEA);</div>
+<div class="line"><span class="lineno">  105</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
+<div class="line"><span class="lineno">  106</span>  <span class="keywordflow">return</span> (TWDR);</div>
+<div class="line"><span class="lineno">  107</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -327,12 +336,12 @@ Functions</h2></td></tr>
 <p>Read in from slave, sending NOACK when done (no TWEA). </p>
 <dl class="section return"><dt>Returns</dt><dd>The data received from the peripheral device. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00086">86</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   87</span>{</div>
-<div class="line"><span class="lineno">   88</span>  TWCR = (_BV(TWINT) | _BV(TWEN));</div>
-<div class="line"><span class="lineno">   89</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
-<div class="line"><span class="lineno">   90</span>  <span class="keywordflow">return</span> (TWDR);</div>
-<div class="line"><span class="lineno">   91</span>}</div>
+<p class="definition">Definition at line <a class="el" href="atmega__i2c_8c_source.html#l00115">115</a> of file <a class="el" href="atmega__i2c_8c_source.html">atmega_i2c.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  116</span>{</div>
+<div class="line"><span class="lineno">  117</span>  TWCR = (1 &lt;&lt; TWINT) | (1 &lt;&lt; TWEN);</div>
+<div class="line"><span class="lineno">  118</span>  <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>();</div>
+<div class="line"><span class="lineno">  119</span>  <span class="keywordflow">return</span> (TWDR);</div>
+<div class="line"><span class="lineno">  120</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
