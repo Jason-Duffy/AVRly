@@ -70,6 +70,7 @@
  * 
  * @defgroup comms_protocols Communication Protocols
  * @ingroup avr_peripherals
+ * 
  * @defgroup spi SPI
  * @ingroup comms_protocols
  * 
