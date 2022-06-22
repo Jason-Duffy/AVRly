@@ -30,9 +30,22 @@
  */
 
 #include <util/delay.h>
-#include <avr/power.h>
 
+#include "bme280.h"
+
+int16_t temperature = 0;
+uint16_t humidity = 0;
 
 int main()
 {
+	init_bme280();
+
+	while (1)
+	{
+		temperature = bme280_get_temperature();
+		humidity = bme280_get_humidity();
+		_delay_ms(1000);
+	}
+
+	return 0;
 }
