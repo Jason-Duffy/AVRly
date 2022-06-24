@@ -32,18 +32,42 @@
 #include <util/delay.h>
 
 #include "bme280.h"
+#include "log_system.h"
 
 int16_t temperature = 0;
 uint16_t humidity = 0;
 
+log_system_config_t log_system_main = 
+{
+	.p_system_tag = "Main",
+	.file_log_level = DEBUG,
+};
+
+
+
 int main()
 {
+	// Initialisations & Setup
+	init_log_system();
+	log_global_on();
+	log_set_global_max_output_level(VERBOSE_DEBUG);
 	init_bme280();
 
+	// Superloop
 	while (1)
 	{
 		temperature = bme280_get_temperature();
 		humidity = bme280_get_humidity();
+
+		log_message_with_16bit_unsigned_dec_val(&log_system_main,
+												INFO,
+												"Temperature: ",
+												temperature);
+
+		log_message_with_16bit_unsigned_dec_val(&log_system_main,
+												INFO,
+												"Humidity: ",
+												humidity);
 		_delay_ms(1000);
 	}
 
