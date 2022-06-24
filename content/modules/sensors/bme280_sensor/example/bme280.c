@@ -33,6 +33,7 @@
 
 #include "bme280.h"
 #include "atmega_i2c.h"
+#include "log_system.h"
 
 
 // 7-bit Device Address followed by read/write bit.
@@ -60,27 +61,41 @@
 #define FORCED_MODE				1
 #define NORMAL_MODE				3
 
+#define BUS_SPEED_100KHZ		100000U
+
+log_system_config_t bme280_log = 
+{
+	.p_system_tag = "BME280",
+	.file_log_level = DEBUG,
+};
 
 
-uint8_t BME280_read_buffer[33]; 
+static uint8_t BME280_read_buffer[33]; 
 
 // Temperature compensation variables (values taken from BME280 during init)
-uint16_t dig_T1 = 0;
-int16_t dig_T2, dig_T3 = 0;
+static uint16_t dig_T1 = 0;
+static int16_t dig_T2 = 0;
+static int16_t dig_T3 = 0;
 
-uint8_t humidity;
-
-
-uint16_t dig_P1 = 0;
-int16_t dig_P2, dig_P3, dig_P4, dig_P5, dig_P6, dig_P7, dig_P8, dig_P9 = 0;
+// Pressure compensation values
+static uint16_t dig_P1 = 0;
+static int16_t dig_P2 = 0;
+static int16_t dig_P3 = 0;
+static int16_t dig_P4 = 0;
+static int16_t dig_P5 = 0;
+static int16_t dig_P6 = 0;
+static int16_t dig_P7 = 0;
+static int16_t dig_P8 = 0;
+static int16_t dig_P9 = 0;
 
 
 // Humidity compensation variables
-uint8_t dig_H1 = 0;
-int16_t dig_H2 = 0;
-uint8_t dig_H3 = 1;
-int16_t dig_H4, dig_H5 = 0;
-int8_t dig_H6 = 0;
+static uint8_t dig_H1 = 0;
+static int16_t dig_H2 = 0;
+static uint8_t dig_H3 = 1;
+static int16_t dig_H4 = 0;
+static int16_t dig_H5 = 0;
+static int16_t dig_H6 = 0;
 
 //###########################################################################//
 // 		         	Forward declarations for helper functions    	   	     //
@@ -88,13 +103,12 @@ int8_t dig_H6 = 0;
 
 void bme280_write_byte(uint8_t reg, uint8_t byte);
 void bme280_write_word(uint8_t reg1, uint8_t reg2, uint8_t msb, uint8_t lsb);
-uint16_t bme280_read_word_unsigned(uint8_t start_address);
-int16_t bme280_read_word_signed(uint8_t start_address);
+uint16_t bme280_read_word(uint8_t start_address);
 uint8_t bme280_read_byte(uint8_t reg);
 void bme280_read_comp_data(void);
 uint32_t bme280_get_raw_temp_val(void);
 uint32_t bme280_get_raw_hum_val(void);
-void bme280_burst_read(uint8_t start_addr, uint8_t length);
+void bme280_burst_read(uint8_t start_addr, uint8_t start_position, uint8_t length);
 int32_t bme280_compensate_temp(int32_t adc_T);
 int32_t bme280_compensate_pressure(int32_t adc_P);
 uint32_t bme280_compensate_humidity(int32_t adc_H);
@@ -108,25 +122,36 @@ uint32_t bme280_compensate_humidity(int32_t adc_H);
  * @brief Initialise the device ready for measurements to be taken.
  */
 void init_bme280(void)
-{
-	uint8_t id;
-	id = bme280_read_byte(CHIP_ID_REG);
+{	
+	// Setup I2C hardware fpr use.
+	init_i2c(BUS_SPEED_100KHZ);
 
+	// Perform ID check. 
+	uint8_t id = bme280_read_byte(CHIP_ID_REG);
 	if (id == 0x60)
 	{
-		bme280_read_comp_data();
+		log_message(&bme280_log,
+					DEBUG,
+					"In init_bme280(), Chip ID check passed.");
 	}
 	else
 	{
-		// Throw ID error here if required. 
+		log_message(&bme280_log,
+					ERROR,
+					"In init_bme280(), Chip ID check failed.");
 	}
 
+	// Read compensation data from sensor and save it.
+	bme280_read_comp_data();
+
+	// 
 	bme280_write_byte(CTRL_HUM_REG, OVERSAMPLE_x1);
+
+	//
 	bme280_write_byte(CONFIG_REG, 0b10100000);
+
 	// oversample x1 temp, pressure off, forced mode
 	bme280_write_byte(CTRL_MEAS_REG, 0b00100001);
-
-	bme280_read_comp_data();
 }
 
 
@@ -140,13 +165,14 @@ int16_t bme280_get_temperature(void)
 	int32_t retval;
 	uint32_t raw_temp_adc_val;
 
+	bme280_write_byte(CTRL_MEAS_REG, 0b00100001); // oversample x1 temp, pressure off, forced mode
 	raw_temp_adc_val = bme280_get_raw_temp_val();
 	retval = bme280_compensate_temp(raw_temp_adc_val);
 
 	return retval;
 }
 
-
+#if 0
 /*
  * @brief Fetches the latest humidity data from the sensor, compensates and
  * formats the data as %RH * 100.
@@ -157,12 +183,38 @@ uint16_t bme280_get_humidity(void)
 	uint32_t retval;
 	uint16_t raw_hum_adc_val;
 
+	bme280_write_byte(CTRL_MEAS_REG, 0b00100001); // oversample x1 temp, pressure off, forced mode
 	raw_hum_adc_val = bme280_get_raw_hum_val();
-	retval = bme280_compensate_humidity(raw_hum_adc_val);	
+	retval = bme280_compensate_humidity(raw_hum_adc_val);
+	retval *= 100;
+	retval = (retval >> 10);
 
 	return retval;
 }
+#endif
 
+
+
+if 1
+/*
+ * @brief Fetches the latest humidity data from the sensor, compensates and
+ * formats the data as %RH * 100.
+ * @returns eg. A return value of 2852 = 28.52 %RH (Relative Humidity).
+ */ 
+uint16_t bme280_get_humidity(void)
+{
+	uint32_t retval;
+	uint16_t raw_hum_adc_val;
+
+	bme280_write_byte(CTRL_MEAS_REG, 0b00100001); // oversample x1 temp, pressure off, forced mode
+	raw_hum_adc_val = bme280_get_raw_hum_val();
+	retval = bme280_compensate_humidity(raw_hum_adc_val);
+	retval *= 100;
+	retval = (retval >> 10);
+
+	return retval;
+}
+#endif
 
 /*
  * @brief Fetches the latest pressure data from the sensor, compensates and
@@ -176,13 +228,6 @@ uint16_t bme280_get_pressure(void)
 }
 
 
-void bme280_get_readings(void)
-{
-	bme280_write_byte(CTRL_MEAS_REG, 0b00100001); // oversample x1 temp, pressure off, forced mode
-	_delay_ms(50); // replace with status check later
-	bme280_get_raw_temp_val();
-	bme280_get_raw_hum_val();
-}
 //######################################################################################################################//
 // 												Helper functions for I/O ctrl											//
 //######################################################################################################################//
@@ -215,7 +260,8 @@ uint8_t bme280_read_byte(uint8_t reg) // Reads a single byte from specified regi
 	return byte;
 }
 
-void bme280_burst_read(uint8_t start_address, uint8_t length) // Reads a whole section of memory addresses
+// Reads a whole section of memory addresses
+void bme280_burst_read(uint8_t start_address, uint8_t start_position, uint8_t length)
 {
 	i2c_start();
 	i2c_send(BME280_ADDRESS_W);
@@ -239,7 +285,7 @@ void bme280_burst_read(uint8_t start_address, uint8_t length) // Reads a whole s
  * @param start_address is the first memory location to be read from.
  * @returns The data read from the device is returned. 
  */
-uint16_t bme280_read_word_unsigned(uint8_t start_address)
+uint16_t bme280_read_word(uint8_t start_address)
 {
 	unsigned short msb;
 	unsigned short lsb;
@@ -262,114 +308,49 @@ uint16_t bme280_read_word_unsigned(uint8_t start_address)
 
 
 /**
- * @brief Reads a 16bit signed integer from a specified register.
- * @param start_address is the first reguster to be written to.
- * @returns The data read from the device is returned. 
- */
-int16_t bme280_read_word_signed(uint8_t start_address)
-{
-	signed short msb;
-	signed short lsb;
-	signed short word;
-
-	i2c_start();
-	i2c_send(BME280_ADDRESS_W);
-	i2c_send(start_address);
-	i2c_start();
-	i2c_send(BME280_ADDRESS_R);
-
-	lsb = i2c_read_ack();
-	msb = i2c_read_no_ack();
-	i2c_stop();
-
-	word = (msb << 8);
-	word |= lsb;
-	return word;
-}
-
-/**
- * @brief Reads an 8bit unsigned integer from a specified memory location.
- * @param start_address is the address to be read from.
- * @returns The data read from the device is returned.
- */
-uint8_t bme280_read_byte_unsigned(uint8_t start_address)
-{
-	unsigned char byte;
-
-	i2c_start();
-	i2c_send(BME280_ADDRESS_W);
-	i2c_send(start_address);
-	i2c_start();
-	i2c_send(BME280_ADDRESS_R);
-
-	byte = i2c_read_no_ack();
-	i2c_stop();
-
-	return byte;
-}
-
-
-/**
- * @brief Reads an 8bit signed integer from a specified memory location.
- * @param start_address is the address to be read from.
- * @returns The data read from the device is returned.
- */
-int8_t bme280_read_byte_signed(uint8_t start_address)
-{
-	signed char byte;
-
-	i2c_start();
-	i2c_send(BME280_ADDRESS_W);
-	i2c_send(start_address);
-	i2c_start();
-	i2c_send(BME280_ADDRESS_R);
-
-	byte = i2c_read_no_ack();
-	i2c_stop();
-
-	return byte;
-}
-
-/**
  * @brief Reads in all compensation data from the device and stores it in a
  * buffer.
  */
+
 void bme280_read_comp_data(void)
 {
 	signed short h_lsb;
 	signed short h_msb;
 
-	dig_T1 = bme280_read_word_unsigned(0x88);
-	dig_T2 = bme280_read_word_signed(0x8A);
-	dig_T3 = bme280_read_word_signed(0x8C);
-/*
-	dig_P1 = bme280_read_word_unsigned(0x8E);
-	dig_P2 = bme280_read_word_signed(0x90);
-	dig_P3 = bme280_read_word_signed(0x92);
-	dig_P4 = bme280_read_word_signed(0x94);
-	dig_P5 = bme280_read_word_signed(0x96);
-	dig_P6 = bme280_read_word_signed(0x98);
-	dig_P7 = bme280_read_word_signed(0x9A);
-	dig_P8 = bme280_read_word_signed(0x9C);
-	dig_P9 = bme280_read_word_signed(0x9E);
-*/
-	dig_H1 = bme280_read_byte_unsigned(0xA1);
-	dig_H2 = bme280_read_word_signed(0xE1);
-	dig_H3 = bme280_read_byte_unsigned(0xE3);
+	// Read and store temperature compensation data. 
+	dig_T1 = bme280_read_word(0x88);
+	dig_T2 = bme280_read_word(0x8A);
+	dig_T3 = bme280_read_word(0x8C);
 
-	h_msb = bme280_read_byte_signed(0xE4);
-	h_lsb = bme280_read_byte_signed(0xE5);
+	// Read and store pressure compensation data.
+	dig_P1 = bme280_read_word(0x8E);
+	dig_P2 = bme280_read_word(0x90);
+	dig_P3 = bme280_read_word(0x92);
+	dig_P4 = bme280_read_word(0x94);
+	dig_P5 = bme280_read_word(0x96);
+	dig_P6 = bme280_read_word(0x98);
+	dig_P7 = bme280_read_word(0x9A);
+	dig_P8 = bme280_read_word(0x9C);
+	dig_P9 = bme280_read_word(0x9E);
+
+	// Read and store humidity compensation data.
+	dig_H1 = bme280_read_byte(0xA1);
+	dig_H2 = bme280_read_word(0xE1);
+	dig_H3 = bme280_read_byte(0xE3);
+
+	h_msb = bme280_read_byte(0xE4);
+	h_lsb = bme280_read_byte(0xE5);
 	h_lsb &= 0b00001111;
 	dig_H4 = h_lsb;
 	dig_H4 |= (h_msb << 4);
 
-	h_msb = bme280_read_byte_signed(0xE6);
-	h_lsb = bme280_read_byte_signed(0xE5);
+	h_msb = bme280_read_byte(0xE6);
+	h_lsb = bme280_read_byte(0xE5);
 	h_lsb &= 0b11110000;
 	dig_H5 = (h_lsb >> 4);
 	dig_H5 |= (h_msb << 4);
 
-	dig_H6 = bme280_read_byte_signed(0xE7);
+	dig_H6 = bme280_read_byte(0xE7);
 }
 
 
@@ -438,7 +419,7 @@ int32_t bme280_compensate_temp(int32_t adc_T)
 }
 
 // Returns pressure in Pa as unsigned 32 bit integer. Output value of "96386" equals 96386 Pa = 963.86 hPa
-/*
+
 int32_t bme280_compensate_pressure(int32_t adc_P)
 {
 	int32_t var1, var2;
@@ -472,7 +453,7 @@ int32_t bme280_compensate_pressure(int32_t adc_P)
 	p = (p + ((var1 + var2 + dig_P7) >> 4));
 	return p;
 }
-*/
+
 
 // Returns humidity in %RH as unsigned 32 bit integer in Q22.10 format (22 integer and 10 fractional bits).
 // Output value of "47445" represents 47445/1024 = 46.333 %RH
@@ -489,6 +470,6 @@ uint32_t bme280_compensate_humidity(int32_t adc_H)
 	v_x1_u32r = (v_x1_u32r - (((((v_x1_u32r >> 15) * (v_x1_u32r >> 15)) >> 7) * ((int32_t)dig_H1)) >> 4));
 	v_x1_u32r = (v_x1_u32r < 0 ? 0 : v_x1_u32r);
 	v_x1_u32r = (v_x1_u32r > 419430400 ? 419430400 : v_x1_u32r);
-	return (v_x1_u32r>>12);
+	return (uint32_t)(v_x1_u32r>>12);
 }
 

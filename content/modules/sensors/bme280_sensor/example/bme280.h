@@ -44,7 +44,7 @@
 /**
  * @brief Initialise the device ready for measurements to be taken.
  */
-void init_BME280(void);
+void init_bme280(void);
 
 
 /**
