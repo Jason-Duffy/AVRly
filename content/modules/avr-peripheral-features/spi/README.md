@@ -18,18 +18,22 @@ The Pin Name SS (Slave Select) is also deprecated, to be replaced by CS (Chip Se
 
 ## Interface
 
+Coming soon.
 
 
 ## Data Transmission
 
+Coming soon.
 
 
 ## Clock Polarity and Phase
 
+Coming soon.
 
 
 ## API Reference
 
+Coming soon.
 
 
 [OSHWA_Resolution_URL]: https://www.oshwa.org/a-resolution-to-redefine-spi-signal-names/

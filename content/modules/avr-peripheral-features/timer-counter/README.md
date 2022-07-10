@@ -1,3 +1,3 @@
 @ingroup timer_counter
 
-Timer Counter Markdown File. 
+API reference and usage guide coming soon. 
