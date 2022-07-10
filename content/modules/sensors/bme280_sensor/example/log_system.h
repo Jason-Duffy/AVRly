@@ -129,7 +129,7 @@ void log_message_with_8bit_unsigned_val(log_system_config_t *p_config,
 void log_message_with_8bit_signed_val(log_system_config_t *p_config,
                                       log_type_t level,
                                       const char *msg,
-                                      int8_t val
+                                      int8_t val,
                                       format_type_t format);
 
 
@@ -149,7 +149,7 @@ void log_message_with_8bit_signed_val(log_system_config_t *p_config,
 void log_message_with_16bit_unsigned_val(log_system_config_t *p_config,
                                          log_type_t level,
                                          const char *msg,
-                                         uint16_t val
+                                         uint16_t val,
                                          format_type_t format);
 
 
@@ -169,7 +169,7 @@ void log_message_with_16bit_unsigned_val(log_system_config_t *p_config,
 void log_message_with_16bit_signed_val(log_system_config_t *p_config,
                                        log_type_t level,
                                        const char *msg,
-                                       int16_t val
+                                       int16_t val,
                                        format_type_t format);
 
 
@@ -189,7 +189,7 @@ void log_message_with_16bit_signed_val(log_system_config_t *p_config,
 void log_message_with_32bit_unsigned_val(log_system_config_t *p_config,
                                             log_type_t level,
                                             const char *msg,
-                                            uint32_t val
+                                            uint32_t val,
                                             format_type_t format);
 
 
@@ -209,7 +209,7 @@ void log_message_with_32bit_unsigned_val(log_system_config_t *p_config,
 void log_message_with_32bit_signed_val(log_system_config_t *p_config,
                                            log_type_t level,
                                            const char *msg,
-                                           int32_t val
+                                           int32_t val,
                                            format_type_t format);
 
 
@@ -229,7 +229,7 @@ void log_message_with_32bit_signed_val(log_system_config_t *p_config,
 void log_message_with_64bit_unsigned_dec_val(log_system_config_t *p_config,
                                             log_type_t level,
                                             const char *msg,
-                                            uint64_t val
+                                            uint64_t val,
                                             format_type_t format);
 
 
@@ -249,7 +249,7 @@ void log_message_with_64bit_unsigned_dec_val(log_system_config_t *p_config,
 void log_message_with_64bit_unsigned_dec_val(log_system_config_t *p_config,
                                             log_type_t level,
                                             const char *msg,
-                                            uint64_t val
+                                            uint64_t val,
                                             format_type_t format);
 
 
