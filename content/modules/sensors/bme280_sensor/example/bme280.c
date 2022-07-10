@@ -88,7 +88,6 @@ static int16_t dig_P7 = 0;
 static int16_t dig_P8 = 0;
 static int16_t dig_P9 = 0;
 
-
 // Humidity compensation variables
 static uint8_t dig_H1 = 0;
 static int16_t dig_H2 = 0;
@@ -108,7 +107,9 @@ uint8_t bme280_read_byte(uint8_t reg);
 void bme280_read_comp_data(void);
 uint32_t bme280_get_raw_temp_val(void);
 uint32_t bme280_get_raw_hum_val(void);
-void bme280_burst_read(uint8_t start_addr, uint8_t start_position, uint8_t length);
+void bme280_burst_read(uint8_t start_addr,
+					   uint8_t start_position,
+					   uint8_t length);
 int32_t bme280_compensate_temp(int32_t adc_T);
 int32_t bme280_compensate_pressure(int32_t adc_P);
 uint32_t bme280_compensate_humidity(int32_t adc_H);
@@ -165,7 +166,8 @@ int16_t bme280_get_temperature(void)
 	int32_t retval;
 	uint32_t raw_temp_adc_val;
 
-	bme280_write_byte(CTRL_MEAS_REG, 0b00100001); // oversample x1 temp, pressure off, forced mode
+	// oversample x1 temp, pressure off, forced mode.
+	bme280_write_byte(CTRL_MEAS_REG, 0b00100001);
 	raw_temp_adc_val = bme280_get_raw_temp_val();
 	retval = bme280_compensate_temp(raw_temp_adc_val);
 
@@ -183,7 +185,8 @@ uint16_t bme280_get_humidity(void)
 	uint32_t retval;
 	uint16_t raw_hum_adc_val;
 
-	bme280_write_byte(CTRL_MEAS_REG, 0b00100001); // oversample x1 temp, pressure off, forced mode
+	// oversample x1 temp, pressure off, forced mode
+	bme280_write_byte(CTRL_MEAS_REG, 0b00100001);
 	raw_hum_adc_val = bme280_get_raw_hum_val();
 	retval = bme280_compensate_humidity(raw_hum_adc_val);
 	retval *= 100;
@@ -195,7 +198,7 @@ uint16_t bme280_get_humidity(void)
 
 
 
-if 1
+#if 1
 /*
  * @brief Fetches the latest humidity data from the sensor, compensates and
  * formats the data as %RH * 100.
@@ -206,7 +209,8 @@ uint16_t bme280_get_humidity(void)
 	uint32_t retval;
 	uint16_t raw_hum_adc_val;
 
-	bme280_write_byte(CTRL_MEAS_REG, 0b00100001); // oversample x1 temp, pressure off, forced mode
+	// oversample x1 temp, pressure off, forced mode
+	bme280_write_byte(CTRL_MEAS_REG, 0b00100001);
 	raw_hum_adc_val = bme280_get_raw_hum_val();
 	retval = bme280_compensate_humidity(raw_hum_adc_val);
 	retval *= 100;
@@ -228,9 +232,9 @@ uint16_t bme280_get_pressure(void)
 }
 
 
-//######################################################################################################################//
-// 												Helper functions for I/O ctrl											//
-//######################################################################################################################//
+//###########################################################################//
+// ---------------------- Helper functions for I/O ctrl -------------------- //
+//###########################################################################//
 
 /**
  * @brief Writes a single byte to a specified reguster.
@@ -246,7 +250,8 @@ void bme280_write_byte(uint8_t reg, uint8_t byte)
 	i2c_stop();
 }
 
-uint8_t bme280_read_byte(uint8_t reg) // Reads a single byte from specified register
+// Reads a single byte from specified register
+uint8_t bme280_read_byte(uint8_t reg)
 {
 	uint8_t byte;
 
@@ -261,7 +266,9 @@ uint8_t bme280_read_byte(uint8_t reg) // Reads a single byte from specified regi
 }
 
 // Reads a whole section of memory addresses
-void bme280_burst_read(uint8_t start_address, uint8_t start_position, uint8_t length)
+void bme280_burst_read(uint8_t start_address,
+					   uint8_t start_position,
+					   uint8_t length)
 {
 	i2c_start();
 	i2c_send(BME280_ADDRESS_W);
@@ -399,27 +406,33 @@ uint32_t bme280_get_raw_hum_val(void)
 	return retval;
 }
 
-//######################################################################################################################//
-// 						Compensation formulae for converting raw ADC values into unit measurements						//
-//######################################################################################################################//
+//###########################################################################//
+// ---- Compensation formulae for converting raw ADC values to SI units ---- //
+//###########################################################################//
 
-// Returns temperature in DegC, resolution is 0.01 DegC. Output value of "5123" equals 51.23 DegC.
-// t_fine carries fine temperature as global value
+// t_fine carries fine temperature value to be used in other comp formulae.
+int32_t t_fine;
 
-int32_t t_fine; // (Signed) Fine temperature value to be carried over to pressure and humidity compensation formulae.
-
+/**
+ * Returns temperature in DegC, resolution is 0.01 DegC. Output value of "5123"
+ * equals 51.23 DegC.
+ */
 int32_t bme280_compensate_temp(int32_t adc_T)
 {
 	int32_t var1, var2, T;
 	var1 = (((adc_T >> 3) - ((int32_t)dig_T1 << 1)) * ((int32_t)dig_T2)) >> 11;
-	var2 = (((((adc_T >> 4) - ((int32_t)dig_T1)) * ((adc_T >> 4) - ((int32_t)dig_T1))) >> 12) * ((int32_t)dig_T3)) >> 14;
+	var2 = (((((adc_T >> 4) - ((int32_t)dig_T1)) * ((adc_T >> 4) 
+	- ((int32_t)dig_T1))) >> 12) * ((int32_t)dig_T3)) >> 14;
 	t_fine = var1 + var2;
 	T = (t_fine * 5 + 128) >> 8;
 	return T;
 }
 
-// Returns pressure in Pa as unsigned 32 bit integer. Output value of "96386" equals 96386 Pa = 963.86 hPa
 
+/**
+ * Returns pressure in Pa as unsigned 32 bit integer. Output value of "96386"
+ * equals 96386 Pa = 963.86 hPa.
+ */
 int32_t bme280_compensate_pressure(int32_t adc_P)
 {
 	int32_t var1, var2;
@@ -428,7 +441,8 @@ int32_t bme280_compensate_pressure(int32_t adc_P)
 	var2 = (((var1 >> 2) * (var1 >> 2)) >> 11 ) * ((int32_t)dig_P6);
 	var2 = var2 + ((var1 * ((int32_t)dig_P5)) << 1);
 	var2 = (var2 >> 2) + (((int32_t)dig_P4) << 16);
-	var1 = ((((int32_t)dig_P3 * (((var1 >> 2) * (var1 >> 2)) >> 13 )) >> 3) + (((((int32_t)dig_P2) * var1) >> 1 ))) >> 18;
+	var1 = ((((int32_t)dig_P3 * (((var1 >> 2) * (var1 >> 2)) >> 13 )) >> 3)
+	+ (((((int32_t)dig_P2) * var1) >> 1 ))) >> 18;
 	var1 = ((((32768 + var1)) * ((int32_t)dig_P1)) >> 15);
 
 	if (var1 == 0)
@@ -455,19 +469,24 @@ int32_t bme280_compensate_pressure(int32_t adc_P)
 }
 
 
-// Returns humidity in %RH as unsigned 32 bit integer in Q22.10 format (22 integer and 10 fractional bits).
-// Output value of "47445" represents 47445/1024 = 46.333 %RH
-
+/**
+ * Returns humidity in %RH as unsigned 32 bit integer in Q22.10 format (22
+ * integer and 10 fractional bits). Output value of "47445" represents
+ * 47445/1024 = 46.333 %RH.
+ */
 uint32_t bme280_compensate_humidity(int32_t adc_H)
 {
 	int32_t v_x1_u32r;
 
 	v_x1_u32r = (t_fine - (76800));
 
-	v_x1_u32r = (((((adc_H << 14) - (((int32_t)dig_H4) << 20) - (((int32_t)dig_H5) * v_x1_u32r)) + (16384)) >> 15) * (((((((v_x1_u32r *
-	((int32_t)dig_H6)) >> 10) * (((v_x1_u32r * ((int32_t)dig_H3)) >> 11) + (32768))) >> 10) + (2097152)) * ((int32_t)dig_H2) + 8192) >> 14));
+	v_x1_u32r = (((((adc_H << 14) - (((int32_t)dig_H4) << 20)
+	- (((int32_t)dig_H5) * v_x1_u32r)) + (16384)) >> 15) * (((((((v_x1_u32r 
+	* ((int32_t)dig_H6)) >> 10) * (((v_x1_u32r * ((int32_t)dig_H3)) >> 11)
+	+ (32768))) >> 10) + (2097152)) * ((int32_t)dig_H2) + 8192) >> 14));
 
-	v_x1_u32r = (v_x1_u32r - (((((v_x1_u32r >> 15) * (v_x1_u32r >> 15)) >> 7) * ((int32_t)dig_H1)) >> 4));
+	v_x1_u32r = (v_x1_u32r - (((((v_x1_u32r >> 15) * (v_x1_u32r >> 15)) >> 7)
+	* ((int32_t)dig_H1)) >> 4));
 	v_x1_u32r = (v_x1_u32r < 0 ? 0 : v_x1_u32r);
 	v_x1_u32r = (v_x1_u32r > 419430400 ? 419430400 : v_x1_u32r);
 	return (uint32_t)(v_x1_u32r>>12);
