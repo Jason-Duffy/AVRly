@@ -121,8 +121,14 @@ void usart_read_string(char myString[], uint8_t maxLength)
 void usart_print_byte(uint8_t byte)
 {
   // Converts a byte to a string of decimal text, sends it
-  transmit_byte('0' + (byte / 100));      // Hundreds
-  transmit_byte('0' + ((byte / 10) % 10));   // Tens
+  if (byte > 99)
+  {
+    transmit_byte('0' + (byte / 100));      // Hundreds
+  }
+  if (byte > 9)
+  {
+    transmit_byte('0' + ((byte / 10) % 10));   // Tens
+  }
   transmit_byte('0' + (byte % 10));     // Ones
 }
 
