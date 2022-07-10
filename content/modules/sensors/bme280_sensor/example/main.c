@@ -37,6 +37,10 @@
 int16_t temperature = 0;
 uint16_t humidity = 0;
 
+int8_t neg_val = -43;
+int8_t pos_val = 56;
+int8_t zer_val = 0;
+
 log_system_config_t log_system_main = 
 {
 	.p_system_tag = "Main",
@@ -58,17 +62,37 @@ int main()
 	{
 		temperature = bme280_get_temperature();
 		humidity = bme280_get_humidity();
-
-		log_message_with_16bit_unsigned_dec_val(&log_system_main,
+		/*
+		log_message_with_16bit_unsigned_val(&log_system_main,
 												INFO,
 												"Temperature: ",
-												temperature);
+												temperature,
+												DECIMAL);
 
-		log_message_with_16bit_unsigned_dec_val(&log_system_main,
+		log_message_with_16bit_unsigned_val(&log_system_main,
 												INFO,
 												"Humidity: ",
-												humidity);
+												humidity,
+												DECIMAL);
+		*/
 		_delay_ms(1000);
+		log_message_with_8bit_signed_val(&log_system_main,
+										 INFO,
+										 "Signed variable: ",
+										 neg_val,
+										 DECIMAL);
+
+		log_message_with_8bit_signed_val(&log_system_main,
+										 INFO,
+										 "Signed variable: ",
+										 pos_val,
+										 DECIMAL);
+
+		log_message_with_8bit_signed_val(&log_system_main,
+										 INFO,
+										 "Signed variable: ",
+										 zer_val,
+										 DECIMAL);
 	}
 
 	return 0;
