@@ -54,6 +54,7 @@
  * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/sensors/ccs811_sensor/example
  * 
  * @defgroup bme280 BME280 Temperature, Pressure and Humidity Sensor.
+ * @brief BME280 Temperature, Pressure and Humidity Sensor.
  * @ingroup sensors
  * @see The files can be downloaded from the repo at:
  * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/sensors/bme280_sensor/example

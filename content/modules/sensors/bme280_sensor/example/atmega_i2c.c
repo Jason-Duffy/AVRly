@@ -22,7 +22,7 @@
 
 /**
  * @file atmega_i2c.c
- * @ingroup i2c
+ * @ingroup bme280
  * @author Jason Duffy
  * @date 5th March 2022
  * @brief I2C communications driver for AVR MCU's.
