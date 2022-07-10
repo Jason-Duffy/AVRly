@@ -64,17 +64,21 @@
  * @see The files can be downloaded from the repo at:
  * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/avr-peripheral-features/timer-counter/digital-clock/example
  * 
- * Repository contents:
- * 
  * @defgroup comms_protocols Communication Protocols
  * @ingroup avr_peripherals
  * 
  * @defgroup spi SPI
  * @ingroup comms_protocols
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/avr-peripheral-features/comms_protocols/spi/example
  * 
  * @defgroup i2c I2C
  * @ingroup comms_protocols
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/avr-peripheral-features/comms_protocols/i2c/example
  * 
  * @defgroup usart USART
  * @ingroup comms_protocols
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/avr-peripheral-features/comms_protocols/usart/example
  */
