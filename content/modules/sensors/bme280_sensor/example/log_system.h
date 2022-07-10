@@ -96,7 +96,7 @@ void log_message(log_system_config_t *p_config,
 
 
 /**
- * Sends a string, followed by an 8 bit unsigned value in decimal format.
+ * Sends a string, followed by an 8 bit unsigned value.
  * @param p_config is a pointer to the log_system config object. Instantiate
  * the config object at the head of each file where logging is required and
  * pass it's address into this function.
@@ -115,7 +115,7 @@ void log_message_with_8bit_unsigned_val(log_system_config_t *p_config,
 
 
 /**
- * Sends a string, followed by an 8 bit value in decimal format.
+ * Sends a string, followed by an 8 bit value.
  * @param p_config is a pointer to the log_system config object. Instantiate
  * the config object at the head of each file where logging is required and
  * pass it's address into this function.
@@ -134,7 +134,7 @@ void log_message_with_8bit_signed_val(log_system_config_t *p_config,
 
 
 /**
- * Sends a string, followed by a 16 bit value in decimal format.
+ * Sends a string, followed by a 16 bit value.
  * @param p_config is a pointer to the log_system config object. Instantiate
  * the config object at the head of each file where logging is required and
  * pass it's address into this function.
@@ -154,7 +154,7 @@ void log_message_with_16bit_unsigned_val(log_system_config_t *p_config,
 
 
 /**
- * Sends a string, followed by a 16 bit value in decimal format.
+ * Sends a string, followed by a 16 bit value.
  * @param p_config is a pointer to the log_system config object. Instantiate
  * the config object at the head of each file where logging is required and
  * pass it's address into this function.
@@ -174,7 +174,7 @@ void log_message_with_16bit_signed_val(log_system_config_t *p_config,
 
 
 /**
- * Sends a string, followed by a 32 bit value in decimal format.
+ * Sends a string, followed by a 32 bit value.
  * @param p_config is a pointer to the log_system config object. Instantiate
  * the config object at the head of each file where logging is required and
  * pass it's address into this function.
@@ -194,7 +194,7 @@ void log_message_with_32bit_unsigned_val(log_system_config_t *p_config,
 
 
 /**
- * Sends a string, followed by a 32 bit value in decimal format.
+ * Sends a string, followed by a 32 bit value.
  * @param p_config is a pointer to the log_system config object. Instantiate
  * the config object at the head of each file where logging is required and
  * pass it's address into this function.
@@ -214,7 +214,7 @@ void log_message_with_32bit_signed_val(log_system_config_t *p_config,
 
 
 /**
- * Sends a string, followed by a 64 bit value in decimal format.
+ * Sends a string, followed by a 64 bit value.
  * @param p_config is a pointer to the log_system config object. Instantiate
  * the config object at the head of each file where logging is required and
  * pass it's address into this function.
@@ -234,7 +234,7 @@ void log_message_with_64bit_unsigned_dec_val(log_system_config_t *p_config,
 
 
 /**
- * Sends a string, followed by a 64 bit value in decimal format.
+ * Sends a string, followed by a 64 bit value.
  * @param p_config is a pointer to the log_system config object. Instantiate
  * the config object at the head of each file where logging is required and
  * pass it's address into this function.
