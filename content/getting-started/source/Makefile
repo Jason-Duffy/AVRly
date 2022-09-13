@@ -20,7 +20,7 @@ LIBDIR = /usr/local/
 
 PROGRAMMER_TYPE = avrisp
 # extra arguments to avrdude: baud rate, chip type, -F flag, etc.
-PROGRAMMER_ARGS = -b 19200 -P /dev/tty.usbmodem141201
+PROGRAMMER_ARGS = -b 19200 -P /dev/tty.usbmodem142201
 
 ##########-----------------------------------------------------------##########
 ##########                    Program Locations                      ##########
