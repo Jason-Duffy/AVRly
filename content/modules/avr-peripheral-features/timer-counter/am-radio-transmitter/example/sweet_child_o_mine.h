@@ -25,7 +25,7 @@
  * @ingroup am_radio
  * @author Jason Duffy
  * @date 10th September 2022
- * @brief 
+ * @brief
  */
 
 #ifndef SWEET_CHILD_O_MINE_DOT_H

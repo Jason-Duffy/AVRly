@@ -32,6 +32,10 @@
 
 #include "sweet_child_o_mine.h"
 
+
+/**
+ * Entry point to the program. 
+ */ 
 int main()
 {
     // Initialisation routines

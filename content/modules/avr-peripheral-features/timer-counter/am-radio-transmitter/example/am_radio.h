@@ -25,7 +25,12 @@
  * @ingroup am_radio
  * @author Jason Duffy
  * @date 10th September 2022
- * @brief 
+ * @brief Driver for a small, low power AM radio transmitter, to broadcast
+ * monophonic square wave tones over a short distance. This project was
+ * inspired by the book "Make: AVR Programming" by Elliot Williams. 
+ * 
+ * Only tested with F_CPU = 8MHZ, but will build on this later to make it work
+ * with other CPU speeds. 
  */
 
 #ifndef AM_RADIO_DOT_H
@@ -34,6 +39,12 @@
 #include <stdint.h>
 #include "scale.h"
 
+
+/**
+ * Enum to expose the predefined carrier frequency options.
+ * 1000KHZ (1MHZ) is ideal, but may be taken in your locality so try another if
+ * there is too much interferance. 
+ */
 typedef enum
 {   
     _500_KHZ = 500000,
@@ -45,6 +56,9 @@ typedef enum
 }frequency_khz_t;
 
 
+/**
+ * Enum to expose the predefined duration options. 
+ */
 typedef enum
 {
     SEMIBREVE,
@@ -55,19 +69,30 @@ typedef enum
     DEMISEMIQUAVER,
 }note_duration_t;
 
-// Initialises timer/counter for radio transmission at a specified carrier frequency. 
+
+/**
+ * Initialises timer/counter for radio transmission at a specified carrier frequency.
+ */
 void init_am_radio(frequency_khz_t carrier_freq);
 
-// Sets tempo for musical tones to be transmitted (in BPM).
+/**
+ * Sets tempo for musical tones to be transmitted (in BPM).
+ */
 void am_radio_set_tempo(uint8_t tempo);
 
-// Transmits a square wave, monophonic note for the specified duration.
+/**
+ * Transmits a square wave, monophonic note for the specified duration.
+ */
 void am_radio_transmit_note(note_pitch_t pitch, note_duration_t note_length);
 
-// Waits a specified duration before playing the next note. 
+/**
+ * Waits a specified duration before playing the next note. 
+ */
 void am_radio_rest(note_duration_t rest_length);
 
-// Test sequence, transmits an arpeggio scale in C.
+/**
+ * Test sequence, transmits an arpeggio scale in C major. 
+ */
 void arpeggio_in_c_test(void);
 
 
