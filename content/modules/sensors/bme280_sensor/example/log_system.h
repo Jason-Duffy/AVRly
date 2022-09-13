@@ -173,6 +173,13 @@ void log_message_with_16bit_signed_val(log_system_config_t *p_config,
                                        format_type_t format);
 
 
+// Temporary ptototype to make something work in the short term. 
+void log_message_with_16bit_unsigned_dec_val(log_system_config_t *p_config,
+                              log_type_t level,
+                              const char *msg,
+                              uint16_t val);
+
+
 /**
  * Sends a string, followed by a 32 bit value.
  * @param p_config is a pointer to the log_system config object. Instantiate
