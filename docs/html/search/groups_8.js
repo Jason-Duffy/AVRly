@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['sensors_0',['Sensors',['../group__sensors.html',1,'']]],
-  ['spi_1',['SPI',['../group__spi.html',1,'']]]
+  ['mcp48x2_20dac_0',['MCP48x2 DAC',['../group__mcp48x2.html',1,'']]]
 ];

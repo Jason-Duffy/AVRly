@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['timer_2fcounter_0',['Timer/Counter',['../group__timer__counter.html',1,'']]]
+  ['sensors_0',['Sensors',['../group__sensors.html',1,'']]],
+  ['spi_1',['SPI',['../group__spi.html',1,'']]]
 ];

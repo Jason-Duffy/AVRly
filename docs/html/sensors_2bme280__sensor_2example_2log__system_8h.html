@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('sensors_2bme280__sensor_2example_2log_
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">log_system.h File Reference<div class="ingroups"><a class="el" href="group__debug__tools.html">Debug Tools</a> &raquo; <a class="el" href="group__log__system.html">Log System</a></div></div></div>
+  <div class="headertitle"><div class="title">log_system.h File Reference<div class="ingroups"><a class="el" href="group__sensors.html">Sensors</a> &raquo; <a class="el" href="group__bme280.html">BME280 Temperature, Pressure and Humidity Sensor.</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -152,26 +152,28 @@ Functions</h2></td></tr>
 <tr class="memdesc:ad7afdd402c9427c8864e997c78e545f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends only the system tag, log level and message string.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#ad7afdd402c9427c8864e997c78e545f3">More...</a><br /></td></tr>
 <tr class="separator:ad7afdd402c9427c8864e997c78e545f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45da9d65679d1af71ec73f5b16780920"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#a45da9d65679d1af71ec73f5b16780920">log_message_with_8bit_unsigned_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, uint8_t val, <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
-<tr class="memdesc:a45da9d65679d1af71ec73f5b16780920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by an 8 bit unsigned value in decimal format.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#a45da9d65679d1af71ec73f5b16780920">More...</a><br /></td></tr>
+<tr class="memdesc:a45da9d65679d1af71ec73f5b16780920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by an 8 bit unsigned value.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#a45da9d65679d1af71ec73f5b16780920">More...</a><br /></td></tr>
 <tr class="separator:a45da9d65679d1af71ec73f5b16780920"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a396a1628fa1ef01da2eec21413a939bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#a396a1628fa1ef01da2eec21413a939bd">log_message_with_8bit_signed_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, int8_t val <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
-<tr class="memdesc:a396a1628fa1ef01da2eec21413a939bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by an 8 bit value in decimal format.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#a396a1628fa1ef01da2eec21413a939bd">More...</a><br /></td></tr>
-<tr class="separator:a396a1628fa1ef01da2eec21413a939bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d24398c0319fec1a7628526d38e3a86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#a6d24398c0319fec1a7628526d38e3a86">log_message_with_16bit_unsigned_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, uint16_t val <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
-<tr class="memdesc:a6d24398c0319fec1a7628526d38e3a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by a 16 bit value in decimal format.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#a6d24398c0319fec1a7628526d38e3a86">More...</a><br /></td></tr>
-<tr class="separator:a6d24398c0319fec1a7628526d38e3a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca600c50d1a36a021fd247a0dfcb0398"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#aca600c50d1a36a021fd247a0dfcb0398">log_message_with_16bit_signed_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, int16_t val <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
-<tr class="memdesc:aca600c50d1a36a021fd247a0dfcb0398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by a 16 bit value in decimal format.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#aca600c50d1a36a021fd247a0dfcb0398">More...</a><br /></td></tr>
-<tr class="separator:aca600c50d1a36a021fd247a0dfcb0398"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1af7338ac79929ac86aa64f43115c0e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#a1af7338ac79929ac86aa64f43115c0e0">log_message_with_32bit_unsigned_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, uint32_t val <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
-<tr class="memdesc:a1af7338ac79929ac86aa64f43115c0e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by a 32 bit value in decimal format.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#a1af7338ac79929ac86aa64f43115c0e0">More...</a><br /></td></tr>
-<tr class="separator:a1af7338ac79929ac86aa64f43115c0e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17eff1798f039d60d76d428ed98f35ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#a17eff1798f039d60d76d428ed98f35ba">log_message_with_32bit_signed_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, int32_t val <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
-<tr class="memdesc:a17eff1798f039d60d76d428ed98f35ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by a 32 bit value in decimal format.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#a17eff1798f039d60d76d428ed98f35ba">More...</a><br /></td></tr>
-<tr class="separator:a17eff1798f039d60d76d428ed98f35ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa72c620a6416439fe5820296f48847cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#aa72c620a6416439fe5820296f48847cf">log_message_with_64bit_unsigned_dec_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, uint64_t val <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
-<tr class="memdesc:aa72c620a6416439fe5820296f48847cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by a 64 bit value in decimal format.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#aa72c620a6416439fe5820296f48847cf">More...</a><br /></td></tr>
-<tr class="separator:aa72c620a6416439fe5820296f48847cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad59d4c1bc5a8edb188d2715c243496a8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#ad59d4c1bc5a8edb188d2715c243496a8">log_message_with_8bit_signed_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, int8_t val, <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
+<tr class="memdesc:ad59d4c1bc5a8edb188d2715c243496a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by an 8 bit value.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#ad59d4c1bc5a8edb188d2715c243496a8">More...</a><br /></td></tr>
+<tr class="separator:ad59d4c1bc5a8edb188d2715c243496a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b82cd2605e31bd11c00750f2370f9b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#a6b82cd2605e31bd11c00750f2370f9b4">log_message_with_16bit_unsigned_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, uint16_t val, <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
+<tr class="memdesc:a6b82cd2605e31bd11c00750f2370f9b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by a 16 bit value.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#a6b82cd2605e31bd11c00750f2370f9b4">More...</a><br /></td></tr>
+<tr class="separator:a6b82cd2605e31bd11c00750f2370f9b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac946436974dfc9a81f20e2393a9ef871"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#ac946436974dfc9a81f20e2393a9ef871">log_message_with_16bit_signed_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, int16_t val, <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
+<tr class="memdesc:ac946436974dfc9a81f20e2393a9ef871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by a 16 bit value.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#ac946436974dfc9a81f20e2393a9ef871">More...</a><br /></td></tr>
+<tr class="separator:ac946436974dfc9a81f20e2393a9ef871"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1e9e7602b44465a477ecbf58756613c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#ac1e9e7602b44465a477ecbf58756613c">log_message_with_16bit_unsigned_dec_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, uint16_t val)</td></tr>
+<tr class="separator:ac1e9e7602b44465a477ecbf58756613c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b5251c64f345c4f208695fb998e597e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#a2b5251c64f345c4f208695fb998e597e">log_message_with_32bit_unsigned_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, uint32_t val, <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
+<tr class="memdesc:a2b5251c64f345c4f208695fb998e597e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by a 32 bit value.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#a2b5251c64f345c4f208695fb998e597e">More...</a><br /></td></tr>
+<tr class="separator:a2b5251c64f345c4f208695fb998e597e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b66812195550eb2945870da8514add"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#ac5b66812195550eb2945870da8514add">log_message_with_32bit_signed_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, int32_t val, <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
+<tr class="memdesc:ac5b66812195550eb2945870da8514add"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by a 32 bit value.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#ac5b66812195550eb2945870da8514add">More...</a><br /></td></tr>
+<tr class="separator:ac5b66812195550eb2945870da8514add"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae80825f2f9535c71f14f8429fe5828cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#ae80825f2f9535c71f14f8429fe5828cf">log_message_with_64bit_unsigned_dec_val</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level, const char *msg, uint64_t val, <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a> format)</td></tr>
+<tr class="memdesc:ae80825f2f9535c71f14f8429fe5828cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a string, followed by a 64 bit value.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#ae80825f2f9535c71f14f8429fe5828cf">More...</a><br /></td></tr>
+<tr class="separator:ae80825f2f9535c71f14f8429fe5828cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3528484a202f58cbc7f8f95db262783c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#a3528484a202f58cbc7f8f95db262783c">log_set_file_max_output_level</a> (<a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *p_config, <a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a> level)</td></tr>
 <tr class="memdesc:a3528484a202f58cbc7f8f95db262783c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets maximum output level of logging required, to be used at file scope.  <a href="sensors_2bme280__sensor_2example_2log__system_8h.html#a3528484a202f58cbc7f8f95db262783c">More...</a><br /></td></tr>
 <tr class="separator:a3528484a202f58cbc7f8f95db262783c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -330,8 +332,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  102</span>   }</div>
 <div class="line"><span class="lineno">  103</span>}</div>
 <div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_a4e71ccb6ac34e077f20648dd9720bf72"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a></div><div class="ttdeci">void usart_print_string(const char myString[])</div><div class="ttdoc">Utility function to transmit a string.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00074">usart.c:74</a></div></div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_a26cf498efe653997646791d6412b4e71"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a></div><div class="ttdeci">bool log_message_preference_check(log_system_config_t *p_config, log_type_t level)</div><div class="ttdoc">Utility function to test if the log message level meets the preferences set.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00279">log_system.c:279</a></div></div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_a4b579b76b549b8374b3fec74ac846813"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a></div><div class="ttdeci">void print_tag_and_log_level(const char *p_tag, log_type_t level)</div><div class="ttdoc">Utility function to print labels over serial.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00235">log_system.c:235</a></div></div>
+<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_a26cf498efe653997646791d6412b4e71"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a></div><div class="ttdeci">bool log_message_preference_check(log_system_config_t *p_config, log_type_t level)</div><div class="ttdoc">Utility function to test if the log message level meets the preferences set.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00304">log_system.c:304</a></div></div>
+<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_a4b579b76b549b8374b3fec74ac846813"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a></div><div class="ttdeci">void print_tag_and_log_level(const char *p_tag, log_type_t level)</div><div class="ttdoc">Utility function to print labels over serial.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00260">log_system.c:260</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -379,7 +381,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends a string, followed by an 8 bit unsigned value in decimal format. </p>
+<p>Sends a string, followed by an 8 bit unsigned value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p_config</td><td>is a pointer to the log_system config object. Instantiate the config object at the head of each file where logging is required and pass it's address into this function. </td></tr>
@@ -393,8 +395,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a396a1628fa1ef01da2eec21413a939bd" name="a396a1628fa1ef01da2eec21413a939bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a396a1628fa1ef01da2eec21413a939bd">&#9670;&nbsp;</a></span>log_message_with_8bit_signed_val()</h2>
+<a id="ad59d4c1bc5a8edb188d2715c243496a8" name="ad59d4c1bc5a8edb188d2715c243496a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad59d4c1bc5a8edb188d2715c243496a8">&#9670;&nbsp;</a></span>log_message_with_8bit_signed_val()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -420,7 +422,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int8_t val <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a>&#160;</td>
+          <td class="paramtype">int8_t&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a>&#160;</td>
           <td class="paramname"><em>format</em>&#160;</td>
         </tr>
         <tr>
@@ -431,7 +439,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends a string, followed by an 8 bit value in decimal format. </p>
+<p>Sends a string, followed by an 8 bit value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p_config</td><td>is a pointer to the log_system config object. Instantiate the config object at the head of each file where logging is required and pass it's address into this function. </td></tr>
@@ -443,10 +451,28 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8c_source.html#l00118">118</a> of file <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  123</span>{</div>
+<div class="line"><span class="lineno">  124</span>  <span class="comment">// If all test expressions evaluate true, log message.</span></div>
+<div class="line"><span class="lineno">  125</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a>(p_config, level))</div>
+<div class="line"><span class="lineno">  126</span>  {</div>
+<div class="line"><span class="lineno">  127</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a>(p_config-&gt;p_system_tag, level);</div>
+<div class="line"><span class="lineno">  128</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(msg);</div>
+<div class="line"><span class="lineno">  129</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">if</span> (val &lt; 0)</div>
+<div class="line"><span class="lineno">  131</span>    {</div>
+<div class="line"><span class="lineno">  132</span>      <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(<span class="stringliteral">&quot;-&quot;</span>);</div>
+<div class="line"><span class="lineno">  133</span>      val *= -1; <span class="comment">// Convert to positive integer</span></div>
+<div class="line"><span class="lineno">  134</span>    }</div>
+<div class="line"><span class="lineno">  135</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a5c70d80f37cd301690591675569ce4ae">usart_print_byte</a>(val); </div>
+<div class="line"><span class="lineno">  136</span>  }</div>
+<div class="line"><span class="lineno">  137</span>}</div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_a5c70d80f37cd301690591675569ce4ae"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#a5c70d80f37cd301690591675569ce4ae">usart_print_byte</a></div><div class="ttdeci">void usart_print_byte(uint8_t byte)</div><div class="ttdoc">Prints a byte out as its 3-digit ascii equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00121">usart.c:121</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
-<a id="a6d24398c0319fec1a7628526d38e3a86" name="a6d24398c0319fec1a7628526d38e3a86"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d24398c0319fec1a7628526d38e3a86">&#9670;&nbsp;</a></span>log_message_with_16bit_unsigned_val()</h2>
+<a id="a6b82cd2605e31bd11c00750f2370f9b4" name="a6b82cd2605e31bd11c00750f2370f9b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b82cd2605e31bd11c00750f2370f9b4">&#9670;&nbsp;</a></span>log_message_with_16bit_unsigned_val()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -472,7 +498,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint16_t val <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a>&#160;</td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a>&#160;</td>
           <td class="paramname"><em>format</em>&#160;</td>
         </tr>
         <tr>
@@ -483,7 +515,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends a string, followed by a 16 bit value in decimal format. </p>
+<p>Sends a string, followed by a 16 bit value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p_config</td><td>is a pointer to the log_system config object. Instantiate the config object at the head of each file where logging is required and pass it's address into this function. </td></tr>
@@ -497,8 +529,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aca600c50d1a36a021fd247a0dfcb0398" name="aca600c50d1a36a021fd247a0dfcb0398"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca600c50d1a36a021fd247a0dfcb0398">&#9670;&nbsp;</a></span>log_message_with_16bit_signed_val()</h2>
+<a id="ac946436974dfc9a81f20e2393a9ef871" name="ac946436974dfc9a81f20e2393a9ef871"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac946436974dfc9a81f20e2393a9ef871">&#9670;&nbsp;</a></span>log_message_with_16bit_signed_val()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -524,7 +556,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int16_t val <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a>&#160;</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a>&#160;</td>
           <td class="paramname"><em>format</em>&#160;</td>
         </tr>
         <tr>
@@ -535,7 +573,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends a string, followed by a 16 bit value in decimal format. </p>
+<p>Sends a string, followed by a 16 bit value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p_config</td><td>is a pointer to the log_system config object. Instantiate the config object at the head of each file where logging is required and pass it's address into this function. </td></tr>
@@ -549,8 +587,61 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1af7338ac79929ac86aa64f43115c0e0" name="a1af7338ac79929ac86aa64f43115c0e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1af7338ac79929ac86aa64f43115c0e0">&#9670;&nbsp;</a></span>log_message_with_32bit_unsigned_val()</h2>
+<a id="ac1e9e7602b44465a477ecbf58756613c" name="ac1e9e7602b44465a477ecbf58756613c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1e9e7602b44465a477ecbf58756613c">&#9670;&nbsp;</a></span>log_message_with_16bit_unsigned_dec_val()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void log_message_with_16bit_unsigned_dec_val </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structlog__system__config__t.html">log_system_config_t</a> *&#160;</td>
+          <td class="paramname"><em>p_config</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="debug-tools_2log-system_2example_2log__system_8h.html#af8da7b968cb9659aef1acb8c79ff7250">log_type_t</a>&#160;</td>
+          <td class="paramname"><em>level</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>msg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t&#160;</td>
+          <td class="paramname"><em>val</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8c_source.html#l00140">140</a> of file <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  144</span>{</div>
+<div class="line"><span class="lineno">  145</span>  <span class="comment">// If all test expressions evaluate true, log message.</span></div>
+<div class="line"><span class="lineno">  146</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71">log_message_preference_check</a>(p_config, level))</div>
+<div class="line"><span class="lineno">  147</span>  {</div>
+<div class="line"><span class="lineno">  148</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a4b579b76b549b8374b3fec74ac846813">print_tag_and_log_level</a>(p_config-&gt;p_system_tag, level);</div>
+<div class="line"><span class="lineno">  149</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(msg);</div>
+<div class="line"><span class="lineno">  150</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a4e71ccb6ac34e077f20648dd9720bf72">usart_print_string</a>(<span class="stringliteral">&quot; &quot;</span>);</div>
+<div class="line"><span class="lineno">  151</span>    <a class="code hl_function" href="avr-peripheral-features_2usart_2example_2usart_8c.html#a919c64b35a3b4d9df21feee567929eca">usart_print_word</a>(val); </div>
+<div class="line"><span class="lineno">  152</span>  }</div>
+<div class="line"><span class="lineno">  153</span>}</div>
+<div class="ttc" id="aavr-peripheral-features_2usart_2example_2usart_8c_html_a919c64b35a3b4d9df21feee567929eca"><div class="ttname"><a href="avr-peripheral-features_2usart_2example_2usart_8c.html#a919c64b35a3b4d9df21feee567929eca">usart_print_word</a></div><div class="ttdeci">void usart_print_word(uint16_t word)</div><div class="ttdoc">Prints a word (16-bits) out as its 5-digit ascii equivalent.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2usart_2example_2usart_8c_source.html#l00155">usart.c:155</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a2b5251c64f345c4f208695fb998e597e" name="a2b5251c64f345c4f208695fb998e597e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b5251c64f345c4f208695fb998e597e">&#9670;&nbsp;</a></span>log_message_with_32bit_unsigned_val()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -576,7 +667,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint32_t val <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a>&#160;</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a>&#160;</td>
           <td class="paramname"><em>format</em>&#160;</td>
         </tr>
         <tr>
@@ -587,7 +684,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends a string, followed by a 32 bit value in decimal format. </p>
+<p>Sends a string, followed by a 32 bit value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p_config</td><td>is a pointer to the log_system config object. Instantiate the config object at the head of each file where logging is required and pass it's address into this function. </td></tr>
@@ -601,8 +698,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a17eff1798f039d60d76d428ed98f35ba" name="a17eff1798f039d60d76d428ed98f35ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17eff1798f039d60d76d428ed98f35ba">&#9670;&nbsp;</a></span>log_message_with_32bit_signed_val()</h2>
+<a id="ac5b66812195550eb2945870da8514add" name="ac5b66812195550eb2945870da8514add"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5b66812195550eb2945870da8514add">&#9670;&nbsp;</a></span>log_message_with_32bit_signed_val()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -628,7 +725,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int32_t val <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a>&#160;</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a>&#160;</td>
           <td class="paramname"><em>format</em>&#160;</td>
         </tr>
         <tr>
@@ -639,7 +742,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends a string, followed by a 32 bit value in decimal format. </p>
+<p>Sends a string, followed by a 32 bit value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p_config</td><td>is a pointer to the log_system config object. Instantiate the config object at the head of each file where logging is required and pass it's address into this function. </td></tr>
@@ -653,8 +756,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa72c620a6416439fe5820296f48847cf" name="aa72c620a6416439fe5820296f48847cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa72c620a6416439fe5820296f48847cf">&#9670;&nbsp;</a></span>log_message_with_64bit_unsigned_dec_val()</h2>
+<a id="ae80825f2f9535c71f14f8429fe5828cf" name="ae80825f2f9535c71f14f8429fe5828cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae80825f2f9535c71f14f8429fe5828cf">&#9670;&nbsp;</a></span>log_message_with_64bit_unsigned_dec_val()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -680,7 +783,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">uint64_t val <a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a>&#160;</td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>val</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="sensors_2bme280__sensor_2example_2log__system_8h.html#acc473a49376773b5baed4d4532347224">format_type_t</a>&#160;</td>
           <td class="paramname"><em>format</em>&#160;</td>
         </tr>
         <tr>
@@ -691,7 +800,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Sends a string, followed by a 64 bit value in decimal format. </p>
+<p>Sends a string, followed by a 64 bit value. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">p_config</td><td>is a pointer to the log_system config object. Instantiate the config object at the head of each file where logging is required and pass it's address into this function. </td></tr>
@@ -740,10 +849,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00192">192</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  194</span>{</div>
-<div class="line"><span class="lineno">  195</span>  p_config-&gt;file_log_level = level;</div>
-<div class="line"><span class="lineno">  196</span>}</div>
+<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00217">217</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  219</span>{</div>
+<div class="line"><span class="lineno">  220</span>  p_config-&gt;file_log_level = level;</div>
+<div class="line"><span class="lineno">  221</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -771,10 +880,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00204">204</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  205</span>{</div>
-<div class="line"><span class="lineno">  206</span>  global_max_output_level = level;</div>
-<div class="line"><span class="lineno">  207</span>}</div>
+<p class="definition">Definition at line <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00229">229</a> of file <a class="el" href="debug-tools_2log-system_2example_2log__system_8c_source.html">log_system.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  230</span>{</div>
+<div class="line"><span class="lineno">  231</span>  global_max_output_level = level;</div>
+<div class="line"><span class="lineno">  232</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

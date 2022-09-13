@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['data_20converters_0',['Data Converters',['../group__data__converters.html',1,'']]],
-  ['debug_20tools_1',['Debug Tools',['../group__debug__tools.html',1,'']]],
-  ['digital_20clock_2',['Digital Clock',['../group__digital__clock.html',1,'']]],
-  ['displays_3',['Displays',['../group__displays.html',1,'']]]
+  ['ccs811_20gas_20sensor_0',['CCS811 Gas Sensor',['../group__ccs811.html',1,'']]],
+  ['communication_20protocols_1',['Communication Protocols',['../group__comms__protocols.html',1,'']]]
 ];

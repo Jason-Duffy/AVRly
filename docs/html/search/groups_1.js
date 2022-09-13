@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ccs811_20gas_20sensor_0',['CCS811 Gas Sensor',['../group__ccs811.html',1,'']]],
-  ['communication_20protocols_1',['Communication Protocols',['../group__comms__protocols.html',1,'']]]
+  ['bme280_20temperature_2c_20pressure_20and_20humidity_20sensor_2e_0',['BME280 Temperature, Pressure and Humidity Sensor.',['../group__bme280.html',1,'']]]
 ];
