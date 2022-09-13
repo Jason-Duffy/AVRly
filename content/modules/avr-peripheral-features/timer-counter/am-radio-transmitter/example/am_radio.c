@@ -25,7 +25,8 @@
  * @ingroup am_radio
  * @author Jason Duffy
  * @date 10th September 2022
- * @brief 
+ * @brief Driver for a small, low power AM radio transmitter, to broadcast
+ * monophonic square wave tones over a short distance. 
  */
 
 #include <avr/power.h>
@@ -40,7 +41,9 @@
 static uint16_t duration[6] = {2000,1000,500,250,125,62};
 
 
-// Initialises timer/counter for radio transmission at a specified carrier frequency. 
+/*
+ * Initialises timer/counter for radio transmission at a specified carrier frequency.
+ */
 void init_am_radio(frequency_khz_t carrier_freq)
 {
     cli();
@@ -71,7 +74,9 @@ ISR(TIMER1_COMPA_vect)
 }
 
 
-// Sets tempo for musical tones to be transmitted (in BPM).
+/*
+ * Sets tempo for musical tones to be transmitted (in BPM).
+ */
 void am_radio_set_tempo(uint8_t bpm)
 {
     duration[SEMIBREVE] = (60000 / bpm) * 4;
@@ -83,7 +88,9 @@ void am_radio_set_tempo(uint8_t bpm)
 }
 
 
-// Transmits a square wave, monophonic note for the specified duration.
+/*
+ * Transmits a square wave, monophonic note for the specified duration.
+ */
 void am_radio_transmit_note(note_pitch_t pitch, note_duration_t note_length)
 {
     // Set pitch. 
@@ -106,7 +113,9 @@ void am_radio_transmit_note(note_pitch_t pitch, note_duration_t note_length)
 }
 
 
-// Waits a specified duration before playing the next note. 
+/*
+ * Waits a specified duration before playing the next note. 
+ */
 void am_radio_rest(note_duration_t rest_length)
 {
     // Wait for specified time. 
@@ -117,8 +126,9 @@ void am_radio_rest(note_duration_t rest_length)
 }
 
 
-// Test sequence, transmits an arpeggio scale in C.
-void arpeggio_in_c_test(void)
+/*
+ * Test sequence, transmits an arpeggio scale in C major. 
+ */void arpeggio_in_c_test(void)
 {
     am_radio_transmit_note(C2, CROTCHET);
     am_radio_rest(QUAVER);

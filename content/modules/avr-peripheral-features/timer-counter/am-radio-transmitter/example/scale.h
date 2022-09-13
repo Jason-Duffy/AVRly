@@ -25,13 +25,16 @@
  * @ingroup am_radio
  * @author Jason Duffy
  * @date 10th September 2022
- * @brief 
+ * @brief Contains the count values required for the note pitches to work at
+ * 8MHZ F_CPU
  */
 
 #ifndef SCALE_DOT_H
 #define SCALE_DOT_H
 
-
+/**
+ * Enum to expose the count values required to generate the pitches. 
+ */
 typedef enum
 {
     C0  =    10000,

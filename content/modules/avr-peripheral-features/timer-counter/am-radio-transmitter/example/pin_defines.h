@@ -25,7 +25,10 @@
  * @ingroup am_radio
  * @author Jason Duffy
  * @date 10th September 2022
- * @brief Definitions for pins and ports.
+ * @brief Definitions for pins and ports. Connect a small wire to ANTENNA pin,
+ * you can boost the signal by touching the wire with your fingers, as the
+ * human body can act as a remarkably good antenna. Tune an AM radio to the
+ * carrier frequency to pick up the transmission. 
  */
 
 #ifndef PIN_DEFINES_DOT_H
@@ -36,7 +39,7 @@
 #define ANTENNA_DDR     DDRD
 #define ANTENNA_PORT    PORTD
 #define ANTENNA         PD5
-#define DEBUG_PIN       PD4
+
 
 #endif //PIN_DEFINES_DOT_H
 

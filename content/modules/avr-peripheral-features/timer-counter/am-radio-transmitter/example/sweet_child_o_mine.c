@@ -25,7 +25,8 @@
  * @ingroup am_radio
  * @author Jason Duffy
  * @date 10th September 2022
- * @brief 
+ * @brief This file contains the implementation of the sequencing to reproduce
+ * the intro to Sweet Child O' Mine by Guns N Roses. 
  */
 
 #include "sweet_child_o_mine.h"

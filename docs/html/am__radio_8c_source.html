@@ -118,122 +118,140 @@ $(document).ready(function(){initNavTree('am__radio_8c_source.html',''); initRes
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @ingroup am_radio</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * @author Jason Duffy</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @date 10th September 2022</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * @brief </span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &lt;avr/power.h&gt;</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;avr/interrupt.h&gt;</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;util/delay.h&gt;</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;<a class="code" href="am__radio_8h.html">am_radio.h</a>&quot;</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;<a class="code" href="modules_2sensors_2ccs811__sensor_2example_2pin__defines_8h.html">pin_defines.h</a>&quot;</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * @brief Driver for a small, low power AM radio transmitter, to broadcast</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * monophonic square wave tones over a short distance. </span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &lt;avr/power.h&gt;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &lt;avr/interrupt.h&gt;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;util/delay.h&gt;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;<a class="code" href="am__radio_8h.html">am_radio.h</a>&quot;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;<a class="code" href="modules_2sensors_2ccs811__sensor_2example_2pin__defines_8h.html">pin_defines.h</a>&quot;</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">// Set default values based on 120BPM tempo. </span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">static</span> uint16_t duration[6] = {2000,1000,500,250,125,62};</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">// Set default values based on 120BPM tempo. </span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">static</span> uint16_t duration[6] = {2000,1000,500,250,125,62};</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">// Initialises timer/counter for radio transmission at a specified carrier frequency. </span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">void</span> init_am_radio(frequency_khz_t carrier_freq)</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    cli();</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="comment">// ----------------- TIMER 0 setup ------------------ //</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    TCCR0A |= (1 &lt;&lt; WGM01); <span class="comment">// Timer 0 in CTC mode. </span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    TCCR0A |= (1 &lt;&lt; COM0B0); <span class="comment">// Toggle OC0B on compare match.</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    TCCR0B |= (1 &lt;&lt; CS00); <span class="comment">// Prescaler of 1.</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">// F_CPU / (2 * 1 * (1 + 3)) = Carrier_freq</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="comment">// 8,000,000 / (2 * 1 * (1 + 3)) = 1,000,000</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    uint8_t count_value = (((F_CPU / carrier_freq) / 2) - 1); <span class="comment">// calculate count value. </span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    OCR0A = count_value; <span class="comment">// Set the carrier frequency.</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="comment">// ----------------- TIMER 1 setup ------------------ //</span></div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="comment">// TODO: Make this setup dependant on F_CPU and carrier_freq_khz.</span></div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    TCCR1B |= (1 &lt;&lt; WGM12); <span class="comment">// Timer 1 in CTC mode.</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    TCCR1B |= (1 &lt;&lt; CS11); <span class="comment">// Prescaler of 8.</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    TIMSK1 |= (1 &lt;&lt; OCIE1A); <span class="comment">// Enable output compare match interrupt.</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    sei();</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><a class="code hl_function" href="digital__clock_8c.html#aec43762dc86e029b395d4e5819192c2d">ISR</a>(TIMER1_COMPA_vect)</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>{</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    ANTENNA_DDR ^= (1 &lt;&lt; ANTENNA); <span class="comment">// Toggle carrier on and off.</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">// Sets tempo for musical tones to be transmitted (in BPM).</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="keywordtype">void</span> am_radio_set_tempo(uint8_t bpm)</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>{</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    duration[SEMIBREVE] = (60000 / bpm) * 4;</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    duration[MINIM] = (duration[SEMIBREVE] &gt;&gt; 1); <span class="comment">// Div by 2</span></div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    duration[CROTCHET] = (duration[MINIM] &gt;&gt; 1); <span class="comment">// Div by 2</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    duration[QUAVER] = (duration[CROTCHET] &gt;&gt; 1); <span class="comment">// Div by 2</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    duration[SEMIQUAVER] = (duration[QUAVER] &gt;&gt; 1); <span class="comment">// Div by 2</span></div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    duration[DEMISEMIQUAVER] = (duration[SEMIQUAVER] &gt;&gt; 1); <span class="comment">// Div by 2</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">// Transmits a square wave, monophonic note for the specified duration.</span></div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keywordtype">void</span> am_radio_transmit_note(note_pitch_t pitch, note_duration_t note_length)</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>{</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="comment">// Set pitch. </span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    OCR1A = pitch;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="comment">// Enable interrupts. </span></div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    sei();</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="comment">// Wait for specified time. </span></div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">for</span> (uint16_t count = 0; count &lt; duration[note_length]; ++count)</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    {</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        _delay_ms(1);</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    }</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="comment">// Disable interrupts. </span></div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    cli();</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// Back to full carrier freq. </span></div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    ANTENNA_DDR |= (1 &lt;&lt; ANTENNA);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * Initialises timer/counter for radio transmission at a specified carrier frequency.</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="am__radio_8c.html#a4ee383ae9d3825b05216a6b18550211b">   47</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="am__radio_8c.html#a4ee383ae9d3825b05216a6b18550211b">init_am_radio</a>(<a class="code hl_enumeration" href="am__radio_8h.html#a58a2b98e0b3b191ec6d79eb72c195ab4">frequency_khz_t</a> carrier_freq)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    cli();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// ----------------- TIMER 0 setup ------------------ //</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    TCCR0A |= (1 &lt;&lt; WGM01); <span class="comment">// Timer 0 in CTC mode. </span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    TCCR0A |= (1 &lt;&lt; COM0B0); <span class="comment">// Toggle OC0B on compare match.</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    TCCR0B |= (1 &lt;&lt; CS00); <span class="comment">// Prescaler of 1.</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">// F_CPU / (2 * 1 * (1 + 3)) = Carrier_freq</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// 8,000,000 / (2 * 1 * (1 + 3)) = 1,000,000</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    uint8_t count_value = (((F_CPU / carrier_freq) / 2) - 1); <span class="comment">// calculate count value. </span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    OCR0A = count_value; <span class="comment">// Set the carrier frequency.</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// ----------------- TIMER 1 setup ------------------ //</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="comment">// TODO: Make this setup dependant on F_CPU and carrier_freq_khz.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    TCCR1B |= (1 &lt;&lt; WGM12); <span class="comment">// Timer 1 in CTC mode.</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    TCCR1B |= (1 &lt;&lt; CS11); <span class="comment">// Prescaler of 8.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    TIMSK1 |= (1 &lt;&lt; OCIE1A); <span class="comment">// Enable output compare match interrupt.</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    sei();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><a class="code hl_function" href="digital__clock_8c.html#aec43762dc86e029b395d4e5819192c2d">ISR</a>(TIMER1_COMPA_vect)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    ANTENNA_DDR ^= (1 &lt;&lt; ANTENNA); <span class="comment">// Toggle carrier on and off.</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"> * Sets tempo for musical tones to be transmitted (in BPM).</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="am__radio_8c.html#ad4701a3dd518464da8aa20375a89db23">   80</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="am__radio_8c.html#ad4701a3dd518464da8aa20375a89db23">am_radio_set_tempo</a>(uint8_t bpm)</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    duration[SEMIBREVE] = (60000 / bpm) * 4;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    duration[MINIM] = (duration[SEMIBREVE] &gt;&gt; 1); <span class="comment">// Div by 2</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    duration[CROTCHET] = (duration[MINIM] &gt;&gt; 1); <span class="comment">// Div by 2</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    duration[QUAVER] = (duration[CROTCHET] &gt;&gt; 1); <span class="comment">// Div by 2</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    duration[SEMIQUAVER] = (duration[QUAVER] &gt;&gt; 1); <span class="comment">// Div by 2</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    duration[DEMISEMIQUAVER] = (duration[SEMIQUAVER] &gt;&gt; 1); <span class="comment">// Div by 2</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"> * Transmits a square wave, monophonic note for the specified duration.</span></div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">   94</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(<a class="code hl_enumeration" href="scale_8h.html#aa763d057185ef96733d453d17a868652">note_pitch_t</a> pitch, <a class="code hl_enumeration" href="am__radio_8h.html#ac860808060bd341573c27c53a3082fb1">note_duration_t</a> note_length)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>{</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="comment">// Set pitch. </span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    OCR1A = pitch;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="comment">// Enable interrupts. </span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    sei();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="comment">// Wait for specified time. </span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">for</span> (uint16_t count = 0; count &lt; duration[note_length]; ++count)</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        _delay_ms(1);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">// Waits a specified duration before playing the next note. </span></div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keywordtype">void</span> am_radio_rest(note_duration_t rest_length)</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>{</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="comment">// Wait for specified time. </span></div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keywordflow">for</span> (uint16_t count = 0; count &lt; duration[rest_length]; ++count)</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    {</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        _delay_ms(1);</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>}</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment">// Test sequence, transmits an arpeggio scale in C.</span></div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="keywordtype">void</span> arpeggio_in_c_test(<span class="keywordtype">void</span>)</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>{</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    am_radio_transmit_note(C2, CROTCHET);</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    am_radio_rest(QUAVER);</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    am_radio_transmit_note(E2, CROTCHET);</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    am_radio_rest(QUAVER);</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    am_radio_transmit_note(G2, CROTCHET);</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    am_radio_rest(QUAVER);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    am_radio_transmit_note(C3, CROTCHET);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    am_radio_rest(QUAVER);</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    am_radio_transmit_note(G2, CROTCHET);</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    am_radio_rest(QUAVER);</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    am_radio_transmit_note(E2, CROTCHET);</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    am_radio_rest(QUAVER);</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span><span class="comment">/*** end of file ***/</span></div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="ttc" id="aam__radio_8h_html"><div class="ttname"><a href="am__radio_8h.html">am_radio.h</a></div></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// Disable interrupts. </span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    cli();</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="comment">// Back to full carrier freq. </span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    ANTENNA_DDR |= (1 &lt;&lt; ANTENNA);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"> * Waits a specified duration before playing the next note. </span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="am__radio_8c.html#abb11e292374199e767dc11c778bdcbdc">  119</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="am__radio_8c.html#abb11e292374199e767dc11c778bdcbdc">am_radio_rest</a>(<a class="code hl_enumeration" href="am__radio_8h.html#ac860808060bd341573c27c53a3082fb1">note_duration_t</a> rest_length)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>{</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <span class="comment">// Wait for specified time. </span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordflow">for</span> (uint16_t count = 0; count &lt; duration[rest_length]; ++count)</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        _delay_ms(1);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    }</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment"> * Test sequence, transmits an arpeggio scale in C major. </span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="am__radio_8c.html#ab7fa9beffe7d55b66e94a5ec4feca333">  131</a></span><span class="comment"> */</span><span class="keywordtype">void</span> <a class="code hl_function" href="am__radio_8c.html#ab7fa9beffe7d55b66e94a5ec4feca333">arpeggio_in_c_test</a>(<span class="keywordtype">void</span>)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>{</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(C2, CROTCHET);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <a class="code hl_function" href="am__radio_8c.html#abb11e292374199e767dc11c778bdcbdc">am_radio_rest</a>(QUAVER);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(E2, CROTCHET);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <a class="code hl_function" href="am__radio_8c.html#abb11e292374199e767dc11c778bdcbdc">am_radio_rest</a>(QUAVER);</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(G2, CROTCHET);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <a class="code hl_function" href="am__radio_8c.html#abb11e292374199e767dc11c778bdcbdc">am_radio_rest</a>(QUAVER);</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(C3, CROTCHET);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <a class="code hl_function" href="am__radio_8c.html#abb11e292374199e767dc11c778bdcbdc">am_radio_rest</a>(QUAVER);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(G2, CROTCHET);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <a class="code hl_function" href="am__radio_8c.html#abb11e292374199e767dc11c778bdcbdc">am_radio_rest</a>(QUAVER);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(E2, CROTCHET);</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    <a class="code hl_function" href="am__radio_8c.html#abb11e292374199e767dc11c778bdcbdc">am_radio_rest</a>(QUAVER);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>}</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">/*** end of file ***/</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="ttc" id="aam__radio_8c_html_a0895984f25aaf403c3cc564db69123ce"><div class="ttname"><a href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a></div><div class="ttdeci">void am_radio_transmit_note(note_pitch_t pitch, note_duration_t note_length)</div><div class="ttdoc">Transmits a square wave, monophonic note for the specified duration.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00094">am_radio.c:94</a></div></div>
+<div class="ttc" id="aam__radio_8c_html_a4ee383ae9d3825b05216a6b18550211b"><div class="ttname"><a href="am__radio_8c.html#a4ee383ae9d3825b05216a6b18550211b">init_am_radio</a></div><div class="ttdeci">void init_am_radio(frequency_khz_t carrier_freq)</div><div class="ttdoc">Initialises timer/counter for radio transmission at a specified carrier frequency.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00047">am_radio.c:47</a></div></div>
+<div class="ttc" id="aam__radio_8c_html_ab7fa9beffe7d55b66e94a5ec4feca333"><div class="ttname"><a href="am__radio_8c.html#ab7fa9beffe7d55b66e94a5ec4feca333">arpeggio_in_c_test</a></div><div class="ttdeci">void arpeggio_in_c_test(void)</div><div class="ttdoc">Test sequence, transmits an arpeggio scale in C major.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00131">am_radio.c:131</a></div></div>
+<div class="ttc" id="aam__radio_8c_html_abb11e292374199e767dc11c778bdcbdc"><div class="ttname"><a href="am__radio_8c.html#abb11e292374199e767dc11c778bdcbdc">am_radio_rest</a></div><div class="ttdeci">void am_radio_rest(note_duration_t rest_length)</div><div class="ttdoc">Waits a specified duration before playing the next note.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00119">am_radio.c:119</a></div></div>
+<div class="ttc" id="aam__radio_8c_html_ad4701a3dd518464da8aa20375a89db23"><div class="ttname"><a href="am__radio_8c.html#ad4701a3dd518464da8aa20375a89db23">am_radio_set_tempo</a></div><div class="ttdeci">void am_radio_set_tempo(uint8_t bpm)</div><div class="ttdoc">Sets tempo for musical tones to be transmitted (in BPM).</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00080">am_radio.c:80</a></div></div>
+<div class="ttc" id="aam__radio_8h_html"><div class="ttname"><a href="am__radio_8h.html">am_radio.h</a></div><div class="ttdoc">Driver for a small, low power AM radio transmitter, to broadcast monophonic square wave tones over a ...</div></div>
+<div class="ttc" id="aam__radio_8h_html_a58a2b98e0b3b191ec6d79eb72c195ab4"><div class="ttname"><a href="am__radio_8h.html#a58a2b98e0b3b191ec6d79eb72c195ab4">frequency_khz_t</a></div><div class="ttdeci">frequency_khz_t</div><div class="ttdoc">Enum to expose the predefined carrier frequency options.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8h_source.html#l00048">am_radio.h:49</a></div></div>
+<div class="ttc" id="aam__radio_8h_html_ac860808060bd341573c27c53a3082fb1"><div class="ttname"><a href="am__radio_8h.html#ac860808060bd341573c27c53a3082fb1">note_duration_t</a></div><div class="ttdeci">note_duration_t</div><div class="ttdoc">Enum to expose the predefined duration options.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8h_source.html#l00062">am_radio.h:63</a></div></div>
 <div class="ttc" id="adigital__clock_8c_html_aec43762dc86e029b395d4e5819192c2d"><div class="ttname"><a href="digital__clock_8c.html#aec43762dc86e029b395d4e5819192c2d">ISR</a></div><div class="ttdeci">ISR(TIMER0_COMPA_vect)</div><div class="ttdoc">Interrupt Service Routine.</div><div class="ttdef"><b>Definition:</b> <a href="digital__clock_8c_source.html#l00057">digital_clock.c:57</a></div></div>
 <div class="ttc" id="amodules_2sensors_2ccs811__sensor_2example_2pin__defines_8h_html"><div class="ttname"><a href="modules_2sensors_2ccs811__sensor_2example_2pin__defines_8h.html">pin_defines.h</a></div><div class="ttdoc">Definitions for pin mapping (for CCS81 gas sensor)</div></div>
+<div class="ttc" id="ascale_8h_html_aa763d057185ef96733d453d17a868652"><div class="ttname"><a href="scale_8h.html#aa763d057185ef96733d453d17a868652">note_pitch_t</a></div><div class="ttdeci">note_pitch_t</div><div class="ttdoc">Enum to expose the count values required to generate the pitches.</div><div class="ttdef"><b>Definition:</b> <a href="scale_8h_source.html#l00038">scale.h:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

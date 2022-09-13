@@ -118,70 +118,74 @@ $(document).ready(function(){initNavTree('scale_8h_source.html',''); initResizab
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @ingroup am_radio</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * @author Jason Duffy</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @date 10th September 2022</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * @brief </span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#ifndef SCALE_DOT_H</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#define SCALE_DOT_H</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">typedef</span> <span class="keyword">enum</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    C0  =    10000,</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    Cx0 =    9439,</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    D0  =    8909,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    Dx0 =    8409,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    E0  =    7937,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    F0  =    7492,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    Fx0 =    7071,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    G0  =    6674,</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    Gx0 =    6300,</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    A0  =    5946,</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    Ax0 =    5612,</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    B0  =    5297,</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    C1  =    5000,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    Cx1 =    4719,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    D1  =    4454,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    Dx1 =    4204,</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    E1  =    3969,</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    F1  =    3746,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    Fx1 =    3536,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    G1  =    3337,</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    Gx1 =    3150,</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    A1  =    2973,</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    Ax1 =    2806,</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    B1  =    2649,</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    C2  =    2500,</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    Cx2 =    2360,</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    D2  =    2227,</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    Dx2 =    2102,</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    E2  =    1984,</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    F2  =    1873,</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    Fx2 =    1768,</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    G2  =    1669,</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    Gx2 =    1575,</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    A2  =    1487,</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    Ax2 =    1403,</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    B2  =    1324,</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    C3  =    1250,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    Cx3 =    1180,</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    D3  =    1114,</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    Dx3 =    1051,</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    E3  =     992,</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    F3  =     936,</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    Fx3 =     884,</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    G3  =     834,</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    Gx3 =     787,</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    A3  =     743,</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    Ax3 =     702,</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    B3  =     662, </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>}note_pitch_t;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#endif </span><span class="comment">// SCALE_DOT_H</span></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * @brief Contains the count values required for the note pitches to work at</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * 8MHZ F_CPU</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#ifndef SCALE_DOT_H</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#define SCALE_DOT_H</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"></span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment"> * Enum to expose the count values required to generate the pitches. </span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="scale_8h.html#aa763d057185ef96733d453d17a868652">   38</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    C0  =    10000,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    Cx0 =    9439,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    D0  =    8909,</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    Dx0 =    8409,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    E0  =    7937,</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    F0  =    7492,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    Fx0 =    7071,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    G0  =    6674,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    Gx0 =    6300,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    A0  =    5946,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    Ax0 =    5612,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    B0  =    5297,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    C1  =    5000,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    Cx1 =    4719,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    D1  =    4454,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    Dx1 =    4204,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    E1  =    3969,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    F1  =    3746,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    Fx1 =    3536,</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    G1  =    3337,</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    Gx1 =    3150,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    A1  =    2973,</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    Ax1 =    2806,</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    B1  =    2649,</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    C2  =    2500,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    Cx2 =    2360,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    D2  =    2227,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    Dx2 =    2102,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    E2  =    1984,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    F2  =    1873,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    Fx2 =    1768,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    G2  =    1669,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    Gx2 =    1575,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    A2  =    1487,</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    Ax2 =    1403,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    B2  =    1324,</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    C3  =    1250,</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    Cx3 =    1180,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    D3  =    1114,</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    Dx3 =    1051,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    E3  =     992,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    F3  =     936,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    Fx3 =     884,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    G3  =     834,</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    Gx3 =     787,</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    A3  =     743,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    Ax3 =     702,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    B3  =     662, </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}<a class="code hl_enumeration" href="scale_8h.html#aa763d057185ef96733d453d17a868652">note_pitch_t</a>;</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">// End of file. // </span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="preprocessor">#endif </span><span class="comment">// SCALE_DOT_H</span></div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">// End of file. // </span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="ttc" id="ascale_8h_html_aa763d057185ef96733d453d17a868652"><div class="ttname"><a href="scale_8h.html#aa763d057185ef96733d453d17a868652">note_pitch_t</a></div><div class="ttdeci">note_pitch_t</div><div class="ttdoc">Enum to expose the count values required to generate the pitches.</div><div class="ttdef"><b>Definition:</b> <a href="scale_8h_source.html#l00038">scale.h:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

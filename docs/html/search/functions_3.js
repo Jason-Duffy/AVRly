@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['get_5fnumber_0',['get_number',['../data-converters_2mcp48x2__dac_2example_2usart_8c.html#a502d44d5f8098a5e1f767f98493bdd29',1,'get_number(void):&#160;usart.c'],['../data-converters_2mcp48x2__dac_2example_2usart_8h.html#a502d44d5f8098a5e1f767f98493bdd29',1,'get_number(void):&#160;usart.c'],['../sensors_2ccs811__sensor_2example_2usart_8c.html#a502d44d5f8098a5e1f767f98493bdd29',1,'get_number(void):&#160;usart.c'],['../sensors_2ccs811__sensor_2example_2usart_8h.html#a502d44d5f8098a5e1f767f98493bdd29',1,'get_number(void):&#160;usart.c']]],
-  ['get_5ftime_1',['get_time',['../digital__clock_8c.html#a1a8c1b26df8795edb6dabf992ad13f81',1,'get_time(void):&#160;digital_clock.c'],['../digital__clock_8h.html#a1a8c1b26df8795edb6dabf992ad13f81',1,'get_time(void):&#160;digital_clock.c']]],
-  ['get_5fvalue_2',['get_value',['../filename_8c.html#a3ebcf9ef84eb47df312281d252a5487e',1,'get_value(void):&#160;filename.c'],['../filename_8h.html#a3ebcf9ef84eb47df312281d252a5487e',1,'get_value(void):&#160;filename.c']]]
+  ['dac_5freconfigure_0',['dac_reconfigure',['../mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823',1,'dac_reconfigure(void):&#160;mcp48x2_dac.c'],['../mcp48x2__dac_8h.html#ab7d4460badaeb5c1255a471604ee7823',1,'dac_reconfigure(void):&#160;mcp48x2_dac.c']]],
+  ['dac_5fset_5fvoltage_1',['dac_set_voltage',['../mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7',1,'dac_set_voltage(bool channel_a, uint16_t millivolts):&#160;mcp48x2_dac.c'],['../mcp48x2__dac_8h.html#a8e5a30fe5a03338c88ef80b84f3098b7',1,'dac_set_voltage(bool channel_a, uint16_t millivolts):&#160;mcp48x2_dac.c']]],
+  ['dac_5fset_5fvoltage_5f12_5fbit_2',['dac_set_voltage_12_bit',['../mcp48x2__dac_8c.html#a9f072c8589330fc4221de05b4d2cf8f7',1,'dac_set_voltage_12_bit(bool channel_a, uint16_t millivolts, bool fractional):&#160;mcp48x2_dac.c'],['../mcp48x2__dac_8h.html#a9f072c8589330fc4221de05b4d2cf8f7',1,'dac_set_voltage_12_bit(bool channel_a, uint16_t millivolts, bool fractional):&#160;mcp48x2_dac.c']]],
+  ['do_5fsome_5fhelpful_5fstuff_3',['do_some_helpful_stuff',['../filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a',1,'filename.c']]]
 ];

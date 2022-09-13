@@ -1,11 +1,13 @@
 var searchData=
 [
-  ['ccs811_5fdata_5fready_5fcheck_0',['ccs811_data_ready_check',['../ccs811_8c.html#adc2cbe8a9c4478d1c2e618526aa07e0f',1,'ccs811_data_ready_check(void):&#160;ccs811.c'],['../ccs811_8h.html#adc2cbe8a9c4478d1c2e618526aa07e0f',1,'ccs811_data_ready_check(void):&#160;ccs811.c']]],
-  ['ccs811_5ferror_5fto_5fstring_1',['ccs811_error_to_string',['../ccs811_8c.html#ab51c7e36ecf8d9ee42c9810484b97648',1,'ccs811_error_to_string(void):&#160;ccs811.c'],['../ccs811_8h.html#ab51c7e36ecf8d9ee42c9810484b97648',1,'ccs811_error_to_string(void):&#160;ccs811.c']]],
-  ['ccs811_5fget_5falg_5fresult_5fdata_2',['ccs811_get_alg_result_data',['../ccs811_8c.html#ad2b6067f8f03a713bd942e009a128138',1,'ccs811_get_alg_result_data(void):&#160;ccs811.c'],['../ccs811_8h.html#ad2b6067f8f03a713bd942e009a128138',1,'ccs811_get_alg_result_data(void):&#160;ccs811.c']]],
-  ['ccs811_5fget_5feco2_5flevel_3',['ccs811_get_eco2_level',['../ccs811_8c.html#a751333bcfd68dc798c02763140e53231',1,'ccs811_get_eco2_level(void):&#160;ccs811.c'],['../ccs811_8h.html#a751333bcfd68dc798c02763140e53231',1,'ccs811_get_eco2_level(void):&#160;ccs811.c']]],
-  ['ccs811_5fget_5fetvoc_5flevel_4',['ccs811_get_etvoc_level',['../ccs811_8c.html#a17c8db9a3e783733aca1047f1f101b94',1,'ccs811_get_etvoc_level(void):&#160;ccs811.c'],['../ccs811_8h.html#a17c8db9a3e783733aca1047f1f101b94',1,'ccs811_get_etvoc_level(void):&#160;ccs811.c']]],
-  ['ccs811_5fupdate_5fenv_5fdata_5',['ccs811_update_env_data',['../ccs811_8c.html#a0a35b06187cfd628634e4d86faefa3c6',1,'ccs811_update_env_data(uint8_t humidity, uint8_t temp):&#160;ccs811.c'],['../ccs811_8h.html#a0a35b06187cfd628634e4d86faefa3c6',1,'ccs811_update_env_data(uint8_t humidity, uint8_t temp):&#160;ccs811.c']]],
-  ['chip_5fdeselect_6',['chip_deselect',['../mcp48x2__dac_8c.html#abcfcb3f6bdd45f73f27edc2ea06c1d99',1,'mcp48x2_dac.c']]],
-  ['chip_5fselect_7',['chip_select',['../mcp48x2__dac_8c.html#a19f76a44569088d532ecaa6ea938be14',1,'mcp48x2_dac.c']]]
+  ['blink_5fled_0',['blink_led',['../blink_8c.html#a6e518f3cca5a900d14fa0c99d6223f6d',1,'blink_led(void):&#160;blink.c'],['../blink_8h.html#a6e518f3cca5a900d14fa0c99d6223f6d',1,'blink_led(void):&#160;blink.c']]],
+  ['bme280_5fcompensate_5fhumidity_1',['bme280_compensate_humidity',['../bme280_8c.html#abbb9be5bb748ef4ef41548c3d76db868',1,'bme280.c']]],
+  ['bme280_5fcompensate_5fpressure_2',['bme280_compensate_pressure',['../bme280_8c.html#a4160b8fc54abb643a8f541c6fdad9fb0',1,'bme280.c']]],
+  ['bme280_5fcompensate_5ftemp_3',['bme280_compensate_temp',['../bme280_8c.html#a2baf46fd40e5b02dbc8060b93c8f9a7f',1,'bme280.c']]],
+  ['bme280_5fget_5fhumidity_4',['bme280_get_humidity',['../bme280_8c.html#a171dba0153395fc31f60b322c96f0684',1,'bme280_get_humidity(void):&#160;bme280.c'],['../bme280_8h.html#a171dba0153395fc31f60b322c96f0684',1,'bme280_get_humidity(void):&#160;bme280.c']]],
+  ['bme280_5fget_5fpressure_5',['bme280_get_pressure',['../bme280_8c.html#a46f00f882e65c7292b4be13001aa092f',1,'bme280_get_pressure(void):&#160;bme280.c'],['../bme280_8h.html#a46f00f882e65c7292b4be13001aa092f',1,'bme280_get_pressure(void):&#160;bme280.c']]],
+  ['bme280_5fget_5ftemperature_6',['bme280_get_temperature',['../bme280_8c.html#a3d3170b843f8878eb3c8d6b8a23b0f0a',1,'bme280_get_temperature(void):&#160;bme280.c'],['../bme280_8h.html#a3d3170b843f8878eb3c8d6b8a23b0f0a',1,'bme280_get_temperature(void):&#160;bme280.c']]],
+  ['bme280_5fread_5fcomp_5fdata_7',['bme280_read_comp_data',['../bme280_8c.html#a1dabca2390b2eb66a403229dd14ad019',1,'bme280.c']]],
+  ['bme280_5fread_5fword_8',['bme280_read_word',['../bme280_8c.html#acc8989cf214037ccad03c1cffd882bea',1,'bme280.c']]],
+  ['bme280_5fwrite_5fbyte_9',['bme280_write_byte',['../bme280_8c.html#add36dced7282909a8a605ae86f2095df',1,'bme280.c']]]
 ];
