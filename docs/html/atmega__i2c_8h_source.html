@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('atmega__i2c_8h_source.html',''); initR
   <div class="headertitle"><div class="title">atmega_i2c.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/******************************************************************************</span></div>
+<a href="atmega__i2c_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/******************************************************************************</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> @copyright Copyright © 2022 by Jason Duffy.</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> </span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> Permission is hereby granted, free of charge, to any person obtaining a copy</span></div>
@@ -114,7 +114,7 @@ $(document).ready(function(){initNavTree('atmega__i2c_8h_source.html',''); initR
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">******************************************************************************/</span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment"></span> </div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/**</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * @file i2c.h</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * @file atmega_i2c.h</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @ingroup i2c</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * @author Jason Duffy</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @date 5th March 2022</span></div>
@@ -140,66 +140,66 @@ $(document).ready(function(){initNavTree('atmega__i2c_8h_source.html',''); initR
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> * Sets pullups and initializes i2c clock to desired bus speed.</span></div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment"> * @param bus_speed is the desired i2c clock frequency.</span></div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">void</span> <a class="code hl_function" href="i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a>(uint32_t bus_speed);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="keywordtype">void</span> <a class="code hl_function" href="atmega__i2c_8h.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a>(uint32_t bus_speed);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment"></span> </div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment"> * Loops until the i2c message is complete, as the  hardware sets the TWINT</span></div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"> * flag.</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keywordtype">void</span> <a class="code hl_function" href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keywordtype">void</span> <a class="code hl_function" href="atmega__i2c_8h.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment"></span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> * Sends a start condition (sets TWSTA).</span></div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">void</span> <a class="code hl_function" href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">void</span> <a class="code hl_function" href="atmega__i2c_8h.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment"></span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment"> * Sends a stop condition (sets TWSTO).</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> <a class="code hl_function" href="i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keywordtype">void</span> <a class="code hl_function" href="atmega__i2c_8h.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"></span> </div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment"> * Loads data, sends it out, waiting for completion.</span></div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * @param data is the byte of data to be sent. </span></div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keywordtype">void</span> <a class="code hl_function" href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(uint8_t data);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keywordtype">void</span> <a class="code hl_function" href="atmega__i2c_8h.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(uint8_t data);</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment"></span> </div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> * Read in from slave, sending ACK when done (sets TWEA).</span></div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment"> * @returns The data received from the peripheral device. </span></div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>uint8_t <a class="code hl_function" href="i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>uint8_t <a class="code hl_function" href="atmega__i2c_8h.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"></span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">/**</span></div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"> * Read in from slave, sending NOACK when done (no TWEA).</span></div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"> * @returns The data received from the peripheral device. </span></div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>uint8_t <a class="code hl_function" href="i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>uint8_t <a class="code hl_function" href="atmega__i2c_8h.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="preprocessor">#endif </span><span class="comment">// ATMEGA_I_TWO_C_DOT_H</span></div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">/*** end of file ***/</span></div>
-<div class="ttc" id="ai2c_8c_html_a17b39f3b4bea70fbb4ca2b377991c788"><div class="ttname"><a href="i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a></div><div class="ttdeci">void init_i2c(uint32_t bus_speed)</div><div class="ttdoc">SCL frequency = F_CPU / (16 + (2 * TWBR) * PRESCALER)</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00045">i2c.c:45</a></div></div>
-<div class="ttc" id="ai2c_8c_html_a61854d6833c0a31f296b84cdcf057a03"><div class="ttname"><a href="i2c_8c.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a></div><div class="ttdeci">void i2c_wait_for_complete(void)</div><div class="ttdoc">Loops until the i2c message is complete, as the hardware sets the TWINT flag.</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00052">i2c.c:52</a></div></div>
-<div class="ttc" id="ai2c_8c_html_a9e32e9e2acac27300dc4b9463e5d1bed"><div class="ttname"><a href="i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a></div><div class="ttdeci">uint8_t i2c_read_no_ack(void)</div><div class="ttdoc">Read in from slave, sending NOACK when done (no TWEA).</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00083">i2c.c:83</a></div></div>
-<div class="ttc" id="ai2c_8c_html_aa7f5f94b089b26f76a4f9cc95e89a3db"><div class="ttname"><a href="i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a></div><div class="ttdeci">uint8_t i2c_read_ack(void)</div><div class="ttdoc">Read in from slave, sending ACK when done (sets TWEA).</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00076">i2c.c:76</a></div></div>
-<div class="ttc" id="ai2c_8c_html_ad35d4e4f52ca74b503d5e5e1e0a3f5f3"><div class="ttname"><a href="i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a></div><div class="ttdeci">void i2c_stop(void)</div><div class="ttdoc">Sends a stop condition (sets TWSTO).</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00063">i2c.c:63</a></div></div>
-<div class="ttc" id="ai2c_8c_html_ade9ea3e8cd58c50b470141c55d20d057"><div class="ttname"><a href="i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a></div><div class="ttdeci">void i2c_send(uint8_t data)</div><div class="ttdoc">Loads data, sends it out, waiting for completion.</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00068">i2c.c:68</a></div></div>
-<div class="ttc" id="ai2c_8c_html_af104fa2713ad2cfe4f993bdd2ec22c46"><div class="ttname"><a href="i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a></div><div class="ttdeci">void i2c_start(void)</div><div class="ttdoc">Sends a start condition (sets TWSTA).</div><div class="ttdef"><b>Definition:</b> <a href="i2c_8c_source.html#l00057">i2c.c:57</a></div></div>
+<div class="ttc" id="aatmega__i2c_8h_html_a17b39f3b4bea70fbb4ca2b377991c788"><div class="ttname"><a href="atmega__i2c_8h.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a></div><div class="ttdeci">void init_i2c(uint32_t bus_speed)</div><div class="ttdoc">Sets pullups and initializes i2c clock to desired bus speed.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00049">atmega_i2c.c:49</a></div></div>
+<div class="ttc" id="aatmega__i2c_8h_html_a61854d6833c0a31f296b84cdcf057a03"><div class="ttname"><a href="atmega__i2c_8h.html#a61854d6833c0a31f296b84cdcf057a03">i2c_wait_for_complete</a></div><div class="ttdeci">void i2c_wait_for_complete(void)</div><div class="ttdoc">Loops until the i2c message is complete, as the hardware sets the TWINT flag.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00061">atmega_i2c.c:61</a></div></div>
+<div class="ttc" id="aatmega__i2c_8h_html_a9e32e9e2acac27300dc4b9463e5d1bed"><div class="ttname"><a href="atmega__i2c_8h.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a></div><div class="ttdeci">uint8_t i2c_read_no_ack(void)</div><div class="ttdoc">Read in from slave, sending NOACK when done (no TWEA).</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00115">atmega_i2c.c:115</a></div></div>
+<div class="ttc" id="aatmega__i2c_8h_html_aa7f5f94b089b26f76a4f9cc95e89a3db"><div class="ttname"><a href="atmega__i2c_8h.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a></div><div class="ttdeci">uint8_t i2c_read_ack(void)</div><div class="ttdoc">Read in from slave, sending ACK when done (sets TWEA).</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00102">atmega_i2c.c:102</a></div></div>
+<div class="ttc" id="aatmega__i2c_8h_html_ad35d4e4f52ca74b503d5e5e1e0a3f5f3"><div class="ttname"><a href="atmega__i2c_8h.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a></div><div class="ttdeci">void i2c_stop(void)</div><div class="ttdoc">Sends a stop condition (sets TWSTO).</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00080">atmega_i2c.c:80</a></div></div>
+<div class="ttc" id="aatmega__i2c_8h_html_ade9ea3e8cd58c50b470141c55d20d057"><div class="ttname"><a href="atmega__i2c_8h.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a></div><div class="ttdeci">void i2c_send(uint8_t data)</div><div class="ttdoc">Loads data, sends it out, waiting for completion.</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00090">atmega_i2c.c:90</a></div></div>
+<div class="ttc" id="aatmega__i2c_8h_html_af104fa2713ad2cfe4f993bdd2ec22c46"><div class="ttname"><a href="atmega__i2c_8h.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a></div><div class="ttdeci">void i2c_start(void)</div><div class="ttdoc">Sends a start condition (sets TWSTA).</div><div class="ttdef"><b>Definition:</b> <a href="atmega__i2c_8c_source.html#l00070">atmega_i2c.c:70</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_9c069a2336cfd446496c25258e848904.html">content</a></li><li class="navelem"><a class="el" href="dir_d21582d1a0e016fb5573a1a04428266d.html">modules</a></li><li class="navelem"><a class="el" href="dir_b4fb5c6632a1994f3899df53e5cbf337.html">avr-peripheral-features</a></li><li class="navelem"><a class="el" href="dir_5c7bfb70c9245507602dcc8566488be9.html">i2c</a></li><li class="navelem"><b>atmega_i2c.h</b></li>
+    <li class="navelem"><a class="el" href="dir_9c069a2336cfd446496c25258e848904.html">content</a></li><li class="navelem"><a class="el" href="dir_d21582d1a0e016fb5573a1a04428266d.html">modules</a></li><li class="navelem"><a class="el" href="dir_b4fb5c6632a1994f3899df53e5cbf337.html">avr-peripheral-features</a></li><li class="navelem"><a class="el" href="dir_5c7bfb70c9245507602dcc8566488be9.html">i2c</a></li><li class="navelem"><a class="el" href="atmega__i2c_8h.html">atmega_i2c.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.3 </li>
   </ul>
 </div>

@@ -46,13 +46,18 @@
  /**
  * @defgroup sensors Sensors
  * @brief A collection of guides and code documentation for sensors.
+ * 
  * @defgroup ccs811 CCS811 Gas Sensor
  * @brief Driver for the CCS811 gas sensor. 
  * @ingroup sensors
  * @see The files can be downloaded from the repo at:
  * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/sensors/ccs811_sensor/example
  * 
- * Repository contents:
+ * @defgroup bme280 BME280 Temperature, Pressure and Humidity Sensor.
+ * @brief BME280 Temperature, Pressure and Humidity Sensor.
+ * @ingroup sensors
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/sensors/bme280_sensor/example
  */
 
  /**
@@ -66,17 +71,25 @@
  * @see The files can be downloaded from the repo at:
  * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/avr-peripheral-features/timer-counter/digital-clock/example
  * 
- * Repository contents:
+ * @defgroup am_radio
+ * @ingroup timer_counter
+ * @see 
  * 
  * @defgroup comms_protocols Communication Protocols
  * @ingroup avr_peripherals
  * 
  * @defgroup spi SPI
  * @ingroup comms_protocols
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/avr-peripheral-features/comms_protocols/spi/example
  * 
  * @defgroup i2c I2C
  * @ingroup comms_protocols
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/avr-peripheral-features/comms_protocols/i2c/example
  * 
  * @defgroup usart USART
  * @ingroup comms_protocols
+ * @see The files can be downloaded from the repo at:
+ * https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/avr-peripheral-features/comms_protocols/usart/example
  */

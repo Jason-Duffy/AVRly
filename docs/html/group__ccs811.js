@@ -10,5 +10,5 @@ var group__ccs811 =
     [ "pin_defines.h", "modules_2sensors_2ccs811__sensor_2example_2pin__defines_8h.html", null ],
     [ "usart.c", "sensors_2ccs811__sensor_2example_2usart_8c.html", null ],
     [ "usart.h", "sensors_2ccs811__sensor_2example_2usart_8h.html", null ],
-    [ "ccs811", "group__ccs811.html#md_content_modules_sensors_ccs811_sensor_ccs811", null ]
+    [ "README", "group__ccs811.html#md_content_modules_sensors_ccs811_sensor_README", null ]
 ];

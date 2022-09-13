@@ -128,6 +128,31 @@ void log_message_with_dec_val(log_system_config_t *p_config,
   }
 }
 
+/*
+ * Sends a string, followed by a 16 bit value in decimal format.
+ * @param p_config is a pointer to the log_system config object. Instantiate
+ * the config object at the head of each file where logging is required and
+ * pass it's address into this function.
+ * @param level is the level status of the log message - see log_type_t for
+ * available options.
+ * @param msg is the message to be logged, enclose it in "" quotation marks.
+ * @param val is the numerical value to be logged - Acceptable values 0 - 255.
+ */
+void log_message_with_dec_val(log_system_config_t *p_config,
+                                 log_type_t level,
+                                 const char *msg,
+                                 uint8_t val)
+{
+  // If all test expressions evaluate true, log message.
+  if (log_message_preference_check(p_config, level))
+  {
+    print_tag_and_log_level(p_config->p_system_tag, level);
+    usart_print_string(msg);
+    usart_print_string(" ");
+    usart_print_byte(val); 
+  }
+}
+
 
 /*
  * Sends a string, followed by an 8 bit value in binary format.

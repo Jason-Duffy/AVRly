@@ -21,7 +21,7 @@
 ******************************************************************************/
 
 /**
- * @file i2c.h
+ * @file atmega_i2c.h
  * @ingroup i2c
  * @author Jason Duffy
  * @date 5th March 2022
