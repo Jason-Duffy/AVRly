@@ -73,7 +73,7 @@
  * 
  * @defgroup am_radio
  * @ingroup timer_counter
- * @see 
+ * @see https://github.com/Jason-Duffy/AVRly/tree/main/content/modules/avr-peripheral-features/timer-counter/am-radio-transmitter/example
  * 
  * @defgroup comms_protocols Communication Protocols
  * @ingroup avr_peripherals
