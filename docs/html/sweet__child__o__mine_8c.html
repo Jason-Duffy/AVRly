@@ -93,6 +93,9 @@ $(document).ready(function(){initNavTree('sweet__child__o__mine_8c.html',''); in
   <div class="headertitle"><div class="title">sweet_child_o_mine.c File Reference<div class="ingroups"><a class="el" href="group__avr__peripherals.html">AVR Peripheral Features</a> &raquo; <a class="el" href="group__timer__counter.html">Timer/Counter</a> &raquo; <a class="el" href="group__am__radio.html">Am_radio</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>This file contains the implementation of the sequencing to reproduce the intro to Sweet Child O' Mine by Guns N Roses.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="sweet__child__o__mine_8h_source.html">sweet_child_o_mine.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="am__radio_8h_source.html">am_radio.h</a>&quot;</code><br />
 </div>
@@ -112,7 +115,8 @@ Functions</h2></td></tr>
 <tr class="separator:a44a0d393fe6532623935579207f27920"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>Copyright © 2022 by Jason Duffy.</dd></dl>
+<div class="textblock"><p >This file contains the implementation of the sequencing to reproduce the intro to Sweet Child O' Mine by Guns N Roses. </p>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright © 2022 by Jason Duffy.</dd></dl>
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 <p >The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 <p >THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p><dl class="section author"><dt>Author</dt><dd>Jason Duffy </dd></dl>
@@ -136,18 +140,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sweet__child__o__mine_8c_source.html#l00061">61</a> of file <a class="el" href="sweet__child__o__mine_8c_source.html">sweet_child_o_mine.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   62</span>{</div>
-<div class="line"><span class="lineno">   63</span>    <span class="comment">// Intro, Bar 1</span></div>
-<div class="line"><span class="lineno">   64</span>    am_radio_transmit_note(C2, QUAVER);</div>
-<div class="line"><span class="lineno">   65</span>    am_radio_transmit_note(C3, QUAVER);</div>
-<div class="line"><span class="lineno">   66</span>    am_radio_transmit_note(G2, QUAVER);</div>
-<div class="line"><span class="lineno">   67</span>    am_radio_transmit_note(F2, QUAVER);</div>
-<div class="line"><span class="lineno">   68</span>    am_radio_transmit_note(F3, QUAVER);</div>
-<div class="line"><span class="lineno">   69</span>    am_radio_transmit_note(G2, QUAVER);</div>
-<div class="line"><span class="lineno">   70</span>    am_radio_transmit_note(E3, QUAVER);</div>
-<div class="line"><span class="lineno">   71</span>    am_radio_transmit_note(G2, QUAVER);</div>
-<div class="line"><span class="lineno">   72</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sweet__child__o__mine_8c_source.html#l00062">62</a> of file <a class="el" href="sweet__child__o__mine_8c_source.html">sweet_child_o_mine.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>{</div>
+<div class="line"><span class="lineno">   64</span>    <span class="comment">// Intro, Bar 1</span></div>
+<div class="line"><span class="lineno">   65</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(C2, QUAVER);</div>
+<div class="line"><span class="lineno">   66</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(C3, QUAVER);</div>
+<div class="line"><span class="lineno">   67</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(G2, QUAVER);</div>
+<div class="line"><span class="lineno">   68</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(F2, QUAVER);</div>
+<div class="line"><span class="lineno">   69</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(F3, QUAVER);</div>
+<div class="line"><span class="lineno">   70</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(G2, QUAVER);</div>
+<div class="line"><span class="lineno">   71</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(E3, QUAVER);</div>
+<div class="line"><span class="lineno">   72</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(G2, QUAVER);</div>
+<div class="line"><span class="lineno">   73</span>}</div>
+<div class="ttc" id="aam__radio_8c_html_a0895984f25aaf403c3cc564db69123ce"><div class="ttname"><a href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a></div><div class="ttdeci">void am_radio_transmit_note(note_pitch_t pitch, note_duration_t note_length)</div><div class="ttdoc">Transmits a square wave, monophonic note for the specified duration.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00094">am_radio.c:94</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -167,18 +172,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sweet__child__o__mine_8c_source.html#l00075">75</a> of file <a class="el" href="sweet__child__o__mine_8c_source.html">sweet_child_o_mine.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   76</span>{</div>
-<div class="line"><span class="lineno">   77</span>    <span class="comment">// Intro, Bar 3</span></div>
-<div class="line"><span class="lineno">   78</span>    am_radio_transmit_note(D2, QUAVER);</div>
-<div class="line"><span class="lineno">   79</span>    am_radio_transmit_note(C3, QUAVER);</div>
-<div class="line"><span class="lineno">   80</span>    am_radio_transmit_note(G2, QUAVER);</div>
-<div class="line"><span class="lineno">   81</span>    am_radio_transmit_note(F2, QUAVER);</div>
-<div class="line"><span class="lineno">   82</span>    am_radio_transmit_note(F3, QUAVER);</div>
-<div class="line"><span class="lineno">   83</span>    am_radio_transmit_note(G2, QUAVER);</div>
-<div class="line"><span class="lineno">   84</span>    am_radio_transmit_note(E3, QUAVER);</div>
-<div class="line"><span class="lineno">   85</span>    am_radio_transmit_note(G2, QUAVER);</div>
-<div class="line"><span class="lineno">   86</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sweet__child__o__mine_8c_source.html#l00076">76</a> of file <a class="el" href="sweet__child__o__mine_8c_source.html">sweet_child_o_mine.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   77</span>{</div>
+<div class="line"><span class="lineno">   78</span>    <span class="comment">// Intro, Bar 3</span></div>
+<div class="line"><span class="lineno">   79</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(D2, QUAVER);</div>
+<div class="line"><span class="lineno">   80</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(C3, QUAVER);</div>
+<div class="line"><span class="lineno">   81</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(G2, QUAVER);</div>
+<div class="line"><span class="lineno">   82</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(F2, QUAVER);</div>
+<div class="line"><span class="lineno">   83</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(F3, QUAVER);</div>
+<div class="line"><span class="lineno">   84</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(G2, QUAVER);</div>
+<div class="line"><span class="lineno">   85</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(E3, QUAVER);</div>
+<div class="line"><span class="lineno">   86</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(G2, QUAVER);</div>
+<div class="line"><span class="lineno">   87</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -198,18 +203,18 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sweet__child__o__mine_8c_source.html#l00089">89</a> of file <a class="el" href="sweet__child__o__mine_8c_source.html">sweet_child_o_mine.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   90</span>{</div>
-<div class="line"><span class="lineno">   91</span>    <span class="comment">// Intro, Bar 5</span></div>
-<div class="line"><span class="lineno">   92</span>    am_radio_transmit_note(F2, QUAVER);</div>
-<div class="line"><span class="lineno">   93</span>    am_radio_transmit_note(C3, QUAVER);</div>
-<div class="line"><span class="lineno">   94</span>    am_radio_transmit_note(G2, QUAVER);</div>
-<div class="line"><span class="lineno">   95</span>    am_radio_transmit_note(F2, QUAVER);</div>
-<div class="line"><span class="lineno">   96</span>    am_radio_transmit_note(F3, QUAVER);</div>
-<div class="line"><span class="lineno">   97</span>    am_radio_transmit_note(G2, QUAVER);</div>
-<div class="line"><span class="lineno">   98</span>    am_radio_transmit_note(E3, QUAVER);</div>
-<div class="line"><span class="lineno">   99</span>    am_radio_transmit_note(G2, QUAVER);</div>
-<div class="line"><span class="lineno">  100</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sweet__child__o__mine_8c_source.html#l00090">90</a> of file <a class="el" href="sweet__child__o__mine_8c_source.html">sweet_child_o_mine.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>{</div>
+<div class="line"><span class="lineno">   92</span>    <span class="comment">// Intro, Bar 5</span></div>
+<div class="line"><span class="lineno">   93</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(F2, QUAVER);</div>
+<div class="line"><span class="lineno">   94</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(C3, QUAVER);</div>
+<div class="line"><span class="lineno">   95</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(G2, QUAVER);</div>
+<div class="line"><span class="lineno">   96</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(F2, QUAVER);</div>
+<div class="line"><span class="lineno">   97</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(F3, QUAVER);</div>
+<div class="line"><span class="lineno">   98</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(G2, QUAVER);</div>
+<div class="line"><span class="lineno">   99</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(E3, QUAVER);</div>
+<div class="line"><span class="lineno">  100</span>    <a class="code hl_function" href="am__radio_8c.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(G2, QUAVER);</div>
+<div class="line"><span class="lineno">  101</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -229,13 +234,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sweet__child__o__mine_8c_source.html#l00039">39</a> of file <a class="el" href="sweet__child__o__mine_8c_source.html">sweet_child_o_mine.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   40</span>{</div>
-<div class="line"><span class="lineno">   41</span>    <span class="comment">// Initialisation routines</span></div>
-<div class="line"><span class="lineno">   42</span>    init_am_radio(_1000_KHZ);</div>
-<div class="line"><span class="lineno">   43</span>    <span class="comment">// Set tempo in BPM</span></div>
-<div class="line"><span class="lineno">   44</span>    am_radio_set_tempo(120);</div>
-<div class="line"><span class="lineno">   45</span>}</div>
+<p class="definition">Definition at line <a class="el" href="sweet__child__o__mine_8c_source.html#l00040">40</a> of file <a class="el" href="sweet__child__o__mine_8c_source.html">sweet_child_o_mine.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>{</div>
+<div class="line"><span class="lineno">   42</span>    <span class="comment">// Initialisation routines</span></div>
+<div class="line"><span class="lineno">   43</span>    <a class="code hl_function" href="am__radio_8c.html#a4ee383ae9d3825b05216a6b18550211b">init_am_radio</a>(_1000_KHZ);</div>
+<div class="line"><span class="lineno">   44</span>    <span class="comment">// Set tempo in BPM</span></div>
+<div class="line"><span class="lineno">   45</span>    <a class="code hl_function" href="am__radio_8c.html#ad4701a3dd518464da8aa20375a89db23">am_radio_set_tempo</a>(120);</div>
+<div class="line"><span class="lineno">   46</span>}</div>
+<div class="ttc" id="aam__radio_8c_html_a4ee383ae9d3825b05216a6b18550211b"><div class="ttname"><a href="am__radio_8c.html#a4ee383ae9d3825b05216a6b18550211b">init_am_radio</a></div><div class="ttdeci">void init_am_radio(frequency_khz_t carrier_freq)</div><div class="ttdoc">Initialises timer/counter for radio transmission at a specified carrier frequency.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00047">am_radio.c:47</a></div></div>
+<div class="ttc" id="aam__radio_8c_html_ad4701a3dd518464da8aa20375a89db23"><div class="ttname"><a href="am__radio_8c.html#ad4701a3dd518464da8aa20375a89db23">am_radio_set_tempo</a></div><div class="ttdeci">void am_radio_set_tempo(uint8_t bpm)</div><div class="ttdoc">Sets tempo for musical tones to be transmitted (in BPM).</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00080">am_radio.c:80</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -255,17 +262,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="sweet__child__o__mine_8c_source.html#l00048">48</a> of file <a class="el" href="sweet__child__o__mine_8c_source.html">sweet_child_o_mine.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   49</span>{</div>
-<div class="line"><span class="lineno">   50</span>    sweet_child_riff_part_1();</div>
+<p class="definition">Definition at line <a class="el" href="sweet__child__o__mine_8c_source.html#l00049">49</a> of file <a class="el" href="sweet__child__o__mine_8c_source.html">sweet_child_o_mine.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>{</div>
 <div class="line"><span class="lineno">   51</span>    sweet_child_riff_part_1();</div>
-<div class="line"><span class="lineno">   52</span>    sweet_child_riff_part_2();</div>
+<div class="line"><span class="lineno">   52</span>    sweet_child_riff_part_1();</div>
 <div class="line"><span class="lineno">   53</span>    sweet_child_riff_part_2();</div>
-<div class="line"><span class="lineno">   54</span>    sweet_child_riff_part_3();</div>
+<div class="line"><span class="lineno">   54</span>    sweet_child_riff_part_2();</div>
 <div class="line"><span class="lineno">   55</span>    sweet_child_riff_part_3();</div>
-<div class="line"><span class="lineno">   56</span>    sweet_child_riff_part_1();</div>
+<div class="line"><span class="lineno">   56</span>    sweet_child_riff_part_3();</div>
 <div class="line"><span class="lineno">   57</span>    sweet_child_riff_part_1();</div>
-<div class="line"><span class="lineno">   58</span>}</div>
+<div class="line"><span class="lineno">   58</span>    sweet_child_riff_part_1();</div>
+<div class="line"><span class="lineno">   59</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

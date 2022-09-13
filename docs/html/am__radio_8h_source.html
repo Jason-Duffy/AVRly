@@ -118,56 +118,89 @@ $(document).ready(function(){initNavTree('am__radio_8h_source.html',''); initRes
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * @ingroup am_radio</span></div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * @author Jason Duffy</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * @date 10th September 2022</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * @brief </span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> */</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#ifndef AM_RADIO_DOT_H</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#define AM_RADIO_DOT_H</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;<a class="code" href="scale_8h.html">scale.h</a>&quot;</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">typedef</span> <span class="keyword">enum</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{   </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    _500_KHZ = 500000,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    _570_KHZ = 570000,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    _670_KHZ = 670000,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    _800_KHZ = 800000,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    _1000_KHZ = 1000000,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    _1333_KHZ = 1333000,</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}frequency_khz_t;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">typedef</span> <span class="keyword">enum</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    SEMIBREVE,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    MINIM,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    CROTCHET,</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    QUAVER,</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    SEMIQUAVER,</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    DEMISEMIQUAVER,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}note_duration_t;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> * @brief Driver for a small, low power AM radio transmitter, to broadcast</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * monophonic square wave tones over a short distance. This project was</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * inspired by the book &quot;Make: AVR Programming&quot; by Elliot Williams. </span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment"> * Only tested with F_CPU = 8MHZ, but will build on this later to make it work</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment"> * with other CPU speeds. </span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#ifndef AM_RADIO_DOT_H</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#define AM_RADIO_DOT_H</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &quot;<a class="code" href="scale_8h.html">scale.h</a>&quot;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment"></span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="comment"> * Enum to expose the predefined carrier frequency options.</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"> * 1000KHZ (1MHZ) is ideal, but may be taken in your locality so try another if</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"> * there is too much interferance. </span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="am__radio_8h.html#a58a2b98e0b3b191ec6d79eb72c195ab4">   48</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{   </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    _500_KHZ = 500000,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    _570_KHZ = 570000,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    _670_KHZ = 670000,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    _800_KHZ = 800000,</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    _1000_KHZ = 1000000,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    _1333_KHZ = 1333000,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>}<a class="code hl_enumeration" href="am__radio_8h.html#a58a2b98e0b3b191ec6d79eb72c195ab4">frequency_khz_t</a>;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">// Initialises timer/counter for radio transmission at a specified carrier frequency. </span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keywordtype">void</span> init_am_radio(frequency_khz_t carrier_freq);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">// Sets tempo for musical tones to be transmitted (in BPM).</span></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keywordtype">void</span> am_radio_set_tempo(uint8_t tempo);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">// Transmits a square wave, monophonic note for the specified duration.</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keywordtype">void</span> am_radio_transmit_note(note_pitch_t pitch, note_duration_t note_length);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">// Waits a specified duration before playing the next note. </span></div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> am_radio_rest(note_duration_t rest_length);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">// Test sequence, transmits an arpeggio scale in C.</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="keywordtype">void</span> arpeggio_in_c_test(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">#endif </span><span class="comment">//AM_RADIO_DOT_H</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">/*** end of file ***/</span></div>
-<div class="ttc" id="ascale_8h_html"><div class="ttname"><a href="scale_8h.html">scale.h</a></div></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"></span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"> * Enum to expose the predefined duration options. </span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="am__radio_8h.html#ac860808060bd341573c27c53a3082fb1">   62</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    SEMIBREVE,</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    MINIM,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    CROTCHET,</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    QUAVER,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    SEMIQUAVER,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    DEMISEMIQUAVER,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}<a class="code hl_enumeration" href="am__radio_8h.html#ac860808060bd341573c27c53a3082fb1">note_duration_t</a>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"></span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"> * Initialises timer/counter for radio transmission at a specified carrier frequency.</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keywordtype">void</span> <a class="code hl_function" href="am__radio_8h.html#a4ee383ae9d3825b05216a6b18550211b">init_am_radio</a>(<a class="code hl_enumeration" href="am__radio_8h.html#a58a2b98e0b3b191ec6d79eb72c195ab4">frequency_khz_t</a> carrier_freq);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment"></span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment"> * Sets tempo for musical tones to be transmitted (in BPM).</span></div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="keywordtype">void</span> <a class="code hl_function" href="am__radio_8h.html#a46422d5309a586ebf40c00bca9fb7f5a">am_radio_set_tempo</a>(uint8_t tempo);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"></span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"> * Transmits a square wave, monophonic note for the specified duration.</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keywordtype">void</span> <a class="code hl_function" href="am__radio_8h.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a>(<a class="code hl_enumeration" href="scale_8h.html#aa763d057185ef96733d453d17a868652">note_pitch_t</a> pitch, <a class="code hl_enumeration" href="am__radio_8h.html#ac860808060bd341573c27c53a3082fb1">note_duration_t</a> note_length);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment"></span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment"> * Waits a specified duration before playing the next note. </span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keywordtype">void</span> <a class="code hl_function" href="am__radio_8h.html#abb11e292374199e767dc11c778bdcbdc">am_radio_rest</a>(<a class="code hl_enumeration" href="am__radio_8h.html#ac860808060bd341573c27c53a3082fb1">note_duration_t</a> rest_length);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment"></span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment">/**</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="comment"> * Test sequence, transmits an arpeggio scale in C major. </span></div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keywordtype">void</span> <a class="code hl_function" href="am__radio_8h.html#ab7fa9beffe7d55b66e94a5ec4feca333">arpeggio_in_c_test</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="preprocessor">#endif </span><span class="comment">//AM_RADIO_DOT_H</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">/*** end of file ***/</span></div>
+<div class="ttc" id="aam__radio_8h_html_a0895984f25aaf403c3cc564db69123ce"><div class="ttname"><a href="am__radio_8h.html#a0895984f25aaf403c3cc564db69123ce">am_radio_transmit_note</a></div><div class="ttdeci">void am_radio_transmit_note(note_pitch_t pitch, note_duration_t note_length)</div><div class="ttdoc">Transmits a square wave, monophonic note for the specified duration.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00094">am_radio.c:94</a></div></div>
+<div class="ttc" id="aam__radio_8h_html_a46422d5309a586ebf40c00bca9fb7f5a"><div class="ttname"><a href="am__radio_8h.html#a46422d5309a586ebf40c00bca9fb7f5a">am_radio_set_tempo</a></div><div class="ttdeci">void am_radio_set_tempo(uint8_t tempo)</div><div class="ttdoc">Sets tempo for musical tones to be transmitted (in BPM).</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00080">am_radio.c:80</a></div></div>
+<div class="ttc" id="aam__radio_8h_html_a4ee383ae9d3825b05216a6b18550211b"><div class="ttname"><a href="am__radio_8h.html#a4ee383ae9d3825b05216a6b18550211b">init_am_radio</a></div><div class="ttdeci">void init_am_radio(frequency_khz_t carrier_freq)</div><div class="ttdoc">Initialises timer/counter for radio transmission at a specified carrier frequency.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00047">am_radio.c:47</a></div></div>
+<div class="ttc" id="aam__radio_8h_html_a58a2b98e0b3b191ec6d79eb72c195ab4"><div class="ttname"><a href="am__radio_8h.html#a58a2b98e0b3b191ec6d79eb72c195ab4">frequency_khz_t</a></div><div class="ttdeci">frequency_khz_t</div><div class="ttdoc">Enum to expose the predefined carrier frequency options.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8h_source.html#l00048">am_radio.h:49</a></div></div>
+<div class="ttc" id="aam__radio_8h_html_ab7fa9beffe7d55b66e94a5ec4feca333"><div class="ttname"><a href="am__radio_8h.html#ab7fa9beffe7d55b66e94a5ec4feca333">arpeggio_in_c_test</a></div><div class="ttdeci">void arpeggio_in_c_test(void)</div><div class="ttdoc">Test sequence, transmits an arpeggio scale in C major.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00131">am_radio.c:131</a></div></div>
+<div class="ttc" id="aam__radio_8h_html_abb11e292374199e767dc11c778bdcbdc"><div class="ttname"><a href="am__radio_8h.html#abb11e292374199e767dc11c778bdcbdc">am_radio_rest</a></div><div class="ttdeci">void am_radio_rest(note_duration_t rest_length)</div><div class="ttdoc">Waits a specified duration before playing the next note.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8c_source.html#l00119">am_radio.c:119</a></div></div>
+<div class="ttc" id="aam__radio_8h_html_ac860808060bd341573c27c53a3082fb1"><div class="ttname"><a href="am__radio_8h.html#ac860808060bd341573c27c53a3082fb1">note_duration_t</a></div><div class="ttdeci">note_duration_t</div><div class="ttdoc">Enum to expose the predefined duration options.</div><div class="ttdef"><b>Definition:</b> <a href="am__radio_8h_source.html#l00062">am_radio.h:63</a></div></div>
+<div class="ttc" id="ascale_8h_html"><div class="ttname"><a href="scale_8h.html">scale.h</a></div><div class="ttdoc">Contains the count values required for the note pitches to work at 8MHZ F_CPU.</div></div>
+<div class="ttc" id="ascale_8h_html_aa763d057185ef96733d453d17a868652"><div class="ttname"><a href="scale_8h.html#aa763d057185ef96733d453d17a868652">note_pitch_t</a></div><div class="ttdeci">note_pitch_t</div><div class="ttdoc">Enum to expose the count values required to generate the pitches.</div><div class="ttdef"><b>Definition:</b> <a href="scale_8h_source.html#l00038">scale.h:39</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

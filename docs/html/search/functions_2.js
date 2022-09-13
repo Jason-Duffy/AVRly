@@ -1,7 +1,11 @@
 var searchData=
 [
-  ['dac_5freconfigure_0',['dac_reconfigure',['../mcp48x2__dac_8c.html#ab7d4460badaeb5c1255a471604ee7823',1,'dac_reconfigure(void):&#160;mcp48x2_dac.c'],['../mcp48x2__dac_8h.html#ab7d4460badaeb5c1255a471604ee7823',1,'dac_reconfigure(void):&#160;mcp48x2_dac.c']]],
-  ['dac_5fset_5fvoltage_1',['dac_set_voltage',['../mcp48x2__dac_8c.html#a8e5a30fe5a03338c88ef80b84f3098b7',1,'dac_set_voltage(bool channel_a, uint16_t millivolts):&#160;mcp48x2_dac.c'],['../mcp48x2__dac_8h.html#a8e5a30fe5a03338c88ef80b84f3098b7',1,'dac_set_voltage(bool channel_a, uint16_t millivolts):&#160;mcp48x2_dac.c']]],
-  ['dac_5fset_5fvoltage_5f12_5fbit_2',['dac_set_voltage_12_bit',['../mcp48x2__dac_8c.html#a9f072c8589330fc4221de05b4d2cf8f7',1,'dac_set_voltage_12_bit(bool channel_a, uint16_t millivolts, bool fractional):&#160;mcp48x2_dac.c'],['../mcp48x2__dac_8h.html#a9f072c8589330fc4221de05b4d2cf8f7',1,'dac_set_voltage_12_bit(bool channel_a, uint16_t millivolts, bool fractional):&#160;mcp48x2_dac.c']]],
-  ['do_5fsome_5fhelpful_5fstuff_3',['do_some_helpful_stuff',['../filename_8c.html#a7f2c67cfa7efe3ba9fff45bdf935da0a',1,'filename.c']]]
+  ['ccs811_5fdata_5fready_5fcheck_0',['ccs811_data_ready_check',['../ccs811_8c.html#adc2cbe8a9c4478d1c2e618526aa07e0f',1,'ccs811_data_ready_check(void):&#160;ccs811.c'],['../ccs811_8h.html#adc2cbe8a9c4478d1c2e618526aa07e0f',1,'ccs811_data_ready_check(void):&#160;ccs811.c']]],
+  ['ccs811_5ferror_5fto_5fstring_1',['ccs811_error_to_string',['../ccs811_8c.html#ab51c7e36ecf8d9ee42c9810484b97648',1,'ccs811_error_to_string(void):&#160;ccs811.c'],['../ccs811_8h.html#ab51c7e36ecf8d9ee42c9810484b97648',1,'ccs811_error_to_string(void):&#160;ccs811.c']]],
+  ['ccs811_5fget_5falg_5fresult_5fdata_2',['ccs811_get_alg_result_data',['../ccs811_8c.html#ad2b6067f8f03a713bd942e009a128138',1,'ccs811_get_alg_result_data(void):&#160;ccs811.c'],['../ccs811_8h.html#ad2b6067f8f03a713bd942e009a128138',1,'ccs811_get_alg_result_data(void):&#160;ccs811.c']]],
+  ['ccs811_5fget_5feco2_5flevel_3',['ccs811_get_eco2_level',['../ccs811_8c.html#a751333bcfd68dc798c02763140e53231',1,'ccs811_get_eco2_level(void):&#160;ccs811.c'],['../ccs811_8h.html#a751333bcfd68dc798c02763140e53231',1,'ccs811_get_eco2_level(void):&#160;ccs811.c']]],
+  ['ccs811_5fget_5fetvoc_5flevel_4',['ccs811_get_etvoc_level',['../ccs811_8c.html#a17c8db9a3e783733aca1047f1f101b94',1,'ccs811_get_etvoc_level(void):&#160;ccs811.c'],['../ccs811_8h.html#a17c8db9a3e783733aca1047f1f101b94',1,'ccs811_get_etvoc_level(void):&#160;ccs811.c']]],
+  ['ccs811_5fupdate_5fenv_5fdata_5',['ccs811_update_env_data',['../ccs811_8c.html#a0a35b06187cfd628634e4d86faefa3c6',1,'ccs811_update_env_data(uint8_t humidity, uint8_t temp):&#160;ccs811.c'],['../ccs811_8h.html#a0a35b06187cfd628634e4d86faefa3c6',1,'ccs811_update_env_data(uint8_t humidity, uint8_t temp):&#160;ccs811.c']]],
+  ['chip_5fdeselect_6',['chip_deselect',['../mcp48x2__dac_8c.html#abcfcb3f6bdd45f73f27edc2ea06c1d99',1,'mcp48x2_dac.c']]],
+  ['chip_5fselect_7',['chip_select',['../mcp48x2__dac_8c.html#a19f76a44569088d532ecaa6ea938be14',1,'mcp48x2_dac.c']]]
 ];
