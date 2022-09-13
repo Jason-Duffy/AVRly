@@ -91,7 +91,7 @@ $(document).ready(function(){initNavTree('modules_2sensors_2bme280__sensor_2exam
   <div class="summary">
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">main.c File Reference</div></div>
+  <div class="headertitle"><div class="title">main.c File Reference<div class="ingroups"><a class="el" href="group__sensors.html">Sensors</a> &raquo; <a class="el" href="group__bme280.html">BME280 Temperature, Pressure and Humidity Sensor.</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 
@@ -114,6 +114,12 @@ Variables</h2></td></tr>
 <tr class="separator:a4af92569ea830250443045233c9bf5fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16505294fc4a064075013682a4e8fe85"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c.html#a16505294fc4a064075013682a4e8fe85">humidity</a> = 0</td></tr>
 <tr class="separator:a16505294fc4a064075013682a4e8fe85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f030e0dee163596853d41d19da7dbe1"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c.html#a5f030e0dee163596853d41d19da7dbe1">neg_val</a> = -43</td></tr>
+<tr class="separator:a5f030e0dee163596853d41d19da7dbe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44cbc92dd5358c15c7f77d6becdefdac"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c.html#a44cbc92dd5358c15c7f77d6becdefdac">pos_val</a> = 56</td></tr>
+<tr class="separator:a44cbc92dd5358c15c7f77d6becdefdac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61a826c5ce7aad8f2a28759a637ec009"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c.html#a61a826c5ce7aad8f2a28759a637ec009">zer_val</a> = 0</td></tr>
+<tr class="separator:a61a826c5ce7aad8f2a28759a637ec009"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51326561632380b1d07d100a75b205f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structlog__system__config__t.html">log_system_config_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c.html#a51326561632380b1d07d100a75b205f7">log_system_main</a></td></tr>
 <tr class="separator:a51326561632380b1d07d100a75b205f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -142,40 +148,61 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html#l00048">48</a> of file <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html">main.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   49</span>{</div>
-<div class="line"><span class="lineno">   50</span>    <span class="comment">// Initialisations &amp; Setup</span></div>
-<div class="line"><span class="lineno">   51</span>    <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a66cb0502754421251d61e6c64b499398">init_log_system</a>();</div>
-<div class="line"><span class="lineno">   52</span>    <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a60348d23a36d3af3ca02cd1bbc265e28">log_global_on</a>();</div>
-<div class="line"><span class="lineno">   53</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a5e4303f4a037966d08b43a50444127ec">log_set_global_max_output_level</a>(VERBOSE_DEBUG);</div>
-<div class="line"><span class="lineno">   54</span>    <a class="code hl_function" href="bme280_8c.html#a2ce67e73ee8e91f0365ddcf11ccaa5d1">init_bme280</a>();</div>
-<div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   56</span>    <span class="comment">// Superloop</span></div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">while</span> (1)</div>
-<div class="line"><span class="lineno">   58</span>    {</div>
-<div class="line"><span class="lineno">   59</span>        temperature = <a class="code hl_function" href="bme280_8c.html#a3d3170b843f8878eb3c8d6b8a23b0f0a">bme280_get_temperature</a>();</div>
-<div class="line"><span class="lineno">   60</span>        humidity = <a class="code hl_function" href="bme280_8c.html#aca4fb41b54286d2577880f7b87fc6e13">bme280_get_humidity</a>();</div>
-<div class="line"><span class="lineno">   61</span> </div>
-<div class="line"><span class="lineno">   62</span>        log_message_with_16bit_unsigned_dec_val(&amp;log_system_main,</div>
-<div class="line"><span class="lineno">   63</span>                                                INFO,</div>
-<div class="line"><span class="lineno">   64</span>                                                <span class="stringliteral">&quot;Temperature: &quot;</span>,</div>
-<div class="line"><span class="lineno">   65</span>                                                temperature);</div>
-<div class="line"><span class="lineno">   66</span> </div>
-<div class="line"><span class="lineno">   67</span>        log_message_with_16bit_unsigned_dec_val(&amp;log_system_main,</div>
-<div class="line"><span class="lineno">   68</span>                                                INFO,</div>
-<div class="line"><span class="lineno">   69</span>                                                <span class="stringliteral">&quot;Humidity: &quot;</span>,</div>
-<div class="line"><span class="lineno">   70</span>                                                humidity);</div>
-<div class="line"><span class="lineno">   71</span>        _delay_ms(1000);</div>
-<div class="line"><span class="lineno">   72</span>    }</div>
-<div class="line"><span class="lineno">   73</span> </div>
-<div class="line"><span class="lineno">   74</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   75</span>}</div>
-<div class="ttc" id="abme280_8c_html_a2ce67e73ee8e91f0365ddcf11ccaa5d1"><div class="ttname"><a href="bme280_8c.html#a2ce67e73ee8e91f0365ddcf11ccaa5d1">init_bme280</a></div><div class="ttdeci">void init_bme280(void)</div><div class="ttdoc">Initialise the device ready for measurements to be taken.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00123">bme280.c:123</a></div></div>
-<div class="ttc" id="abme280_8c_html_a3d3170b843f8878eb3c8d6b8a23b0f0a"><div class="ttname"><a href="bme280_8c.html#a3d3170b843f8878eb3c8d6b8a23b0f0a">bme280_get_temperature</a></div><div class="ttdeci">int16_t bme280_get_temperature(void)</div><div class="ttdoc">Fetches the latest temperature data from the sensor, compensates and formats the data in degrees Celc...</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00162">bme280.c:162</a></div></div>
-<div class="ttc" id="abme280_8c_html_aca4fb41b54286d2577880f7b87fc6e13"><div class="ttname"><a href="bme280_8c.html#aca4fb41b54286d2577880f7b87fc6e13">bme280_get_humidity</a></div><div class="ttdeci">if uint16_t bme280_get_humidity(void)</div><div class="ttdoc">Fetches the latest humidity data from the sensor, compensates and formats the data as RH * 100.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00203">bme280.c:203</a></div></div>
+<p class="definition">Definition at line <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html#l00052">52</a> of file <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html">main.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>{</div>
+<div class="line"><span class="lineno">   54</span>    <span class="comment">// Initialisations &amp; Setup</span></div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a66cb0502754421251d61e6c64b499398">init_log_system</a>();</div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a60348d23a36d3af3ca02cd1bbc265e28">log_global_on</a>();</div>
+<div class="line"><span class="lineno">   57</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a5e4303f4a037966d08b43a50444127ec">log_set_global_max_output_level</a>(VERBOSE_DEBUG);</div>
+<div class="line"><span class="lineno">   58</span>    <a class="code hl_function" href="bme280_8c.html#a2ce67e73ee8e91f0365ddcf11ccaa5d1">init_bme280</a>();</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>    <span class="comment">// Superloop</span></div>
+<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">while</span> (1)</div>
+<div class="line"><span class="lineno">   62</span>    {</div>
+<div class="line"><span class="lineno">   63</span>        temperature = <a class="code hl_function" href="bme280_8c.html#a3d3170b843f8878eb3c8d6b8a23b0f0a">bme280_get_temperature</a>();</div>
+<div class="line"><span class="lineno">   64</span>        humidity = <a class="code hl_function" href="bme280_8c.html#a171dba0153395fc31f60b322c96f0684">bme280_get_humidity</a>();</div>
+<div class="line"><span class="lineno">   65</span>        <span class="comment">/*</span></div>
+<div class="line"><span class="lineno">   66</span><span class="comment">        log_message_with_16bit_unsigned_val(&amp;log_system_main,</span></div>
+<div class="line"><span class="lineno">   67</span><span class="comment">                                                INFO,</span></div>
+<div class="line"><span class="lineno">   68</span><span class="comment">                                                &quot;Temperature: &quot;,</span></div>
+<div class="line"><span class="lineno">   69</span><span class="comment">                                                temperature,</span></div>
+<div class="line"><span class="lineno">   70</span><span class="comment">                                                DECIMAL);</span></div>
+<div class="line"><span class="lineno">   71</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   72</span><span class="comment">        log_message_with_16bit_unsigned_val(&amp;log_system_main,</span></div>
+<div class="line"><span class="lineno">   73</span><span class="comment">                                                INFO,</span></div>
+<div class="line"><span class="lineno">   74</span><span class="comment">                                                &quot;Humidity: &quot;,</span></div>
+<div class="line"><span class="lineno">   75</span><span class="comment">                                                humidity,</span></div>
+<div class="line"><span class="lineno">   76</span><span class="comment">                                                DECIMAL);</span></div>
+<div class="line"><span class="lineno">   77</span><span class="comment">        */</span></div>
+<div class="line"><span class="lineno">   78</span>        _delay_ms(1000);</div>
+<div class="line"><span class="lineno">   79</span>        <a class="code hl_function" href="sensors_2bme280__sensor_2example_2log__system_8c.html#ad59d4c1bc5a8edb188d2715c243496a8">log_message_with_8bit_signed_val</a>(&amp;log_system_main,</div>
+<div class="line"><span class="lineno">   80</span>                                         INFO,</div>
+<div class="line"><span class="lineno">   81</span>                                         <span class="stringliteral">&quot;Signed variable: &quot;</span>,</div>
+<div class="line"><span class="lineno">   82</span>                                         neg_val,</div>
+<div class="line"><span class="lineno">   83</span>                                         DECIMAL);</div>
+<div class="line"><span class="lineno">   84</span> </div>
+<div class="line"><span class="lineno">   85</span>        <a class="code hl_function" href="sensors_2bme280__sensor_2example_2log__system_8c.html#ad59d4c1bc5a8edb188d2715c243496a8">log_message_with_8bit_signed_val</a>(&amp;log_system_main,</div>
+<div class="line"><span class="lineno">   86</span>                                         INFO,</div>
+<div class="line"><span class="lineno">   87</span>                                         <span class="stringliteral">&quot;Signed variable: &quot;</span>,</div>
+<div class="line"><span class="lineno">   88</span>                                         pos_val,</div>
+<div class="line"><span class="lineno">   89</span>                                         DECIMAL);</div>
+<div class="line"><span class="lineno">   90</span> </div>
+<div class="line"><span class="lineno">   91</span>        <a class="code hl_function" href="sensors_2bme280__sensor_2example_2log__system_8c.html#ad59d4c1bc5a8edb188d2715c243496a8">log_message_with_8bit_signed_val</a>(&amp;log_system_main,</div>
+<div class="line"><span class="lineno">   92</span>                                         INFO,</div>
+<div class="line"><span class="lineno">   93</span>                                         <span class="stringliteral">&quot;Signed variable: &quot;</span>,</div>
+<div class="line"><span class="lineno">   94</span>                                         zer_val,</div>
+<div class="line"><span class="lineno">   95</span>                                         DECIMAL);</div>
+<div class="line"><span class="lineno">   96</span>    }</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   99</span>}</div>
+<div class="ttc" id="abme280_8c_html_a171dba0153395fc31f60b322c96f0684"><div class="ttname"><a href="bme280_8c.html#a171dba0153395fc31f60b322c96f0684">bme280_get_humidity</a></div><div class="ttdeci">uint16_t bme280_get_humidity(void)</div><div class="ttdoc">Fetches the latest humidity data from the sensor, compensates and formats the data as RH * 100.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00207">bme280.c:207</a></div></div>
+<div class="ttc" id="abme280_8c_html_a2ce67e73ee8e91f0365ddcf11ccaa5d1"><div class="ttname"><a href="bme280_8c.html#a2ce67e73ee8e91f0365ddcf11ccaa5d1">init_bme280</a></div><div class="ttdeci">void init_bme280(void)</div><div class="ttdoc">Initialise the device ready for measurements to be taken.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00125">bme280.c:125</a></div></div>
+<div class="ttc" id="abme280_8c_html_a3d3170b843f8878eb3c8d6b8a23b0f0a"><div class="ttname"><a href="bme280_8c.html#a3d3170b843f8878eb3c8d6b8a23b0f0a">bme280_get_temperature</a></div><div class="ttdeci">int16_t bme280_get_temperature(void)</div><div class="ttdoc">Fetches the latest temperature data from the sensor, compensates and formats the data in degrees Celc...</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00164">bme280.c:164</a></div></div>
 <div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2log__system_8c_html_a60348d23a36d3af3ca02cd1bbc265e28"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a60348d23a36d3af3ca02cd1bbc265e28">log_global_on</a></div><div class="ttdeci">void log_global_on(void)</div><div class="ttdoc">Turns logging system on globally.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00133">log_system.c:133</a></div></div>
 <div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2log__system_8c_html_a66cb0502754421251d61e6c64b499398"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a66cb0502754421251d61e6c64b499398">init_log_system</a></div><div class="ttdeci">void init_log_system(void)</div><div class="ttdoc">Initialisation routine - call this function once at startup before using other functions.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00046">log_system.c:46</a></div></div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_a5e4303f4a037966d08b43a50444127ec"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#a5e4303f4a037966d08b43a50444127ec">log_set_global_max_output_level</a></div><div class="ttdeci">void log_set_global_max_output_level(log_type_t level)</div><div class="ttdoc">Sets maximum output level of logging required, has global effect.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00204">log_system.c:204</a></div></div>
+<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_a5e4303f4a037966d08b43a50444127ec"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#a5e4303f4a037966d08b43a50444127ec">log_set_global_max_output_level</a></div><div class="ttdeci">void log_set_global_max_output_level(log_type_t level)</div><div class="ttdoc">Sets maximum output level of logging required, has global effect.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00229">log_system.c:229</a></div></div>
+<div class="ttc" id="asensors_2bme280__sensor_2example_2log__system_8c_html_ad59d4c1bc5a8edb188d2715c243496a8"><div class="ttname"><a href="sensors_2bme280__sensor_2example_2log__system_8c.html#ad59d4c1bc5a8edb188d2715c243496a8">log_message_with_8bit_signed_val</a></div><div class="ttdeci">void log_message_with_8bit_signed_val(log_system_config_t *p_config, log_type_t level, const char *msg, int8_t val, format_type_t format)</div><div class="ttdoc">Sends a string, followed by an 8 bit value.</div><div class="ttdef"><b>Definition:</b> <a href="sensors_2bme280__sensor_2example_2log__system_8c_source.html#l00118">log_system.c:118</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -212,6 +239,54 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a5f030e0dee163596853d41d19da7dbe1" name="a5f030e0dee163596853d41d19da7dbe1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f030e0dee163596853d41d19da7dbe1">&#9670;&nbsp;</a></span>neg_val</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t neg_val = -43</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html#l00040">40</a> of file <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html">main.c</a>.</p>
+
+</div>
+</div>
+<a id="a44cbc92dd5358c15c7f77d6becdefdac" name="a44cbc92dd5358c15c7f77d6becdefdac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44cbc92dd5358c15c7f77d6becdefdac">&#9670;&nbsp;</a></span>pos_val</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t pos_val = 56</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html#l00041">41</a> of file <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html">main.c</a>.</p>
+
+</div>
+</div>
+<a id="a61a826c5ce7aad8f2a28759a637ec009" name="a61a826c5ce7aad8f2a28759a637ec009"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61a826c5ce7aad8f2a28759a637ec009">&#9670;&nbsp;</a></span>zer_val</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t zer_val = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html#l00042">42</a> of file <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html">main.c</a>.</p>
+
+</div>
+</div>
 <a id="a51326561632380b1d07d100a75b205f7" name="a51326561632380b1d07d100a75b205f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a51326561632380b1d07d100a75b205f7">&#9670;&nbsp;</a></span>log_system_main</h2>
 
@@ -229,7 +304,7 @@ Variables</h2></td></tr>
 <div class="line">    .file_log_level = DEBUG,</div>
 <div class="line">}</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html#l00040">40</a> of file <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html">main.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html#l00044">44</a> of file <a class="el" href="modules_2sensors_2bme280__sensor_2example_2main_8c_source.html">main.c</a>.</p>
 
 </div>
 </div>

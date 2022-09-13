@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['usart_2ec_0',['usart.c',['../avr-peripheral-features_2usart_2example_2usart_8c.html',1,'(Global Namespace)'],['../data-converters_2mcp48x2__dac_2example_2usart_8c.html',1,'(Global Namespace)'],['../debug-tools_2log-system_2example_2usart_8c.html',1,'(Global Namespace)'],['../sensors_2bme280__sensor_2example_2usart_8c.html',1,'(Global Namespace)'],['../sensors_2ccs811__sensor_2example_2usart_8c.html',1,'(Global Namespace)']]],
-  ['usart_2eh_1',['usart.h',['../avr-peripheral-features_2usart_2example_2usart_8h.html',1,'(Global Namespace)'],['../data-converters_2mcp48x2__dac_2example_2usart_8h.html',1,'(Global Namespace)'],['../debug-tools_2log-system_2example_2usart_8h.html',1,'(Global Namespace)'],['../sensors_2bme280__sensor_2example_2usart_8h.html',1,'(Global Namespace)'],['../sensors_2ccs811__sensor_2example_2usart_8h.html',1,'(Global Namespace)']]]
+  ['scale_2eh_0',['scale.h',['../scale_8h.html',1,'']]],
+  ['sweet_5fchild_5fo_5fmine_2ec_1',['sweet_child_o_mine.c',['../sweet__child__o__mine_8c.html',1,'']]],
+  ['sweet_5fchild_5fo_5fmine_2eh_2',['sweet_child_o_mine.h',['../sweet__child__o__mine_8h.html',1,'']]]
 ];

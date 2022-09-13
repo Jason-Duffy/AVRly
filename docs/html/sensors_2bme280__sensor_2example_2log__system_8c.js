@@ -4,7 +4,7 @@ var sensors_2bme280__sensor_2example_2log__system_8c =
     [ "log_message_preference_check", "sensors_2bme280__sensor_2example_2log__system_8c.html#a26cf498efe653997646791d6412b4e71", null ],
     [ "init_log_system", "sensors_2bme280__sensor_2example_2log__system_8c.html#a66cb0502754421251d61e6c64b499398", null ],
     [ "log_message", "sensors_2bme280__sensor_2example_2log__system_8c.html#ad7afdd402c9427c8864e997c78e545f3", null ],
-    [ "log_message_with_dec_val", "sensors_2bme280__sensor_2example_2log__system_8c.html#a3ece2c08136c2aa3233a4c9ea30a339f", null ],
+    [ "log_message_with_8bit_signed_val", "sensors_2bme280__sensor_2example_2log__system_8c.html#ad59d4c1bc5a8edb188d2715c243496a8", null ],
     [ "log_message_with_bin_val", "sensors_2bme280__sensor_2example_2log__system_8c.html#afe3f4aa50752a3bcce614cae9eca959d", null ],
     [ "log_message_with_hex_val", "sensors_2bme280__sensor_2example_2log__system_8c.html#a859c84ea51a49b3d132e2c2d4ce83eee", null ],
     [ "log_set_file_max_output_level", "sensors_2bme280__sensor_2example_2log__system_8c.html#a3528484a202f58cbc7f8f95db262783c", null ],

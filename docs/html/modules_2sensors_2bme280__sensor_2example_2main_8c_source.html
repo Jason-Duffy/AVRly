@@ -130,50 +130,75 @@ $(document).ready(function(){initNavTree('modules_2sensors_2bme280__sensor_2exam
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>int16_t temperature = 0;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>uint16_t humidity = 0;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><a class="code hl_struct" href="structlog__system__config__t.html">log_system_config_t</a> log_system_main = </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    .p_system_tag = <span class="stringliteral">&quot;Main&quot;</span>,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    .file_log_level = DEBUG,</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>};</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keywordtype">int</span> <a class="code hl_function" href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="comment">// Initialisations &amp; Setup</span></div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a66cb0502754421251d61e6c64b499398">init_log_system</a>();</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a60348d23a36d3af3ca02cd1bbc265e28">log_global_on</a>();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a5e4303f4a037966d08b43a50444127ec">log_set_global_max_output_level</a>(VERBOSE_DEBUG);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="bme280_8c.html#a2ce67e73ee8e91f0365ddcf11ccaa5d1">init_bme280</a>();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="comment">// Superloop</span></div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">while</span> (1)</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        temperature = <a class="code hl_function" href="bme280_8c.html#a3d3170b843f8878eb3c8d6b8a23b0f0a">bme280_get_temperature</a>();</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        humidity = <a class="code hl_function" href="bme280_8c.html#aca4fb41b54286d2577880f7b87fc6e13">bme280_get_humidity</a>();</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        log_message_with_16bit_unsigned_dec_val(&amp;log_system_main,</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>                                                INFO,</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>                                                <span class="stringliteral">&quot;Temperature: &quot;</span>,</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>                                                temperature);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        log_message_with_16bit_unsigned_dec_val(&amp;log_system_main,</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                                                INFO,</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                                                <span class="stringliteral">&quot;Humidity: &quot;</span>,</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                                                humidity);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        _delay_ms(1000);</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
-<div class="ttc" id="abme280_8c_html_a2ce67e73ee8e91f0365ddcf11ccaa5d1"><div class="ttname"><a href="bme280_8c.html#a2ce67e73ee8e91f0365ddcf11ccaa5d1">init_bme280</a></div><div class="ttdeci">void init_bme280(void)</div><div class="ttdoc">Initialise the device ready for measurements to be taken.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00123">bme280.c:123</a></div></div>
-<div class="ttc" id="abme280_8c_html_a3d3170b843f8878eb3c8d6b8a23b0f0a"><div class="ttname"><a href="bme280_8c.html#a3d3170b843f8878eb3c8d6b8a23b0f0a">bme280_get_temperature</a></div><div class="ttdeci">int16_t bme280_get_temperature(void)</div><div class="ttdoc">Fetches the latest temperature data from the sensor, compensates and formats the data in degrees Celc...</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00162">bme280.c:162</a></div></div>
-<div class="ttc" id="abme280_8c_html_aca4fb41b54286d2577880f7b87fc6e13"><div class="ttname"><a href="bme280_8c.html#aca4fb41b54286d2577880f7b87fc6e13">bme280_get_humidity</a></div><div class="ttdeci">if uint16_t bme280_get_humidity(void)</div><div class="ttdoc">Fetches the latest humidity data from the sensor, compensates and formats the data as RH * 100.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00203">bme280.c:203</a></div></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>int8_t neg_val = -43;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>int8_t pos_val = 56;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>int8_t zer_val = 0;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><a class="code hl_struct" href="structlog__system__config__t.html">log_system_config_t</a> log_system_main = </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    .p_system_tag = <span class="stringliteral">&quot;Main&quot;</span>,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    .file_log_level = DEBUG,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keywordtype">int</span> <a class="code hl_function" href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a>()</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">// Initialisations &amp; Setup</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a66cb0502754421251d61e6c64b499398">init_log_system</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a60348d23a36d3af3ca02cd1bbc265e28">log_global_on</a>();</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <a class="code hl_function" href="debug-tools_2log-system_2example_2log__system_8c.html#a5e4303f4a037966d08b43a50444127ec">log_set_global_max_output_level</a>(VERBOSE_DEBUG);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <a class="code hl_function" href="bme280_8c.html#a2ce67e73ee8e91f0365ddcf11ccaa5d1">init_bme280</a>();</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// Superloop</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordflow">while</span> (1)</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        temperature = <a class="code hl_function" href="bme280_8c.html#a3d3170b843f8878eb3c8d6b8a23b0f0a">bme280_get_temperature</a>();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        humidity = <a class="code hl_function" href="bme280_8c.html#a171dba0153395fc31f60b322c96f0684">bme280_get_humidity</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="comment">/*</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">        log_message_with_16bit_unsigned_val(&amp;log_system_main,</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">                                                INFO,</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment">                                                &quot;Temperature: &quot;,</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">                                                temperature,</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment">                                                DECIMAL);</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment"></span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">        log_message_with_16bit_unsigned_val(&amp;log_system_main,</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">                                                INFO,</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">                                                &quot;Humidity: &quot;,</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">                                                humidity,</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">                                                DECIMAL);</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">        */</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        _delay_ms(1000);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <a class="code hl_function" href="sensors_2bme280__sensor_2example_2log__system_8c.html#ad59d4c1bc5a8edb188d2715c243496a8">log_message_with_8bit_signed_val</a>(&amp;log_system_main,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                                         INFO,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                                         <span class="stringliteral">&quot;Signed variable: &quot;</span>,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                                         neg_val,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                                         DECIMAL);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        <a class="code hl_function" href="sensors_2bme280__sensor_2example_2log__system_8c.html#ad59d4c1bc5a8edb188d2715c243496a8">log_message_with_8bit_signed_val</a>(&amp;log_system_main,</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>                                         INFO,</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                                         <span class="stringliteral">&quot;Signed variable: &quot;</span>,</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>                                         pos_val,</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>                                         DECIMAL);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <a class="code hl_function" href="sensors_2bme280__sensor_2example_2log__system_8c.html#ad59d4c1bc5a8edb188d2715c243496a8">log_message_with_8bit_signed_val</a>(&amp;log_system_main,</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                                         INFO,</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                                         <span class="stringliteral">&quot;Signed variable: &quot;</span>,</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                                         zer_val,</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                                         DECIMAL);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>}</div>
+<div class="ttc" id="abme280_8c_html_a171dba0153395fc31f60b322c96f0684"><div class="ttname"><a href="bme280_8c.html#a171dba0153395fc31f60b322c96f0684">bme280_get_humidity</a></div><div class="ttdeci">uint16_t bme280_get_humidity(void)</div><div class="ttdoc">Fetches the latest humidity data from the sensor, compensates and formats the data as RH * 100.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00207">bme280.c:207</a></div></div>
+<div class="ttc" id="abme280_8c_html_a2ce67e73ee8e91f0365ddcf11ccaa5d1"><div class="ttname"><a href="bme280_8c.html#a2ce67e73ee8e91f0365ddcf11ccaa5d1">init_bme280</a></div><div class="ttdeci">void init_bme280(void)</div><div class="ttdoc">Initialise the device ready for measurements to be taken.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00125">bme280.c:125</a></div></div>
+<div class="ttc" id="abme280_8c_html_a3d3170b843f8878eb3c8d6b8a23b0f0a"><div class="ttname"><a href="bme280_8c.html#a3d3170b843f8878eb3c8d6b8a23b0f0a">bme280_get_temperature</a></div><div class="ttdeci">int16_t bme280_get_temperature(void)</div><div class="ttdoc">Fetches the latest temperature data from the sensor, compensates and formats the data in degrees Celc...</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00164">bme280.c:164</a></div></div>
 <div class="ttc" id="abme280_8h_html"><div class="ttname"><a href="bme280_8h.html">bme280.h</a></div></div>
 <div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2log__system_8c_html_a60348d23a36d3af3ca02cd1bbc265e28"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a60348d23a36d3af3ca02cd1bbc265e28">log_global_on</a></div><div class="ttdeci">void log_global_on(void)</div><div class="ttdoc">Turns logging system on globally.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00133">log_system.c:133</a></div></div>
 <div class="ttc" id="adata-converters_2mcp48x2__dac_2example_2log__system_8c_html_a66cb0502754421251d61e6c64b499398"><div class="ttname"><a href="data-converters_2mcp48x2__dac_2example_2log__system_8c.html#a66cb0502754421251d61e6c64b499398">init_log_system</a></div><div class="ttdeci">void init_log_system(void)</div><div class="ttdoc">Initialisation routine - call this function once at startup before using other functions.</div><div class="ttdef"><b>Definition:</b> <a href="data-converters_2mcp48x2__dac_2example_2log__system_8c_source.html#l00046">log_system.c:46</a></div></div>
-<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_a5e4303f4a037966d08b43a50444127ec"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#a5e4303f4a037966d08b43a50444127ec">log_set_global_max_output_level</a></div><div class="ttdeci">void log_set_global_max_output_level(log_type_t level)</div><div class="ttdoc">Sets maximum output level of logging required, has global effect.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00204">log_system.c:204</a></div></div>
+<div class="ttc" id="adebug-tools_2log-system_2example_2log__system_8c_html_a5e4303f4a037966d08b43a50444127ec"><div class="ttname"><a href="debug-tools_2log-system_2example_2log__system_8c.html#a5e4303f4a037966d08b43a50444127ec">log_set_global_max_output_level</a></div><div class="ttdeci">void log_set_global_max_output_level(log_type_t level)</div><div class="ttdoc">Sets maximum output level of logging required, has global effect.</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8c_source.html#l00229">log_system.c:229</a></div></div>
 <div class="ttc" id="agetting-started_2source_2main_8c_html_ae66f6b31b5ad750f1fe042a706a4e3d4"><div class="ttname"><a href="getting-started_2source_2main_8c.html#ae66f6b31b5ad750f1fe042a706a4e3d4">main</a></div><div class="ttdeci">int main()</div><div class="ttdoc">Main routine to be executed on the MCU.</div><div class="ttdef"><b>Definition:</b> <a href="getting-started_2source_2main_8c_source.html#l00045">main.c:45</a></div></div>
+<div class="ttc" id="asensors_2bme280__sensor_2example_2log__system_8c_html_ad59d4c1bc5a8edb188d2715c243496a8"><div class="ttname"><a href="sensors_2bme280__sensor_2example_2log__system_8c.html#ad59d4c1bc5a8edb188d2715c243496a8">log_message_with_8bit_signed_val</a></div><div class="ttdeci">void log_message_with_8bit_signed_val(log_system_config_t *p_config, log_type_t level, const char *msg, int8_t val, format_type_t format)</div><div class="ttdoc">Sends a string, followed by an 8 bit value.</div><div class="ttdef"><b>Definition:</b> <a href="sensors_2bme280__sensor_2example_2log__system_8c_source.html#l00118">log_system.c:118</a></div></div>
 <div class="ttc" id="asensors_2ccs811__sensor_2example_2log__system_8h_html"><div class="ttname"><a href="sensors_2ccs811__sensor_2example_2log__system_8h.html">log_system.h</a></div><div class="ttdoc">Driver file providing logging functionality over USART, to print debug messages and values to a temin...</div></div>
 <div class="ttc" id="astructlog__system__config__t_html"><div class="ttname"><a href="structlog__system__config__t.html">log_system_config_t</a></div><div class="ttdoc">Config object, to be instantiated in each file the log system is to be used, then pass it's address i...</div><div class="ttdef"><b>Definition:</b> <a href="debug-tools_2log-system_2example_2log__system_8h_source.html#l00058">log_system.h:59</a></div></div>
 </div><!-- fragment --></div><!-- contents -->

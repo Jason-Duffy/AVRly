@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['usart_0',['USART',['../group__usart.html',1,'']]]
+  ['timer_2fcounter_0',['Timer/Counter',['../group__timer__counter.html',1,'']]]
 ];

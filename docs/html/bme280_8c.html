@@ -92,7 +92,7 @@ $(document).ready(function(){initNavTree('bme280_8c.html',''); initResizable(); 
 <a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">bme280.c File Reference</div></div>
+  <div class="headertitle"><div class="title">bme280.c File Reference<div class="ingroups"><a class="el" href="group__sensors.html">Sensors</a> &raquo; <a class="el" href="group__bme280.html">BME280 Temperature, Pressure and Humidity Sensor.</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;util/delay.h&gt;</code><br />
@@ -164,10 +164,13 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_write_word</b>
 <tr class="memitem:a16d53f70253adaf311ec5d6be2df087d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8c.html#a16d53f70253adaf311ec5d6be2df087d">bme280_burst_read</a> (uint8_t start_addr, uint8_t start_position, uint8_t length)</td></tr>
 <tr class="separator:a16d53f70253adaf311ec5d6be2df087d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2baf46fd40e5b02dbc8060b93c8f9a7f"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8c.html#a2baf46fd40e5b02dbc8060b93c8f9a7f">bme280_compensate_temp</a> (int32_t adc_T)</td></tr>
+<tr class="memdesc:a2baf46fd40e5b02dbc8060b93c8f9a7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns temperature in DegC, resolution is 0.01 DegC.  <a href="bme280_8c.html#a2baf46fd40e5b02dbc8060b93c8f9a7f">More...</a><br /></td></tr>
 <tr class="separator:a2baf46fd40e5b02dbc8060b93c8f9a7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4160b8fc54abb643a8f541c6fdad9fb0"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8c.html#a4160b8fc54abb643a8f541c6fdad9fb0">bme280_compensate_pressure</a> (int32_t adc_P)</td></tr>
+<tr class="memdesc:a4160b8fc54abb643a8f541c6fdad9fb0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns pressure in Pa as unsigned 32 bit integer.  <a href="bme280_8c.html#a4160b8fc54abb643a8f541c6fdad9fb0">More...</a><br /></td></tr>
 <tr class="separator:a4160b8fc54abb643a8f541c6fdad9fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbb9be5bb748ef4ef41548c3d76db868"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8c.html#abbb9be5bb748ef4ef41548c3d76db868">bme280_compensate_humidity</a> (int32_t adc_H)</td></tr>
+<tr class="memdesc:abbb9be5bb748ef4ef41548c3d76db868"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns humidity in RH as unsigned 32 bit integer in Q22.10 format (22 integer and 10 fractional bits).  <a href="bme280_8c.html#abbb9be5bb748ef4ef41548c3d76db868">More...</a><br /></td></tr>
 <tr class="separator:abbb9be5bb748ef4ef41548c3d76db868"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2ce67e73ee8e91f0365ddcf11ccaa5d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8c.html#a2ce67e73ee8e91f0365ddcf11ccaa5d1">init_bme280</a> (void)</td></tr>
 <tr class="memdesc:a2ce67e73ee8e91f0365ddcf11ccaa5d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialise the device ready for measurements to be taken.  <a href="bme280_8c.html#a2ce67e73ee8e91f0365ddcf11ccaa5d1">More...</a><br /></td></tr>
@@ -175,9 +178,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>bme280_write_word</b>
 <tr class="memitem:a3d3170b843f8878eb3c8d6b8a23b0f0a"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8c.html#a3d3170b843f8878eb3c8d6b8a23b0f0a">bme280_get_temperature</a> (void)</td></tr>
 <tr class="memdesc:a3d3170b843f8878eb3c8d6b8a23b0f0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the latest temperature data from the sensor, compensates and formats the data in degrees Celcius * 100.  <a href="bme280_8c.html#a3d3170b843f8878eb3c8d6b8a23b0f0a">More...</a><br /></td></tr>
 <tr class="separator:a3d3170b843f8878eb3c8d6b8a23b0f0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca4fb41b54286d2577880f7b87fc6e13"><td class="memItemLeft" align="right" valign="top">if uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8c.html#aca4fb41b54286d2577880f7b87fc6e13">bme280_get_humidity</a> (void)</td></tr>
-<tr class="memdesc:aca4fb41b54286d2577880f7b87fc6e13"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the latest humidity data from the sensor, compensates and formats the data as RH * 100.  <a href="bme280_8c.html#aca4fb41b54286d2577880f7b87fc6e13">More...</a><br /></td></tr>
-<tr class="separator:aca4fb41b54286d2577880f7b87fc6e13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a171dba0153395fc31f60b322c96f0684"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8c.html#a171dba0153395fc31f60b322c96f0684">bme280_get_humidity</a> (void)</td></tr>
+<tr class="memdesc:a171dba0153395fc31f60b322c96f0684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the latest humidity data from the sensor, compensates and formats the data as RH * 100.  <a href="bme280_8c.html#a171dba0153395fc31f60b322c96f0684">More...</a><br /></td></tr>
+<tr class="separator:a171dba0153395fc31f60b322c96f0684"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46f00f882e65c7292b4be13001aa092f"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bme280_8c.html#a46f00f882e65c7292b4be13001aa092f">bme280_get_pressure</a> (void)</td></tr>
 <tr class="memdesc:a46f00f882e65c7292b4be13001aa092f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fetches the latest pressure data from the sensor, compensates and formats the data as Pa * 100.  <a href="bme280_8c.html#a46f00f882e65c7292b4be13001aa092f">More...</a><br /></td></tr>
 <tr class="separator:a46f00f882e65c7292b4be13001aa092f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -522,14 +525,14 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00239">239</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  240</span>{</div>
-<div class="line"><span class="lineno">  241</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  242</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_W);</div>
-<div class="line"><span class="lineno">  243</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(reg);</div>
-<div class="line"><span class="lineno">  244</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(<span class="keywordtype">byte</span>);</div>
-<div class="line"><span class="lineno">  245</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
-<div class="line"><span class="lineno">  246</span>}</div>
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00244">244</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  245</span>{</div>
+<div class="line"><span class="lineno">  246</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  247</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_W);</div>
+<div class="line"><span class="lineno">  248</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(reg);</div>
+<div class="line"><span class="lineno">  249</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(<span class="keywordtype">byte</span>);</div>
+<div class="line"><span class="lineno">  250</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
+<div class="line"><span class="lineno">  251</span>}</div>
 <div class="ttc" id="aavr-peripheral-features_2i2c_2atmega__i2c_8c_html_ad35d4e4f52ca74b503d5e5e1e0a3f5f3"><div class="ttname"><a href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a></div><div class="ttdeci">void i2c_stop(void)</div><div class="ttdoc">Sends a stop condition (sets TWSTO).</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2i2c_2atmega__i2c_8c_source.html#l00080">atmega_i2c.c:80</a></div></div>
 <div class="ttc" id="aavr-peripheral-features_2i2c_2atmega__i2c_8c_html_ade9ea3e8cd58c50b470141c55d20d057"><div class="ttname"><a href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a></div><div class="ttdeci">void i2c_send(uint8_t data)</div><div class="ttdoc">Loads data, sends it out, waiting for completion.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2i2c_2atmega__i2c_8c_source.html#l00090">atmega_i2c.c:90</a></div></div>
 <div class="ttc" id="aavr-peripheral-features_2i2c_2atmega__i2c_8c_html_af104fa2713ad2cfe4f993bdd2ec22c46"><div class="ttname"><a href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a></div><div class="ttdeci">void i2c_start(void)</div><div class="ttdoc">Sends a start condition (sets TWSTA).</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2i2c_2atmega__i2c_8c_source.html#l00070">atmega_i2c.c:70</a></div></div>
@@ -561,26 +564,26 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The data read from the device is returned. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00287">287</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  288</span>{</div>
-<div class="line"><span class="lineno">  289</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> msb;</div>
-<div class="line"><span class="lineno">  290</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> lsb;</div>
-<div class="line"><span class="lineno">  291</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> word;</div>
-<div class="line"><span class="lineno">  292</span> </div>
-<div class="line"><span class="lineno">  293</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  294</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_W);</div>
-<div class="line"><span class="lineno">  295</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(start_address);</div>
-<div class="line"><span class="lineno">  296</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  297</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_R);</div>
-<div class="line"><span class="lineno">  298</span> </div>
-<div class="line"><span class="lineno">  299</span>    lsb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
-<div class="line"><span class="lineno">  300</span>    msb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
-<div class="line"><span class="lineno">  301</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
-<div class="line"><span class="lineno">  302</span> </div>
-<div class="line"><span class="lineno">  303</span>    word = (msb &lt;&lt; 8);</div>
-<div class="line"><span class="lineno">  304</span>    word |= lsb;</div>
-<div class="line"><span class="lineno">  305</span>    <span class="keywordflow">return</span> word;</div>
-<div class="line"><span class="lineno">  306</span>}</div>
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00295">295</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  296</span>{</div>
+<div class="line"><span class="lineno">  297</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> msb;</div>
+<div class="line"><span class="lineno">  298</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> lsb;</div>
+<div class="line"><span class="lineno">  299</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">short</span> word;</div>
+<div class="line"><span class="lineno">  300</span> </div>
+<div class="line"><span class="lineno">  301</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  302</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_W);</div>
+<div class="line"><span class="lineno">  303</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(start_address);</div>
+<div class="line"><span class="lineno">  304</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  305</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_R);</div>
+<div class="line"><span class="lineno">  306</span> </div>
+<div class="line"><span class="lineno">  307</span>    lsb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
+<div class="line"><span class="lineno">  308</span>    msb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
+<div class="line"><span class="lineno">  309</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
+<div class="line"><span class="lineno">  310</span> </div>
+<div class="line"><span class="lineno">  311</span>    word = (msb &lt;&lt; 8);</div>
+<div class="line"><span class="lineno">  312</span>    word |= lsb;</div>
+<div class="line"><span class="lineno">  313</span>    <span class="keywordflow">return</span> word;</div>
+<div class="line"><span class="lineno">  314</span>}</div>
 <div class="ttc" id="aavr-peripheral-features_2i2c_2atmega__i2c_8c_html_a9e32e9e2acac27300dc4b9463e5d1bed"><div class="ttname"><a href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a></div><div class="ttdeci">uint8_t i2c_read_no_ack(void)</div><div class="ttdoc">Read in from slave, sending NOACK when done (no TWEA).</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2i2c_2atmega__i2c_8c_source.html#l00115">atmega_i2c.c:115</a></div></div>
 <div class="ttc" id="aavr-peripheral-features_2i2c_2atmega__i2c_8c_html_aa7f5f94b089b26f76a4f9cc95e89a3db"><div class="ttname"><a href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a></div><div class="ttdeci">uint8_t i2c_read_ack(void)</div><div class="ttdoc">Read in from slave, sending ACK when done (sets TWEA).</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2i2c_2atmega__i2c_8c_source.html#l00102">atmega_i2c.c:102</a></div></div>
 </div><!-- fragment -->
@@ -602,19 +605,19 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00248">248</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  249</span>{</div>
-<div class="line"><span class="lineno">  250</span>    uint8_t byte;</div>
-<div class="line"><span class="lineno">  251</span> </div>
-<div class="line"><span class="lineno">  252</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  253</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_W);</div>
-<div class="line"><span class="lineno">  254</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(reg);</div>
-<div class="line"><span class="lineno">  255</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  256</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_R);</div>
-<div class="line"><span class="lineno">  257</span>    <span class="keywordtype">byte</span> = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
-<div class="line"><span class="lineno">  258</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
-<div class="line"><span class="lineno">  259</span>    <span class="keywordflow">return</span> byte;</div>
-<div class="line"><span class="lineno">  260</span>}</div>
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00254">254</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  255</span>{</div>
+<div class="line"><span class="lineno">  256</span>    uint8_t byte;</div>
+<div class="line"><span class="lineno">  257</span> </div>
+<div class="line"><span class="lineno">  258</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  259</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_W);</div>
+<div class="line"><span class="lineno">  260</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(reg);</div>
+<div class="line"><span class="lineno">  261</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  262</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_R);</div>
+<div class="line"><span class="lineno">  263</span>    <span class="keywordtype">byte</span> = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
+<div class="line"><span class="lineno">  264</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
+<div class="line"><span class="lineno">  265</span>    <span class="keywordflow">return</span> byte;</div>
+<div class="line"><span class="lineno">  266</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -636,47 +639,47 @@ Variables</h2></td></tr>
 
 <p>Reads in all compensation data from the device and stores it in a buffer. </p>
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00314">314</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  315</span>{</div>
-<div class="line"><span class="lineno">  316</span>    <span class="keywordtype">signed</span> <span class="keywordtype">short</span> h_lsb;</div>
-<div class="line"><span class="lineno">  317</span>    <span class="keywordtype">signed</span> <span class="keywordtype">short</span> h_msb;</div>
-<div class="line"><span class="lineno">  318</span> </div>
-<div class="line"><span class="lineno">  319</span>    <span class="comment">// Read and store temperature compensation data. </span></div>
-<div class="line"><span class="lineno">  320</span>    dig_T1 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x88);</div>
-<div class="line"><span class="lineno">  321</span>    dig_T2 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x8A);</div>
-<div class="line"><span class="lineno">  322</span>    dig_T3 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x8C);</div>
-<div class="line"><span class="lineno">  323</span> </div>
-<div class="line"><span class="lineno">  324</span>    <span class="comment">// Read and store pressure compensation data.</span></div>
-<div class="line"><span class="lineno">  325</span>    dig_P1 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x8E);</div>
-<div class="line"><span class="lineno">  326</span>    dig_P2 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x90);</div>
-<div class="line"><span class="lineno">  327</span>    dig_P3 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x92);</div>
-<div class="line"><span class="lineno">  328</span>    dig_P4 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x94);</div>
-<div class="line"><span class="lineno">  329</span>    dig_P5 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x96);</div>
-<div class="line"><span class="lineno">  330</span>    dig_P6 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x98);</div>
-<div class="line"><span class="lineno">  331</span>    dig_P7 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x9A);</div>
-<div class="line"><span class="lineno">  332</span>    dig_P8 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x9C);</div>
-<div class="line"><span class="lineno">  333</span>    dig_P9 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x9E);</div>
-<div class="line"><span class="lineno">  334</span> </div>
-<div class="line"><span class="lineno">  335</span>    <span class="comment">// Read and store humidity compensation data.</span></div>
-<div class="line"><span class="lineno">  336</span>    dig_H1 = bme280_read_byte(0xA1);</div>
-<div class="line"><span class="lineno">  337</span>    dig_H2 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0xE1);</div>
-<div class="line"><span class="lineno">  338</span>    dig_H3 = bme280_read_byte(0xE3);</div>
-<div class="line"><span class="lineno">  339</span> </div>
-<div class="line"><span class="lineno">  340</span>    h_msb = bme280_read_byte(0xE4);</div>
-<div class="line"><span class="lineno">  341</span>    h_lsb = bme280_read_byte(0xE5);</div>
-<div class="line"><span class="lineno">  342</span>    h_lsb &amp;= 0b00001111;</div>
-<div class="line"><span class="lineno">  343</span>    dig_H4 = h_lsb;</div>
-<div class="line"><span class="lineno">  344</span>    dig_H4 |= (h_msb &lt;&lt; 4);</div>
-<div class="line"><span class="lineno">  345</span> </div>
-<div class="line"><span class="lineno">  346</span>    h_msb = bme280_read_byte(0xE6);</div>
-<div class="line"><span class="lineno">  347</span>    h_lsb = bme280_read_byte(0xE5);</div>
-<div class="line"><span class="lineno">  348</span>    h_lsb &amp;= 0b11110000;</div>
-<div class="line"><span class="lineno">  349</span>    dig_H5 = (h_lsb &gt;&gt; 4);</div>
-<div class="line"><span class="lineno">  350</span>    dig_H5 |= (h_msb &lt;&lt; 4);</div>
-<div class="line"><span class="lineno">  351</span> </div>
-<div class="line"><span class="lineno">  352</span>    dig_H6 = bme280_read_byte(0xE7);</div>
-<div class="line"><span class="lineno">  353</span>}</div>
-<div class="ttc" id="abme280_8c_html_acc8989cf214037ccad03c1cffd882bea"><div class="ttname"><a href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a></div><div class="ttdeci">uint16_t bme280_read_word(uint8_t start_address)</div><div class="ttdoc">Reads a 16bit unsigned integer from a specified register.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00287">bme280.c:287</a></div></div>
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00322">322</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  323</span>{</div>
+<div class="line"><span class="lineno">  324</span>    <span class="keywordtype">signed</span> <span class="keywordtype">short</span> h_lsb;</div>
+<div class="line"><span class="lineno">  325</span>    <span class="keywordtype">signed</span> <span class="keywordtype">short</span> h_msb;</div>
+<div class="line"><span class="lineno">  326</span> </div>
+<div class="line"><span class="lineno">  327</span>    <span class="comment">// Read and store temperature compensation data. </span></div>
+<div class="line"><span class="lineno">  328</span>    dig_T1 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x88);</div>
+<div class="line"><span class="lineno">  329</span>    dig_T2 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x8A);</div>
+<div class="line"><span class="lineno">  330</span>    dig_T3 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x8C);</div>
+<div class="line"><span class="lineno">  331</span> </div>
+<div class="line"><span class="lineno">  332</span>    <span class="comment">// Read and store pressure compensation data.</span></div>
+<div class="line"><span class="lineno">  333</span>    dig_P1 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x8E);</div>
+<div class="line"><span class="lineno">  334</span>    dig_P2 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x90);</div>
+<div class="line"><span class="lineno">  335</span>    dig_P3 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x92);</div>
+<div class="line"><span class="lineno">  336</span>    dig_P4 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x94);</div>
+<div class="line"><span class="lineno">  337</span>    dig_P5 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x96);</div>
+<div class="line"><span class="lineno">  338</span>    dig_P6 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x98);</div>
+<div class="line"><span class="lineno">  339</span>    dig_P7 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x9A);</div>
+<div class="line"><span class="lineno">  340</span>    dig_P8 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x9C);</div>
+<div class="line"><span class="lineno">  341</span>    dig_P9 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0x9E);</div>
+<div class="line"><span class="lineno">  342</span> </div>
+<div class="line"><span class="lineno">  343</span>    <span class="comment">// Read and store humidity compensation data.</span></div>
+<div class="line"><span class="lineno">  344</span>    dig_H1 = bme280_read_byte(0xA1);</div>
+<div class="line"><span class="lineno">  345</span>    dig_H2 = <a class="code hl_function" href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a>(0xE1);</div>
+<div class="line"><span class="lineno">  346</span>    dig_H3 = bme280_read_byte(0xE3);</div>
+<div class="line"><span class="lineno">  347</span> </div>
+<div class="line"><span class="lineno">  348</span>    h_msb = bme280_read_byte(0xE4);</div>
+<div class="line"><span class="lineno">  349</span>    h_lsb = bme280_read_byte(0xE5);</div>
+<div class="line"><span class="lineno">  350</span>    h_lsb &amp;= 0b00001111;</div>
+<div class="line"><span class="lineno">  351</span>    dig_H4 = h_lsb;</div>
+<div class="line"><span class="lineno">  352</span>    dig_H4 |= (h_msb &lt;&lt; 4);</div>
+<div class="line"><span class="lineno">  353</span> </div>
+<div class="line"><span class="lineno">  354</span>    h_msb = bme280_read_byte(0xE6);</div>
+<div class="line"><span class="lineno">  355</span>    h_lsb = bme280_read_byte(0xE5);</div>
+<div class="line"><span class="lineno">  356</span>    h_lsb &amp;= 0b11110000;</div>
+<div class="line"><span class="lineno">  357</span>    dig_H5 = (h_lsb &gt;&gt; 4);</div>
+<div class="line"><span class="lineno">  358</span>    dig_H5 |= (h_msb &lt;&lt; 4);</div>
+<div class="line"><span class="lineno">  359</span> </div>
+<div class="line"><span class="lineno">  360</span>    dig_H6 = bme280_read_byte(0xE7);</div>
+<div class="line"><span class="lineno">  361</span>}</div>
+<div class="ttc" id="abme280_8c_html_acc8989cf214037ccad03c1cffd882bea"><div class="ttname"><a href="bme280_8c.html#acc8989cf214037ccad03c1cffd882bea">bme280_read_word</a></div><div class="ttdeci">uint16_t bme280_read_word(uint8_t start_address)</div><div class="ttdoc">Reads a 16bit unsigned integer from a specified register.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00295">bme280.c:295</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -696,29 +699,29 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00356">356</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  357</span>{</div>
-<div class="line"><span class="lineno">  358</span>    uint32_t retval;</div>
-<div class="line"><span class="lineno">  359</span>    uint32_t temp_msb;</div>
-<div class="line"><span class="lineno">  360</span>    uint32_t temp_lsb;</div>
-<div class="line"><span class="lineno">  361</span>    uint32_t temp_xlsb;</div>
-<div class="line"><span class="lineno">  362</span> </div>
-<div class="line"><span class="lineno">  363</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  364</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_W);</div>
-<div class="line"><span class="lineno">  365</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(0xFA);</div>
-<div class="line"><span class="lineno">  366</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  367</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_R);</div>
-<div class="line"><span class="lineno">  368</span>    temp_msb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
-<div class="line"><span class="lineno">  369</span>    temp_lsb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
-<div class="line"><span class="lineno">  370</span>    temp_xlsb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
-<div class="line"><span class="lineno">  371</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
-<div class="line"><span class="lineno">  372</span> </div>
-<div class="line"><span class="lineno">  373</span>    retval = temp_msb &lt;&lt; 12;</div>
-<div class="line"><span class="lineno">  374</span>    retval |= temp_lsb &lt;&lt; 4;</div>
-<div class="line"><span class="lineno">  375</span>    retval |= temp_xlsb &gt;&gt; 4;</div>
-<div class="line"><span class="lineno">  376</span> </div>
-<div class="line"><span class="lineno">  377</span>    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><span class="lineno">  378</span>}</div>
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00364">364</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  365</span>{</div>
+<div class="line"><span class="lineno">  366</span>    uint32_t retval;</div>
+<div class="line"><span class="lineno">  367</span>    uint32_t temp_msb;</div>
+<div class="line"><span class="lineno">  368</span>    uint32_t temp_lsb;</div>
+<div class="line"><span class="lineno">  369</span>    uint32_t temp_xlsb;</div>
+<div class="line"><span class="lineno">  370</span> </div>
+<div class="line"><span class="lineno">  371</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  372</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_W);</div>
+<div class="line"><span class="lineno">  373</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(0xFA);</div>
+<div class="line"><span class="lineno">  374</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  375</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_R);</div>
+<div class="line"><span class="lineno">  376</span>    temp_msb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
+<div class="line"><span class="lineno">  377</span>    temp_lsb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
+<div class="line"><span class="lineno">  378</span>    temp_xlsb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
+<div class="line"><span class="lineno">  379</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
+<div class="line"><span class="lineno">  380</span> </div>
+<div class="line"><span class="lineno">  381</span>    retval = temp_msb &lt;&lt; 12;</div>
+<div class="line"><span class="lineno">  382</span>    retval |= temp_lsb &lt;&lt; 4;</div>
+<div class="line"><span class="lineno">  383</span>    retval |= temp_xlsb &gt;&gt; 4;</div>
+<div class="line"><span class="lineno">  384</span> </div>
+<div class="line"><span class="lineno">  385</span>    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><span class="lineno">  386</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -738,26 +741,26 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00380">380</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  381</span>{</div>
-<div class="line"><span class="lineno">  382</span>    uint32_t retval;</div>
-<div class="line"><span class="lineno">  383</span>    uint16_t hum_msb;</div>
-<div class="line"><span class="lineno">  384</span>    uint16_t hum_lsb;</div>
-<div class="line"><span class="lineno">  385</span> </div>
-<div class="line"><span class="lineno">  386</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  387</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_W);</div>
-<div class="line"><span class="lineno">  388</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(0xFD);</div>
-<div class="line"><span class="lineno">  389</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  390</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_R);</div>
-<div class="line"><span class="lineno">  391</span>    hum_msb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
-<div class="line"><span class="lineno">  392</span>    hum_lsb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
-<div class="line"><span class="lineno">  393</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
-<div class="line"><span class="lineno">  394</span> </div>
-<div class="line"><span class="lineno">  395</span>    retval = hum_msb &lt;&lt; 8;</div>
-<div class="line"><span class="lineno">  396</span>    retval |= hum_lsb;</div>
-<div class="line"><span class="lineno">  397</span> </div>
-<div class="line"><span class="lineno">  398</span>    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><span class="lineno">  399</span>}</div>
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00388">388</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  389</span>{</div>
+<div class="line"><span class="lineno">  390</span>    uint32_t retval;</div>
+<div class="line"><span class="lineno">  391</span>    uint16_t hum_msb;</div>
+<div class="line"><span class="lineno">  392</span>    uint16_t hum_lsb;</div>
+<div class="line"><span class="lineno">  393</span> </div>
+<div class="line"><span class="lineno">  394</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  395</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_W);</div>
+<div class="line"><span class="lineno">  396</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(0xFD);</div>
+<div class="line"><span class="lineno">  397</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  398</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_R);</div>
+<div class="line"><span class="lineno">  399</span>    hum_msb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
+<div class="line"><span class="lineno">  400</span>    hum_lsb = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
+<div class="line"><span class="lineno">  401</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
+<div class="line"><span class="lineno">  402</span> </div>
+<div class="line"><span class="lineno">  403</span>    retval = hum_msb &lt;&lt; 8;</div>
+<div class="line"><span class="lineno">  404</span>    retval |= hum_lsb;</div>
+<div class="line"><span class="lineno">  405</span> </div>
+<div class="line"><span class="lineno">  406</span>    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><span class="lineno">  407</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -793,23 +796,23 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00263">263</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  264</span>{</div>
-<div class="line"><span class="lineno">  265</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  266</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_W);</div>
-<div class="line"><span class="lineno">  267</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(start_address);</div>
-<div class="line"><span class="lineno">  268</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
-<div class="line"><span class="lineno">  269</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_R);</div>
-<div class="line"><span class="lineno">  270</span> </div>
-<div class="line"><span class="lineno">  271</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><span class="lineno">  272</span>    <span class="keywordflow">for</span> (i = 0; i &lt; (length - 1); ++i)</div>
-<div class="line"><span class="lineno">  273</span>    {</div>
-<div class="line"><span class="lineno">  274</span>        BME280_read_buffer[i] = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
-<div class="line"><span class="lineno">  275</span>    }</div>
-<div class="line"><span class="lineno">  276</span>    BME280_read_buffer[i] = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
-<div class="line"><span class="lineno">  277</span> </div>
-<div class="line"><span class="lineno">  278</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
-<div class="line"><span class="lineno">  279</span>}</div>
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00269">269</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  272</span>{</div>
+<div class="line"><span class="lineno">  273</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  274</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_W);</div>
+<div class="line"><span class="lineno">  275</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(start_address);</div>
+<div class="line"><span class="lineno">  276</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#af104fa2713ad2cfe4f993bdd2ec22c46">i2c_start</a>();</div>
+<div class="line"><span class="lineno">  277</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ade9ea3e8cd58c50b470141c55d20d057">i2c_send</a>(BME280_ADDRESS_R);</div>
+<div class="line"><span class="lineno">  278</span> </div>
+<div class="line"><span class="lineno">  279</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  280</span>    <span class="keywordflow">for</span> (i = 0; i &lt; (length - 1); ++i)</div>
+<div class="line"><span class="lineno">  281</span>    {</div>
+<div class="line"><span class="lineno">  282</span>        BME280_read_buffer[i] = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#aa7f5f94b089b26f76a4f9cc95e89a3db">i2c_read_ack</a>();</div>
+<div class="line"><span class="lineno">  283</span>    }</div>
+<div class="line"><span class="lineno">  284</span>    BME280_read_buffer[i] = <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a9e32e9e2acac27300dc4b9463e5d1bed">i2c_read_no_ack</a>();</div>
+<div class="line"><span class="lineno">  285</span> </div>
+<div class="line"><span class="lineno">  286</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#ad35d4e4f52ca74b503d5e5e1e0a3f5f3">i2c_stop</a>();</div>
+<div class="line"><span class="lineno">  287</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -829,15 +832,19 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00410">410</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  411</span>{</div>
-<div class="line"><span class="lineno">  412</span>    int32_t var1, var2, T;</div>
-<div class="line"><span class="lineno">  413</span>    var1 = (((adc_T &gt;&gt; 3) - ((int32_t)dig_T1 &lt;&lt; 1)) * ((int32_t)dig_T2)) &gt;&gt; 11;</div>
-<div class="line"><span class="lineno">  414</span>    var2 = (((((adc_T &gt;&gt; 4) - ((int32_t)dig_T1)) * ((adc_T &gt;&gt; 4) - ((int32_t)dig_T1))) &gt;&gt; 12) * ((int32_t)dig_T3)) &gt;&gt; 14;</div>
-<div class="line"><span class="lineno">  415</span>    t_fine = var1 + var2;</div>
-<div class="line"><span class="lineno">  416</span>    T = (t_fine * 5 + 128) &gt;&gt; 8;</div>
-<div class="line"><span class="lineno">  417</span>    <span class="keywordflow">return</span> T;</div>
-<div class="line"><span class="lineno">  418</span>}</div>
+<p>Returns temperature in DegC, resolution is 0.01 DegC. </p>
+<p >Output value of "5123" equals 51.23 DegC. </p>
+
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00420">420</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  421</span>{</div>
+<div class="line"><span class="lineno">  422</span>    int32_t var1, var2, T;</div>
+<div class="line"><span class="lineno">  423</span>    var1 = (((adc_T &gt;&gt; 3) - ((int32_t)dig_T1 &lt;&lt; 1)) * ((int32_t)dig_T2)) &gt;&gt; 11;</div>
+<div class="line"><span class="lineno">  424</span>    var2 = (((((adc_T &gt;&gt; 4) - ((int32_t)dig_T1)) * ((adc_T &gt;&gt; 4) </div>
+<div class="line"><span class="lineno">  425</span>    - ((int32_t)dig_T1))) &gt;&gt; 12) * ((int32_t)dig_T3)) &gt;&gt; 14;</div>
+<div class="line"><span class="lineno">  426</span>    t_fine = var1 + var2;</div>
+<div class="line"><span class="lineno">  427</span>    T = (t_fine * 5 + 128) &gt;&gt; 8;</div>
+<div class="line"><span class="lineno">  428</span>    <span class="keywordflow">return</span> T;</div>
+<div class="line"><span class="lineno">  429</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -857,39 +864,43 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00422">422</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  423</span>{</div>
-<div class="line"><span class="lineno">  424</span>    int32_t var1, var2;</div>
-<div class="line"><span class="lineno">  425</span>    uint32_t p;</div>
-<div class="line"><span class="lineno">  426</span>    var1 = (t_fine &gt;&gt; 1) - 64000;</div>
-<div class="line"><span class="lineno">  427</span>    var2 = (((var1 &gt;&gt; 2) * (var1 &gt;&gt; 2)) &gt;&gt; 11 ) * ((int32_t)dig_P6);</div>
-<div class="line"><span class="lineno">  428</span>    var2 = var2 + ((var1 * ((int32_t)dig_P5)) &lt;&lt; 1);</div>
-<div class="line"><span class="lineno">  429</span>    var2 = (var2 &gt;&gt; 2) + (((int32_t)dig_P4) &lt;&lt; 16);</div>
-<div class="line"><span class="lineno">  430</span>    var1 = ((((int32_t)dig_P3 * (((var1 &gt;&gt; 2) * (var1 &gt;&gt; 2)) &gt;&gt; 13 )) &gt;&gt; 3) + (((((int32_t)dig_P2) * var1) &gt;&gt; 1 ))) &gt;&gt; 18;</div>
-<div class="line"><span class="lineno">  431</span>    var1 = ((((32768 + var1)) * ((int32_t)dig_P1)) &gt;&gt; 15);</div>
-<div class="line"><span class="lineno">  432</span> </div>
-<div class="line"><span class="lineno">  433</span>    <span class="keywordflow">if</span> (var1 == 0)</div>
-<div class="line"><span class="lineno">  434</span>    {</div>
-<div class="line"><span class="lineno">  435</span>        <span class="keywordflow">return</span> 0; <span class="comment">// avoid exception caused by division by zero</span></div>
-<div class="line"><span class="lineno">  436</span>    }</div>
-<div class="line"><span class="lineno">  437</span> </div>
-<div class="line"><span class="lineno">  438</span>    p = ((((1048576) - adc_P) - (var2 &gt;&gt; 12))) * 3125;</div>
-<div class="line"><span class="lineno">  439</span> </div>
-<div class="line"><span class="lineno">  440</span>    <span class="keywordflow">if</span> (p &lt; 0x80000000)</div>
-<div class="line"><span class="lineno">  441</span>    {</div>
-<div class="line"><span class="lineno">  442</span>        p = (p &lt;&lt; 1) / (var1);</div>
-<div class="line"><span class="lineno">  443</span>    }</div>
-<div class="line"><span class="lineno">  444</span> </div>
-<div class="line"><span class="lineno">  445</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  446</span>    {</div>
-<div class="line"><span class="lineno">  447</span>        p = (p / var1) * 2;</div>
-<div class="line"><span class="lineno">  448</span>    }</div>
-<div class="line"><span class="lineno">  449</span> </div>
-<div class="line"><span class="lineno">  450</span>    var1 = ((dig_P9) * ((((p&gt;&gt;3) * (p &gt;&gt; 3)) &gt;&gt; 13))) &gt;&gt; 12;</div>
-<div class="line"><span class="lineno">  451</span>    var2 = (((p &gt;&gt; 2)) * (dig_P8)) &gt;&gt; 13;</div>
-<div class="line"><span class="lineno">  452</span>    p = (p + ((var1 + var2 + dig_P7) &gt;&gt; 4));</div>
-<div class="line"><span class="lineno">  453</span>    <span class="keywordflow">return</span> p;</div>
-<div class="line"><span class="lineno">  454</span>}</div>
+<p>Returns pressure in Pa as unsigned 32 bit integer. </p>
+<p >Output value of "96386" equals 96386 Pa = 963.86 hPa. </p>
+
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00436">436</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  437</span>{</div>
+<div class="line"><span class="lineno">  438</span>    int32_t var1, var2;</div>
+<div class="line"><span class="lineno">  439</span>    uint32_t p;</div>
+<div class="line"><span class="lineno">  440</span>    var1 = (t_fine &gt;&gt; 1) - 64000;</div>
+<div class="line"><span class="lineno">  441</span>    var2 = (((var1 &gt;&gt; 2) * (var1 &gt;&gt; 2)) &gt;&gt; 11 ) * ((int32_t)dig_P6);</div>
+<div class="line"><span class="lineno">  442</span>    var2 = var2 + ((var1 * ((int32_t)dig_P5)) &lt;&lt; 1);</div>
+<div class="line"><span class="lineno">  443</span>    var2 = (var2 &gt;&gt; 2) + (((int32_t)dig_P4) &lt;&lt; 16);</div>
+<div class="line"><span class="lineno">  444</span>    var1 = ((((int32_t)dig_P3 * (((var1 &gt;&gt; 2) * (var1 &gt;&gt; 2)) &gt;&gt; 13 )) &gt;&gt; 3)</div>
+<div class="line"><span class="lineno">  445</span>    + (((((int32_t)dig_P2) * var1) &gt;&gt; 1 ))) &gt;&gt; 18;</div>
+<div class="line"><span class="lineno">  446</span>    var1 = ((((32768 + var1)) * ((int32_t)dig_P1)) &gt;&gt; 15);</div>
+<div class="line"><span class="lineno">  447</span> </div>
+<div class="line"><span class="lineno">  448</span>    <span class="keywordflow">if</span> (var1 == 0)</div>
+<div class="line"><span class="lineno">  449</span>    {</div>
+<div class="line"><span class="lineno">  450</span>        <span class="keywordflow">return</span> 0; <span class="comment">// avoid exception caused by division by zero</span></div>
+<div class="line"><span class="lineno">  451</span>    }</div>
+<div class="line"><span class="lineno">  452</span> </div>
+<div class="line"><span class="lineno">  453</span>    p = ((((1048576) - adc_P) - (var2 &gt;&gt; 12))) * 3125;</div>
+<div class="line"><span class="lineno">  454</span> </div>
+<div class="line"><span class="lineno">  455</span>    <span class="keywordflow">if</span> (p &lt; 0x80000000)</div>
+<div class="line"><span class="lineno">  456</span>    {</div>
+<div class="line"><span class="lineno">  457</span>        p = (p &lt;&lt; 1) / (var1);</div>
+<div class="line"><span class="lineno">  458</span>    }</div>
+<div class="line"><span class="lineno">  459</span> </div>
+<div class="line"><span class="lineno">  460</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  461</span>    {</div>
+<div class="line"><span class="lineno">  462</span>        p = (p / var1) * 2;</div>
+<div class="line"><span class="lineno">  463</span>    }</div>
+<div class="line"><span class="lineno">  464</span> </div>
+<div class="line"><span class="lineno">  465</span>    var1 = ((dig_P9) * ((((p&gt;&gt;3) * (p &gt;&gt; 3)) &gt;&gt; 13))) &gt;&gt; 12;</div>
+<div class="line"><span class="lineno">  466</span>    var2 = (((p &gt;&gt; 2)) * (dig_P8)) &gt;&gt; 13;</div>
+<div class="line"><span class="lineno">  467</span>    p = (p + ((var1 + var2 + dig_P7) &gt;&gt; 4));</div>
+<div class="line"><span class="lineno">  468</span>    <span class="keywordflow">return</span> p;</div>
+<div class="line"><span class="lineno">  469</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -909,20 +920,26 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00460">460</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  461</span>{</div>
-<div class="line"><span class="lineno">  462</span>    int32_t v_x1_u32r;</div>
-<div class="line"><span class="lineno">  463</span> </div>
-<div class="line"><span class="lineno">  464</span>    v_x1_u32r = (t_fine - (76800));</div>
-<div class="line"><span class="lineno">  465</span> </div>
-<div class="line"><span class="lineno">  466</span>    v_x1_u32r = (((((adc_H &lt;&lt; 14) - (((int32_t)dig_H4) &lt;&lt; 20) - (((int32_t)dig_H5) * v_x1_u32r)) + (16384)) &gt;&gt; 15) * (((((((v_x1_u32r *</div>
-<div class="line"><span class="lineno">  467</span>    ((int32_t)dig_H6)) &gt;&gt; 10) * (((v_x1_u32r * ((int32_t)dig_H3)) &gt;&gt; 11) + (32768))) &gt;&gt; 10) + (2097152)) * ((int32_t)dig_H2) + 8192) &gt;&gt; 14));</div>
-<div class="line"><span class="lineno">  468</span> </div>
-<div class="line"><span class="lineno">  469</span>    v_x1_u32r = (v_x1_u32r - (((((v_x1_u32r &gt;&gt; 15) * (v_x1_u32r &gt;&gt; 15)) &gt;&gt; 7) * ((int32_t)dig_H1)) &gt;&gt; 4));</div>
-<div class="line"><span class="lineno">  470</span>    v_x1_u32r = (v_x1_u32r &lt; 0 ? 0 : v_x1_u32r);</div>
-<div class="line"><span class="lineno">  471</span>    v_x1_u32r = (v_x1_u32r &gt; 419430400 ? 419430400 : v_x1_u32r);</div>
-<div class="line"><span class="lineno">  472</span>    <span class="keywordflow">return</span> (uint32_t)(v_x1_u32r&gt;&gt;12);</div>
-<div class="line"><span class="lineno">  473</span>}</div>
+<p>Returns humidity in RH as unsigned 32 bit integer in Q22.10 format (22 integer and 10 fractional bits). </p>
+<p >Output value of "47445" represents 47445/1024 = 46.333 RH. </p>
+
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00477">477</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  478</span>{</div>
+<div class="line"><span class="lineno">  479</span>    int32_t v_x1_u32r;</div>
+<div class="line"><span class="lineno">  480</span> </div>
+<div class="line"><span class="lineno">  481</span>    v_x1_u32r = (t_fine - (76800));</div>
+<div class="line"><span class="lineno">  482</span> </div>
+<div class="line"><span class="lineno">  483</span>    v_x1_u32r = (((((adc_H &lt;&lt; 14) - (((int32_t)dig_H4) &lt;&lt; 20)</div>
+<div class="line"><span class="lineno">  484</span>    - (((int32_t)dig_H5) * v_x1_u32r)) + (16384)) &gt;&gt; 15) * (((((((v_x1_u32r </div>
+<div class="line"><span class="lineno">  485</span>    * ((int32_t)dig_H6)) &gt;&gt; 10) * (((v_x1_u32r * ((int32_t)dig_H3)) &gt;&gt; 11)</div>
+<div class="line"><span class="lineno">  486</span>    + (32768))) &gt;&gt; 10) + (2097152)) * ((int32_t)dig_H2) + 8192) &gt;&gt; 14));</div>
+<div class="line"><span class="lineno">  487</span> </div>
+<div class="line"><span class="lineno">  488</span>    v_x1_u32r = (v_x1_u32r - (((((v_x1_u32r &gt;&gt; 15) * (v_x1_u32r &gt;&gt; 15)) &gt;&gt; 7)</div>
+<div class="line"><span class="lineno">  489</span>    * ((int32_t)dig_H1)) &gt;&gt; 4));</div>
+<div class="line"><span class="lineno">  490</span>    v_x1_u32r = (v_x1_u32r &lt; 0 ? 0 : v_x1_u32r);</div>
+<div class="line"><span class="lineno">  491</span>    v_x1_u32r = (v_x1_u32r &gt; 419430400 ? 419430400 : v_x1_u32r);</div>
+<div class="line"><span class="lineno">  492</span>    <span class="keywordflow">return</span> (uint32_t)(v_x1_u32r&gt;&gt;12);</div>
+<div class="line"><span class="lineno">  493</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -944,41 +961,41 @@ Variables</h2></td></tr>
 
 <p>Initialise the device ready for measurements to be taken. </p>
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00123">123</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  124</span>{   </div>
-<div class="line"><span class="lineno">  125</span>    <span class="comment">// Setup I2C hardware fpr use.</span></div>
-<div class="line"><span class="lineno">  126</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a>(BUS_SPEED_100KHZ);</div>
-<div class="line"><span class="lineno">  127</span> </div>
-<div class="line"><span class="lineno">  128</span>    <span class="comment">// Perform ID check. </span></div>
-<div class="line"><span class="lineno">  129</span>    uint8_t <span class="keywordtype">id</span> = bme280_read_byte(CHIP_ID_REG);</div>
-<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 0x60)</div>
-<div class="line"><span class="lineno">  131</span>    {</div>
-<div class="line"><span class="lineno">  132</span>        log_message(&amp;bme280_log,</div>
-<div class="line"><span class="lineno">  133</span>                    DEBUG,</div>
-<div class="line"><span class="lineno">  134</span>                    <span class="stringliteral">&quot;In init_bme280(), Chip ID check passed.&quot;</span>);</div>
-<div class="line"><span class="lineno">  135</span>    }</div>
-<div class="line"><span class="lineno">  136</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  137</span>    {</div>
-<div class="line"><span class="lineno">  138</span>        log_message(&amp;bme280_log,</div>
-<div class="line"><span class="lineno">  139</span>                    ERROR,</div>
-<div class="line"><span class="lineno">  140</span>                    <span class="stringliteral">&quot;In init_bme280(), Chip ID check failed.&quot;</span>);</div>
-<div class="line"><span class="lineno">  141</span>    }</div>
-<div class="line"><span class="lineno">  142</span> </div>
-<div class="line"><span class="lineno">  143</span>    <span class="comment">// Read compensation data from sensor and save it.</span></div>
-<div class="line"><span class="lineno">  144</span>    <a class="code hl_function" href="bme280_8c.html#a1dabca2390b2eb66a403229dd14ad019">bme280_read_comp_data</a>();</div>
-<div class="line"><span class="lineno">  145</span> </div>
-<div class="line"><span class="lineno">  146</span>    <span class="comment">// </span></div>
-<div class="line"><span class="lineno">  147</span>    <a class="code hl_function" href="bme280_8c.html#add36dced7282909a8a605ae86f2095df">bme280_write_byte</a>(CTRL_HUM_REG, OVERSAMPLE_x1);</div>
-<div class="line"><span class="lineno">  148</span> </div>
-<div class="line"><span class="lineno">  149</span>    <span class="comment">//</span></div>
-<div class="line"><span class="lineno">  150</span>    <a class="code hl_function" href="bme280_8c.html#add36dced7282909a8a605ae86f2095df">bme280_write_byte</a>(CONFIG_REG, 0b10100000);</div>
-<div class="line"><span class="lineno">  151</span> </div>
-<div class="line"><span class="lineno">  152</span>    <span class="comment">// oversample x1 temp, pressure off, forced mode</span></div>
-<div class="line"><span class="lineno">  153</span>    <a class="code hl_function" href="bme280_8c.html#add36dced7282909a8a605ae86f2095df">bme280_write_byte</a>(CTRL_MEAS_REG, 0b00100001);</div>
-<div class="line"><span class="lineno">  154</span>}</div>
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00125">125</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  126</span>{   </div>
+<div class="line"><span class="lineno">  127</span>    <span class="comment">// Setup I2C hardware fpr use.</span></div>
+<div class="line"><span class="lineno">  128</span>    <a class="code hl_function" href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a>(BUS_SPEED_100KHZ);</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>    <span class="comment">// Perform ID check. </span></div>
+<div class="line"><span class="lineno">  131</span>    uint8_t <span class="keywordtype">id</span> = bme280_read_byte(CHIP_ID_REG);</div>
+<div class="line"><span class="lineno">  132</span>    <span class="keywordflow">if</span> (<span class="keywordtype">id</span> == 0x60)</div>
+<div class="line"><span class="lineno">  133</span>    {</div>
+<div class="line"><span class="lineno">  134</span>        log_message(&amp;bme280_log,</div>
+<div class="line"><span class="lineno">  135</span>                    DEBUG,</div>
+<div class="line"><span class="lineno">  136</span>                    <span class="stringliteral">&quot;In init_bme280(), Chip ID check passed.&quot;</span>);</div>
+<div class="line"><span class="lineno">  137</span>    }</div>
+<div class="line"><span class="lineno">  138</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  139</span>    {</div>
+<div class="line"><span class="lineno">  140</span>        log_message(&amp;bme280_log,</div>
+<div class="line"><span class="lineno">  141</span>                    ERROR,</div>
+<div class="line"><span class="lineno">  142</span>                    <span class="stringliteral">&quot;In init_bme280(), Chip ID check failed.&quot;</span>);</div>
+<div class="line"><span class="lineno">  143</span>    }</div>
+<div class="line"><span class="lineno">  144</span> </div>
+<div class="line"><span class="lineno">  145</span>    <span class="comment">// Read compensation data from sensor and save it.</span></div>
+<div class="line"><span class="lineno">  146</span>    <a class="code hl_function" href="bme280_8c.html#a1dabca2390b2eb66a403229dd14ad019">bme280_read_comp_data</a>();</div>
+<div class="line"><span class="lineno">  147</span> </div>
+<div class="line"><span class="lineno">  148</span>    <span class="comment">// </span></div>
+<div class="line"><span class="lineno">  149</span>    <a class="code hl_function" href="bme280_8c.html#add36dced7282909a8a605ae86f2095df">bme280_write_byte</a>(CTRL_HUM_REG, OVERSAMPLE_x1);</div>
+<div class="line"><span class="lineno">  150</span> </div>
+<div class="line"><span class="lineno">  151</span>    <span class="comment">//</span></div>
+<div class="line"><span class="lineno">  152</span>    <a class="code hl_function" href="bme280_8c.html#add36dced7282909a8a605ae86f2095df">bme280_write_byte</a>(CONFIG_REG, 0b10100000);</div>
+<div class="line"><span class="lineno">  153</span> </div>
+<div class="line"><span class="lineno">  154</span>    <span class="comment">// oversample x1 temp, pressure off, forced mode</span></div>
+<div class="line"><span class="lineno">  155</span>    <a class="code hl_function" href="bme280_8c.html#add36dced7282909a8a605ae86f2095df">bme280_write_byte</a>(CTRL_MEAS_REG, 0b00100001);</div>
+<div class="line"><span class="lineno">  156</span>}</div>
 <div class="ttc" id="aavr-peripheral-features_2i2c_2atmega__i2c_8c_html_a17b39f3b4bea70fbb4ca2b377991c788"><div class="ttname"><a href="avr-peripheral-features_2i2c_2atmega__i2c_8c.html#a17b39f3b4bea70fbb4ca2b377991c788">init_i2c</a></div><div class="ttdeci">void init_i2c(uint32_t bus_speed)</div><div class="ttdoc">Sets pullups and initializes i2c clock to desired bus speed.</div><div class="ttdef"><b>Definition:</b> <a href="avr-peripheral-features_2i2c_2atmega__i2c_8c_source.html#l00049">atmega_i2c.c:49</a></div></div>
-<div class="ttc" id="abme280_8c_html_a1dabca2390b2eb66a403229dd14ad019"><div class="ttname"><a href="bme280_8c.html#a1dabca2390b2eb66a403229dd14ad019">bme280_read_comp_data</a></div><div class="ttdeci">void bme280_read_comp_data(void)</div><div class="ttdoc">Reads in all compensation data from the device and stores it in a buffer.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00314">bme280.c:314</a></div></div>
-<div class="ttc" id="abme280_8c_html_add36dced7282909a8a605ae86f2095df"><div class="ttname"><a href="bme280_8c.html#add36dced7282909a8a605ae86f2095df">bme280_write_byte</a></div><div class="ttdeci">void bme280_write_byte(uint8_t reg, uint8_t byte)</div><div class="ttdoc">Writes a single byte to a specified reguster.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00239">bme280.c:239</a></div></div>
+<div class="ttc" id="abme280_8c_html_a1dabca2390b2eb66a403229dd14ad019"><div class="ttname"><a href="bme280_8c.html#a1dabca2390b2eb66a403229dd14ad019">bme280_read_comp_data</a></div><div class="ttdeci">void bme280_read_comp_data(void)</div><div class="ttdoc">Reads in all compensation data from the device and stores it in a buffer.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00322">bme280.c:322</a></div></div>
+<div class="ttc" id="abme280_8c_html_add36dced7282909a8a605ae86f2095df"><div class="ttname"><a href="bme280_8c.html#add36dced7282909a8a605ae86f2095df">bme280_write_byte</a></div><div class="ttdeci">void bme280_write_byte(uint8_t reg, uint8_t byte)</div><div class="ttdoc">Writes a single byte to a specified reguster.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00244">bme280.c:244</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1001,28 +1018,30 @@ Variables</h2></td></tr>
 <p>Fetches the latest temperature data from the sensor, compensates and formats the data in degrees Celcius * 100. </p>
 <dl class="section return"><dt>Returns</dt><dd>eg. A return value of 5123 = 51.23˚C (Degrees Celcius). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00162">162</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  163</span>{</div>
-<div class="line"><span class="lineno">  164</span>    int32_t retval;</div>
-<div class="line"><span class="lineno">  165</span>    uint32_t raw_temp_adc_val;</div>
-<div class="line"><span class="lineno">  166</span> </div>
-<div class="line"><span class="lineno">  167</span>    <a class="code hl_function" href="bme280_8c.html#add36dced7282909a8a605ae86f2095df">bme280_write_byte</a>(CTRL_MEAS_REG, 0b00100001); <span class="comment">// oversample x1 temp, pressure off, forced mode</span></div>
-<div class="line"><span class="lineno">  168</span>    raw_temp_adc_val = bme280_get_raw_temp_val();</div>
-<div class="line"><span class="lineno">  169</span>    retval = bme280_compensate_temp(raw_temp_adc_val);</div>
-<div class="line"><span class="lineno">  170</span> </div>
-<div class="line"><span class="lineno">  171</span>    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><span class="lineno">  172</span>}</div>
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00164">164</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  165</span>{</div>
+<div class="line"><span class="lineno">  166</span>    int32_t retval;</div>
+<div class="line"><span class="lineno">  167</span>    uint32_t raw_temp_adc_val;</div>
+<div class="line"><span class="lineno">  168</span> </div>
+<div class="line"><span class="lineno">  169</span>    <span class="comment">// oversample x1 temp, pressure off, forced mode.</span></div>
+<div class="line"><span class="lineno">  170</span>    <a class="code hl_function" href="bme280_8c.html#add36dced7282909a8a605ae86f2095df">bme280_write_byte</a>(CTRL_MEAS_REG, 0b00100001);</div>
+<div class="line"><span class="lineno">  171</span>    raw_temp_adc_val = bme280_get_raw_temp_val();</div>
+<div class="line"><span class="lineno">  172</span>    retval = <a class="code hl_function" href="bme280_8c.html#a2baf46fd40e5b02dbc8060b93c8f9a7f">bme280_compensate_temp</a>(raw_temp_adc_val);</div>
+<div class="line"><span class="lineno">  173</span> </div>
+<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><span class="lineno">  175</span>}</div>
+<div class="ttc" id="abme280_8c_html_a2baf46fd40e5b02dbc8060b93c8f9a7f"><div class="ttname"><a href="bme280_8c.html#a2baf46fd40e5b02dbc8060b93c8f9a7f">bme280_compensate_temp</a></div><div class="ttdeci">int32_t bme280_compensate_temp(int32_t adc_T)</div><div class="ttdoc">Returns temperature in DegC, resolution is 0.01 DegC.</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00420">bme280.c:420</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="aca4fb41b54286d2577880f7b87fc6e13" name="aca4fb41b54286d2577880f7b87fc6e13"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca4fb41b54286d2577880f7b87fc6e13">&#9670;&nbsp;</a></span>bme280_get_humidity()</h2>
+<a id="a171dba0153395fc31f60b322c96f0684" name="a171dba0153395fc31f60b322c96f0684"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a171dba0153395fc31f60b322c96f0684">&#9670;&nbsp;</a></span>bme280_get_humidity()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">if uint16_t bme280_get_humidity </td>
+          <td class="memname">uint16_t bme280_get_humidity </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -1034,19 +1053,21 @@ Variables</h2></td></tr>
 <p>Fetches the latest humidity data from the sensor, compensates and formats the data as RH * 100. </p>
 <dl class="section return"><dt>Returns</dt><dd>eg. A return value of 2852 = 28.50 RH (Relative Humidity). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00203">203</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  204</span>{</div>
-<div class="line"><span class="lineno">  205</span>    uint32_t retval;</div>
-<div class="line"><span class="lineno">  206</span>    uint16_t raw_hum_adc_val;</div>
-<div class="line"><span class="lineno">  207</span> </div>
-<div class="line"><span class="lineno">  208</span>    <a class="code hl_function" href="bme280_8c.html#add36dced7282909a8a605ae86f2095df">bme280_write_byte</a>(CTRL_MEAS_REG, 0b00100001); <span class="comment">// oversample x1 temp, pressure off, forced mode</span></div>
-<div class="line"><span class="lineno">  209</span>    raw_hum_adc_val = bme280_get_raw_hum_val();</div>
-<div class="line"><span class="lineno">  210</span>    retval = bme280_compensate_humidity(raw_hum_adc_val);</div>
-<div class="line"><span class="lineno">  211</span>    retval *= 100;</div>
-<div class="line"><span class="lineno">  212</span>    retval = (retval &gt;&gt; 10);</div>
-<div class="line"><span class="lineno">  213</span> </div>
-<div class="line"><span class="lineno">  214</span>    <span class="keywordflow">return</span> retval;</div>
-<div class="line"><span class="lineno">  215</span>}</div>
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00207">207</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  208</span>{</div>
+<div class="line"><span class="lineno">  209</span>    uint32_t retval;</div>
+<div class="line"><span class="lineno">  210</span>    uint16_t raw_hum_adc_val;</div>
+<div class="line"><span class="lineno">  211</span> </div>
+<div class="line"><span class="lineno">  212</span>    <span class="comment">// oversample x1 temp, pressure off, forced mode</span></div>
+<div class="line"><span class="lineno">  213</span>    <a class="code hl_function" href="bme280_8c.html#add36dced7282909a8a605ae86f2095df">bme280_write_byte</a>(CTRL_MEAS_REG, 0b00100001);</div>
+<div class="line"><span class="lineno">  214</span>    raw_hum_adc_val = bme280_get_raw_hum_val();</div>
+<div class="line"><span class="lineno">  215</span>    retval = <a class="code hl_function" href="bme280_8c.html#abbb9be5bb748ef4ef41548c3d76db868">bme280_compensate_humidity</a>(raw_hum_adc_val);</div>
+<div class="line"><span class="lineno">  216</span>    retval *= 100;</div>
+<div class="line"><span class="lineno">  217</span>    retval = (retval &gt;&gt; 10);</div>
+<div class="line"><span class="lineno">  218</span> </div>
+<div class="line"><span class="lineno">  219</span>    <span class="keywordflow">return</span> retval;</div>
+<div class="line"><span class="lineno">  220</span>}</div>
+<div class="ttc" id="abme280_8c_html_abbb9be5bb748ef4ef41548c3d76db868"><div class="ttname"><a href="bme280_8c.html#abbb9be5bb748ef4ef41548c3d76db868">bme280_compensate_humidity</a></div><div class="ttdeci">uint32_t bme280_compensate_humidity(int32_t adc_H)</div><div class="ttdoc">Returns humidity in RH as unsigned 32 bit integer in Q22.10 format (22 integer and 10 fractional bits...</div><div class="ttdef"><b>Definition:</b> <a href="bme280_8c_source.html#l00477">bme280.c:477</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1069,11 +1090,11 @@ Variables</h2></td></tr>
 <p>Fetches the latest pressure data from the sensor, compensates and formats the data as Pa * 100. </p>
 <dl class="section return"><dt>Returns</dt><dd>eg. A return value of 96386 = 963.86 Pa (Pascals). </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00223">223</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  224</span>{</div>
-<div class="line"><span class="lineno">  225</span>    <span class="comment">// Some pressure-getting code goes here.</span></div>
-<div class="line"><span class="lineno">  226</span>    <span class="keywordflow">return</span> 0; </div>
-<div class="line"><span class="lineno">  227</span>}</div>
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00228">228</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  229</span>{</div>
+<div class="line"><span class="lineno">  230</span>    <span class="comment">// Some pressure-getting code goes here.</span></div>
+<div class="line"><span class="lineno">  231</span>    <span class="keywordflow">return</span> 0; </div>
+<div class="line"><span class="lineno">  232</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1111,7 +1132,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00408">408</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="bme280_8c_source.html#l00414">414</a> of file <a class="el" href="bme280_8c_source.html">bme280.c</a>.</p>
 
 </div>
 </div>
